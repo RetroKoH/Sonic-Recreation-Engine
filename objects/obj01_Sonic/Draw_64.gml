@@ -1,4 +1,5 @@
 /// @description Debug info on Sonic
+if !debug exit;
 
 // Basic status info
 draw_text(112,8,"SONIC   X: "+string(x)+
@@ -15,6 +16,7 @@ draw_text(800,8,"COLLISION FEEDBACK");
 var _x = 805, _y = 30, scale = 2;
 draw_rectangle_color(_x,_y+1,_x+(40*scale),_y+(40*scale),c_black,c_black,c_black,c_black,false);
 draw_rectangle_color(_x+1,_y+2,_x+(40*scale)-1,_y+(40*scale)-1,c_fuchsia,c_fuchsia,c_fuchsia,c_fuchsia,true);
+
 // Draw collision sensor feedback
 if (anim_ID >= anim_player.idle)
 {	var xx = _x+20*scale, yy = _y+20*scale;

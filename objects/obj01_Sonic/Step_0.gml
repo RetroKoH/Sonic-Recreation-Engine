@@ -35,7 +35,7 @@ switch(routine)
 				x+=xsp; ysp+=.21875; y+=ysp;	// ObjectFall
 				if (status&$40) ysp-=.15625;	// Underwater gravity
 				angle = 0;						// Reset angle
-				scr_sonic_check_floor();		// Floor sensor collision check
+				scr_sonic_check_floor();		// Floor sensor collision check (and walls)
 			break;
 			case 4: // Roll
 				scr_sonic_jump();	// Check for starting a jump.
@@ -60,7 +60,7 @@ switch(routine)
 				x+=xsp; ysp+=.21875; y+=ysp;	// ObjectFall
 				if (status&$40) ysp-=.15625;	// Underwater gravity
 				angle = 0;						// Reset angle
-				scr_sonic_check_floor();		// Floor sensor collision check
+				scr_sonic_check_floor();		// Floor sensor collision check (and walls)
 			break;
 		}
 	}

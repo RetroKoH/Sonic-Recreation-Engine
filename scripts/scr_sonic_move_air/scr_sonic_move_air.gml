@@ -20,8 +20,6 @@ function scr_sonic_move_air(){
 	        }
 	    }
 	}
-	// Camera Scroll shift fix
-
 	// Air drag
 	if (ysp<0 && ysp>-4) xsp-=(floor(xsp / 0.125)/256);
 }

@@ -21,22 +21,22 @@ decel_run	= 0.5;        // X-Deceleraction rate.
 
 // Collision sensors (For debug purposes)
 // Left Floor
-col_sensor_A    =   0;
+col_sensor_A    =   false;
 col_tile_A      =   -1;
 // Right Floor
-col_sensor_B    =   0;
+col_sensor_B    =   false;
 col_tile_B      =   -1;
 // Left Ceiling
-col_sensor_C    =   0;
+col_sensor_C    =   false;
 col_tile_C      =   -1;
 // Right Ceiling
-col_sensor_D    =   0;
+col_sensor_D    =   false;
 col_tile_D      =   -1;
 // Left Wall
-col_sensor_E    =   0;
+col_sensor_E    =   false;
 col_tile_E      =   -1;
 // Right Wall
-col_sensor_F    =   0;
+col_sensor_F    =   false;
 col_tile_f      =   -1;
 
 // Animation system related variables
