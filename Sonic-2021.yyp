@@ -39,6 +39,7 @@
     {"id":{"name":"scr_sonic_level_bound","path":"scripts/scr_sonic_level_bound/scr_sonic_level_bound.yy",},"order":1,},
     {"id":{"name":"spr_sonic_push","path":"sprites/spr_sonic_push/spr_sonic_push.yy",},"order":10,},
     {"id":{"name":"obj_camera","path":"objects/obj_camera/obj_camera.yy",},"order":0,},
+    {"id":{"name":"scr_sonic_check_floor","path":"scripts/scr_sonic_check_floor/scr_sonic_check_floor.yy",},"order":6,},
     {"id":{"name":"scr_initanimations","path":"scripts/scr_initanimations/scr_initanimations.yy",},"order":2,},
     {"id":{"name":"scr_trigger_fade","path":"scripts/scr_trigger_fade/scr_trigger_fade.yy",},"order":5,},
     {"id":{"name":"spr_SEGA","path":"sprites/spr_SEGA/spr_SEGA.yy",},"order":3,},

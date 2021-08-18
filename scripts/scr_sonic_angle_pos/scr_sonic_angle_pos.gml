@@ -26,10 +26,10 @@ function scr_sonic_angle_pos(){
 
 	    if(t_r) // if a tile is detected,
 	    {
-	        ang_r=ds_grid_get(col_angles,tile_get_index(t_r),0);					// Get tile's angle value
-	        hgt_r=ds_grid_get(col_normal,tile_get_index(t_r),t_h&(TILE_SIZE-1));	// Get tile's height array value.
+			ang_r=ds_grid_get(col_angles,tile_get_index(t_r),0);					// Get tile's angle value
+			hgt_r=ds_grid_get(col_normal,tile_get_index(t_r),t_h&(TILE_SIZE-1));	// Get tile's height array value.
 			y_r = scr_tile_get_coord(y+height);
-	        col_sensor_B=true;
+			col_sensor_B=true;
     
 	        if hgt_r == TILE_SIZE // If height is max, search for another tile above.
 	        {
