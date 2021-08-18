@@ -41,9 +41,15 @@ switch(routine)
 				scr_sonic_jump();	// Check for starting a jump.
 				if !jump
 				{
-					scr_sonic_rollspeed();
-					scr_sonic_level_bound();
-					x+=xsp; y+=ysp;
+					{		//SonicRollRepel
+							var a = sin(degtorad(angle));
+					        if sign(gsp)==sign(a)	gsp-=.078125*a;	// Rolling uphill
+					        else					gsp-=.3125*a;	// Rolling downhill
+					}
+					scr_sonic_roll_speed();					// Update gsp and apply friction.
+					scr_sonic_level_bound();				// Keep Sonic inside the view and kill Sonic if he touches the kill plane
+					x+=xsp; y+=ysp;							// SpeedtoPos
+					scr_sonic_angle_pos();					// Floor collision and angle check occurs
 				}
 			break;
 			case 6: // Jump, roll jump, or in air while rolling

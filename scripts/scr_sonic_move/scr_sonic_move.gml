@@ -13,7 +13,7 @@ function scr_sonic_move(){
 				gsp-=decel_run; // Decelerate if moving right.
 				if (angle>315 || angle<45) && gsp>=4 // If character is on Floor angles, and GSP is at/above 4, skid.
 				{
-					//if anim_ID!="Skid" {anim_ID="Skid"; sound_play(sndA4_Skid);}
+					if anim_ID!=anim_player.skid anim_ID=anim_player.skid; //{anim_ID=anim_player.skid; sound_play(sndA4_Skid);}
 					if (status&1) status^=1; // Clear facing bit
 				}
 			}
@@ -41,7 +41,7 @@ function scr_sonic_move(){
 				gsp+=decel_run;                     // Decelerate if moving left.
 				if (angle>315 || angle<45) && gsp<=-4 // If character is on Floor angles, and GSP is at/above 4, skid.
 				{
-					//if anim_ID!="Skid" {anim_ID="Skid"; sound_play(sndA4_Skid);}
+					if anim_ID!=anim_player.skid anim_ID=anim_player.skid; //{anim_ID=anim_player.skid; sound_play(sndA4_Skid);}
 					status|=1; // Set facing bit
 				}
 			}

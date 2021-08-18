@@ -6,7 +6,7 @@
     "path": "folders/Scripts/Player Handling.yy",
   },
   "resourceVersion": "1.0",
-  "name": "scr_sonic_rollspeed",
+  "name": "scr_sonic_roll_speed",
   "tags": [],
   "resourceType": "GMScript",
 }

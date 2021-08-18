@@ -1,4 +1,4 @@
-function scr_sonic_rollspeed(){
+function scr_sonic_roll_speed(){
 	// Subroutine to change Sonic's speed while he is rolling.
 	var rf; rf=(accel_run/2); //.0234375
 

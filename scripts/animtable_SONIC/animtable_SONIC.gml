@@ -26,6 +26,7 @@ function animtable_SONIC(){
 		lookup,
 		duck,
 		roll,
+		skid,
 		push,
 		total // Used for final count below
 	}
@@ -208,6 +209,26 @@ function animtable_SONIC(){
 		ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMESPEEDLIST), 1);
 	}
 	// ==================================================================================	
+
+	an_id++;
+	// #8 - SKID
+	ds_grid_set(an, an_id, ANIM_NAME,			"Skid");
+	ds_grid_set(an, an_id, ANIM_SPRITE,			spr_sonic_skid);
+	ds_grid_set(an, an_id, ANIM_SPRITEMASK,		spr_sonic_idle);
+	ds_grid_set(an, an_id, ANIM_SPRITEMASK_L,	spr_sonic_idle);
+	ds_grid_set(an, an_id, ANIM_SUBANIM,		-1);
+	ds_grid_set(an, an_id, ANIM_LOOPBACKTIMES,	-1);
+	ds_grid_set(an, an_id, ANIM_LOOPBACKFRAME,	4);
+	ds_grid_set(an, an_id, ANIM_LOOPBACKANIM,	-1);
+	ds_grid_set(an, an_id, ANIM_FRAMELIST,		ds_list_create());
+	ds_grid_set(an, an_id, ANIM_FRAMESPEEDLIST,	ds_list_create());
+
+	// Animation frames
+	for (i = 0; i < 6; i++) {
+		ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMELIST), i);
+		ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMESPEEDLIST), 1/4);
+	}
+	// ==================================================================================
 
 	an_id++;
 	// #8 - PUSH
