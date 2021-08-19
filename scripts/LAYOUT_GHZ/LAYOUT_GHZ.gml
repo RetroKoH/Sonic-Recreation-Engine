@@ -51,6 +51,68 @@ function LAYOUT_GHZ(){
 						tilemap_set_mirrored(map_id,$1D,tx,ty); ty++;
 						tilemap_set(map_id,$FF,tx,ty);
 					break;
+					case 8:
+						ty++;
+						tilemap_set_mirrored(map_id,$1C,tx,ty); ty++;
+						tilemap_set(map_id,$FF,tx,ty); tx++;
+						tilemap_set_mirrored(map_id,$1D,tx,ty); tx++;
+						tilemap_set_mirrored(map_id,$1C,tx,ty); tx--; ty++;
+						tilemap_set(map_id,$FF,tx,ty); tx++;
+						tilemap_set(map_id,$FF,tx,ty); tx++;
+						tilemap_set_mirrored(map_id,$1B,tx,ty); tx++;
+						tilemap_set_mirrored(map_id,$1A,tx,ty); tx++;
+						tilemap_set_mirrored(map_id,$19,tx,ty); tx++;
+						tilemap_set_mirrored(map_id,$18,tx,ty); tx-=3; ty++;
+						repeat(4)
+						{ tilemap_set(map_id,$FF,tx,ty); tx++; }
+						tilemap_set(map_id,$FF,tx,ty); ty++;
+						tilemap_set(map_id,$FF,tx,ty);
+					break;
+					case 9:
+						tx+=2; ty+=6;
+						repeat(5)
+						{ tilemap_set(map_id,$FF,tx,ty); tx++; }
+						tilemap_set(map_id,$FF,tx,ty); tx-=5; ty++;
+						repeat(5)
+						{ tilemap_set(map_id,$FF,tx,ty); tx++; }
+						tilemap_set(map_id,$FF,tx,ty);
+					break;
+					case 10:
+						ty+=6;
+						repeat(5)
+						{ tilemap_set(map_id,$FF,tx,ty); tx++; }
+						tilemap_set(map_id,$FF,tx,ty); tx-=5; ty++;
+						repeat(5)
+						{ tilemap_set(map_id,$FF,tx,ty); tx++; }
+						tilemap_set(map_id,$FF,tx,ty);
+					break;
+					case 11:
+						ty+=4;
+						repeat(3)
+						{ tilemap_set(map_id,$FF,tx,ty); tx++; }
+						tilemap_set_mirrored(map_id,$16,tx,ty); tx++;
+						tilemap_set_mirrored(map_id,$15,tx,ty); tx++;
+						tilemap_set_mirrored(map_id,$A,tx,ty); tx++;
+						tilemap_set_mirrored(map_id,9,tx,ty); tx++;
+						tilemap_set(map_id,$13,tx,ty); tx-=7; ty++;
+						repeat(7)
+						{ tilemap_set(map_id,$FF,tx,ty); tx++; }
+						tilemap_set(map_id,$FF,tx,ty);
+					break;
+					case 12:
+						ty+=4;
+						tilemap_set(map_id,$13,tx,ty); tx++;
+						tilemap_set(map_id,9,tx,ty); tx++;
+						tilemap_set(map_id,$A,tx,ty); tx++;
+						tilemap_set(map_id,$15,tx,ty); tx++;
+						tilemap_set(map_id,$16,tx,ty); tx++;
+						repeat(2)
+						{ tilemap_set(map_id,$FF,tx,ty); tx++; }
+						tilemap_set(map_id,$FF,tx,ty); tx-=7; ty++;
+						repeat(7)
+						{ tilemap_set(map_id,$FF,tx,ty); tx++; }
+						tilemap_set(map_id,$FF,tx,ty);
+					break;
 					case 167:
 						ty+=4;
 						tilemap_set(map_id,$FF,tx,ty); tx++;
