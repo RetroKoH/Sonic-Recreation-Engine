@@ -5,28 +5,36 @@ function scr_sonic_check_floor(){
 	//else if relative_angle>315 && relative_angle<=45 // Floor mode (angle is between 315 & 45)
 	{
 		// First check for walls and stop xsp if we find them
-		var pos, tile;
+		var pos, tile, hgt;
 		if xsp>0
 		{
 			col_sensor_E=false;
 			pos = x+11+xsp;
-			tile = scr_find_nearest_tile(map_id,pos,y+8); // CalcRoomInFront
+			tile = scr_find_nearest_tile(map_id,pos,y); // CalcRoomInFront
 			if tile {
-				x += (scr_tile_get_coord(pos)-(x+11));
-				xsp = 0;
-				col_sensor_F = true;
-			} else col_sensor_F = false;
+				hgt=ds_grid_get(col_normal,tile_get_index(tile),scr_tile_get_coord(pos)&(TILE_SIZE-1));	// Get tile's height array value.
+
+				if (scr_tile_get_coord(y)+(TILE_SIZE - hgt) <= y) {
+					x += (scr_tile_get_coord(pos)-(x+11));
+					xsp = 0;
+					col_sensor_F = true;
+				} else col_sensor_F = false;
+			}
 		}
 	    else if xsp<0
 		{
 			col_sensor_F=false;
 			pos = x-10+xsp;
-			tile = scr_find_nearest_tile(map_id,pos,y+8); // CalcRoomInFront
+			tile = scr_find_nearest_tile(map_id,pos,y); // CalcRoomInFront
 			if tile {
-				x += ((scr_tile_get_coord(pos)+TILE_SIZE)-(x-10));
-				xsp = 0;
-				col_sensor_E = true;
-			} else col_sensor_E = false;
+				hgt=ds_grid_get(col_normal,tile_get_index(tile),scr_tile_get_coord(pos)&(TILE_SIZE-1));	// Get tile's height array value.
+
+				if (scr_tile_get_coord(y)+(TILE_SIZE - hgt) <= y) {
+					x += ((scr_tile_get_coord(pos)+TILE_SIZE)-(x-10));
+					xsp = 0;
+					col_sensor_E = true;
+				} else col_sensor_E = false;
+			}
 		}
 		
 		var y_r = 0, y_l = 0; // Y-position of detected tiles
