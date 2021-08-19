@@ -9,7 +9,7 @@ draw_text(112,8,"SONIC   X: "+string(x)+
 				" --- "+string(real(status&1))+string(real(status&2)/2)+string(real(status&4)/4)+
 				string(real(status&8)/4)+string(real(status&$10)/$10)+string(real(status&$20)/$20)+
 				string(real(status&$40)/$40)+string(real(status&$80)/$80)
-				+"\nANGLE: "+string(angle));
+				+"\nANGLE: "+string(angle)+"  ("+string(anim_angle)+")");
 
 // Tile Collision Points
 draw_text(800,8,"COLLISION FEEDBACK");

@@ -1,7 +1,7 @@
 /// @description Draw proper animation frame
 
 draw_sprite_ext(anim_sprite, floor(anim_spriteframe), x, y,
-				anim_direction*anim_xscale, anim_yscale, (angle div 15)*15,
+				anim_direction*anim_xscale, anim_yscale, anim_angle,
 				image_blend, image_alpha);
 
 if debug{

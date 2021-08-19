@@ -26,8 +26,16 @@ function scr_sonic_angle_pos(){
 
 	    if(t_r) // if a tile is detected,
 	    {
-			ang_r=ds_grid_get(col_angles,tile_get_index(t_r),0);					// Get tile's angle value
-			hgt_r=ds_grid_get(col_normal,tile_get_index(t_r),t_h&(TILE_SIZE-1));	// Get tile's height array value.
+			if tile_get_mirror(t_r)
+			{
+				ang_r=360-ds_grid_get(col_angles,tile_get_index(t_r),0);							// Get tile's inverse angle value
+				hgt_r=ds_grid_get(col_normal,tile_get_index(t_r),TILE_SIZE-1-(t_h&(TILE_SIZE-1)));	// Get tile's mirrored height array value.
+			}
+			else
+			{
+				ang_r=ds_grid_get(col_angles,tile_get_index(t_r),0);					// Get tile's angle value
+				hgt_r=ds_grid_get(col_normal,tile_get_index(t_r),t_h&(TILE_SIZE-1));	// Get tile's height array value.
+			}
 			y_r = scr_tile_get_coord(y+height);
 			col_sensor_B=true;
     
@@ -37,8 +45,16 @@ function scr_sonic_angle_pos(){
 	            if(t_r2) // if tile exists
 	            {
 	                t_r=t_r2;
-	                ang_r=ds_grid_get(col_angles,tile_get_index(t_r),0);					// Get tile's angle value.
-	                hgt_r=ds_grid_get(col_normal,tile_get_index(t_r),t_h&(TILE_SIZE-1));	// Get tile's height array value.
+					if tile_get_mirror(t_r)
+					{
+						ang_r=360-ds_grid_get(col_angles,tile_get_index(t_r),0);							// Get tile's inverse angle value
+						hgt_r=ds_grid_get(col_normal,tile_get_index(t_r),TILE_SIZE-1-(t_h&(TILE_SIZE-1)));	// Get tile's mirrored height array value.
+					}
+					else
+					{
+						ang_r=ds_grid_get(col_angles,tile_get_index(t_r),0);					// Get tile's angle value
+						hgt_r=ds_grid_get(col_normal,tile_get_index(t_r),t_h&(TILE_SIZE-1));	// Get tile's height array value.
+					}
 					y_r = scr_tile_get_coord(y+height-TILE_SIZE);
 	                col_sensor_B=true;
 	            }
@@ -49,8 +65,16 @@ function scr_sonic_angle_pos(){
 	        t_r=scr_find_nearest_tile(map_id, t_h, y+height+TILE_SIZE); // check 16 pixels below.
 	        if(t_r) // if tile exists
 	        {
-	            ang_r=ds_grid_get(col_angles,tile_get_index(t_r),0);					// Get tile's angle value.
-	            hgt_r=ds_grid_get(col_normal,tile_get_index(t_r),t_h&(TILE_SIZE-1));	// Get tile's height array value.
+				if tile_get_mirror(t_r)
+				{
+					ang_r=360-ds_grid_get(col_angles,tile_get_index(t_r),0);							// Get tile's inverse angle value
+					hgt_r=ds_grid_get(col_normal,tile_get_index(t_r),TILE_SIZE-1-(t_h&(TILE_SIZE-1)));	// Get tile's mirrored height array value.
+				}
+				else
+				{
+					ang_r=ds_grid_get(col_angles,tile_get_index(t_r),0);					// Get tile's angle value
+					hgt_r=ds_grid_get(col_normal,tile_get_index(t_r),t_h&(TILE_SIZE-1));	// Get tile's height array value.
+				}
 				y_r = scr_tile_get_coord(y+height+TILE_SIZE);
 	            col_sensor_B=true;
 	        }
@@ -69,8 +93,16 @@ function scr_sonic_angle_pos(){
 
 	    if(t_l) // if a tile is detected,
 	    {
-	        ang_l=ds_grid_get(col_angles,tile_get_index(t_l),0);					// Get tile's angle value.
-	        hgt_l=ds_grid_get(col_normal,tile_get_index(t_l),t_h&(TILE_SIZE-1));	// Get tile's height array value.
+			if tile_get_mirror(t_l)
+			{
+				ang_l=360-ds_grid_get(col_angles,tile_get_index(t_l),0);							// Get tile's inverse angle value
+				hgt_l=ds_grid_get(col_normal,tile_get_index(t_l),TILE_SIZE-1-(t_h&(TILE_SIZE-1)));	// Get tile's mirrored height array value.
+			}
+			else
+			{
+				ang_l=ds_grid_get(col_angles,tile_get_index(t_l),0);					// Get tile's angle value
+				hgt_l=ds_grid_get(col_normal,tile_get_index(t_l),t_h&(TILE_SIZE-1));	// Get tile's height array value.
+			}
 			y_l = scr_tile_get_coord(y+height);
 			col_sensor_A=true;
     
@@ -80,8 +112,16 @@ function scr_sonic_angle_pos(){
 	            if(t_l2) // if tile exists
 	            {
 	                t_l=t_l2;
-	                ang_l=ds_grid_get(col_angles,tile_get_index(t_l),0);					// Get tile's angle value.
-	                hgt_l=ds_grid_get(col_normal,tile_get_index(t_l),t_h&(TILE_SIZE-1));	// Get tile's height array value.
+					if tile_get_mirror(t_l)
+					{
+						ang_l=360-ds_grid_get(col_angles,tile_get_index(t_l),0);							// Get tile's inverse angle value
+						hgt_l=ds_grid_get(col_normal,tile_get_index(t_l),TILE_SIZE-1-(t_h&(TILE_SIZE-1)));	// Get tile's mirrored height array value.
+					}
+					else
+					{
+						ang_l=ds_grid_get(col_angles,tile_get_index(t_l),0);					// Get tile's angle value
+						hgt_l=ds_grid_get(col_normal,tile_get_index(t_l),t_h&(TILE_SIZE-1));	// Get tile's height array value.
+					}
 					y_l = scr_tile_get_coord((y+height)-TILE_SIZE);
 	                col_sensor_A=true;
 	            }
@@ -94,8 +134,16 @@ function scr_sonic_angle_pos(){
     
 	        if(t_l)
 	        {
-	            ang_l=ds_grid_get(col_angles,tile_get_index(t_l),0);					// Get tile's angle value.
-	            hgt_l=ds_grid_get(col_normal,tile_get_index(t_l),t_h&(TILE_SIZE-1));	// Get tile's height array value.
+				if tile_get_mirror(t_l)
+				{
+					ang_l=360-ds_grid_get(col_angles,tile_get_index(t_l),0);							// Get tile's inverse angle value
+					hgt_l=ds_grid_get(col_normal,tile_get_index(t_l),TILE_SIZE-1-(t_h&(TILE_SIZE-1)));	// Get tile's mirrored height array value.
+				}
+				else
+				{
+					ang_l=ds_grid_get(col_angles,tile_get_index(t_l),0);					// Get tile's angle value
+					hgt_l=ds_grid_get(col_normal,tile_get_index(t_l),t_h&(TILE_SIZE-1));	// Get tile's height array value.
+				}
 				y_l = scr_tile_get_coord((y+height)+TILE_SIZE);
 	            col_sensor_A=true;
 	        }

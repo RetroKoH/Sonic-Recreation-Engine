@@ -36,7 +36,7 @@
     "path": "folders/Objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj09_TitleScreen",
+  "name": "obj0F_TitleScreen",
   "tags": [],
   "resourceType": "GMObject",
 }

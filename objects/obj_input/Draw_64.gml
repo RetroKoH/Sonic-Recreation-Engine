@@ -12,4 +12,6 @@ if debug{
 	draw_circle(88,ay+20,6,global.k_c_h=false);
 
 	draw_roundrect(70,ay-2,88,ay+6,global.k_st_h=false);
+	
+	draw_text(20, ay+100, chunks_count);
 }

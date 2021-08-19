@@ -27,8 +27,8 @@ function INIT_GAME(){
 	// Collision tile related data
 	#macro TILE_SIZE 16
 
-	globalvar layer_id, map_id;
-	layer_id = -1; map_id = -1;
+	globalvar map_id, chunks_id, chunks_count;
+	map_id = -1; chunks_id = -1; chunks_count = 0;
 
 	scr_collision_arrays();
 
