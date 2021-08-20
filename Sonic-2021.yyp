@@ -20,6 +20,7 @@
     {"id":{"name":"scr_collision_arrays","path":"scripts/scr_collision_arrays/scr_collision_arrays.yy",},"order":1,},
     {"id":{"name":"scr_sonic_jump","path":"scripts/scr_sonic_jump/scr_sonic_jump.yy",},"order":7,},
     {"id":{"name":"SOLIDS","path":"sprites/SOLIDS/SOLIDS.yy",},"order":3,},
+    {"id":{"name":"tilemap_set_flipped","path":"scripts/tilemap_set_flipped/tilemap_set_flipped.yy",},"order":2,},
     {"id":{"name":"spr_sonic_jog","path":"sprites/spr_sonic_jog/spr_sonic_jog.yy",},"order":1,},
     {"id":{"name":"LAYOUT_GHZ","path":"scripts/LAYOUT_GHZ/LAYOUT_GHZ.yy",},"order":0,},
     {"id":{"name":"scr_loadanimations","path":"scripts/scr_loadanimations/scr_loadanimations.yy",},"order":4,},
