@@ -1,4 +1,4 @@
-/// @description Debug info on Sonic
+/// @description Debug Info
 if !debug exit;
 
 // Basic status info

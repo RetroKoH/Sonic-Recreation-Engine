@@ -1,4 +1,4 @@
-/// @description Sonic's Routines
+/// @description Routine Handling
 
 if fading exit;
 
@@ -6,12 +6,12 @@ switch(routine)
 {
 	case 0: // INIT
 	{
-		routine+=2;
+		routine++;
 		height=$13;
 		width=9;
 	} break;
 
-	case 2: // Sonic_Control
+	case 1: // Sonic_Control
 	{
 		switch(status&6) // Sonic's Control Modes based on status
 		{
@@ -63,5 +63,6 @@ switch(routine)
 				scr_sonic_check_floor();		// Floor sensor collision check (and walls)
 			break;
 		}
+		scr_touch_response();
 	}
 }

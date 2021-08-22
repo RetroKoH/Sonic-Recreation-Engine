@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Sonic-2021",
-    "path": "Sonic-2021.yyp",
+    "name": "Core",
+    "path": "folders/Core.yy",
   },
   "resourceVersion": "1.0",
   "name": "INIT_GAME",

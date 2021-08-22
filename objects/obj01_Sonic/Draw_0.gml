@@ -1,8 +1,6 @@
-/// @description Draw proper animation frame
+/// @description Animation Rendering
 
-draw_sprite_ext(anim_sprite, floor(anim_spriteframe), x, y,
-				anim_direction*anim_xscale, anim_yscale, anim_angle,
-				image_blend, image_alpha);
+scr_render_anim(false);
 
 if debug{
 	// Debug visuals

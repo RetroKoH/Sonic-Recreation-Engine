@@ -1,4 +1,4 @@
-/// @description Sonic's Animations
+/// @description Animation Handling
 
 if fading exit;
 

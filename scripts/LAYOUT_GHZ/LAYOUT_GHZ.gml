@@ -288,6 +288,19 @@ function LAYOUT_GHZ(){
 						{ tilemap_set(map_id,$FF,tx,ty); tx++; }
 						tilemap_set(map_id,$FF,tx,ty);
 					break;
+					case 64:
+						repeat(2)
+						{ tilemap_set(map_id,$FF,tx,ty); tx++; }
+						tilemap_set(map_id,$FF,tx,ty);
+						tilemap_set_mirrored(map_id,$16,tx,ty); tx++;
+						tilemap_set_mirrored(map_id,$15,tx,ty); tx++;
+						tilemap_set_mirrored(map_id,$A,tx,ty); tx++;
+						tilemap_set_mirrored(map_id,9,tx,ty); tx++;
+						tilemap_set_mirrored(map_id,9,tx,ty); tx-=7; ty++
+						repeat(7)
+						{ tilemap_set(map_id,$FF,tx,ty); tx++; }
+						tilemap_set(map_id,$FF,tx,ty);
+					break;
 					case 135:
 						repeat(3)
 						{ tilemap_set(map_id,$FF,tx,ty); tx++; }

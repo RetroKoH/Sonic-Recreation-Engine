@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Level Chunks",
-    "path": "folders/Level Chunks.yy",
+    "path": "folders/Level Data/Level Chunks.yy",
   },
   "resourceVersion": "1.0",
   "name": "chunks_GHZ",

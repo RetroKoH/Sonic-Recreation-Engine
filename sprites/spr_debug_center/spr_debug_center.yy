@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Sonic",
-    "path": "folders/Sprites/Sonic.yy",
+    "name": "Players",
+    "path": "folders/Sprites/Players.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_debug_center",

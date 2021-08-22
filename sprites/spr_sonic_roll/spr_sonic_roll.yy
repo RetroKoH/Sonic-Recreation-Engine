@@ -106,7 +106,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sonic",
-    "path": "folders/Sprites/Sonic.yy",
+    "path": "folders/Sprites/Players/Sonic.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_sonic_roll",
