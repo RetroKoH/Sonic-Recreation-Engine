@@ -274,6 +274,41 @@ function LAYOUT_GHZ(){
 							tilemap_set(map_id,$FF,tx,ty); tx-=3; ty++;
 						}
 					break;
+					case 34:
+						ty++;
+						tilemap_set_mirrored(map_id,9,tx,ty); tx++;
+						repeat(2) {tilemap_set(map_id,9,tx,ty); tx++;}
+						tilemap_set(map_id,$A,tx,ty); tx++;
+						tilemap_set(map_id,$15,tx,ty); tx++;
+						tilemap_set(map_id,$16,tx,ty); tx++;
+						tilemap_set(map_id,$FF,tx,ty); tx++;
+						tilemap_set(map_id,$FF,tx,ty); tx-=7; ty++;
+						repeat(7) {tilemap_set(map_id,$FF,tx,ty); tx++;}
+						tilemap_set(map_id,$FF,tx,ty);
+					break;
+					case 37:
+						ty++;
+						tilemap_set(map_id,$FF,tx,ty); tx++;
+						tilemap_set_mirrored(map_id,$16,tx,ty); tx++;
+						tilemap_set_mirrored(map_id,$15,tx,ty); tx++;
+						repeat(3) {tilemap_set(map_id,$15,tx,ty); tx++;}
+						tilemap_set(map_id,$16,tx,ty); tx++;
+						tilemap_set(map_id,$FF,tx,ty); tx-=7; ty++;
+						repeat(7) {tilemap_set(map_id,$FF,tx,ty); tx++;}
+						repeat(2) {tilemap_set(map_id,$FF,tx,ty); ty++;}
+						tilemap_set(map_id,$FF,tx,ty);
+					break;
+					case 38:
+						ty+=4;
+						tilemap_set(map_id,$FF,tx,ty); tx++;
+						tilemap_set_mirrored(map_id,$16,tx,ty); tx++;
+						tilemap_set_mirrored(map_id,$15,tx,ty); tx++;
+						repeat(3) {tilemap_set(map_id,$15,tx,ty); tx++;}
+						tilemap_set(map_id,$16,tx,ty); tx++;
+						tilemap_set(map_id,$FF,tx,ty); tx-=7; ty++;
+						repeat(7) {tilemap_set(map_id,$FF,tx,ty); tx++;}
+						tilemap_set(map_id,$FF,tx,ty);
+					break;
 					case 53:
 						tx+=2;
 						tilemap_set(map_id,$10,tx,ty); tx++;
@@ -421,6 +456,42 @@ function LAYOUT_GHZ(){
 						repeat(7) {tilemap_set(map_id,$FF,tx,ty); tx++;}
 						tilemap_set(map_id,$FF,tx,ty);
 					break;
+					case 85:
+						ty+=4;
+						repeat(3) {tilemap_set(map_id,$FF,tx,ty); tx++;}
+						tilemap_set(map_id,$FF,tx,ty); tx-=3; ty++;
+						repeat(3) {tilemap_set(map_id,$FF,tx,ty); tx++;}
+						tilemap_set(map_id,$FF,tx,ty);
+					break;
+					case 130:
+						ty+=4;
+						repeat(2) {tilemap_set(map_id,$FF,tx,ty); tx++;}
+						tilemap_set_mirrored(map_id,$16,tx,ty); tx++;
+						tilemap_set_mirrored(map_id,$15,tx,ty); tx++;
+						tilemap_set_mirrored(map_id,$14,tx,ty); tx++;
+						tilemap_set_mirrored(map_id,$19,tx,ty); tx++;
+						tilemap_set_mirrored(map_id,$18,tx,ty); tx-=6; ty++;
+						repeat(7) {tilemap_set(map_id,$FF,tx,ty); tx++;}
+						tilemap_set_mirrored(map_id,$1D,tx,ty); ty++;
+						tilemap_set(map_id,$FF,tx,ty);
+					break;
+					case 131:
+						ty+=5;
+						tilemap_set_mirrored(map_id,$1C,tx,ty); ty++;
+						tilemap_set(map_id,$FF,tx,ty); tx++;
+						tilemap_set_mirrored(map_id,$1D,tx,ty); tx++;
+						tilemap_set_mirrored(map_id,$1C,tx,ty); tx-=2; ty++;
+						repeat(3) {tilemap_set(map_id,$FF,tx,ty); tx++;}
+						tilemap_set_mirrored(map_id,$1B,tx,ty); tx++;
+						tilemap_set_mirrored(map_id,$1A,tx,ty); tx++;
+						tilemap_set_mirrored(map_id,$19,tx,ty); tx++;
+						tilemap_set_mirrored(map_id,$18,tx,ty);
+					break;
+					case 133:
+						tx+=3;
+						repeat(4) {tilemap_set(map_id,$FF,tx,ty); tx++;}
+						tilemap_set(map_id,$FF,tx,ty);
+					break;
 					case 135:
 						repeat(3) {tilemap_set(map_id,$FF,tx,ty); tx++;}
 						tilemap_set(map_id,$FF,tx,ty); tx-=3; ty++;
@@ -549,6 +620,16 @@ function LAYOUT_GHZ(){
 						tilemap_set(map_id,$FF,tx,ty); tx++;
 						tilemap_set(map_id,$FF,tx,ty); tx-=3; ty++;
 						tilemap_set(map_id,$FF,tx,ty); tx++;
+						tilemap_set(map_id,$FF,tx,ty);
+					break;
+					case 184:
+					case 185:
+					case 186:
+					case 187:
+						ty+=4;
+						repeat(7) {tilemap_set(map_id,$FF,tx,ty); tx++;}
+						tilemap_set(map_id,$FF,tx,ty); tx-=7; ty++;
+						repeat(7) {tilemap_set(map_id,$FF,tx,ty); tx++;}
 						tilemap_set(map_id,$FF,tx,ty);
 					break;
 					case 191:
