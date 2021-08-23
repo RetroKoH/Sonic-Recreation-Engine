@@ -328,7 +328,7 @@ function LAYOUT_GHZ(){
 						repeat(2)
 						{
 							repeat(7) {tilemap_set(map_id,$FF,tx,ty); tx++;}
-							tilemap_set(map_id,$FF,tx,ty); ty++;
+							tilemap_set(map_id,$FF,tx,ty); tx-=7; ty++;
 						}
 					break;
 					case 53:
