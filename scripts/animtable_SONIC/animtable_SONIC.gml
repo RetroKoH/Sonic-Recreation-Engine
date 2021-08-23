@@ -42,8 +42,8 @@ function animtable_SONIC(){
 	// #0 - IDLE
 	ds_grid_set(an, an_id, ANIM_NAME,			"Idle");
 	ds_grid_set(an, an_id, ANIM_SPRITE,			spr_sonic_idle);
-	ds_grid_set(an, an_id, ANIM_SPRITEMASK,		spr_sonic_idle);
-	ds_grid_set(an, an_id, ANIM_SPRITEMASK_L,	spr_sonic_idle);
+	ds_grid_set(an, an_id, ANIM_SPRITEMASK,		spr_sonic_mask);
+	ds_grid_set(an, an_id, ANIM_SPRITEMASK_L,	spr_sonic_maskL);
 	ds_grid_set(an, an_id, ANIM_SUBANIM,		-1);
 	ds_grid_set(an, an_id, ANIM_LOOPBACKTIMES,	-1);
 	ds_grid_set(an, an_id, ANIM_LOOPBACKFRAME,	3);
@@ -68,8 +68,8 @@ function animtable_SONIC(){
 	// #1 - WALK
 	ds_grid_set(an, an_id, ANIM_NAME,			"Walk");
 	ds_grid_set(an, an_id, ANIM_SPRITE,			spr_sonic_walk);
-	ds_grid_set(an, an_id, ANIM_SPRITEMASK,		spr_sonic_idle);
-	ds_grid_set(an, an_id, ANIM_SPRITEMASK_L,	spr_sonic_idle);
+	ds_grid_set(an, an_id, ANIM_SPRITEMASK,		spr_sonic_mask);
+	ds_grid_set(an, an_id, ANIM_SPRITEMASK_L,	spr_sonic_maskL);
 	ds_grid_set(an, an_id, ANIM_SUBANIM,		-1);
 	ds_grid_set(an, an_id, ANIM_LOOPBACKTIMES,	-1);
 	ds_grid_set(an, an_id, ANIM_LOOPBACKFRAME,	0);
@@ -88,8 +88,8 @@ function animtable_SONIC(){
 	// #2 - JOG
 	ds_grid_set(an, an_id, ANIM_NAME,			"Jog");
 	ds_grid_set(an, an_id, ANIM_SPRITE,			spr_sonic_jog);
-	ds_grid_set(an, an_id, ANIM_SPRITEMASK,		spr_sonic_idle);
-	ds_grid_set(an, an_id, ANIM_SPRITEMASK_L,	spr_sonic_idle);
+	ds_grid_set(an, an_id, ANIM_SPRITEMASK,		spr_sonic_mask);
+	ds_grid_set(an, an_id, ANIM_SPRITEMASK_L,	spr_sonic_maskL);
 	ds_grid_set(an, an_id, ANIM_SUBANIM,		-1);
 	ds_grid_set(an, an_id, ANIM_LOOPBACKTIMES,	-1);
 	ds_grid_set(an, an_id, ANIM_LOOPBACKFRAME,	0);
@@ -108,8 +108,8 @@ function animtable_SONIC(){
 	// #3 - RUN
 	ds_grid_set(an, an_id, ANIM_NAME,			"Run");
 	ds_grid_set(an, an_id, ANIM_SPRITE,			spr_sonic_run);
-	ds_grid_set(an, an_id, ANIM_SPRITEMASK,		spr_sonic_idle);
-	ds_grid_set(an, an_id, ANIM_SPRITEMASK_L,	spr_sonic_idle);
+	ds_grid_set(an, an_id, ANIM_SPRITEMASK,		spr_sonic_mask);
+	ds_grid_set(an, an_id, ANIM_SPRITEMASK_L,	spr_sonic_maskL);
 	ds_grid_set(an, an_id, ANIM_SUBANIM,		-1);
 	ds_grid_set(an, an_id, ANIM_LOOPBACKTIMES,	-1);
 	ds_grid_set(an, an_id, ANIM_LOOPBACKFRAME,	0);
@@ -128,8 +128,8 @@ function animtable_SONIC(){
 	// #4 - DASH
 	ds_grid_set(an, an_id, ANIM_NAME,			"Dash");
 	ds_grid_set(an, an_id, ANIM_SPRITE,			spr_sonic_dash);
-	ds_grid_set(an, an_id, ANIM_SPRITEMASK,		spr_sonic_idle);
-	ds_grid_set(an, an_id, ANIM_SPRITEMASK_L,	spr_sonic_idle);
+	ds_grid_set(an, an_id, ANIM_SPRITEMASK,		spr_sonic_mask);
+	ds_grid_set(an, an_id, ANIM_SPRITEMASK_L,	spr_sonic_maskL);
 	ds_grid_set(an, an_id, ANIM_SUBANIM,		-1);
 	ds_grid_set(an, an_id, ANIM_LOOPBACKTIMES,	-1);
 	ds_grid_set(an, an_id, ANIM_LOOPBACKFRAME,	0);
@@ -148,8 +148,8 @@ function animtable_SONIC(){
 	// #5 - LOOK UP
 	ds_grid_set(an, an_id, ANIM_NAME,			"Look Up");
 	ds_grid_set(an, an_id, ANIM_SPRITE,			spr_sonic_lookup);
-	ds_grid_set(an, an_id, ANIM_SPRITEMASK,		spr_sonic_idle);
-	ds_grid_set(an, an_id, ANIM_SPRITEMASK_L,	spr_sonic_idle);
+	ds_grid_set(an, an_id, ANIM_SPRITEMASK,		spr_sonic_mask);
+	ds_grid_set(an, an_id, ANIM_SPRITEMASK_L,	spr_sonic_maskL);
 	ds_grid_set(an, an_id, ANIM_SUBANIM,		-1);
 	ds_grid_set(an, an_id, ANIM_LOOPBACKTIMES,	-1);
 	ds_grid_set(an, an_id, ANIM_LOOPBACKFRAME,	1);
@@ -168,8 +168,8 @@ function animtable_SONIC(){
 	// #6 - DUCK
 	ds_grid_set(an, an_id, ANIM_NAME,			"Duck");
 	ds_grid_set(an, an_id, ANIM_SPRITE,			spr_sonic_duck);
-	ds_grid_set(an, an_id, ANIM_SPRITEMASK,		spr_sonic_idle);
-	ds_grid_set(an, an_id, ANIM_SPRITEMASK_L,	spr_sonic_idle);
+	ds_grid_set(an, an_id, ANIM_SPRITEMASK,		spr_sonic_mask);
+	ds_grid_set(an, an_id, ANIM_SPRITEMASK_L,	spr_sonic_maskL);
 	ds_grid_set(an, an_id, ANIM_SUBANIM,		-1);
 	ds_grid_set(an, an_id, ANIM_LOOPBACKTIMES,	-1);
 	ds_grid_set(an, an_id, ANIM_LOOPBACKFRAME,	1);
@@ -188,8 +188,8 @@ function animtable_SONIC(){
 	// #7 - ROLL
 	ds_grid_set(an, an_id, ANIM_NAME,			"Roll");
 	ds_grid_set(an, an_id, ANIM_SPRITE,			spr_sonic_roll);
-	ds_grid_set(an, an_id, ANIM_SPRITEMASK,		spr_sonic_roll);
-	ds_grid_set(an, an_id, ANIM_SPRITEMASK_L,	spr_sonic_roll);
+	ds_grid_set(an, an_id, ANIM_SPRITEMASK,		spr_sonic_mask);
+	ds_grid_set(an, an_id, ANIM_SPRITEMASK_L,	spr_sonic_maskL);
 	ds_grid_set(an, an_id, ANIM_SUBANIM,		-1);
 	ds_grid_set(an, an_id, ANIM_LOOPBACKTIMES,	-1);
 	ds_grid_set(an, an_id, ANIM_LOOPBACKFRAME,	0);
@@ -214,8 +214,8 @@ function animtable_SONIC(){
 	// #8 - SKID
 	ds_grid_set(an, an_id, ANIM_NAME,			"Skid");
 	ds_grid_set(an, an_id, ANIM_SPRITE,			spr_sonic_skid);
-	ds_grid_set(an, an_id, ANIM_SPRITEMASK,		spr_sonic_idle);
-	ds_grid_set(an, an_id, ANIM_SPRITEMASK_L,	spr_sonic_idle);
+	ds_grid_set(an, an_id, ANIM_SPRITEMASK,		spr_sonic_mask);
+	ds_grid_set(an, an_id, ANIM_SPRITEMASK_L,	spr_sonic_maskL);
 	ds_grid_set(an, an_id, ANIM_SUBANIM,		-1);
 	ds_grid_set(an, an_id, ANIM_LOOPBACKTIMES,	-1);
 	ds_grid_set(an, an_id, ANIM_LOOPBACKFRAME,	4);
@@ -234,8 +234,8 @@ function animtable_SONIC(){
 	// #8 - PUSH
 	ds_grid_set(an, an_id, ANIM_NAME,			"Push");
 	ds_grid_set(an, an_id, ANIM_SPRITE,			spr_sonic_push);
-	ds_grid_set(an, an_id, ANIM_SPRITEMASK,		spr_sonic_idle);
-	ds_grid_set(an, an_id, ANIM_SPRITEMASK_L,	spr_sonic_idle);
+	ds_grid_set(an, an_id, ANIM_SPRITEMASK,		spr_sonic_mask);
+	ds_grid_set(an, an_id, ANIM_SPRITEMASK_L,	spr_sonic_maskL);
 	ds_grid_set(an, an_id, ANIM_SUBANIM,		-1);
 	ds_grid_set(an, an_id, ANIM_LOOPBACKTIMES,	-1);
 	ds_grid_set(an, an_id, ANIM_LOOPBACKFRAME,	0);

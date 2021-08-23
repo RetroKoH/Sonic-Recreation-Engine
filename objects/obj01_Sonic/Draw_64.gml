@@ -5,11 +5,16 @@ if !debug exit;
 draw_text(112,8,"SONIC   X: "+string(x)+
 				"\n        Y: "+string(y)+
 				"\nG SPEED: "+string(gsp)+"\nX SPEED: "+string(xsp)+"\nY SPEED: "+string(ysp)+
-				"\nSTATUS: "+string(status)+
-				" --- "+string(real(status&1))+string(real(status&2)/2)+string(real(status&4)/4)+
-				string(real(status&8)/4)+string(real(status&$10)/$10)+string(real(status&$20)/$20)+
-				string(real(status&$40)/$40)+string(real(status&$80)/$80)
-				+"\nANGLE: "+string(angle)+"  ("+string(anim_angle)+")");
+				"\nANGLE: "+string(angle)+"  ("+string(anim_angle)+")");
+
+draw_text(312,8,"STATUS: "+string(status)+
+				"\nFACE LEFT: "+string(status&STA_FACING)+
+				"\nIN AIR: "+string((status&STA_INAIR)/STA_INAIR)+
+				"\nSPINNING: "+string((status&STA_SPIN)/STA_SPIN)+
+				"\nON OBJECT: "+string((status&STA_ONOBJ)/STA_ONOBJ)+
+				"\nROLL JUMP: "+string((status&STA_ROLLJUMP)/STA_ROLLJUMP)+
+				"\nPUSHING: "+string((status&STA_PUSH)/STA_PUSH)+
+				"\nUNDERWATER: "+string((status&STA_WATER)/STA_WATER));//+string(real(status&$80)/$80));
 
 // Tile Collision Points
 draw_text(800,8,"COLLISION FEEDBACK");

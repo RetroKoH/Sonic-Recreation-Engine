@@ -3,6 +3,9 @@
 scr_render_anim(false);
 
 if debug{
+	scr_debug_draw(0,c_blue);
+	
+	
 	// Debug visuals
 	draw_sprite(spr_debug_center,0,x,y);
 

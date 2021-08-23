@@ -15,7 +15,7 @@ function scr_check_walls_on_ground(){
 
 				if (TILE_SIZE - hgt <= _y) {
 					xsp=(scr_tile_get_coord(pos)-(x+11));
-					status|=$20; // Set pushing status bit
+					status|=STA_PUSH; // Set pushing status bit
 					gsp=0;
 					col_sensor_F=true;
 				}  else col_sensor_F=false;
@@ -31,7 +31,7 @@ function scr_check_walls_on_ground(){
 				
 				if (TILE_SIZE - hgt <= _y) {
 					xsp=((scr_tile_get_coord(pos)+TILE_SIZE)-(x-10));
-					status|=$20; // Set pushing status bit
+					status|=STA_PUSH; // Set pushing status bit
 					gsp=0;
 					col_sensor_E=true;
 				} else col_sensor_E=false;

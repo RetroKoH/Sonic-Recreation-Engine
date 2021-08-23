@@ -1,4 +1,7 @@
 function INIT_GAME(){
+
+	MACROS();
+
 	global.start_game = false;
 	
 	// Keymapping
@@ -23,14 +26,40 @@ function INIT_GAME(){
 	globalvar v_scrshiftx;      v_scrshiftx=0;          // Screen shift as Sonic moves horizontally.
 	globalvar v_lookshift;      v_lookshift=0;          // Screen shift when Sonic looks up/down.
 
-
 	// Collision tile related data
-	#macro TILE_SIZE 16
-
 	globalvar map_id, chunks_id, chunks_count;
 	map_id = -1; chunks_id = -1; chunks_count = 0;
-
 	scr_collision_arrays();
+
+	// Animation Loading Cues
+	scr_loadanimations();
+	
+	// Establish Global oscillating values
+	scr_osc_num_init();
+
+	global.core_input = instance_create_layer(0,0,"Core",obj_input);
+	global.core_fade = instance_create_layer(0,0,"Core",obj_fade);
+
+	// Global Gameplay object handles
+	globalvar player;	player = -1;	// Global handle for player object
+	globalvar cam;		cam = -1;		// Global handle for the camera
+	globalvar debug;	debug = false;	// by default, disable debug
+	globalvar zone;		zone = 0;
+	globalvar act;		act = 0;
+
+	global.start_game = true; // Call at the very end
+}
+
+function MACROS() {
+	#macro TILE_SIZE 16
+
+	// ZONE Macros
+	#macro ZONE_GHZ 0
+	#macro ZONE_MZ 1
+	#macro ZONE_SYZ 2
+	#macro ZONE_LZ 3
+	#macro ZONE_SLZ 4
+	#macro ZONE_SBZ 5
 
 	// Used by animation engine
 	#macro ANIM_NAME 0
@@ -44,16 +73,12 @@ function INIT_GAME(){
 	#macro ANIM_FRAMELIST 8
 	#macro ANIM_FRAMESPEEDLIST 9
 
-	// Animation Loading Cues
-	scr_loadanimations();
-
-	global.core_input = instance_create_layer(0,0,"Core",obj_input);
-	global.core_fade = instance_create_layer(0,0,"Core",obj_fade);
-
-	// Global Gameplay object handles
-	globalvar player;	player = -1;	// Global handle for player object
-	globalvar cam;		cam = -1;		// Global handle for the camera
-	globalvar debug;	debug = false;	// by default, disable debug
-
-	global.start_game = true; // Call at the very end
+	// Player Status Macros
+	#macro STA_FACING 1
+	#macro STA_INAIR 2
+	#macro STA_SPIN 4
+	#macro STA_ONOBJ 8
+	#macro STA_ROLLJUMP $10
+	#macro STA_PUSH $20
+	#macro STA_WATER $40
 }

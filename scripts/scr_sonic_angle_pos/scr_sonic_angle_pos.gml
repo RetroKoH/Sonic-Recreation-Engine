@@ -5,7 +5,7 @@ function scr_sonic_angle_pos(){
 	var t_h,t_r,t_r2,t_l,t_l2,ang_r,hgt_r,ang_l,hgt_l;
 
 	// Set flat angle if standing on an object.
-	if (status&8) // If standing on object
+	if (status&STA_ONOBJ) // If standing on object
 	{
 //	    v_anglebuffer1=gravity_angle;
 //	    v_anglebuffer2=gravity_angle;
@@ -14,9 +14,8 @@ function scr_sonic_angle_pos(){
 	    exit;
 	}
 
-
 	// Otherwise, operate under Floor Mode
-	//else
+	else
 	{
 		var y_r = 0, y_l = 0; // Y-position of detected tiles
 
@@ -159,7 +158,7 @@ function scr_sonic_angle_pos(){
 	    // After checking height distances, set height and angle.
 	    if (hgt_r==0) && (hgt_l==0)
 	    {
-			status |= 2; //consStatusInAir;
+			status|=STA_INAIR; // Set air flag
 			angle = 0; //scrSetAngle(gravity_angle);
 	    }
 

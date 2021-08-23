@@ -4,12 +4,19 @@ map_id = layer_tilemap_get_id(layer_id);
 layer_id = layer_get_id("Foreground");
 chunks_id = layer_tilemap_get_id(layer_id);
 
+// Set Zone and Act
+zone = 0;
+act = 0;
+
+// Initialize Oscillating numbers
+scr_osc_num_reset();
+
 // Setup layout
 LAYOUT_GHZ();
 
 // Set up Camera and place player
 cam = instance_create_layer(78,340,"Core",obj_camera);
-player = instance_create_layer(78,700,"Instances",obj01_Sonic);
+player = instance_create_layer(80,944,"Instances",obj01_Sonic);
 
 v_limitleft1=0;         // Left level boundary.
 v_limitright1=room_width; // Right level boundary.

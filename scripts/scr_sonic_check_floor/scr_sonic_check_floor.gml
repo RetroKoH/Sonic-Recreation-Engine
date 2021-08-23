@@ -123,34 +123,9 @@ function scr_sonic_check_floor(){
         
 	        if y>y_val  //y>tile_get_y(t)-(height+1)
 	        {
-	            angle = a_val; //scrSetAngle(a_val);
-	            y=y_val;    //tile_get_y(t)-(height+1); // Simply sets position to top of 16x16 tile. Modify this to accomodate Sonic's position to the tile's height.
-            
-	            // Set angle (OR perform this first?)
-	            if (status&$20) status^=$20;    // Clear push status
-	            if (status&2)   status^=2;      // Clear air status
-	            if (status&$10) status^=$10;    // Clear roll jump status
-	            if (status&4)                   // If Sonic is spinning
-	            {
-	                status^=4;  // Clear spin status
-	                height=$13;
-	                width=9;
-	                anim_ID=anim_player.walk;
-	                y-=5;
-	            }
-	            jump=0;
-	            // Clear item bonus
-	            anim_ID=anim_player.walk;
-        
-	            // Set speeds upon reaquisition with the floor
-	            //if (relative_angle>=338 && relative_angle<=359) // If 
-	            //|| (relative_angle>=0 && relative_angle<=22)    // If angle is in the range of 0-22 or 338-359
-				if (angle>=338 && angle<=359) // If 
-	            || (angle>=0 && angle<=22)    // If angle is in the range of 0-22 or 338-359
-	            {
-	                ysp=0;
-	                gsp=xsp;
-	            }
+	            angle = a_val;	//scrSetAngle(a_val);
+	            y=y_val;		// Sets Sonic's position to the tile's height.
+	            scr_sonic_acquirefloor(); 				// Set angle (OR perform this first?)
 	        }
 	    }
 	}
