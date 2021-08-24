@@ -188,8 +188,8 @@ function animtable_SONIC(){
 	// #7 - ROLL
 	ds_grid_set(an, an_id, ANIM_NAME,			"Roll");
 	ds_grid_set(an, an_id, ANIM_SPRITE,			spr_sonic_roll);
-	ds_grid_set(an, an_id, ANIM_SPRITEMASK,		spr_sonic_mask);
-	ds_grid_set(an, an_id, ANIM_SPRITEMASK_L,	spr_sonic_maskL);
+	ds_grid_set(an, an_id, ANIM_SPRITEMASK,		spr_sonic_spin_mask);
+	ds_grid_set(an, an_id, ANIM_SPRITEMASK_L,	spr_sonic_spin_maskL);
 	ds_grid_set(an, an_id, ANIM_SUBANIM,		-1);
 	ds_grid_set(an, an_id, ANIM_LOOPBACKTIMES,	-1);
 	ds_grid_set(an, an_id, ANIM_LOOPBACKFRAME,	0);

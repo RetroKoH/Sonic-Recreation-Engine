@@ -7,7 +7,7 @@ function scr_sonic_acquirefloor(){
 	    status^=STA_SPIN;			// Clear spin status
 	    height=$13;
 	    width=9;
-	    //anim_ID=anim_player.walk;
+	    anim_ID=anim_player.walk;
 	    y-=5;
 	}
 	jump=0;

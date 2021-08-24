@@ -1,4 +1,4 @@
-function scr_touch_objSolid(){
+function scr_touch_objPlatform(){
 	// Handles collision with solid and top-solid platform objects
 	var obj, dist;
 
@@ -16,9 +16,9 @@ function scr_touch_objSolid(){
 	else
 	{
 	    //Floor
-	    dist=max(ysp,1);
+	    dist=ysp;
 	    obj=instance_place(x, y+dist, objParent_Solid);
-	    if obj && !place_meeting(x, y, obj)
+	    if obj //&& !place_meeting(x, y, obj)
 	    && collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+ysp+1, obj, false, false)
 		{
 			angle = 0;
