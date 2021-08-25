@@ -47,6 +47,21 @@ function INIT_GAME(){
 	globalvar zone;		zone = 0;
 	globalvar act;		act = 0;
 
+	globalvar f_pause;          f_pause=false;      // Game Pausing flag
+
+	globalvar p_score;          p_score=0;          // Player's score
+	globalvar p_time;           p_time=0;           // Playing time
+	globalvar f_timecount;      f_timecount=0;      // Time counter update flag
+	globalvar p_rings;          p_rings=0;          // Player's rings
+	globalvar p_lives;          p_lives=3;          // Player's lives
+	globalvar p_scorelife;      p_scorelife=50000;  // Amount of points needed for an extra life
+	globalvar p_ringlife;       p_ringlife=0;       // Counter for extra lives per rings
+
+	globalvar itembonus;        itembonus=0;        // The counter that determines the number of points received when destroying enemies or objects.
+	globalvar timebonus;        timebonus=0;        // The points counter for time bonuses. The faster you complete a level, the higher the bonus. TIME OVER results in NO bonus.
+	globalvar ringbonus;        ringbonus=0;        // The points counter for ring bonuses. You get 100 pts per ring when you complete a level.
+	globalvar gravity_angle;    gravity_angle=0;    // The global zone gravity. Character gravity is based on this.
+
 	global.start_game = true; // Call at the very end
 }
 
