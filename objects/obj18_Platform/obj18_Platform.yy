@@ -1,12 +1,15 @@
 {
-  "spriteId": null,
+  "spriteId": {
+    "name": "spr_GHZplatform",
+    "path": "sprites/spr_GHZplatform/spr_GHZplatform.yy",
+  },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "objParent_Platform",
-    "path": "objects/objParent_Platform/objParent_Platform.yy",
+    "name": "objParent_TopSolid",
+    "path": "objects/objParent_TopSolid/objParent_TopSolid.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -22,15 +25,17 @@
   "physicsShapePoints": [],
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Collision Types",
-    "path": "folders/Objects/Collision Types.yy",
+    "name": "Objects",
+    "path": "folders/Objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "objParent_Solid",
+  "name": "obj18_Platform",
   "tags": [],
   "resourceType": "GMObject",
 }

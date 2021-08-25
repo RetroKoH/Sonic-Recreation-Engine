@@ -30,7 +30,7 @@
     "path": "folders/Objects/Collision Types.yy",
   },
   "resourceVersion": "1.0",
-  "name": "objParent_Solid",
+  "name": "objParent_TopSolid",
   "tags": [],
   "resourceType": "GMObject",
 }

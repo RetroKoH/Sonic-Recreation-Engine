@@ -5,25 +5,38 @@ function scr_touch_objPlatform(){
 	// Vertical collision (if there is a block at the expected location based on ysp)
 	if (status&STA_ONOBJ)
 	{
-	    if !(place_meeting(x,y+1,objParent_Solid)) status^=STA_ONOBJ;
-	    //else
-	    //{
-	        //obj=instance_place(x,y+1,par_ptfm);
-	        //if obj.ptfm_solid==false on_obj=false;
-	    //}
+	    if !(place_meeting(x,y+1,platform_ID)) //!(place_meeting(x,y+1,objParent_Platform))
+		{
+			if platform_ID.object_index == obj18_Platform
+				platform_ID.routine--;
+			platform_ID = -1;
+			status^=STA_ONOBJ;
+		}
+	    else
+	    {
+	        obj = instance_place(x,y+1,platform_ID); //instance_place(x,y+1,objParent_Platform);
+	        if obj.ptfm_solid==false
+			{
+				if platform_ID.object_index == obj18_Platform
+					platform_ID.routine--;
+				platform_ID = -1;
+				status^=STA_ONOBJ;
+			}
+	    }
 	}
 
 	else
 	{
 	    //Floor
-	    dist=ysp;
+	    dist=max(abs(ysp),1)*sign(ysp);
 	    obj=instance_place(x, y+dist, objParent_Solid);
-	    if obj //&& !place_meeting(x, y, obj)
+	    if ((obj) && (obj.ptfm_solid)) //&& !place_meeting(x, y, obj)
 	    && collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+ysp+1, obj, false, false)
 		{
 			angle = 0;
 			y=obj.bbox_top - (sprite_get_height(mask_index) - sprite_get_yoffset(mask_index));		// Sets Sonic's position to the tile's height.
 	        scr_sonic_acquirefloor();
+			platform_ID = obj;
 			status|=STA_ONOBJ;
 		}
 	}
@@ -54,4 +67,19 @@ function scr_touch_objPlatform(){
 			else if (status&STA_PUSH) status^=STA_PUSH;
 		}
 	}
+
+	//Topsolids
+	dist=max(abs(ysp),1)*sign(ysp);
+	obj=instance_place(x, y+dist, objParent_TopSolid);
+	if ((obj) && (obj.ptfm_solid)) && (ysp>0)
+	    //if !place_meeting(x, y, obj)
+		{
+			angle = 0;
+			y=obj.bbox_top - (sprite_get_height(mask_index) - sprite_get_yoffset(mask_index));		// Sets Sonic's position to the tile's height.
+	        scr_sonic_acquirefloor();
+			platform_ID = obj;
+			status|=STA_ONOBJ;
+			if platform_ID.object_index == obj18_Platform
+					platform_ID.routine++;
+		}
 }

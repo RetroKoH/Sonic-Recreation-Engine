@@ -11,7 +11,14 @@ function scr_sonic_jump(){
 	        ysp-=jmp*cos(degtorad(angle));
 	        status|=STA_INAIR;						// Set Air status bit
 	        if (status&STA_PUSH) status^=STA_PUSH;	// Clear Pushing status bit
-			if (status&STA_ONOBJ) status^=STA_ONOBJ;	// Clear On Obj status bit
+			if (status&STA_ONOBJ)					// Clear On Obj status bit
+			{
+				status^=STA_ONOBJ;
+				// This should be handled in the platform object itself.
+				if platform_ID.object_index == obj18_Platform
+					platform_ID.routine--;
+				platform_ID = -1;
+			}
 	        jump=true;
 	        convex=false;
 	        move_lock=false;

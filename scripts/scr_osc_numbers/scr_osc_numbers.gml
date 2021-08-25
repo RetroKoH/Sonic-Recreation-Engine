@@ -131,13 +131,13 @@ function scr_osc_num_do(){
 	    osc_0a+=osc_0b;                  // Added to the main osc value
 	}*/
 
-	/* $6
-	if (zone==consZoneMZ || zone==consZoneSBZ)
+	// $6
+	//if (zone==consZoneMZ || zone==consZoneSBZ)
 	{
 	    if abs(osc_1b)==lim_1 pol_1*=-1; // First, reverse polarity when limit is reached
 	    osc_1b+=inc_1*pol_1;             // Amount to increase by, multiplied by polarity
 	    osc_1a+=osc_1b;                  // Added to the main osc value
-	}*/
+	}
 
 	/* $A
 	if (zone==consZoneMZ || zone==consZoneSYZ || zone==consZoneLZ || zone==consZoneSLZ)
@@ -164,13 +164,13 @@ function scr_osc_num_do(){
 	    osc_5a+=osc_5b;                  // Added to the main osc value
 	}*/
 
-	/* $1A
-	if zone!=consZoneLZ
+	// $1A
+	//if zone!=consZoneLZ
 	{
 	    if abs(osc_6b)==lim_6 pol_6*=-1; // First, reverse polarity when limit is reached
 	    osc_6b+=inc_6*pol_6;             // Amount to increase by, multiplied by polarity
 	    osc_6a+=osc_6b;                  // Added to the main osc value
-	}*/
+	}
 
 	// $1E
 	//if zone!=consZoneGHZ

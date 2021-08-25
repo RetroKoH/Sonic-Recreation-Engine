@@ -12,12 +12,12 @@ routine = 0;	// Routine counter number
 angle = 0;		// The angle at which you are moving. (0-360*)
 new_angle = 0;	// Used for smoothing down the angle change on slopes.
 jump = 0;
+platform_ID = -1;
 move_lock = false;
 
 topspeed	= 6;          // Maximum X speed via acceleration.
 accel_run	= 0.046875;   // X-Acceleration rate.
 decel_run	= 0.5;        // X-Deceleraction rate.
-
 
 // Collision sensors (For debug purposes)
 // Left Floor
