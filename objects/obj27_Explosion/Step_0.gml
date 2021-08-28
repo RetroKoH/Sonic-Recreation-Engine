@@ -3,9 +3,10 @@
 
 var ani;
 
-if routine==0 
+if routine == 0
 {
-    routine=2; 
-    ani=instance_create_layer(x,y,"Instances",obj28_Animals);
-    ani.pti=pti;
+    routine = 2; 
+    ani = instance_create_layer(x,y,"Instances",obj28_Animals);
+	ani.subtype = irandom(6);
+    ani.pti = pti;
 }
