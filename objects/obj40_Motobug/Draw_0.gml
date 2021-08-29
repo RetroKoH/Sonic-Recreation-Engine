@@ -1,4 +1,6 @@
 /// @description Draw Motobug
 
-draw_self();
+scr_render_anim(false);
 event_inherited();
+
+draw_text(x,y,angle);

@@ -15,7 +15,7 @@ scr_osc_num_reset();
 LAYOUT_GHZ();
 
 // Set up Camera and place player
-cam = instance_create_layer(78,340,"Core",obj_camera);
+cam = instance_create_layer(78,940,"Core",obj_camera);
 player = instance_create_layer(80,944,"Instances",obj01_Sonic);
 
 v_limitleft1=0;         // Left level boundary.
