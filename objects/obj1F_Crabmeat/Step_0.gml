@@ -28,12 +28,14 @@ else switch(routine_2nd)
                 // Set firing animation
 				anim_ID = 2;
                 var left,right;
-                left=instance_create_layer(x-10,y,"Instances",obj1FSub_CrabMissile);
+                left=instance_create_layer(x-10,y,"Instances",obj23_Missile);
                 left.xsp=-1;
 				left.ysp=-4;
-                right=instance_create_layer(x+10,y,"Instances",obj1FSub_CrabMissile);
+				left.subtype = 1;
+                right=instance_create_layer(x+10,y,"Instances",obj23_Missile);
                 right.xsp=1;
 				right.ysp=-4;
+				right.subtype = 1;
             }
             else
             {

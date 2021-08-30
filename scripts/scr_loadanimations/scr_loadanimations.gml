@@ -4,4 +4,5 @@ function scr_loadanimations(){
 	animtable_RINGS();
 	animtable_MOTOBUG();
 	animtable_CRABMEAT();
+	animtable_BUZZBOMBER();
 }
