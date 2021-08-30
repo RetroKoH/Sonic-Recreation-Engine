@@ -6,7 +6,7 @@
     "path": "folders/Animation Tables.yy",
   },
   "resourceVersion": "1.0",
-  "name": "animtable_MOTOBUG",
+  "name": "animtable_BADNIKS",
   "tags": [],
   "resourceType": "GMScript",
 }

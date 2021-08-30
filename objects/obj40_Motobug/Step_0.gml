@@ -1,5 +1,7 @@
 /// @description Motobug Routines
 
+if fading exit;
+
 // Routine 0 - Set position on the ground
 if routine == 0
 {
@@ -23,7 +25,6 @@ else switch(routine_2nd)
 		    anim_direction*=-1;		// Reverse the direction.
 		    xsp=-1*anim_direction;	// Set horizontal speed 1 pixel/step.
 			anim_ID=1;
-		    //turntime=180;
 		}
 	} break;
 
@@ -31,10 +32,9 @@ else switch(routine_2nd)
 	case 1:
 	{
 		x+=xsp; y+=ysp; // SpeedToPos
-		//turntime--;
 
 		// Check for floor. If it doesn't exist, stop and wait, then turn around. For now, set to a timer.
-		if scr_obj_floor_pos(sign(xsp))==false //|| !turntime //if !instance_place()
+		if scr_obj_floor_pos(sign(xsp))==false
 		{
 		    routine_2nd--;
 		    time=59;
@@ -43,9 +43,9 @@ else switch(routine_2nd)
 		}
 
 		// Smoke puff routine. Only occurs when the badnik is moving.
-		if !smokedelay && turntime
+		if !smokedelay
 		{
-		    //instance_create_layer(x,y,obj40Sub_MotobugSmoke); // Create smoke puff
+		    instance_create_layer(x+(15*anim_direction),y-1,"Instances",obj40Sub_MotobugSmoke); // Create smoke puff
 		    smokedelay=$F;                              // Reset timer
 		}
 		else smokedelay-=1;                             // Reduce timer
