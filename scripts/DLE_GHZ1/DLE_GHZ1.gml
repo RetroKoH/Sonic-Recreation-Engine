@@ -3,8 +3,8 @@ function DLE_GHZ1(){
 	{
 		// Increase the vertical boundary as we go through the S-tunnels.
 		if player.x < 6400
-			v_limitbtm1 = 988;
+			v_limitbtm2 = 988;
 		else
-			v_limitbtm1 = 1248;
+			v_limitbtm2 = 1248;
 	}
 }

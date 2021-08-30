@@ -80,6 +80,7 @@ switch(routine)
 			ysp = 0;
 			gsp = 0;
 			anim_ID = anim_player.walk;
+			move_lock = false;
 			routine--;
 		}
 		scr_sonic_level_bound();		// Keep Sonic inside the view and kill Sonic if he touches the kill plane

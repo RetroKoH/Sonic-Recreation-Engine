@@ -5,8 +5,7 @@ if !((invuln_timer) && (invuln_timer % 4))
 
 if debug{
 	scr_debug_draw(0,c_blue);
-	
-	
+
 	// Debug visuals
 	draw_sprite(spr_debug_center,0,x,y);
 
