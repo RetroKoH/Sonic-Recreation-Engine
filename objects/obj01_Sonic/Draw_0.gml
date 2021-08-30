@@ -1,6 +1,7 @@
 /// @description Animation Rendering
 
-scr_render_anim(false);
+if !((invuln_timer) && (invuln_timer % 4))
+	scr_render_anim(false);
 
 if debug{
 	scr_debug_draw(0,c_blue);

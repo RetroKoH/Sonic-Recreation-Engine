@@ -63,6 +63,29 @@ switch(routine)
 				scr_sonic_check_floor();		// Floor sensor collision check (and walls)
 			break;
 		}
+		scr_sonic_display();
 		scr_touch_response();
-	}
+	} break;
+
+	case 2: // Sonic_Hurt
+		x+=xsp; y+=ysp;	// SpeedToPos
+		// Apply gravity
+		if (status&STA_WATER)	ysp += .0625;
+		else					ysp += .1875;
+		// HurtStop
+		scr_sonic_check_floor();
+		if !(status&STA_INAIR)
+		{
+			xsp = 0;
+			ysp = 0;
+			gsp = 0;
+			anim_ID = anim_player.walk;
+			routine--;
+		}
+		scr_sonic_level_bound();		// Keep Sonic inside the view and kill Sonic if he touches the kill plane
+	break;
+	
+	case 3: // Sonic_Death
+		x+=xsp; ysp+=.21875; y+=ysp;	// ObjectFall
+	break;
 }

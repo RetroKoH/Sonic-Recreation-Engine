@@ -6,7 +6,7 @@
     "path": "folders/Scripts/Player Handling/TouchResponse.yy",
   },
   "resourceVersion": "1.0",
-  "name": "scr_chk_touch",
+  "name": "scr_touch_objHarm",
   "tags": [],
   "resourceType": "GMScript",
 }

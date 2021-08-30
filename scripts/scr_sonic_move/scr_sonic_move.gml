@@ -1,10 +1,11 @@
-function scr_sonic_move(){
+function scr_sonic_move() {
+
+	// Movement based on key control.
+	var move=(global.k_r_h - global.k_l_h);
+
 	// Movement
 	if !move_lock
 	{
-	    // Movement based on key control.
-	    var move=(global.k_r_h - global.k_l_h);
-
 	    // Set horizontal speed based on input. Weight affects movement speed.
 		if move == -1 // Moving left
 		{

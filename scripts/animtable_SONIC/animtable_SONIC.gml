@@ -28,6 +28,9 @@ function animtable_SONIC(){
 		roll,
 		skid,
 		push,
+		hurt,
+		death,
+		drown,
 		total // Used for final count below
 	}
 
@@ -248,5 +251,59 @@ function animtable_SONIC(){
 		ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMELIST), i);
 		ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMESPEEDLIST), 1/16);
 	}
-	// ==================================================================================	
+	// ==================================================================================
+	
+	an_id++;
+	// #9 - HURT
+	ds_grid_set(an, an_id, ANIM_NAME,			"Hurt");
+	ds_grid_set(an, an_id, ANIM_SPRITE,			spr_sonic_hurt);
+	ds_grid_set(an, an_id, ANIM_SPRITEMASK,		spr_sonic_mask);
+	ds_grid_set(an, an_id, ANIM_SPRITEMASK_L,	spr_sonic_maskL);
+	ds_grid_set(an, an_id, ANIM_SUBANIM,		-1);
+	ds_grid_set(an, an_id, ANIM_LOOPBACKTIMES,	-1);
+	ds_grid_set(an, an_id, ANIM_LOOPBACKFRAME,	0);
+	ds_grid_set(an, an_id, ANIM_LOOPBACKANIM,	-1);
+	ds_grid_set(an, an_id, ANIM_FRAMELIST,		ds_list_create());
+	ds_grid_set(an, an_id, ANIM_FRAMESPEEDLIST,	ds_list_create());
+
+	// Animation frames
+	ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMELIST), 0);
+	ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMESPEEDLIST), 1);
+	// ==================================================================================
+
+	an_id++;
+	// #10 - DEATH
+	ds_grid_set(an, an_id, ANIM_NAME,			"Death");
+	ds_grid_set(an, an_id, ANIM_SPRITE,			spr_sonic_death);
+	ds_grid_set(an, an_id, ANIM_SPRITEMASK,		spr_sonic_mask);
+	ds_grid_set(an, an_id, ANIM_SPRITEMASK_L,	spr_sonic_maskL);
+	ds_grid_set(an, an_id, ANIM_SUBANIM,		-1);
+	ds_grid_set(an, an_id, ANIM_LOOPBACKTIMES,	-1);
+	ds_grid_set(an, an_id, ANIM_LOOPBACKFRAME,	0);
+	ds_grid_set(an, an_id, ANIM_LOOPBACKANIM,	-1);
+	ds_grid_set(an, an_id, ANIM_FRAMELIST,		ds_list_create());
+	ds_grid_set(an, an_id, ANIM_FRAMESPEEDLIST,	ds_list_create());
+
+	// Animation frames
+	ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMELIST), 0);
+	ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMESPEEDLIST), 1);
+	// ==================================================================================
+
+	an_id++;
+	// #11 - DROWN
+	ds_grid_set(an, an_id, ANIM_NAME,			"Drown");
+	ds_grid_set(an, an_id, ANIM_SPRITE,			spr_sonic_death);
+	ds_grid_set(an, an_id, ANIM_SPRITEMASK,		spr_sonic_mask);
+	ds_grid_set(an, an_id, ANIM_SPRITEMASK_L,	spr_sonic_maskL);
+	ds_grid_set(an, an_id, ANIM_SUBANIM,		-1);
+	ds_grid_set(an, an_id, ANIM_LOOPBACKTIMES,	-1);
+	ds_grid_set(an, an_id, ANIM_LOOPBACKFRAME,	0);
+	ds_grid_set(an, an_id, ANIM_LOOPBACKANIM,	-1);
+	ds_grid_set(an, an_id, ANIM_FRAMELIST,		ds_list_create());
+	ds_grid_set(an, an_id, ANIM_FRAMESPEEDLIST,	ds_list_create());
+
+	// Animation frames
+	ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMELIST), 1);
+	ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMESPEEDLIST), 1);
+	// ==================================================================================
 }
