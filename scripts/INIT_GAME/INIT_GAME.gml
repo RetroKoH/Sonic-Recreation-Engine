@@ -39,6 +39,7 @@ function INIT_GAME(){
 
 	// Set up animal data (sprites and movement)
 	scr_init_animals();
+	dat_signpost_sparkles();
 
 	global.core_input = instance_create_layer(0,0,"Core",obj_input);
 	global.core_fade = instance_create_layer(0,0,"Core",obj_fade);
