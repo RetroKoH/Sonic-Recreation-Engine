@@ -3,6 +3,7 @@ function scr_loadanimations(){
 	animtable_TITLESONIC();
 	animtable_RINGS();
 	animtable_SPRINGS();
+	animtable_MONITORS();
 	animtable_MOTOBUG();
 	animtable_CRABMEAT();
 	animtable_BUZZBOMBER();
