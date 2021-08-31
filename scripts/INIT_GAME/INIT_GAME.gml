@@ -52,9 +52,13 @@ function INIT_GAME(){
 
 	globalvar f_pause;          f_pause=false;      // Game Pausing flag
 
+	globalvar HUDFONT;          HUDFONT = font_add_sprite(spr_HUDnumbers,ord("0"),false,0); // Numerical HUD Font.
 	globalvar p_score;          p_score=0;          // Player's score
 	globalvar p_time;           p_time=0;           // Playing time
-	globalvar f_timecount;      f_timecount=0;      // Time counter update flag
+	globalvar p_timecenti;      p_timecenti=0;      // Playing time
+	globalvar p_timeseconds;    p_timeseconds=0;    // Playing time
+	globalvar p_timeminutes;    p_timeminutes=0;    // Playing time
+	globalvar f_timecount;      f_timecount=false;  // Time counter update flag
 	globalvar p_rings;          p_rings=0;          // Player's rings
 	globalvar p_lives;          p_lives=3;          // Player's lives
 	globalvar p_scorelife;      p_scorelife=50000;  // Amount of points needed for an extra life

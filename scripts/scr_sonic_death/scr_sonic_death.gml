@@ -1,4 +1,5 @@
 function scr_sonic_death(){
+	f_timecount = false;
 	invinc_timer = 0;
 	super_flag = false;
 	routine = 3;

@@ -20,7 +20,7 @@ function scr_destroy_enemy(){
 	    pti=4;    // move 4 into the badniks code. The animal will use this to set image_index of the points.
 	}
 
-	//scrAddPoints(d0); // Add this value to your score.
+	scr_add_points(d0); // Add this value to your score.
 	instance_change(obj27_Explosion,true);	// Change into the explosion object.
 	routine=0;								// Tell the explosion object to create an animal.
 }

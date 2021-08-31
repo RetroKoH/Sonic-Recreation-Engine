@@ -17,6 +17,7 @@ LAYOUT_GHZ();
 // Set up Camera and place player
 cam = instance_create_layer(78,940,"Core",obj_camera);
 player = instance_create_layer(80,944,"Instances",obj01_Sonic);
+instance_create_layer(0,0,"Core",obj21_HUD);
 
 // Soft values (Where the camera boundaries appear
 v_limitleft1=0;				// Left level boundary.
@@ -35,3 +36,4 @@ v_scrshiftx=0;          // Screen shift as player moves horizontally.
 v_lookshift=0;          // Screen shift when player looks up/down.
 
 cam.follow = player;
+f_timecount = true;
