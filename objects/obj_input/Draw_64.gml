@@ -13,5 +13,10 @@ if debug{
 
 	draw_roundrect(70,ay-2,88,ay+6,global.k_st_h=false);
 	
-	draw_text(20, ay+100, chunks_count);
+	//	draw_text(20, ay+100, chunks_count);
+	draw_text(20, ay+100, osc_6a);
+	draw_text(20, ay+120, osc_6b);
+	draw_text(20, ay+140, inc_6);
+	draw_text(20, ay+160, lim_6);
+	draw_text(20, ay+180, pol_6);
 }

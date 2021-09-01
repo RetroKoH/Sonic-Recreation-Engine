@@ -5,7 +5,7 @@ var ani;
 
 if routine == 0
 {
-    routine = 2; 
+    routine = 1; 
     ani = instance_create_layer(x,y,"Instances",obj28_Animals);
 	ani.subtype = irandom(6);
     ani.pti = pti;

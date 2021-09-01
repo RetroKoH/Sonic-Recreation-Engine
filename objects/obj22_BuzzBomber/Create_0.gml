@@ -1,4 +1,4 @@
-/// @description Insert description here
+/// @description Init Buzz Bomber
 
 xsp = 0;
 ysp = 0;

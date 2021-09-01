@@ -41,7 +41,7 @@ function animtable_MONITORS(){
 	ds_grid_set(an, an_id, ANIM_SPRITEMASK,		spr_monitor);
 	ds_grid_set(an, an_id, ANIM_SPRITEMASK_L,	spr_monitor);
 	ds_grid_set(an, an_id, ANIM_SUBANIM,		-1);
-	ds_grid_set(an, an_id, ANIM_LOOPBACKTIMES,	0);
+	ds_grid_set(an, an_id, ANIM_LOOPBACKTIMES,	-1);
 	ds_grid_set(an, an_id, ANIM_LOOPBACKFRAME,	0);
 	ds_grid_set(an, an_id, ANIM_LOOPBACKANIM,	-1);
 	ds_grid_set(an, an_id, ANIM_FRAMELIST,		ds_list_create());

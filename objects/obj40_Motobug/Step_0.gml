@@ -9,6 +9,7 @@ if routine == 0
 	if scr_obj_check_floor()
 	{
 		routine++;
+		anim_direction*=-1;
 		ysp = 0;
 	}
 }

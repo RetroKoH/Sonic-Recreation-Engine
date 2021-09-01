@@ -26,4 +26,4 @@ global.k_st_h=keyboard_check(keymap_start);
 global.k_st_p=keyboard_check_pressed(keymap_start);
 global.k_st_r=keyboard_check_released(keymap_start);
 
-scr_osc_num_do();
+if osc_active scr_osc_num_do();

@@ -37,3 +37,4 @@ v_lookshift=0;          // Screen shift when player looks up/down.
 
 cam.follow = player;
 f_timecount = true;
+osc_active = true;

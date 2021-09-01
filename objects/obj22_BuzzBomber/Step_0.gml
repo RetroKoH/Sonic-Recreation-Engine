@@ -5,8 +5,8 @@ switch(routine)
 	case 0: //move
 		timedelay--; if !timedelay {
 			if buzz_status == 2 {
-				var shot = instance_create_layer(x+($14*anim_direction),y+$1C,"Instances",obj23_Missile);
-				shot.xsp = 2*anim_direction;
+				var shot = instance_create_layer(x+($14*-anim_direction),y+$1C,"Instances",obj23_Missile);
+				shot.xsp = 2*-anim_direction;
 				shot.ysp = 2;
 				//timedelay = $E; // Apply time delay to the missile
 				buzz_status = 1;
@@ -16,7 +16,7 @@ switch(routine)
 			else {
 				routine++;
 				timedelay = 127;
-				xsp = 4 * anim_direction;
+				xsp = 4 * -anim_direction;
 				anim_ID = 1;
 			}
 		}

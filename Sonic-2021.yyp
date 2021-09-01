@@ -81,6 +81,7 @@
     {"id":{"name":"obj3B_PurpleRock","path":"objects/obj3B_PurpleRock/obj3B_PurpleRock.yy",},"order":17,},
     {"id":{"name":"obj21_HUD","path":"objects/obj21_HUD/obj21_HUD.yy",},"order":7,},
     {"id":{"name":"spr_explosion","path":"sprites/spr_explosion/spr_explosion.yy",},"order":0,},
+    {"id":{"name":"scr_give_powerup","path":"scripts/scr_give_powerup/scr_give_powerup.yy",},"order":6,},
     {"id":{"name":"obj26_Monitor","path":"objects/obj26_Monitor/obj26_Monitor.yy",},"order":11,},
     {"id":{"name":"scr_render_anim","path":"scripts/scr_render_anim/scr_render_anim.yy",},"order":4,},
     {"id":{"name":"spr_splats","path":"sprites/spr_splats/spr_splats.yy",},"order":3,},

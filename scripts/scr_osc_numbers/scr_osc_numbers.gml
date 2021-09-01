@@ -1,4 +1,5 @@
 function scr_osc_num_init(){
+	globalvar osc_active; osc_active = false;
 	// Oscillitary Variables - These dictate movement of some objects/graphics. NOT all are running in all levels. You can change this in "scrOscNumDo".
 	// +2 - MZ & LZ
 	globalvar osc_0a;           osc_0a=.5;          // Actual value. Starts at this baseline.
@@ -100,21 +101,53 @@ function scr_osc_num_init(){
 
 function scr_osc_num_reset(){
 	osc_0a=.5;       // +2
+	osc_0b=0;
+	pol_0=1;
 	osc_1a=.5;       // +6
+	osc_1b=0;
+	pol_1=1;
 	osc_2a=.5;       // +$A
+	osc_2b=0;
+	pol_2=1;
 	osc_3a=.5;       // +$E
+	osc_3b=0;
+	pol_3=1;
 	osc_4a=.5;       // +$12
+	osc_4b=0;
+	pol_4=1;
 	osc_5a=.5;       // +$16
+	osc_5b=0;
+	pol_5=1;
 	osc_6a=.5;       // +$1A
+	osc_6b=0;
+	pol_6=1;
 	osc_7a=.5;       // +$1E
+	osc_7b=0;
+	pol_7=1;
 	osc_8a=.5;       // +$22
+	osc_8b=0;
+	pol_8=1;
 	osc_9a=50.9375;  // +$26
+	osc_9b=1.1171875;
+	pol_9=1;
 	osc_Aa=20.5;     // +$2A
+	osc_Ab=0.703125;
+	pol_A=1;
 	osc_Ba=30.5;     // +$2E
+	osc_Bb=1.0546875;
+	pol_B=1;
 	osc_Ca=50.5;     // +$32
+	osc_Cb=1.7578125;
+	pol_C=1;
 	osc_Da=70.5;     // +$36
+	osc_Db=2.4609375;
+	pol_D=1;
 	osc_Ea=.5;       // +$3A
+	osc_Eb=0;
+	pol_E=1;
 	osc_Fa=.5;       // +$3E
+	osc_Fb=0;
+	pol_F=1;
 }
 
 function scr_osc_num_do(){
