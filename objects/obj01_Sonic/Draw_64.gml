@@ -5,7 +5,8 @@ if !debug exit;
 draw_text(112,8,"SONIC   X: "+string(x)+
 				"\n        Y: "+string(y)+
 				"\nG SPEED: "+string(gsp)+"\nX SPEED: "+string(xsp)+"\nY SPEED: "+string(ysp)+
-				"\nANGLE: "+string(angle)+"  ("+string(anim_angle)+")");
+				"\nANGLE: "+string(angle)+"  ("+string(anim_angle)+")"+
+				"\n"+string(col_tile_A));//string(tilemap_get_x(col_tile_A))+" "+string(tilemap_get_y(col_tile_A)));
 
 draw_text(312,8,"STATUS: "+string(status)+
 				"\nFACE LEFT: "+string(status&STA_FACING)+

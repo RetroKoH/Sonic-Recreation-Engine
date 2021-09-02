@@ -24,13 +24,17 @@ topspeed	= 6;          // Maximum X speed via acceleration.
 accel_run	= 0.046875;   // X-Acceleration rate.
 decel_run	= 0.5;        // X-Deceleraction rate.
 
+real_hgt_r = 0;
+real_hgt_l = 0;
 // Collision sensors (For debug purposes)
 // Left Floor
 col_sensor_A    =   false;
 col_tile_A      =   -1;
+col_angle_A		=	0;
 // Right Floor
 col_sensor_B    =   false;
 col_tile_B      =   -1;
+col_angle_B		=	0;
 // Left Ceiling
 col_sensor_C    =   false;
 col_tile_C      =   -1;
