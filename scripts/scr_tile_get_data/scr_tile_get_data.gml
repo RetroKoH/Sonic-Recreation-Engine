@@ -35,9 +35,3 @@ function scr_tile_get_height(t, col){
     
     return hgt;
 }
-
-function scr_wrap_angle(ang){
-    if (ang < 0)
-        return 360 - ((-ang) % 360);
-    return ang % 360;
-}
