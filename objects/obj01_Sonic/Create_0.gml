@@ -27,9 +27,10 @@ topspeed	= 6;          // Maximum X speed via acceleration.
 accel_run	= 0.046875;   // X-Acceleration rate.
 decel_run	= 0.5;        // X-Deceleraction rate.
 
-real_hgt_r = 0;
-real_hgt_l = 0;
 // Collision sensors (For debug purposes)
+col_sensor		=	false;
+col_tile		=	-1;
+col_angle		=	0;
 // Left Floor
 col_sensor_A    =   false;
 col_tile_A      =   -1;
@@ -49,7 +50,7 @@ col_sensor_E    =   false;
 col_tile_E      =   -1;
 // Right Wall
 col_sensor_F    =   false;
-col_tile_f      =   -1;
+col_tile_F      =   -1;
 
 // Animation system related variables
 scr_initanimations(AnimationsSonic,0);

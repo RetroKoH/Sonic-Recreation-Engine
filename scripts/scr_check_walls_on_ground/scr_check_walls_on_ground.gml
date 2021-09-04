@@ -1,40 +1,47 @@
-function scr_check_walls_on_ground(){
-	// CheckWallsOnGround - This allows us to detect walls, and push them away.
-	if !(angle>90 && angle<270)
+function scr_check_walls_on_ground()
+{
+	// Handles collisions with walls based on quadrant of the ground angle
+	var dist, quadrant = scr_get_quadrant(angle);
+	
+	if (gsp != 0 && (angle < 90 || angle >= 270))
 	{
-		var pos, tile, hgt; var _y = 0;
-		if (angle == 0) _y = 8; // Add 8 to y-pos if at a perfect flat angle
-
-	    if gsp>0
+		var quadCheck;
+		// Get distance from wall
+		if (gsp > 0)
 		{
-			col_sensor_E=false;
-			pos = x+11+xsp;
-			tile = scr_find_nearest_tile(map_id,pos,y+_y); // CalcRoomInFront
-			if tile {
-				hgt=ds_grid_get(col_normal,tile_get_index(tile),scr_tile_get_coord(pos)&(TILE_SIZE-1));	// Get tile's height array value.
-
-				if (TILE_SIZE - hgt <= _y) {
-					xsp=(scr_tile_get_coord(pos)-(x+11));
-					status|=STA_PUSH; // Set pushing status bit
-					gsp=0;
-					col_sensor_F=true;
-				}  else col_sensor_F=false;
-			}
+			quadCheck = (quadrant + 1) & 3;
+			dist = scr_get_right_wall_dist(10, (angle == 0) ? 8 : 0, quadrant);
 		}
-	    else if gsp<0
+		else if (gsp < 0)
 		{
-			col_sensor_F=false;
-			pos = x-10+xsp;
-			tile = scr_find_nearest_tile(map_id,pos,y+_y); // CalcRoomInFront
-			if tile {
-				hgt=ds_grid_get(col_normal,tile_get_index(tile),scr_tile_get_coord(pos)&(TILE_SIZE-1));	// Get tile's height array value.
-				
-				if (TILE_SIZE - hgt <= _y) {
-					xsp=((scr_tile_get_coord(pos)+TILE_SIZE)-(x-10));
-					status|=STA_PUSH; // Set pushing status bit
-					gsp=0;
-					col_sensor_E=true;
-				} else col_sensor_E=false;
+			quadCheck = (quadrant - 1) & 3;
+			dist = scr_get_left_wall_dist(10, (angle == 0) ? 8 : 0, quadrant);
+		}
+
+		if (dist < 0)
+		{
+			switch (quadCheck)
+			{
+				// Running downwards
+				case 0:
+					ysp += dist;
+				break;
+				// Running left
+				case 1:
+					xsp -= dist;
+					status |= STA_PUSH;
+					gsp = 0;
+				break;
+				// Running upwards
+				case 2:
+					ysp -= dist;
+				break;
+				// Running right
+				case 3:
+					xsp += dist;
+					status |= STA_PUSH;
+					gsp = 0;
+				break;
 			}
 		}
 	}

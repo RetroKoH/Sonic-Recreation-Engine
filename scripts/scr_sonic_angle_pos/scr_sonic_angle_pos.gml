@@ -14,16 +14,23 @@ function scr_sonic_angle_pos(){
 	    exit;
 	}
  
-	// Otherwise, operate under Floor Mode
+	// Otherwise, find tiles along the ground Sonic is on
 	else
 	{
 		// Get quadrant
 		quadrant = scr_get_quadrant(angle);
 		
         // Get tile distances
-        dist_l = scr_sonic_get_tile_dist(0, quadrant);
-        dist_r = scr_sonic_get_tile_dist(1, quadrant);
- 
+		dist_l = scr_get_floor_dist(-width, height, quadrant);
+		col_sensor_A = col_sensor;
+		col_tile_A = col_tile;
+		col_angle_A = col_angle;
+
+		dist_r = scr_get_floor_dist(width, height, quadrant);
+		col_sensor_B = col_sensor;
+		col_tile_B = col_tile;
+		col_angle_B = col_angle;
+
         // Get shortest distance and set angle
         if (dist_l < dist_r)
         {

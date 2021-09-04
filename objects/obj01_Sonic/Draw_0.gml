@@ -13,8 +13,6 @@ if debug{
 	if col_sensor_A draw_sprite_stretched_ext(spr_debug_line,0,x-width,y,1,height+1,c_lime,1);
 	else			draw_sprite_stretched_ext(spr_debug_line,0,x-width,y,1,height+1,c_fuchsia,1);
 		draw_sprite(spr_debug_line,0,x-width,y+height);
-	
-	draw_text(x-width-8,y+height+4,real_hgt_l);
 
 //	var tx=tilemap_get_cell_x_at_pixel(map_id,x-width,y+height)*TILE_SIZE, ty=tilemap_get_cell_y_at_pixel(map_id,x-width,y+height)*TILE_SIZE;
 //	draw_rectangle_color(tx,ty,tx+TILE_SIZE,ty+TILE_SIZE,c_white,c_white,c_white,c_white,false);
@@ -23,8 +21,6 @@ if debug{
 	if col_sensor_B draw_sprite_stretched_ext(spr_debug_line,0,x+width,y,1,height+1,c_lime,1);
 	else			draw_sprite_stretched_ext(spr_debug_line,0,x+width,y,1,height+1,c_fuchsia,1);
 		draw_sprite(spr_debug_line,0,x+width,y+height);
-	
-	draw_text(x+width+8,y+height+4,real_hgt_r);
 
 	// Col Sensor C (Left Ceiling)
 	draw_sprite_stretched_ext(spr_debug_line,0,x-width,y-height,1,height+1,c_fuchsia,1);
