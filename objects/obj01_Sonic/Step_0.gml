@@ -90,3 +90,9 @@ switch(routine)
 		x+=xsp; ysp+=.21875; y+=ysp;	// ObjectFall
 	break;
 }
+
+// Handle move_angle
+if xsp == 0 && ysp == 0
+	move_angle = 0
+else
+	move_angle = scr_wrap_angle(point_direction(x,y,x+xsp,y+ysp)+90);

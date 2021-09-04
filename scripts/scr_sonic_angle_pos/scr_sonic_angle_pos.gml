@@ -39,7 +39,6 @@ function scr_sonic_angle_pos(){
         }
 		
         // Check wall latching and set angle
-			
         if (abs(scr_get_signed_angle(scr_wrap_angle(angle_real - angle))) >= 45)
             angle = floor(scr_wrap_angle(angle + 45) / 90) * 90;
         else

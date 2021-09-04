@@ -15,12 +15,32 @@ function scr_sonic_acquirefloor(){
 	anim_ID=anim_player.walk;
         
 	// Set speeds upon reaquisition with the floor
-	//if (relative_angle>=338 && relative_angle<=359) // If 
-	//|| (relative_angle>=0 && relative_angle<=22)    // If angle is in the range of 0-22 or 338-359
-	if (angle>=338 && angle<=359) // If 
-	|| (angle>=0 && angle<=22)    // If angle is in the range of 0-22 or 338-359
+	if angle >= 339 || angle <= 23
 	{
-	    ysp=0;
-	    gsp=xsp;
+	    ysp = 0;
+	    gsp = xsp;
+	}
+	else if angle >= 316 || angle <= 45
+	{
+		if (abs(xsp) > ysp) gsp = xsp;
+		else gsp = ysp*0.5*-sign(sin(degtorad(angle)));
+		ysp = 0;
+	}
+	else if angle >= 271 || angle <= 90
+	{
+		if (abs(xsp) > ysp) gsp = xsp;
+		else gsp = ysp*-sign(sin(degtorad(angle)));
+		ysp = 0;
+	}
+	// Set speeds upon reaquisition with the ceiling
+	else if angle >= 226 || angle <= 135
+	{
+		gsp = ysp*-sign(sin(degtorad(angle)));
+		ysp = 0
+	}
+	// Should not reattach @ angles 136-225
+	else
+	{
+		ysp = 0;
 	}
 }

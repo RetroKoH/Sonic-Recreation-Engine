@@ -45,4 +45,8 @@ if debug{
 	if col_sensor_F draw_sprite_stretched_ext(spr_debug_line,0,x,y+(8*gr),10,1,c_lime,1);
 	else			draw_sprite_stretched_ext(spr_debug_line,0,x,y+(8*gr),10,1,c_fuchsia,1);
 		draw_sprite(spr_debug_line,0,x+10,y+(8*gr));
+
+	// Movement angle line
+	draw_sprite(spr_debug_line_rotate,move_angle,x,y);
+	draw_text(x-3,y-8,string(floor(scr_wrap_angle((move_angle + ((move_angle >= 180) ? 1.40625 : 0)) + 43.59375) / 90)) )
 }

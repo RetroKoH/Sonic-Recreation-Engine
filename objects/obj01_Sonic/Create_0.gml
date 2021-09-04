@@ -11,6 +11,9 @@ status=0;		// Status bitfield
 routine = 0;	// Routine counter number
 angle = 0;		// The angle at which you are moving. (0-360*)
 new_angle = 0;	// Used for smoothing down the angle change on slopes.
+
+move_angle = 0; // Temporary. Will remove later
+
 jump = 0;
 invuln_timer = 0;
 invinc_timer = 0;
