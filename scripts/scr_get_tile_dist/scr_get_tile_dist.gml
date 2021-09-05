@@ -21,9 +21,8 @@ function scr_get_tile_dist(sensor_x, sensor_y, quadrant){
         return scr_get_tile_dist_adj(s_x, s_y, quadrant, 1) + TILE_SIZE;
 	
 	// TODO: CHECK SOLIDITY
-	// WHEN CHECKING FLOORS (QUADRANT 0), CHECK IF THE TILE IS EITHER TOP OR LRB SOLID
-	// CHECKING LRB SOLIDITY FIXES THE STAIR CLIPPING BUG
-	// OTHER QUADRANTS SHOULD JUST CHECK LRB SOLIDITY
+	// QUADRANT 0: CHECK TOP SOLID
+	// OTHER QUADRANTS: CHECK LRB SOLID
  
     t_angle = scr_tile_get_angle(tile);
     t_length = scr_get_tile_length(tile, s_x, s_y, quadrant);

@@ -18,12 +18,14 @@ function scr_sonic_get_floor_dist(quadrant){
         dist = dist_l;
 		col_other_dist = dist_r;
         col_angle = col_angle_A;
+		col_tile = col_tile_A;
     }
     else
     {
         dist = dist_r;
 		col_other_dist = dist_l;
         col_angle = col_angle_B;
+		col_tile = col_tile_B;
     }
 	
 	return dist;
@@ -57,12 +59,14 @@ function scr_sonic_get_ceiling_dist(quadrant){
         dist = dist_l;
 		col_other_dist = dist_r;
         col_angle = col_angle_C;
+		col_tile = col_tile_C;
 	}
     else
 	{
         dist = dist_r;
 		col_other_dist = dist_l;
-        col_angle = col_angle_D;
+        col_angle = col_angle_D
+		col_tile = col_tile_D;
 	}
 		
 	return dist;

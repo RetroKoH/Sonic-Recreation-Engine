@@ -28,8 +28,9 @@ function scr_sonic_check_floor(){
 			if (dist < 0)
 			{
 				// Only hit the floor if we aren't too deep into it
+				// (Allows us to fall through top solid blocks if we haven't quite cleared them)
 				var dist_chk = -(ysp + 8);
-				if (dist >= dist_chk || col_other_dist >= dist_chk)
+				if ((dist >= dist_chk || col_other_dist >= dist_chk)) // && (!IS_LRB_SOLID(col_tile))
 				{
 					angle = col_angle;
 					y += dist;
