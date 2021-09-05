@@ -86,20 +86,10 @@ function scr_sonic_move() {
 	else if v_lookshift<$60 v_lookshift+=2; // If we were looking down, bring look shift back up.
 
 	// Friction
-	if (move != -1 && gsp<0) // If the character is moving to the left, but the user is not pushing left,
-	{
-	    gsp=gsp-min(abs(gsp),accel_run)*-1; // Friction formula according to Sonic Retro Physics Guide.
-	    if (gsp>0) gsp=0;                   // This is to make sure that the character can come to a stop.
-	}
-	if (move != 1 && gsp>0) // Same as above, only this time, for the opposite direction.
-	{
-	    gsp=gsp-min(abs(gsp),accel_run);           
-	    if (gsp<0) gsp=0;
-	}
+	if (move == 0)
+		gsp-=min(abs(gsp),accel_run)*sign(gsp);	// Friction formula according to Sonic Retro Physics Guide.
 
 	// Apply to x and y speeds using the acquired gsp.
 	xsp = gsp*cos(degtorad(angle));
 	ysp = gsp*-sin(degtorad(angle));
-
-	scr_check_walls_on_ground();
 }

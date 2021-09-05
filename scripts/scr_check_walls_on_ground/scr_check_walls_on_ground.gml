@@ -1,44 +1,50 @@
 function scr_check_walls_on_ground()
 {
 	// Handles collisions with walls based on quadrant of the ground angle
-	var dist, quadrant = scr_get_quadrant(angle);
+	var dist, angleCheck, sensorY, quadrant = scr_get_quadrant(angle);
+	sensorY = (angle < 11.25 || angle > 348.75) ? 8 : 0;
 	
 	if (gsp != 0 && (angle < 90 || angle >= 270))
 	{
-		var quadCheck;
 		// Get distance from wall
 		if (gsp > 0)
 		{
-			quadCheck = (quadrant + 1) & 3;
-			dist = scr_get_right_wall_dist(10, (angle == 0) ? 8 : 0, quadrant);
+			angleCheck = angle - 90;
+			dist = scr_sonic_get_right_wall_dist(quadrant);
 		}
 		else if (gsp < 0)
 		{
-			quadCheck = (quadrant - 1) & 3;
-			dist = scr_get_left_wall_dist(10, (angle == 0) ? 8 : 0, quadrant);
+			angleCheck = angle + 90;
+			dist = scr_sonic_get_left_wall_dist(quadrant);
 		}
 
 		if (dist < 0)
 		{
-			switch (quadCheck)
+			switch (floor(scr_wrap_angle(angleCheck + 45) / 90))
 			{
 				// Running downwards
 				case 0:
-					ysp += dist;
+					y += dist;
+					ysp = 0;
+					gsp = 0;		// Fixes wall grinding bug
 				break;
 				// Running left
 				case 1:
-					xsp -= dist;
+					x -= dist;
+					xsp = 0;
 					status |= STA_PUSH;
 					gsp = 0;
 				break;
 				// Running upwards
 				case 2:
-					ysp -= dist;
+					y -= dist;
+					ysp += dist;
+					gsp = 0;		// Fixes wall grinding bug
 				break;
 				// Running right
 				case 3:
-					xsp += dist;
+					x += dist;
+					xsp = 0;
 					status |= STA_PUSH;
 					gsp = 0;
 				break;

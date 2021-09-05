@@ -2,6 +2,7 @@
 xsp=0;			// X-axis speed
 ysp=0;			// Y-axis speed
 gsp=0;			// Ground speed
+defaultHeight=0;// Default tile collision height
 height=0;		// Tile collision height
 width=0;		// Tile collision width
 depth=2;
@@ -28,9 +29,9 @@ accel_run	= 0.046875;   // X-Acceleration rate.
 decel_run	= 0.5;        // X-Deceleraction rate.
 
 // Collision sensors (For debug purposes)
-col_sensor		=	false;
 col_tile		=	-1;
 col_angle		=	0;
+col_other_dist	=	0;
 // Left Floor
 col_sensor_A    =   false;
 col_tile_A      =   -1;
@@ -42,9 +43,11 @@ col_angle_B		=	0;
 // Left Ceiling
 col_sensor_C    =   false;
 col_tile_C      =   -1;
+col_angle_C		=	0;
 // Right Ceiling
 col_sensor_D    =   false;
 col_tile_D      =   -1;
+col_angle_D		=	0;
 // Left Wall
 col_sensor_E    =   false;
 col_tile_E      =   -1;

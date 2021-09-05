@@ -2,12 +2,21 @@
 
 if fading exit;
 
+// Reset sensor flags
+col_sensor_A = false;
+col_sensor_B = false;
+col_sensor_C = false;
+col_sensor_D = false;
+col_sensor_E = false;
+col_sensor_F = false;
+
 switch(routine)
 {
 	case 0: // INIT
 	{
 		routine++;
-		height=$13;
+		defaultHeight=$13;
+		height=defaultHeight;
 		width=9;
 	} break;
 
@@ -22,8 +31,8 @@ switch(routine)
 					if gsp!=0 gsp-=(.125*sin(degtorad(angle)));	// Adjust Ground Speed based on current angle
 					scr_sonic_move();							// Update gsp based on directional input and apply friction/deceleration.
 					scr_sonic_roll();							// Check for starting a roll
-					scr_sonic_level_bound();					// Keep Sonic inside the view and kill Sonic if he touches the kill plane
 					x+=xsp; y+=ysp;								// SpeedtoPos
+					scr_sonic_level_bound();					// Keep Sonic inside the view and kill Sonic if he touches the kill plane
 					scr_sonic_angle_pos();						// Floor collision and angle check occurs
 				}
 			break;
@@ -31,9 +40,9 @@ switch(routine)
 				// Check for jump button release (variable jump velocity).
 				// Check for double jump abilities / turning Super
 				scr_sonic_move_air();			// Air movement (xsp) & air drag
-				scr_sonic_level_bound();		// Keep Sonic inside the view and kill Sonic if he touches the kill plane
 				x+=xsp; ysp+=.21875; y+=ysp;	// ObjectFall
 				if (status&$40) ysp-=.15625;	// Underwater gravity
+				scr_sonic_level_bound();		// Keep Sonic inside the view and kill Sonic if he touches the kill plane
 				angle = 0;						// Reset angle
 				scr_sonic_check_floor();		// Floor sensor collision check (and walls)
 			break;
@@ -47,8 +56,8 @@ switch(routine)
 					        else					gsp-=.3125*a;	// Rolling downhill
 					}
 					scr_sonic_roll_speed();					// Update gsp and apply friction.
-					scr_sonic_level_bound();				// Keep Sonic inside the view and kill Sonic if he touches the kill plane
 					x+=xsp; y+=ysp;							// SpeedtoPos
+					scr_sonic_level_bound();				// Keep Sonic inside the view and kill Sonic if he touches the kill plane
 					scr_sonic_angle_pos();					// Floor collision and angle check occurs
 				}
 			break;
@@ -56,10 +65,10 @@ switch(routine)
 				// Check for jump button release (variable jump velocity).
 				// Check for double jump abilities / turning Super
 				scr_sonic_move_air();			// Air movement (xsp) & air drag
-				scr_sonic_level_bound();		// Keep Sonic inside the view and kill Sonic if he touches the kill plane
 				x+=xsp; ysp+=.21875; y+=ysp;	// ObjectFall
 				if (status&$40) ysp-=.15625;	// Underwater gravity
 				angle = 0;						// Reset angle
+				scr_sonic_level_bound();		// Keep Sonic inside the view and kill Sonic if he touches the kill plane
 				scr_sonic_check_floor();		// Floor sensor collision check (and walls)
 			break;
 		}

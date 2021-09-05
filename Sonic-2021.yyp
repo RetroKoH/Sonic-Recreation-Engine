@@ -83,6 +83,7 @@
     {"id":{"name":"tilemap_set_flipped","path":"scripts/tilemap_set_flipped/tilemap_set_flipped.yy",},"order":2,},
     {"id":{"name":"obj23_Missile","path":"objects/obj23_Missile/obj23_Missile.yy",},"order":9,},
     {"id":{"name":"spr_mighty_idle","path":"sprites/spr_mighty_idle/spr_mighty_idle.yy",},"order":0,},
+    {"id":{"name":"scr_sonic_get_tile_dist","path":"scripts/scr_sonic_get_tile_dist/scr_sonic_get_tile_dist.yy",},"order":14,},
     {"id":{"name":"obj2E_PowerupIcon","path":"objects/obj2E_PowerupIcon/obj2E_PowerupIcon.yy",},"order":16,},
     {"id":{"name":"obj40Sub_MotobugSmoke","path":"objects/obj40Sub_MotobugSmoke/obj40Sub_MotobugSmoke.yy",},"order":19,},
     {"id":{"name":"obj3B_PurpleRock","path":"objects/obj3B_PurpleRock/obj3B_PurpleRock.yy",},"order":17,},

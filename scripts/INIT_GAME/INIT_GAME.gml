@@ -25,7 +25,7 @@ function INIT_GAME(){
 	globalvar v_limitleft3;     v_limitleft3=0;         // Left Level boundary at the end of an act.
 	globalvar v_scrshiftx;      v_scrshiftx=0;          // Screen shift as Sonic moves horizontally.
 	globalvar v_lookshift;      v_lookshift=0;          // Screen shift when Sonic looks up/down.
-
+	
 	// Collision tile related data
 	globalvar map_id, chunks_id, chunks_count;
 	map_id = -1; chunks_id = -1; chunks_count = 0;

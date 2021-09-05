@@ -23,16 +23,14 @@ function scr_sonic_jump(){
 	        convex=false;
 	        move_lock=false;
 	        //sound_play(sndA0_Jump);
-	        height=$13;
-	        width=9;
 	        if (status&STA_SPIN) status|=STA_ROLLJUMP; // Set Rolling Jump bit if necessary.
 	        else
 	        {
 	            height=$E;
 	            width=7;
 	            anim_ID=anim_player.roll;
-	            status|=STA_SPIN;		// Set Rolling bit
-	            y+=5;			// Pop Sonic's center 5 pixels down to accomodate for the size change.
+	            status|=STA_SPIN;				// Set Rolling bit
+	            y+=defaultHeight-height;		// Reposition according to height change
 	        }
 	    }
 	}

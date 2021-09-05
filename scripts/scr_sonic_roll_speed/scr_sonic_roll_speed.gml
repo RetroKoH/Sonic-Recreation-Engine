@@ -21,9 +21,9 @@ function scr_sonic_roll_speed(){
 	        if gsp==0
 			{
 				if (status&4) status^=4;
-				height=$13; width=9;
+				y-=defaultHeight-height;
+				height=defaultHeight; width=9;
 				anim_ID=anim_player.idle;
-				y-=5;
 			}
 	    }
 	}
@@ -33,6 +33,4 @@ function scr_sonic_roll_speed(){
 	var xv; xv=gsp*cos(degtorad(angle));
 	if xv>16 xsp=16; else if xv<-16 xsp=-16;
 	else xsp=xv;
-	
-	scr_check_walls_on_ground();
 }

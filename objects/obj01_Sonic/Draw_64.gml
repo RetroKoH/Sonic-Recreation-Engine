@@ -48,7 +48,7 @@ if (anim_ID >= anim_player.idle)
 	draw_sprite_stretched_ext(spr_debug_line,0,xx+wid,yy-hgt,scale,hgt+scale,c_yellow,1);
 		draw_sprite_stretched(spr_debug_line,0,xx+wid,yy-hgt,scale,scale);
 
-	var gr = !(status&2) && angle==0;
+	var gr = !(status&STA_INAIR) && (angle < 11.25 || angle > 348.75);
 
 	// Col Sensor E (Left Wall)
 	draw_sprite_stretched_ext(spr_debug_line,0,xx-(10*scale),yy+((8*scale)*gr),10*scale,scale,c_fuchsia,1);

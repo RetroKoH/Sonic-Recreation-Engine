@@ -1,213 +1,204 @@
 function scr_sonic_check_floor(){
 	// Get quadrant
-	var pos, tile, hgt, dist_l, dist_r, dist_real, angle_real, t_real, quadrant = scr_get_quadrant(move_angle);
+	var dist;
 	
 	// Handle collision based on quadrant of movement
-	switch(quadrant)
+	switch(floor(scr_wrap_angle(move_angle + 45) / 90))
 	{
 		case 0: // Mostly downward
 		{
-			// First check for walls and stop xsp if we find them
-			if xsp>0
+			// Check left wall collision
+			dist = scr_sonic_get_left_wall_dist(0);
+			if (dist < 0)
 			{
-				col_sensor_E=false;
-				pos = x+11+xsp;
-				tile = scr_find_nearest_tile(map_id,pos,y); // CalcRoomInFront
-				if tile {
-					hgt=ds_grid_get(col_normal,tile_get_index(tile),scr_tile_get_coord(pos)&(TILE_SIZE-1));	// Get tile's height array value.
-
-					if (scr_tile_get_coord(y)+(TILE_SIZE - hgt) <= y) {
-						x += (scr_tile_get_coord(pos)-(x+11));
-						xsp = 0;
-						col_sensor_F = true;
-					} else col_sensor_F = false;
-				}
+				x -= dist;
+				xsp = 0;
 			}
-		    else if xsp<0
+			
+			// Check right wall collision
+			dist = scr_sonic_get_right_wall_dist(0);
+			if (dist < 0)
 			{
-				col_sensor_F=false;
-				pos = x-10+xsp;
-				tile = scr_find_nearest_tile(map_id,pos,y); // CalcRoomInFront
-				if tile {
-					hgt=ds_grid_get(col_normal,tile_get_index(tile),scr_tile_get_coord(pos)&(TILE_SIZE-1));	// Get tile's height array value.
-
-					if (scr_tile_get_coord(y)+(TILE_SIZE - hgt) <= y) {
-						x += ((scr_tile_get_coord(pos)+TILE_SIZE)-(x-10));
-						xsp = 0;
-						col_sensor_E = true;
-					} else col_sensor_E = false;
-				}
+				x += dist;
+				xsp = 0;
 			}
 
-			// After, find floor
-			// Get tile distances
-			dist_l = scr_get_tile_dist(-width, height, 0);
-			col_sensor_A = col_sensor;
-			col_tile_A = col_tile;
-			col_angle_A = col_angle;
-
-			dist_r = scr_get_tile_dist(width, height, 0);
-			col_sensor_B = col_sensor;
-			col_tile_B = col_tile;
-			col_angle_B = col_angle;
-		
-			// Get shortest distance and set angle
-	        if (dist_l < dist_r)
-	        {
-	            dist_real = dist_l;
-	            angle_real = col_angle_A;
-	            t_real = col_tile_A;
-	        }
-	        else
-	        {
-	            dist_real = dist_r;
-	            angle_real = col_angle_B;
-	            t_real = col_tile_B;
-	        }
-		
-			// Only reattach to the floor if the "winning distance" is less than 0.
-			if dist_real < 0
+			// Check floor collision
+			dist = scr_sonic_get_floor_dist(0);
+			if (dist < 0)
 			{
-	            angle = angle_real;
-				y += dist_real;
-				scr_sonic_acquirefloor();
+				// Only hit the floor if we aren't too deep into it
+				var dist_chk = -(ysp + 8);
+				if (dist >= dist_chk || col_other_dist >= dist_chk)
+				{
+					angle = col_angle;
+					y += dist;
+					
+					if (angle > 22.5 && angle <= 292.5)
+					{
+						if (angle > 45 && angle <= 315)
+						{
+							// Steep slope
+							xsp = 0;
+							if (ysp >= 15.5)
+								ysp = 15.5;
+						}
+						else
+						{
+							// Shallow slope
+							ysp /= 2;
+						}
+						
+						scr_sonic_acquirefloor();
+						gsp = ysp;
+						if (angle < 180)
+							gsp = -gsp;
+					}
+					else
+					{
+						// Flat floor
+						ysp = 0;
+						gsp = xsp;
+						scr_sonic_acquirefloor();
+					}
+				}
 			}
 		}
 		break;
 		case 1: // Mostly right
 		{
-			// Check right wall sensor
-			col_sensor_E=false;
-			pos = x+11+xsp;
-			tile = scr_find_nearest_tile(map_id,pos,y); // CalcRoomInFront
-			if tile {
-				hgt=ds_grid_get(col_normal,tile_get_index(tile),scr_tile_get_coord(pos)&(TILE_SIZE-1));	// Get tile's height array value.
-
-				if (scr_tile_get_coord(y)+(TILE_SIZE - hgt) <= y) {
-					x += (scr_tile_get_coord(pos)-(x+11));
-					xsp = 0;
-					col_sensor_F = true;
-				} else col_sensor_F = false;
-			}
-
-			// After, find floor
-			// Get tile distances
-			dist_l = scr_get_tile_dist(-width, height, 0);
-			col_sensor_A = col_sensor;
-			col_tile_A = col_tile;
-			col_angle_A = col_angle;
-
-			dist_r = scr_get_tile_dist(width, height, 0);
-			col_sensor_B = col_sensor;
-			col_tile_B = col_tile;
-			col_angle_B = col_angle;
-		
-			// Get shortest distance and set angle
-	        if (dist_l < dist_r)
-	        {
-	            dist_real = dist_l;
-	            angle_real = col_angle_A;
-	            t_real = col_tile_A;
-	        }
-	        else
-	        {
-	            dist_real = dist_r;
-	            angle_real = col_angle_B;
-	            t_real = col_tile_B;
-	        }
-		
-			// Only reattach to the floor if the "winning distance" is less than 0.
-			if dist_real < 0
+			// Check right wall collision
+			dist = scr_sonic_get_right_wall_dist(0);
+			if (dist < 0)
 			{
-	            angle = angle_real;
-				y += dist_real;
-				scr_sonic_acquirefloor();
+				x += dist;
+				xsp = 0;
+				gsp = ysp;
+			}
+			
+			// Check ceiling collision
+			dist = scr_sonic_get_ceiling_dist(0);
+			if (dist < 0)
+			{
+				if (dist > -20)
+				{
+					// Only hit the ceiling if we aren't too deep into it
+					y -= dist;
+					if (ysp < 0)
+						ysp = 0;
+				}
+				else
+				{
+					// Check left wall collision
+					dist = scr_sonic_get_left_wall_dist(0);
+					if (dist < 0)
+					{
+						x -= dist;
+						xsp = 0;
+					}
+				}
+			}
+			else if (ysp >= 0)
+			{
+				// Check floor collision
+				dist = scr_sonic_get_floor_dist(0);
+				if (dist < 0)
+				{
+					y += dist;
+					angle = col_angle;
+					ysp = 0;
+					gsp = xsp;
+					scr_sonic_acquirefloor();
+				}
 			}
 		}
 		break;
 		case 2: // Mostly upward
 		{
-			// First check for walls and stop xsp if we find them
-			if xsp>0
+			// Check left wall collision
+			dist = scr_sonic_get_left_wall_dist(0);
+			if (dist < 0)
 			{
-				col_sensor_E=false;
-				pos = x+11+xsp;
-				tile = scr_find_nearest_tile(map_id,pos,y); // CalcRoomInFront
-				if tile {
-					hgt=ds_grid_get(col_normal,tile_get_index(tile),scr_tile_get_coord(pos)&(TILE_SIZE-1));	// Get tile's height array value.
-
-					if (scr_tile_get_coord(y)+(TILE_SIZE - hgt) <= y) {
-						x += (scr_tile_get_coord(pos)-(x+11));
-						xsp = 0;
-						col_sensor_F = true;
-					} else col_sensor_F = false;
-				}
+				x -= dist;
+				xsp = 0;
 			}
-		    else if xsp<0
+			
+			// Check right wall collision
+			dist = scr_sonic_get_right_wall_dist(0);
+			if (dist < 0)
 			{
-				col_sensor_F=false;
-				pos = x-10+xsp;
-				tile = scr_find_nearest_tile(map_id,pos,y); // CalcRoomInFront
-				if tile {
-					hgt=ds_grid_get(col_normal,tile_get_index(tile),scr_tile_get_coord(pos)&(TILE_SIZE-1));	// Get tile's height array value.
+				x += dist;
+				xsp = 0;
+			}
 
-					if (scr_tile_get_coord(y)+(TILE_SIZE - hgt) <= y) {
-						x += ((scr_tile_get_coord(pos)+TILE_SIZE)-(x-10));
-						xsp = 0;
-						col_sensor_E = true;
-					} else col_sensor_E = false;
+			// Check ceiling collision
+			dist = scr_sonic_get_ceiling_dist(0);
+			if (dist < 0)
+			{
+				y -= dist;
+				
+				if (col_angle != 0 && (col_angle >= 225 || col_angle < 135))
+				{
+					// If the ceiling is steep, actually land on it
+					angle = col_angle;
+					scr_sonic_acquirefloor();
+					gsp = ysp;
+					if (angle < 180)
+						gsp = -gsp;
+				}
+				else
+				{
+					// If the ceiling is shallow, just hit it
+					ysp = 0;
 				}
 			}
 		}
 		break;
 		case 3: // Mostly left
 		{
-			// Check left wall sensor
-			col_sensor_F=false;
-			pos = x-10+xsp;
-			tile = scr_find_nearest_tile(map_id,pos,y); // CalcRoomInFront
-			if tile {
-				hgt=ds_grid_get(col_normal,tile_get_index(tile),scr_tile_get_coord(pos)&(TILE_SIZE-1));	// Get tile's height array value.
-
-				if (scr_tile_get_coord(y)+(TILE_SIZE - hgt) <= y) {
-					x += ((scr_tile_get_coord(pos)+TILE_SIZE)-(x-10));
-					xsp = 0;
-					col_sensor_E = true;
-				} else col_sensor_E = false;
-			}
-
-			// After, find floor
-			// Get tile distances
-			dist_l = scr_get_tile_dist(-width, height, 0);
-			col_sensor_A = col_sensor;
-			col_tile_A = col_tile;
-			col_angle_A = col_angle;
-
-			dist_r = scr_get_tile_dist(width, height, 0);
-			col_sensor_B = col_sensor;
-			col_tile_B = col_tile;
-			col_angle_B = col_angle;
-
-			// Get shortest distance and set angle
-	        if (dist_l < dist_r)
-	        {
-	            dist_real = dist_l;
-	            angle_real = col_angle_A;
-	            t_real = col_tile_A;
-	        }
-	        else
-	        {
-	            dist_real = dist_r;
-	            angle_real = col_angle_B;
-	            t_real = col_tile_B;
-	        }
-		
-			// Only reattach to the floor if the "winning distance" is less than 0.
-			if dist_real < 0
+			// Check left collision
+			dist = scr_sonic_get_left_wall_dist(0);
+			if (dist < 0)
 			{
-	            angle = angle_real;
-				y += dist_real;
-				scr_sonic_acquirefloor();
+				x -= dist;
+				xsp = 0;
+				gsp = ysp;
+			}
+			
+			// Check ceiling collision
+			dist = scr_sonic_get_ceiling_dist(0);
+			if (dist < 0)
+			{
+				if (dist > -20)
+				{
+					// Only hit the ceiling if we aren't too deep into it
+					y -= dist;
+					if (ysp < 0)
+						ysp = 0;
+				}
+				else
+				{
+					// Check right wall collision
+					dist = scr_sonic_get_right_wall_dist(0);
+					if (dist < 0)
+					{
+						x += dist;
+						xsp = 0;
+					}
+				}
+			}
+			else if (ysp >= 0)
+			{
+				// Check floor collision
+				dist = scr_sonic_get_floor_dist(0);
+				if (dist < 0)
+				{
+					y += dist;
+					angle = col_angle;
+					ysp = 0;
+					gsp = xsp;
+					scr_sonic_acquirefloor();
+				}
 			}
 		}
 		break;

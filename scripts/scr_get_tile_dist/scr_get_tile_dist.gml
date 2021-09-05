@@ -6,8 +6,7 @@ function scr_get_tile_dist(sensor_x, sensor_y, quadrant){
     // Get tile size mask
     size_mask = TILE_SIZE - 1
  
-    // Get sensor position and reset flags
-    col_sensor = false;
+    // Get sensor position
     s_x = scr_get_sensor_x(quadrant, sensor_x, sensor_y);
     s_y = scr_get_sensor_y(quadrant, sensor_x, sensor_y);
  
@@ -20,12 +19,16 @@ function scr_get_tile_dist(sensor_x, sensor_y, quadrant){
     tile = scr_find_nearest_tile(map_id, s_x, s_y);
     if (!tile)
         return scr_get_tile_dist_adj(s_x, s_y, quadrant, 1) + TILE_SIZE;
+	
+	// TODO: CHECK SOLIDITY
+	// WHEN CHECKING FLOORS (QUADRANT 0), CHECK IF THE TILE IS EITHER TOP OR LRB SOLID
+	// CHECKING LRB SOLIDITY FIXES THE STAIR CLIPPING BUG
+	// OTHER QUADRANTS SHOULD JUST CHECK LRB SOLIDITY
  
     t_angle = scr_tile_get_angle(tile);
     t_length = scr_get_tile_length(tile, s_x, s_y, quadrant);
  
     // Set sensor flags
-    col_sensor = true;
     col_tile = tile;
     col_angle = t_angle;
  
@@ -40,8 +43,7 @@ function scr_get_tile_dist(sensor_x, sensor_y, quadrant){
         // Negative length
         if (t_length + (s_pos & size_mask) >= 0)
             return scr_get_tile_dist_adj(s_x, s_y, quadrant, 1) + TILE_SIZE;
-        else
-            return scr_get_tile_dist_adj(s_x, s_y, quadrant, -1) - TILE_SIZE;
+        return scr_get_tile_dist_adj(s_x, s_y, quadrant, -1) - TILE_SIZE;
     }
     else if (t_length == TILE_SIZE)
     {
@@ -86,7 +88,6 @@ function scr_get_tile_dist_adj(s_x, s_y, quadrant, adj_dir){
     t_length = scr_get_tile_length(tile, s_x, s_y, quadrant);
  
     // Set sensor flags
-    col_sensor = true;
     col_tile = tile;
     col_angle = t_angle;
  
