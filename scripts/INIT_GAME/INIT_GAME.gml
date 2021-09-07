@@ -28,7 +28,7 @@ function INIT_GAME(){
 	
 	// Collision tile related data
 	globalvar map_id, chunks_id, chunks_count;
-	map_id = -1; chunks_id = -1; chunks_count = 0;
+	map_id[0] = -1; map_id[1] = -1; chunks_id = -1; chunks_count = 0;
 	scr_collision_arrays();
 
 	// Animation Loading Cues

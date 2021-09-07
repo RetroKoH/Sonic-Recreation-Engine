@@ -1,6 +1,8 @@
 // Set up layer IDs
-var layer_id = layer_get_id("Collision");
-map_id = layer_tilemap_get_id(layer_id);
+var layer_id = layer_get_id("Collision_0");
+map_id[0] = layer_tilemap_get_id(layer_id);
+layer_id = layer_get_id("Collision_1");
+map_id[1] = layer_tilemap_get_id(layer_id);
 layer_id = layer_get_id("Foreground");
 chunks_id = layer_tilemap_get_id(layer_id);
 
@@ -16,7 +18,7 @@ LAYOUT_GHZ();
 
 // Set up Camera and place player
 cam = instance_create_layer(78,940,"Core",obj_camera);
-player = instance_create_layer(80,944,"Instances",obj01_Sonic);
+player = instance_create_layer(4579,547,"Instances",obj01_Sonic);
 instance_create_layer(0,0,"Core",obj21_HUD);
 
 // Soft values (Where the camera boundaries appear

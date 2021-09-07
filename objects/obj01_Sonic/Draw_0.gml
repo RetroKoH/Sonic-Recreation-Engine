@@ -14,7 +14,7 @@ if debug{
 	else			draw_sprite_stretched_ext(spr_debug_line,0,floor(x)-width,floor(y),1,height+1,c_fuchsia,1);
 		draw_sprite(spr_debug_line,0,floor(x)-width,floor(y)+height);
 
-//	var tx=tilemap_get_cell_x_at_pixel(map_id,floor(x)-width,floor(y)+height)*TILE_SIZE, ty=tilemap_get_cell_y_at_pixel(map_id,floor(x)-width,floor(y)+height)*TILE_SIZE;
+//	var tx=tilemap_get_cell_x_at_pixel(map_id[col_path],floor(x)-width,floor(y)+height)*TILE_SIZE, ty=tilemap_get_cell_y_at_pixel(map_id[col_path],floor(x)-width,floor(y)+height)*TILE_SIZE;
 //	draw_rectangle_color(tx,ty,tx+TILE_SIZE,ty+TILE_SIZE,c_white,c_white,c_white,c_white,false);
 
 	// Col Sensor B (Right Floor)

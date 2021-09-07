@@ -10,6 +10,7 @@ xsp = 0;
 ysp = 0;
 mov_xsp = 0;
 mov_ysp = 0;
+col_path = 0;	// Collision has two paths
 frame_time = 1;
 image_speed=0;                         // We don't want an animation right away, so this is 0.
 depth = 6;

@@ -6,7 +6,7 @@
     "path": "folders/Level Data/Level Layouts.yy",
   },
   "resourceVersion": "1.0",
-  "name": "tilemap_set_mirrored",
+  "name": "tilemap_setting",
   "tags": [],
   "resourceType": "GMScript",
 }

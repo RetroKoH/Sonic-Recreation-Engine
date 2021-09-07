@@ -18,7 +18,7 @@ draw_text(312,8,"STATUS: "+string(status)+
 				"\nUNDERWATER: "+string((status&STA_WATER)/STA_WATER));//+string(real(status&$80)/$80));
 
 // Tile Collision Points
-draw_text(800,8,"COLLISION FEEDBACK");
+draw_text(800,8,"COLLISION: "+string(col_path));
 var _x = 805, _y = 30, scale = 2;
 draw_rectangle_color(_x,_y+1,_x+(40*scale),_y+(40*scale),c_black,c_black,c_black,c_black,false);
 draw_rectangle_color(_x+1,_y+2,_x+(40*scale)-1,_y+(40*scale)-1,c_fuchsia,c_fuchsia,c_fuchsia,c_fuchsia,true);

@@ -6,7 +6,7 @@ function scr_obj_check_floor(){
 
 	    // RIGHT SENSOR
 	    t_h=floor(x)+width
-	    t_r=scr_find_nearest_tile(map_id, t_h, y+height); // Find nearest tile to Sonic.
+	    t_r=scr_find_nearest_tile(map_id[col_path], t_h, y+height); // Find nearest tile to Sonic.
     
 	    if(t_r) // if a tile is detected,
 	    {
@@ -17,7 +17,7 @@ function scr_obj_check_floor(){
     
 	    else // if a tile is not detected
 	    {
-	        t_r=scr_find_nearest_tile(map_id, t_h, y+height+TILE_SIZE); // check 16 pixels below.
+	        t_r=scr_find_nearest_tile(map_id[col_path], t_h, y+height+TILE_SIZE); // check 16 pixels below.
         
 	        if(t_r) // If tile exists
 	        {
@@ -34,7 +34,7 @@ function scr_obj_check_floor(){
     
 	    // LEFT SENSOR
 	    t_h=floor(x)-width;									// Get x-pos of object.
-	    t_l=scr_find_nearest_tile(map_id, t_h, y+height);	// Find nearest tile to Sonic.
+	    t_l=scr_find_nearest_tile(map_id[col_path], t_h, y+height);	// Find nearest tile to Sonic.
     
 	    if(t_l) // if a tile is detected,
 	    {
@@ -45,7 +45,7 @@ function scr_obj_check_floor(){
     
 	    else // if a tile is not detected, or it is the first tile, aka blank tile.
 	    {
-			t_l=scr_find_nearest_tile(map_id, t_h, y+height+TILE_SIZE); // check 16 pixels below.
+			t_l=scr_find_nearest_tile(map_id[col_path], t_h, y+height+TILE_SIZE); // check 16 pixels below.
         
 			if(t_l)
 			{

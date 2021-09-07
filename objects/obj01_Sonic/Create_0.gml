@@ -10,9 +10,10 @@ status=0;		// Status bitfield
 				// 0-Facing (1-right), 1-Air (1-true), 2-Spin (1-true), 3-Obj aka if not on tile, but shouldn't fall. (1-true),
 				// 4-RollJump (1-true), 5-Push (1-true), 6-Water (1-true) 7-Unknown
 routine = 0;	// Routine counter number
+
+col_path = 0;	// Collision has two paths
 angle = 0;		// The angle at which you are moving. (0-360*)
 new_angle = 0;	// Used for smoothing down the angle change on slopes.
-
 move_angle = 0; // Temporary. Will remove later
 
 jump = 0;

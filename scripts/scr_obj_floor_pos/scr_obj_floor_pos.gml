@@ -10,7 +10,7 @@ function scr_obj_floor_pos(dir){
 
 	    // RIGHT SENSOR
 	    t_h=floor(x)+width
-	    t_r=scr_find_nearest_tile(map_id, t_h, y+height); // Find nearest tile to Sonic.
+	    t_r=scr_find_nearest_tile(map_id[col_path], t_h, y+height); // Find nearest tile to Sonic.
 
 	    if(t_r) // if a tile is detected,
 	    {
@@ -28,7 +28,7 @@ function scr_obj_floor_pos(dir){
     
 	        if hgt_r == TILE_SIZE // If height is max, search for another tile above.
 	        {
-	            t_r2=scr_find_nearest_tile(map_id, t_h, (y+height)-TILE_SIZE);
+	            t_r2=scr_find_nearest_tile(map_id[col_path], t_h, (y+height)-TILE_SIZE);
 	            if(t_r2) // if tile exists
 	            {
 	                t_r=t_r2;
@@ -48,7 +48,7 @@ function scr_obj_floor_pos(dir){
 	    }
 	    else // if a tile is not detected
 	    {
-	        t_r=scr_find_nearest_tile(map_id, t_h, y+height+TILE_SIZE); // check 16 pixels below.
+	        t_r=scr_find_nearest_tile(map_id[col_path], t_h, y+height+TILE_SIZE); // check 16 pixels below.
 	        if(t_r) // if tile exists
 	        {
 				if tile_get_mirror(t_r)
@@ -73,7 +73,7 @@ function scr_obj_floor_pos(dir){
 
 	    // LEFT SENSOR
 	    t_h=floor(x)-width;							// Get x-pos of object.
-	    t_l=scr_find_nearest_tile(map_id, t_h, y+height);	// Find nearest tile to Sonic.
+	    t_l=scr_find_nearest_tile(map_id[col_path], t_h, y+height);	// Find nearest tile to Sonic.
 
 	    if(t_l) // if a tile is detected,
 	    {
@@ -91,7 +91,7 @@ function scr_obj_floor_pos(dir){
     
 	        if hgt_l == TILE_SIZE // If height is max, search for another tile above.
 	        {
-	            t_l2=scr_find_nearest_tile(map_id, t_h, (y+height)-TILE_SIZE)
+	            t_l2=scr_find_nearest_tile(map_id[col_path], t_h, (y+height)-TILE_SIZE)
 	            if(t_l2) // if tile exists
 	            {
 	                t_l=t_l2;
@@ -112,7 +112,7 @@ function scr_obj_floor_pos(dir){
 
 	    else // if a tile is not detected, or it is the first tile, aka blank tile.
 	    {
-	        t_l=scr_find_nearest_tile(map_id, t_h, y+height+TILE_SIZE); // check 16 pixels below.
+	        t_l=scr_find_nearest_tile(map_id[col_path], t_h, y+height+TILE_SIZE); // check 16 pixels below.
     
 	        if(t_l)
 	        {

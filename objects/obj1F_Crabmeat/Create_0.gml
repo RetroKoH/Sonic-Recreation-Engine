@@ -9,6 +9,7 @@ status=0;
 routine=0;
 routine_2nd=0;
 angle=0;
+col_path=0;
 timedelay=59;  // Time delay to start.
 crabmode=0;    // Counter for certain things to happen.
 

@@ -16,7 +16,7 @@ function scr_get_tile_dist(sensor_x, sensor_y, quadrant){
 		s_pos = s_x;
  
     // Get tile
-    tile = scr_find_nearest_tile(map_id, s_x, s_y);
+    tile = scr_find_nearest_tile(map_id[col_path], s_x, s_y);
     if (!tile)
         return scr_get_tile_dist_adj(s_x, s_y, quadrant, 1) + TILE_SIZE;
 	
@@ -79,7 +79,7 @@ function scr_get_tile_dist_adj(s_x, s_y, quadrant, adj_dir){
 	}
  
     // Get tile
-    tile = scr_find_nearest_tile(map_id, s_x, s_y);
+    tile = scr_find_nearest_tile(map_id[col_path], s_x, s_y);
     if (!tile)
         return size_mask - (s_pos & size_mask);
  
