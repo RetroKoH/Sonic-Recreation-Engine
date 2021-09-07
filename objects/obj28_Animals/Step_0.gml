@@ -15,8 +15,10 @@ switch(routine)
 	break;
 	case 1:
 		x+=xsp; ysp+=.21875; y+=ysp;	// ObjectFall
-		if scr_obj_check_floor()
+		var dist = scr_get_floor_dist(0, height, 0)
+		if dist <= 0
 		{
+			y += dist;
 			xsp = mov_xsp;
 			ysp = mov_ysp;
 			image_index = 1;
@@ -28,8 +30,10 @@ switch(routine)
 	case 7: // Clucky (Subtype 5; Sub #1 in Sonic 1 engine)
 		x+=xsp; y+=ysp; // SpeedToPos
 		ysp += .09375;
-		if scr_obj_check_floor()
+		var dist = scr_get_floor_dist(0, height, 0)
+		if dist <= 0
 		{
+			y += dist;
 			ysp = mov_ysp;
 		}
 		frame_time -= 1;
@@ -47,8 +51,10 @@ switch(routine)
 	case 8: // Rocky (Subtype 6; Sub #3 in Sonic 1 engine)
 		x+=xsp; ysp+=.21875; y+=ysp;	// ObjectFall
 		if ysp > 0		image_index = 2;
-		if scr_obj_check_floor()
+		var dist = scr_get_floor_dist(0, height, 0)
+		if dist <= 0
 		{
+			y += dist;
 			ysp = mov_ysp;
 			image_index = 1;
 		}

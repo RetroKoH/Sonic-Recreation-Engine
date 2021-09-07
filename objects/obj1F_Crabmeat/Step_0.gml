@@ -6,8 +6,10 @@ if fading exit;
 if routine == 0
 {
 	x+=xsp; ysp+=.21875; y+=ysp;	// ObjectFall
-	if scr_obj_check_floor()
+	var dist = scr_get_floor_dist(0, height, 0)
+	if dist <= 0
 	{
+		y+=dist;
 		routine++;
 		ysp = 0;
 	}

@@ -16,13 +16,13 @@ function scr_obj_floor_pos(dir){
 	    {
 			if tile_get_mirror(t_r)
 			{
-				ang_r=360-ds_grid_get(col_angles,tile_get_index(t_r),0);							// Get tile's inverse angle value
-				hgt_r=ds_grid_get(col_normal,tile_get_index(t_r),TILE_SIZE-1-(t_h&(TILE_SIZE-1)));	// Get tile's mirrored height array value.
+				ang_r=360-ds_grid_get(col_angles,tile_get_index(t_r)&$FF,0);							// Get tile's inverse angle value
+				hgt_r=ds_grid_get(col_normal,tile_get_index(t_r)&$FF,TILE_SIZE-1-(t_h&(TILE_SIZE-1)));	// Get tile's mirrored height array value.
 			}
 			else
 			{
-				ang_r=ds_grid_get(col_angles,tile_get_index(t_r),0);					// Get tile's angle value
-				hgt_r=ds_grid_get(col_normal,tile_get_index(t_r),t_h&(TILE_SIZE-1));	// Get tile's height array value.
+				ang_r=ds_grid_get(col_angles,tile_get_index(t_r)&$FF,0);					// Get tile's angle value
+				hgt_r=ds_grid_get(col_normal,tile_get_index(t_r)&$FF,t_h&(TILE_SIZE-1));	// Get tile's height array value.
 			}
 			y_r = scr_tile_get_coord(y+height);
     
@@ -34,13 +34,13 @@ function scr_obj_floor_pos(dir){
 	                t_r=t_r2;
 					if tile_get_mirror(t_r)
 					{
-						ang_r=360-ds_grid_get(col_angles,tile_get_index(t_r),0);							// Get tile's inverse angle value
-						hgt_r=ds_grid_get(col_normal,tile_get_index(t_r),TILE_SIZE-1-(t_h&(TILE_SIZE-1)));	// Get tile's mirrored height array value.
+						ang_r=360-ds_grid_get(col_angles,tile_get_index(t_r)&$FF,0);							// Get tile's inverse angle value
+						hgt_r=ds_grid_get(col_normal,tile_get_index(t_r)&$FF,TILE_SIZE-1-(t_h&(TILE_SIZE-1)));	// Get tile's mirrored height array value.
 					}
 					else
 					{
-						ang_r=ds_grid_get(col_angles,tile_get_index(t_r),0);					// Get tile's angle value
-						hgt_r=ds_grid_get(col_normal,tile_get_index(t_r),t_h&(TILE_SIZE-1));	// Get tile's height array value.
+						ang_r=ds_grid_get(col_angles,tile_get_index(t_r)&$FF,0);					// Get tile's angle value
+						hgt_r=ds_grid_get(col_normal,tile_get_index(t_r)&$FF,t_h&(TILE_SIZE-1));	// Get tile's height array value.
 					}
 					y_r = scr_tile_get_coord(y+height-TILE_SIZE);
 	            }
@@ -53,13 +53,13 @@ function scr_obj_floor_pos(dir){
 	        {
 				if tile_get_mirror(t_r)
 				{
-					ang_r=360-ds_grid_get(col_angles,tile_get_index(t_r),0);							// Get tile's inverse angle value
-					hgt_r=ds_grid_get(col_normal,tile_get_index(t_r),TILE_SIZE-1-(t_h&(TILE_SIZE-1)));	// Get tile's mirrored height array value.
+					ang_r=360-ds_grid_get(col_angles,tile_get_index(t_r)&$FF,0);							// Get tile's inverse angle value
+					hgt_r=ds_grid_get(col_normal,tile_get_index(t_r)&$FF,TILE_SIZE-1-(t_h&(TILE_SIZE-1)));	// Get tile's mirrored height array value.
 				}
 				else
 				{
-					ang_r=ds_grid_get(col_angles,tile_get_index(t_r),0);					// Get tile's angle value
-					hgt_r=ds_grid_get(col_normal,tile_get_index(t_r),t_h&(TILE_SIZE-1));	// Get tile's height array value.
+					ang_r=ds_grid_get(col_angles,tile_get_index(t_r)&$FF,0);					// Get tile's angle value
+					hgt_r=ds_grid_get(col_normal,tile_get_index(t_r)&$FF,t_h&(TILE_SIZE-1));	// Get tile's height array value.
 				}
 				y_r = scr_tile_get_coord(y+height+TILE_SIZE);
 	        }
@@ -79,13 +79,13 @@ function scr_obj_floor_pos(dir){
 	    {
 			if tile_get_mirror(t_l)
 			{
-				ang_l=360-ds_grid_get(col_angles,tile_get_index(t_l),0);							// Get tile's inverse angle value
-				hgt_l=ds_grid_get(col_normal,tile_get_index(t_l),TILE_SIZE-1-(t_h&(TILE_SIZE-1)));	// Get tile's mirrored height array value.
+				ang_l=360-ds_grid_get(col_angles,tile_get_index(t_l)&$FF,0);							// Get tile's inverse angle value
+				hgt_l=ds_grid_get(col_normal,tile_get_index(t_l)&$FF,TILE_SIZE-1-(t_h&(TILE_SIZE-1)));	// Get tile's mirrored height array value.
 			}
 			else
 			{
-				ang_l=ds_grid_get(col_angles,tile_get_index(t_l),0);					// Get tile's angle value
-				hgt_l=ds_grid_get(col_normal,tile_get_index(t_l),t_h&(TILE_SIZE-1));	// Get tile's height array value.
+				ang_l=ds_grid_get(col_angles,tile_get_index(t_l)&$FF,0);					// Get tile's angle value
+				hgt_l=ds_grid_get(col_normal,tile_get_index(t_l)&$FF,t_h&(TILE_SIZE-1));	// Get tile's height array value.
 			}
 			y_l = scr_tile_get_coord(y+height);
     
@@ -97,13 +97,13 @@ function scr_obj_floor_pos(dir){
 	                t_l=t_l2;
 					if tile_get_mirror(t_l)
 					{
-						ang_l=360-ds_grid_get(col_angles,tile_get_index(t_l),0);							// Get tile's inverse angle value
-						hgt_l=ds_grid_get(col_normal,tile_get_index(t_l),TILE_SIZE-1-(t_h&(TILE_SIZE-1)));	// Get tile's mirrored height array value.
+						ang_l=360-ds_grid_get(col_angles,tile_get_index(t_l)&$FF,0);							// Get tile's inverse angle value
+						hgt_l=ds_grid_get(col_normal,tile_get_index(t_l)&$FF,TILE_SIZE-1-(t_h&(TILE_SIZE-1)));	// Get tile's mirrored height array value.
 					}
 					else
 					{
-						ang_l=ds_grid_get(col_angles,tile_get_index(t_l),0);					// Get tile's angle value
-						hgt_l=ds_grid_get(col_normal,tile_get_index(t_l),t_h&(TILE_SIZE-1));	// Get tile's height array value.
+						ang_l=ds_grid_get(col_angles,tile_get_index(t_l)&$FF,0);					// Get tile's angle value
+						hgt_l=ds_grid_get(col_normal,tile_get_index(t_l)&$FF,t_h&(TILE_SIZE-1));	// Get tile's height array value.
 					}
 					y_l = scr_tile_get_coord((y+height)-TILE_SIZE);
 	            }
@@ -118,13 +118,13 @@ function scr_obj_floor_pos(dir){
 	        {
 				if tile_get_mirror(t_l)
 				{
-					ang_l=360-ds_grid_get(col_angles,tile_get_index(t_l),0);							// Get tile's inverse angle value
-					hgt_l=ds_grid_get(col_normal,tile_get_index(t_l),TILE_SIZE-1-(t_h&(TILE_SIZE-1)));	// Get tile's mirrored height array value.
+					ang_l=360-ds_grid_get(col_angles,tile_get_index(t_l)&$FF,0);							// Get tile's inverse angle value
+					hgt_l=ds_grid_get(col_normal,tile_get_index(t_l)&$FF,TILE_SIZE-1-(t_h&(TILE_SIZE-1)));	// Get tile's mirrored height array value.
 				}
 				else
 				{
-					ang_l=ds_grid_get(col_angles,tile_get_index(t_l),0);					// Get tile's angle value
-					hgt_l=ds_grid_get(col_normal,tile_get_index(t_l),t_h&(TILE_SIZE-1));	// Get tile's height array value.
+					ang_l=ds_grid_get(col_angles,tile_get_index(t_l)&$FF,0);					// Get tile's angle value
+					hgt_l=ds_grid_get(col_normal,tile_get_index(t_l)&$FF,t_h&(TILE_SIZE-1));	// Get tile's height array value.
 				}
 				y_l = scr_tile_get_coord((y+height)+TILE_SIZE);
 	        }
