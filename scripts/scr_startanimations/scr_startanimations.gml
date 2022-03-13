@@ -1,6 +1,10 @@
 function scr_initanimations(table, ID){
 	anim_table          = table;															// Animations Table
 	anim_ID             = ID;																// Start with the ENTRY animation
+	scr_resetanimations();
+}
+
+function scr_resetanimations(){
 	anim_prev           = -1;                                                                   // No previous animation
 	anim_sprite         = ds_grid_get(anim_table,anim_ID,ANIM_SPRITE);                          // Get animation sprite index
 	anim_spriteframe    = 0;                                                                    // Reset sprite frame index

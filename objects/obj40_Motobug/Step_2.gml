@@ -1,6 +1,8 @@
 /// @description Animation Handling
 
-if fading exit;
+if fading || !active exit;
+
+event_inherited();
 
 // Animation Handling
 // Perform a value check. If number is outside the range of available animations, set ID to -1 and exit.

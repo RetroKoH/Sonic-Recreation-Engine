@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Core",
-    "path": "folders/Scripts/Core.yy",
+    "name": "Object Subroutines",
+    "path": "folders/Scripts/Object Subroutines.yy",
   },
   "resourceVersion": "1.0",
-  "name": "scr_initanimations",
+  "name": "scr_outside_view",
   "tags": [],
   "resourceType": "GMScript",
 }

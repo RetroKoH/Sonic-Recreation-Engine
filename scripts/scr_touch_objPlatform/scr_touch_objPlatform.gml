@@ -49,7 +49,8 @@ function scr_touch_objPlatform(){
 			{
 				angle = 0;
 				y=obj.bbox_top - (sprite_get_height(mask_index) - sprite_get_yoffset(mask_index));		// Sets Sonic's position to the tile's height.
-		        scr_sonic_acquirefloor();
+		        ysp = 0; gsp = xsp;
+				scr_sonic_acquirefloor();
 				platform_ID = obj;
 				status|=STA_ONOBJ;
 			}
@@ -130,24 +131,11 @@ function scr_touch_objPlatform(){
 		{
 			angle = 0;
 			y=obj.bbox_top - (sprite_get_height(mask_index) - sprite_get_yoffset(mask_index));		// Sets Sonic's position to the tile's height.
-	        scr_sonic_acquirefloor();
+	        ysp = 0; gsp = xsp;
+			scr_sonic_acquirefloor();
 			platform_ID = obj;
 			status|=STA_ONOBJ;
 			if platform_ID.object_index == obj18_Platform
 					platform_ID.routine++;
 		}
-}
-/* For monitors - Incorporate somehow
-if routine == 0
-{
-	if instance_place(x,y,player)
-	{
-		if player.ysp >= 0 && player.anim_ID == anim_player.roll
-		{
-			routine++;
-			ptfm_solid = false;
-			anim_ID++;
-			instance_create_layer(x,y,"Instances",obj27_Explosion);
-		}
-	}
 }

@@ -18,7 +18,7 @@ LAYOUT_GHZ();
 
 // Set up Camera and place player
 cam = instance_create_layer(78,940,"Core",obj_camera);
-player = instance_create_layer(4579,547,"Instances",obj01_Sonic);
+player = instance_create_layer(90,908,"Instances",obj01_Sonic);
 instance_create_layer(0,0,"Core",obj21_HUD);
 
 // Soft values (Where the camera boundaries appear

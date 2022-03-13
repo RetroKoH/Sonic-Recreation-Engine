@@ -26,8 +26,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Collision Types",
-    "path": "folders/Objects/Collision Types.yy",
+    "name": "Parent Object Types",
+    "path": "folders/Objects/Parent Object Types.yy",
   },
   "resourceVersion": "1.0",
   "name": "objParent_TopSolid",

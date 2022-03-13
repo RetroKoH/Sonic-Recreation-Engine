@@ -1,4 +1,3 @@
 * Variable jump height needs to be added
 * Objects that are off screen to deactivate and reset, ala my previous engine
-	+ Effect objects need to be deleted outright
 * Need to edit debug mode to view one plane at a time

@@ -1,9 +1,23 @@
 /// @description Motobug Routines
 
-if fading exit;
+if fading || !active exit;
 
-// Routine 0 - Set position on the ground
+// Routine 0 - Spawn/Respawn Init
 if routine == 0
+{
+	height=$E;
+	width=8;
+	angle=0;
+	col_path=0;		// Collision has two paths
+	routine++;
+	routine_2nd=0;	// Secondary routine counter.
+	time=0;         // Timer delay to start moving.
+	smokedelay=0;   // Timer delay until motobug lets out a puff of smoke.
+	if is_respawning scr_resetanimations();
+}
+
+// Routine 1 - Set position on the ground
+else if routine == 1
 {
 	x+=xsp; ysp+=.21875; y+=ysp;	// ObjectFall
 	var dist = scr_get_floor_dist(0, height, 0)
