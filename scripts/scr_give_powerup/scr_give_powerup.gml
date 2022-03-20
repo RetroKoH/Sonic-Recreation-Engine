@@ -4,7 +4,7 @@ function scr_give_powerup(powerup){
 
 	switch(powerup) {
 		case 0:
-			scr_sonic_hurt();
+			scr_player_hurt();
 		break;
 		case 1:
 			p_lives++;

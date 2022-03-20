@@ -50,7 +50,7 @@ function scr_touch_objPlatform(){
 				angle = 0;
 				y=obj.bbox_top - (sprite_get_height(mask_index) - sprite_get_yoffset(mask_index));		// Sets Sonic's position to the tile's height.
 		        ysp = 0; gsp = xsp;
-				scr_sonic_acquirefloor();
+				scr_player_acquirefloor();
 				platform_ID = obj;
 				status|=STA_ONOBJ;
 			}
@@ -132,7 +132,7 @@ function scr_touch_objPlatform(){
 			angle = 0;
 			y=obj.bbox_top - (sprite_get_height(mask_index) - sprite_get_yoffset(mask_index));		// Sets Sonic's position to the tile's height.
 	        ysp = 0; gsp = xsp;
-			scr_sonic_acquirefloor();
+			scr_player_acquirefloor();
 			platform_ID = obj;
 			status|=STA_ONOBJ;
 			if platform_ID.object_index == obj18_Platform

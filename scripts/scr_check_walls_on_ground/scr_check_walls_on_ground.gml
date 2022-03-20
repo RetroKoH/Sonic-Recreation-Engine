@@ -10,12 +10,12 @@ function scr_check_walls_on_ground()
 		if (gsp > 0)
 		{
 			angleCheck = angle - 90;
-			dist = scr_sonic_get_right_wall_dist(quadrant);
+			dist = scr_player_get_right_wall_dist(quadrant);
 		}
 		else if (gsp < 0)
 		{
 			angleCheck = angle + 90;
-			dist = scr_sonic_get_left_wall_dist(quadrant);
+			dist = scr_player_get_left_wall_dist(quadrant);
 		}
 
 		if (dist < 0)

@@ -5,7 +5,7 @@ function scr_touch_objHarm(){
 
 	if (obj!=noone)// && state!=consStateHurt) // A hurt hedgehog will not react. That's just not fair.        
 	{
-		if (obj.can_harm) scr_sonic_hurt(obj); // If it CAN hurt you, it WILL.
+		if (obj.can_harm) scr_player_hurt(obj); // If it CAN hurt you, it WILL.
 		// Exceptions include SBZ electrocuters that power off and on.
 	}
 }

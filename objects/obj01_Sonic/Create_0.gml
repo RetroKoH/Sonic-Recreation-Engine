@@ -16,12 +16,13 @@ angle = 0;		// The angle at which you are moving. (0-360*)
 new_angle = 0;	// Used for smoothing down the angle change on slopes.
 move_angle = 0; // Temporary. Will remove later
 
-jump = 0;
+jump = false;
 invuln_timer = 0;
 invinc_timer = 0;
 shoes_timer = 0;
 super_flag = false;
 shield = 0;
+convex = false;
 platform_ID = -1;
 move_lock = false;
 
