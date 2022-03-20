@@ -24,51 +24,47 @@ switch(routine)
 	{
 		switch(status&6) // Sonic's Control Modes based on status
 		{
-			case 0: // Normal (Ground)
+			case 0: // Normal (Not in ball, not in air)
 				scr_sonic_jump();	// Check for starting a jump.
 				if !jump
 				{
-					if gsp!=0 gsp-=(.125*sin(degtorad(angle)));	// Adjust Ground Speed based on current angle
-					scr_sonic_move();							// Update gsp based on directional input and apply friction/deceleration.
-					scr_sonic_roll();							// Check for starting a roll
-					x+=xsp; y+=ysp;								// SpeedtoPos
-					scr_sonic_level_bound();					// Keep Sonic inside the view and kill Sonic if he touches the kill plane
-					scr_sonic_angle_pos();						// Floor collision and angle check occurs
+					scr_player_slope_resist(false);	// Adjust Ground Speed based on current angle
+					scr_sonic_move();				// Update gsp based on directional input and apply friction/deceleration.
+					scr_sonic_roll();				// Check for starting a roll
+					scr_sonic_level_bound();		// Interactions with camera planes
+					scr_apply_speed(false);			// SpeedtoPos
+					scr_sonic_angle_pos();			// Floor collision and angle check occurs
+					scr_player_slope_repel();		// Push player down slopes, and fall from loops (comment out for testing slopes)
 				}
 			break;
-			case 2: // In-air
-				// Check for jump button release (variable jump velocity).
-				// Check for double jump abilities / turning Super
+			case 2: // In-air (Not in ball, in air)
+				scr_player_jump_height();		// Mostly unused here. Air velocity gets capped here.
 				scr_sonic_move_air();			// Air movement (xsp) & air drag
-				x+=xsp; ysp+=.21875; y+=ysp;	// ObjectFall
+				scr_sonic_level_bound();		// Interactions with camera planes
+				scr_apply_speed(true);			// ObjectFall
 				if (status&$40) ysp-=.15625;	// Underwater gravity
-				scr_sonic_level_bound();		// Keep Sonic inside the view and kill Sonic if he touches the kill plane
-				angle = 0;						// Reset angle
+				scr_player_jump_angle(angle);	// Reset angle
 				scr_sonic_check_floor();		// Floor sensor collision check (and walls)
 			break;
-			case 4: // Roll
+			case 4: // Rolling (in ball, not in air)
 				scr_sonic_jump();	// Check for starting a jump.
 				if !jump
 				{
-					{		//SonicRollRepel
-							var a = sin(degtorad(angle));
-					        if sign(gsp)==sign(a)	gsp-=.078125*a;	// Rolling uphill
-					        else					gsp-=.3125*a;	// Rolling downhill
-					}
-					scr_sonic_roll_speed();					// Update gsp and apply friction.
-					x+=xsp; y+=ysp;							// SpeedtoPos
-					scr_sonic_level_bound();				// Keep Sonic inside the view and kill Sonic if he touches the kill plane
-					scr_sonic_angle_pos();					// Floor collision and angle check occurs
+					scr_player_slope_resist(false);	// Adjust Ground Speed based on current angle
+					scr_sonic_roll_speed();			// Update gsp and apply friction.
+					scr_sonic_level_bound();		// Interactions with camera planes
+					scr_apply_speed(false);			// SpeedtoPos
+					scr_sonic_angle_pos();			// Floor collision and angle check occurs
+					scr_player_slope_repel();		// Push player down slopes, and fall from loops (comment out for testing slopes)
 				}
 			break;
-			case 6: // Jump, roll jump, or in air while rolling
-				// Check for jump button release (variable jump velocity).
-				// Check for double jump abilities / turning Super
+			case 6: // (In ball, In air)
+				scr_player_jump_height();		// Check jump height and cap air velocity
 				scr_sonic_move_air();			// Air movement (xsp) & air drag
-				x+=xsp; ysp+=.21875; y+=ysp;	// ObjectFall
+				scr_sonic_level_bound();		// Interactions with camera planes
+				scr_apply_speed(true);			// ObjectFall
 				if (status&$40) ysp-=.15625;	// Underwater gravity
-				angle = 0;						// Reset angle
-				scr_sonic_level_bound();		// Keep Sonic inside the view and kill Sonic if he touches the kill plane
+				scr_player_jump_angle(angle);	// Reset angle
 				scr_sonic_check_floor();		// Floor sensor collision check (and walls)
 			break;
 		}
@@ -77,10 +73,8 @@ switch(routine)
 	} break;
 
 	case 2: // Sonic_Hurt
-		x+=xsp; y+=ysp;	// SpeedToPos
-		// Apply gravity
-		if (status&STA_WATER)	ysp += .0625;
-		else					ysp += .1875;
+		scr_apply_speed(false);
+		ysp += (status&STA_WATER) ? .0625 : .1875; // Apply gravity (Slightly different in this state)
 		// HurtStop
 		scr_sonic_check_floor();
 		if !(status&STA_INAIR)

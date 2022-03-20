@@ -8,9 +8,6 @@ function scr_sonic_angle_pos(){
 	// Set flat angle if standing on an object.
 	if (status&STA_ONOBJ) // If standing on object
 	{
-//	    v_anglebuffer1=gravity_angle;
-//	    v_anglebuffer2=gravity_angle;
-//	    scrSetAngle(gravity_angle);
 		angle = 0;
 	    exit;
 	}
@@ -44,7 +41,7 @@ function scr_sonic_angle_pos(){
             if (dist_real > fall_dist)
             {
 			    status|=STA_INAIR; // Set air flag
-			    angle = 0; //scrSetAngle(gravity_angle);
+			    //angle = 0; //scrSetAngle(gravity_angle); Remove this to allow player to rotate in air
             }
             else
 				collided = true;

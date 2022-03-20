@@ -36,15 +36,16 @@ switch(anim_ID)
         anim_angle = 0;
         break;
     default:
-        if !(status&2) // if not in air
+		anim_angle = angle;
+        /*if !(status&STA_INAIR) // if not in air
         {
 			//if (angle>180) anim_angle = 360-angle;
 			//else anim_angle = angle;
 			anim_angle = angle;
             //if (abs(angle-anim_angle)<45)   AnimationAngle=scrRotateTowardsAngle(AnimationAngle,angle,max(1,abs(xsp)));
             //else                                AnimationAngle=angle;
-        }
-        else anim_angle = 0; //anim_angle=scrRotateTowardsAngle(AnimationAngle,global.gravity_angle,4);
+        }*/
+        //else anim_angle = 0; //anim_angle=scrRotateTowardsAngle(AnimationAngle,global.gravity_angle,4);
 } anim_angle = (anim_angle div 15)*15;
 
 // Animation Handling

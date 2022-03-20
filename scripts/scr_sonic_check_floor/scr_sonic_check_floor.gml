@@ -4,7 +4,7 @@ function scr_sonic_check_floor(){
 	var dist;
 	
 	// Handle collision based on quadrant of movement
-	switch(floor(scr_wrap_angle(move_angle + 45) / 90))
+	switch(floor(scr_wrap_angle(scr_wrap_angle(point_direction(x,y,x+xsp,y+ysp)+90) + 45) / 90))
 	{
 		case 0: // Mostly downward
 		{
@@ -81,8 +81,7 @@ function scr_sonic_check_floor(){
 				{
 					// Only hit the ceiling if we aren't too deep into it
 					y -= dist;
-					if (ysp < 0)
-						ysp = 0;
+					if (ysp < 0) ysp = 0;
 				}
 				else
 				{
@@ -103,9 +102,9 @@ function scr_sonic_check_floor(){
 				{
 					y += dist;
 					angle = col_angle;
+					scr_sonic_acquirefloor();
 					ysp = 0;
 					gsp = xsp;
-					scr_sonic_acquirefloor();
 				}
 			}
 		}
@@ -134,14 +133,12 @@ function scr_sonic_check_floor(){
 			{
 				y -= dist;
 				
-				if (col_angle != 0 && (col_angle >= 225 || col_angle < 135))
+				if (col_angle != 0 && (col_angle > 225 || col_angle <= 135))
 				{
 					// If the ceiling is steep, actually land on it
 					angle = col_angle;
 					scr_sonic_acquirefloor();
-					gsp = ysp;
-					if (angle < 180)
-						gsp = -gsp;
+					gsp = (col_angle < 180) ? -ysp : ysp
 				}
 				else
 				{
@@ -170,8 +167,7 @@ function scr_sonic_check_floor(){
 				{
 					// Only hit the ceiling if we aren't too deep into it
 					y -= dist;
-					if (ysp < 0)
-						ysp = 0;
+					if (ysp < 0) ysp = 0;
 				}
 				else
 				{
@@ -192,9 +188,9 @@ function scr_sonic_check_floor(){
 				{
 					y += dist;
 					angle = col_angle;
+					scr_sonic_acquirefloor();
 					ysp = 0;
 					gsp = xsp;
-					scr_sonic_acquirefloor();
 				}
 			}
 		}
