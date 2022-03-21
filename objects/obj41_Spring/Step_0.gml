@@ -16,6 +16,7 @@ switch(routine)
 			player.ysp = -pow;
 			player.status|=STA_INAIR;
 			player.status^=STA_ONOBJ;
+			audio_play_sound(S2_4C_Spring,1,false);
 			//Animation
 			player.routine=1;
 		}

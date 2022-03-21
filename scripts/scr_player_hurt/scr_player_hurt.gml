@@ -17,14 +17,14 @@ function scr_player_hurt(obj){
 			shield	=	0;			// The character's shield is removed.
 		else
 		{
-			//scrRingLoss(min(32,p_rings),x,y-4);	// Lose all of your rings. (Up to 32 can be collected).
-			p_rings = 0;							// Is this needed? rings are already brought to 0 in the script...
-			//sound_play(sndC6_RingLoss);			// Play a different sound for losing rings.
+			//scrRingLoss(min(32,p_rings),x,y-4);		// Lose all of your rings. (Up to 32 can be collected).
+			p_rings = 0;								// Is this needed? rings are already brought to 0 in the script...
+			audio_play_sound(S2_46_LoseRings,1,false);	// Play a different sound for losing rings.
 		}
-		routine		=	2;			// Set to hurt routine
-	    status		|=	STA_INAIR;	// Set Air status bit
-	    ysp         =	-4;			// The character is knocked upward.
-	    xsp         =	2*a;		// The character is knocked backward.
+		routine	=	2;			// Set to hurt routine
+	    status	|=	STA_INAIR;	// Set Air status bit
+	    ysp		=	-4;			// The character is knocked upward.
+	    xsp		=	2*a;		// The character is knocked backward.
 		if (status&STA_WATER){
 			ysp /= 2;
 			xsp /= 2;
@@ -35,7 +35,7 @@ function scr_player_hurt(obj){
 
 	    angle		=	0;			// Angle is set to rotate back to gravity_angle
 	    move_lock   =   true;		// We cannot enter any input while hurt... SORRY! :P
-	    //sound_play(sndA3_Hurt);
+	    audio_play_sound(S2_23_Hurt,1,false);
 	}
 
 	// If all else is false, the character dies.

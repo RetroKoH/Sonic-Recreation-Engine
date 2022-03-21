@@ -8,5 +8,5 @@ function scr_player_death(){
 	xsp=0;
 	gsp=0;
 	anim_ID = anim_player.death;
-	// Play death sound
+	audio_play_sound(S2_23_Hurt,1,false);
 }

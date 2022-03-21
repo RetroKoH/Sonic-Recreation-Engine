@@ -10,8 +10,8 @@ function scr_player_roll(){
 		        height=$E;					// Set collision radius
 		        width=7;
 		        anim_ID=anim_player.roll;
-		        y+=defaultHeight-height;	// Reposition Sonic according to height change
-		        //sound_play(sndBE_Roll);
+		        y+=defaultHeight-height;	// Reposition character according to height change
+		        audio_play_sound(S2_3E_Roll,1,false);
 		        if (gsp==0)  gsp += 2;		// To prevent getting stuck in S tunnels, and the like.
 		    }
 		}
