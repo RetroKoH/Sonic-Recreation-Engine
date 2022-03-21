@@ -7,4 +7,4 @@ sparkleid=0;        // Counter to keep track of sparkles.
 routine=0;          // This notes what we should do in the Step Event code.
 
 // Animation system related variables
-scr_initanimations(AnimationsSignpost,0);
+scr_init_anim(global.AnimationsSignpost,0);

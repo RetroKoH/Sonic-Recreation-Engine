@@ -1,6 +1,6 @@
 /// @description Init Crabmeat
 // They crawl around and shoot projectiles.
-
+event_inherited();
 height=16;
 width=8;
 xsp=0;
@@ -14,4 +14,4 @@ timedelay=59;  // Time delay to start.
 crabmode=0;    // Counter for certain things to happen.
 
 // Animation system related variables
-scr_initanimations(AnimationsCrabmeat,0);
+scr_init_anim(global.AnimationsCrabmeat,0);

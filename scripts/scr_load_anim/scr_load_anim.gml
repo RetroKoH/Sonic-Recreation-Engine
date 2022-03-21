@@ -1,4 +1,4 @@
-function scr_loadanimations(){
+function scr_load_anim(){
 	animtable_SONIC();
 	animtable_TITLESONIC();
 	animtable_SIGNPOST();

@@ -32,7 +32,7 @@ function INIT_GAME(){
 	scr_collision_arrays();
 
 	// Animation Loading Cues
-	scr_loadanimations();
+	scr_load_anim();
 	
 	// Establish Global oscillating values
 	scr_osc_num_init();
@@ -83,18 +83,6 @@ function MACROS() {
 	#macro ZONE_LZ 3
 	#macro ZONE_SLZ 4
 	#macro ZONE_SBZ 5
-
-	// Used by animation engine
-	#macro ANIM_NAME 0
-	#macro ANIM_SPRITE 1
-	#macro ANIM_SPRITEMASK 2
-	#macro ANIM_SPRITEMASK_L 3
-	#macro ANIM_SUBANIM 4
-	#macro ANIM_LOOPBACKTIMES 5
-	#macro ANIM_LOOPBACKFRAME 6
-	#macro ANIM_LOOPBACKANIM 7
-	#macro ANIM_FRAMELIST 8
-	#macro ANIM_FRAMESPEEDLIST 9
 
 	// Player Status Macros
 	#macro STA_FACING 1

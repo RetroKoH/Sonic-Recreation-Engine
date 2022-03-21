@@ -4,4 +4,4 @@
 routine=1;     // This notes what we should do in the Step Event code.
 
 // Animation system related variables
-scr_initanimations(AnimationsRings,0);
+scr_init_anim(global.AnimationsRings,0);

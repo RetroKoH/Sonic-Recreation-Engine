@@ -1,9 +1,7 @@
 /// @description Set power of spring
-
 event_inherited();
 routine = 0;
 pow = 10;
 
-
 // Animation system related variables
-scr_initanimations(AnimationsSprings,0);
+scr_init_anim(global.AnimationsSprings,0);

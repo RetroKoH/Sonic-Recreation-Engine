@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Core",
-    "path": "folders/Scripts/Core.yy",
+    "name": "Animations",
+    "path": "folders/Scripts/Animations.yy",
   },
   "resourceVersion": "1.0",
-  "name": "scr_loadanimations",
+  "name": "scr_handle_anim",
   "tags": [],
   "resourceType": "GMScript",
 }

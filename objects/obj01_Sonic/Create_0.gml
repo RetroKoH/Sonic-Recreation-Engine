@@ -13,7 +13,6 @@ routine = 0;	// Routine counter number
 
 col_path = 0;	// Collision has two paths
 angle = 0;		// The angle at which you are moving. (0-360*)
-new_angle = 0;	// Used for smoothing down the angle change on slopes.
 move_angle = 0; // Temporary. Will remove later
 
 jump = false;
@@ -58,4 +57,4 @@ col_sensor_F    =   false;
 col_tile_F      =   -1;
 
 // Animation system related variables
-scr_initanimations(AnimationsSonic,0);
+scr_init_anim(global.AnimationsSonic,0);

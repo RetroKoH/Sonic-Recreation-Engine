@@ -12,7 +12,7 @@ function scr_player_roll(){
 		        anim_ID=anim_player.roll;
 		        y+=defaultHeight-height;	// Reposition Sonic according to height change
 		        //sound_play(sndBE_Roll);
-		        if !gsp gsp += 2;			// To prevent getting stuck in S tunnels, and the like.
+		        if (gsp==0)  gsp += 2;		// To prevent getting stuck in S tunnels, and the like.
 		    }
 		}
 	}

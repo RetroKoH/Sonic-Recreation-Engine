@@ -1,54 +1,44 @@
+// Database of sprite animations for the monitor object ($26)
 function animtable_MONITORS(){
-	// ==================================================================================
-	// Database of sprite animations. This is what the animations engine reads from to function. Based on the one from Damizean/RogueYoshi's old Sonic engine.
-	// ==================================================================================
-
-	// Create a grid table for the animations.
-	globalvar AnimationsMonitors;	AnimationsMonitors=ds_grid_create(2,10);
-	// The first # is the number of animations. Change this as necessary.
-	// Second # is the number of data items per animations. DON'T CHANGE THIS!
-
-	// Local variables for simplifying porting of animations from script to script
-	var an=AnimationsMonitors; var an_id = 0;
+	global.AnimationsMonitors=array_create(2);
 	var sp=1/2;
 
-	// #0 - Active
-	ds_grid_set(an, an_id, ANIM_NAME,			"Active");
-	ds_grid_set(an, an_id, ANIM_SPRITE,			spr_monitor);
-	ds_grid_set(an, an_id, ANIM_SPRITEMASK,		spr_monitor);
-	ds_grid_set(an, an_id, ANIM_SPRITEMASK_L,	spr_monitor);
-	ds_grid_set(an, an_id, ANIM_SUBANIM,		-1);
-	ds_grid_set(an, an_id, ANIM_LOOPBACKTIMES,	-1);
-	ds_grid_set(an, an_id, ANIM_LOOPBACKFRAME,	0);
-	ds_grid_set(an, an_id, ANIM_LOOPBACKANIM,	-1);
-	ds_grid_set(an, an_id, ANIM_FRAMELIST,		ds_list_create());
-	ds_grid_set(an, an_id, ANIM_FRAMESPEEDLIST,	ds_list_create());
-
-	// Animation frames: 0, 3, 3, 1, 3, 3, 2, 3, 3,
+	global.AnimationsMonitors[0] = {
+		name		: "Active",
+		sprite		: spr_monitor,
+		mask		: spr_monitor,
+		mask_l		: spr_monitor,
+		sub_anim	: -1,
+		loop_times	: -1,
+		loop_frame	: 0,
+		loop_anim	: -1,
+		frames		: [],
+		speeds		: []
+	}
+	// Animation frames
 	for (var i = 0; i < 3; i++)
 	{
-		ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMELIST), i);
-		ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMESPEEDLIST), sp);
-		ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMELIST), 3);
-		ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMESPEEDLIST), 1/4);
+		array_push(global.AnimationsMonitors[0].frames, i);
+		array_push(global.AnimationsMonitors[0].speeds, sp);
+		array_push(global.AnimationsMonitors[0].frames, 3);
+		array_push(global.AnimationsMonitors[0].speeds, 1/4);
 	}
 	// ==================================================================================
 
-	an_id++;
-	// #1 - Broken
-	ds_grid_set(an, an_id, ANIM_NAME,			"Broken");
-	ds_grid_set(an, an_id, ANIM_SPRITE,			spr_monitor);
-	ds_grid_set(an, an_id, ANIM_SPRITEMASK,		spr_monitor);
-	ds_grid_set(an, an_id, ANIM_SPRITEMASK_L,	spr_monitor);
-	ds_grid_set(an, an_id, ANIM_SUBANIM,		-1);
-	ds_grid_set(an, an_id, ANIM_LOOPBACKTIMES,	-1);
-	ds_grid_set(an, an_id, ANIM_LOOPBACKFRAME,	0);
-	ds_grid_set(an, an_id, ANIM_LOOPBACKANIM,	-1);
-	ds_grid_set(an, an_id, ANIM_FRAMELIST,		ds_list_create());
-	ds_grid_set(an, an_id, ANIM_FRAMESPEEDLIST,	ds_list_create());
-
+	global.AnimationsMonitors[1] = {
+		name		: "Broken",
+		sprite		: spr_monitor,
+		mask		: spr_monitor,
+		mask_l		: spr_monitor,
+		sub_anim	: -1,
+		loop_times	: -1,
+		loop_frame	: 0,
+		loop_anim	: -1,
+		frames		: [],
+		speeds		: []
+	}
 	// Animation frames
-	ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMELIST), 4);
-	ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMESPEEDLIST), 1);
+	array_push(global.AnimationsMonitors[1].frames, 4);
+	array_push(global.AnimationsMonitors[1].speeds, 1);
 	// ==================================================================================
 }

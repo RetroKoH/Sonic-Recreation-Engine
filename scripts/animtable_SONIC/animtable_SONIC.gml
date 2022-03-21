@@ -1,309 +1,276 @@
+// Enums shared across all playable characters
+enum anim_player {
+	idle,
+	walk,
+	jog,
+	run,
+	dash,
+	lookup,
+	duck,
+	roll,
+	skid,
+	push,
+	hurt,
+	death,
+	drown,
+	total // Used for final count below
+}
+
+// Database of sprite animations for the player object ($01 - Sonic)
 function animtable_SONIC(){
-	// ==================================================================================
-	// Database of sprite animations. This is what the animations engine reads from to function. Based on the one from Damizean/RogueYoshi's old Sonic engine.
-	// The table has a column for every animation used. It also has a row for every piece of data needed for the animation to perform.
-	// The "header" row is a string that gives a label to the animation, for debug purposes. Following that:
-	// The 1st row tells the sprite that we will pull the frames from.
-	// The 2nd row tells the sprite mask that will be used for the animation. This makes for dynamic collision masks based on the animation.
-	// There is a duplicate row for mirrored masks
-	// The 4th row tells which subanimation (if applicable) will perform along with the current animation. -1 = N/A.
-	// The 5th row tells how many times the animation loops back around. The engine will count up every time it loops, so -1 is infinite. 0 = no loops.
-	// The 6th row tells which frame the animation will loop to. After it finishes once, it will jump to this frame.
-	// The 7th row tells which other animation (if applicable) the current one jumps to after it finishes looping. -1 = N/A.
-	// The 8th row contains a list. This is a list of frames that will play in the animation, in the order that they are listed.
-	// The 9th row has another list. This is a list of speed variables, telling how long one frame will be displayed.
-	// This is very easy. An action in objControl's End Step event demands that when a counter reaches 1, the animation will advance 1 frame.
-	// SO, to tell the engine how many steps we want a frame to last, here is the equation: (1/300) - A frame with this speed will last 300 steps.
-	// ==================================================================================
-
-	// Enums - Shared across all playable characters
-	enum anim_player {
-		idle,
-		walk,
-		jog,
-		run,
-		dash,
-		lookup,
-		duck,
-		roll,
-		skid,
-		push,
-		hurt,
-		death,
-		drown,
-		total // Used for final count below
+	global.AnimationsSonic = array_create(anim_player.total)
+	var an;
+	
+	global.AnimationsSonic[anim_player.idle] = {
+		name		: "Idle",
+		sprite		: spr_sonic_idle,
+		mask		: spr_sonic_mask,
+		mask_l		: spr_sonic_maskL,
+		sub_anim	: -1,
+		loop_times	: -1,
+		loop_frame	: 3,
+		loop_anim	: -1,
+		frames		: [],
+		speeds		: []
 	}
-
-	// Create a grid table for the animations.
-	globalvar AnimationsSonic;	AnimationsSonic=ds_grid_create(anim_player.total,10);
-	// The first # is the number of animations. Change this as necessary.
-	// Second # is the number of data items per animations. DON'T CHANGE THIS!
-
-	// Local variables for simplifying porting of animations from script to script
-	var an=AnimationsSonic; var an_id = 0;
-
-	// #0 - IDLE
-	ds_grid_set(an, an_id, ANIM_NAME,			"Idle");
-	ds_grid_set(an, an_id, ANIM_SPRITE,			spr_sonic_idle);
-	ds_grid_set(an, an_id, ANIM_SPRITEMASK,		spr_sonic_mask);
-	ds_grid_set(an, an_id, ANIM_SPRITEMASK_L,	spr_sonic_maskL);
-	ds_grid_set(an, an_id, ANIM_SUBANIM,		-1);
-	ds_grid_set(an, an_id, ANIM_LOOPBACKTIMES,	-1);
-	ds_grid_set(an, an_id, ANIM_LOOPBACKFRAME,	3);
-	ds_grid_set(an, an_id, ANIM_LOOPBACKANIM,	-1);
-	ds_grid_set(an, an_id, ANIM_FRAMELIST,		ds_list_create());
-	ds_grid_set(an, an_id, ANIM_FRAMESPEEDLIST,	ds_list_create());
-
 	// Animation frames
-	ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMELIST), 0); // The basic standing pose.
-	ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMESPEEDLIST), 1/288); // Sonic will stand still for roughly 5 seconds.
-	ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMELIST), 2);
-	ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMESPEEDLIST), 1/24);
-	ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMELIST), 1); // Sonic's eyes are wide open.
-	ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMESPEEDLIST), 1/72);
-	ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMELIST), 2);
-	ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMESPEEDLIST), 1/24);
-	ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMELIST), 3);
-	ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMESPEEDLIST), 1/24);
+	an = global.AnimationsSonic[anim_player.idle];
+	array_push(an.frames,0);
+	array_push(an.speeds,1/288);
+	array_push(an.frames,2);
+	array_push(an.speeds,1/24);
+	array_push(an.frames,1);
+	array_push(an.speeds,1/72);
+	array_push(an.frames,2);
+	array_push(an.speeds,1/24);
+	array_push(an.frames,3);
+	array_push(an.speeds,1/24);
 	// ==================================================================================
-
-	an_id++;
-	// #1 - WALK
-	ds_grid_set(an, an_id, ANIM_NAME,			"Walk");
-	ds_grid_set(an, an_id, ANIM_SPRITE,			spr_sonic_walk);
-	ds_grid_set(an, an_id, ANIM_SPRITEMASK,		spr_sonic_mask);
-	ds_grid_set(an, an_id, ANIM_SPRITEMASK_L,	spr_sonic_maskL);
-	ds_grid_set(an, an_id, ANIM_SUBANIM,		-1);
-	ds_grid_set(an, an_id, ANIM_LOOPBACKTIMES,	-1);
-	ds_grid_set(an, an_id, ANIM_LOOPBACKFRAME,	0);
-	ds_grid_set(an, an_id, ANIM_LOOPBACKANIM,	-1);
-	ds_grid_set(an, an_id, ANIM_FRAMELIST,		ds_list_create());
-	ds_grid_set(an, an_id, ANIM_FRAMESPEEDLIST,	ds_list_create());
-
+	global.AnimationsSonic[anim_player.walk] = {
+		name		: "Walk",
+		sprite		: spr_sonic_walk,
+		mask		: spr_sonic_mask,
+		mask_l		: spr_sonic_maskL,
+		sub_anim	: -1,
+		loop_times	: -1,
+		loop_frame	: 0,
+		loop_anim	: -1,
+		frames		: [],
+		speeds		: []
+	}
 	// Animation frames
+	an = global.AnimationsSonic[anim_player.walk];
 	for (var i = 0; i < 12; i++) {
-		ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMELIST), i);
-		ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMESPEEDLIST), 1)
+		array_push(an.frames,i);
+		array_push(an.speeds,1);
 	}
 	// ==================================================================================
-
-	an_id++;
-	// #2 - JOG
-	ds_grid_set(an, an_id, ANIM_NAME,			"Jog");
-	ds_grid_set(an, an_id, ANIM_SPRITE,			spr_sonic_jog);
-	ds_grid_set(an, an_id, ANIM_SPRITEMASK,		spr_sonic_mask);
-	ds_grid_set(an, an_id, ANIM_SPRITEMASK_L,	spr_sonic_maskL);
-	ds_grid_set(an, an_id, ANIM_SUBANIM,		-1);
-	ds_grid_set(an, an_id, ANIM_LOOPBACKTIMES,	-1);
-	ds_grid_set(an, an_id, ANIM_LOOPBACKFRAME,	0);
-	ds_grid_set(an, an_id, ANIM_LOOPBACKANIM,	-1);
-	ds_grid_set(an, an_id, ANIM_FRAMELIST,		ds_list_create());
-	ds_grid_set(an, an_id, ANIM_FRAMESPEEDLIST,	ds_list_create());
-
+	global.AnimationsSonic[anim_player.jog] = {
+		name		: "Jog",
+		sprite		: spr_sonic_jog,
+		mask		: spr_sonic_mask,
+		mask_l		: spr_sonic_maskL,
+		sub_anim	: -1,
+		loop_times	: -1,
+		loop_frame	: 0,
+		loop_anim	: -1,
+		frames		: [],
+		speeds		: []
+	}
 	// Animation frames
+	an = global.AnimationsSonic[anim_player.jog];
 	for (i = 0; i < 10; i++) {
-		ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMELIST), i);
-		ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMESPEEDLIST), 1)
+		array_push(an.frames,i);
+		array_push(an.speeds,1);
 	}
 	// ==================================================================================
-
-	an_id++;
-	// #3 - RUN
-	ds_grid_set(an, an_id, ANIM_NAME,			"Run");
-	ds_grid_set(an, an_id, ANIM_SPRITE,			spr_sonic_run);
-	ds_grid_set(an, an_id, ANIM_SPRITEMASK,		spr_sonic_mask);
-	ds_grid_set(an, an_id, ANIM_SPRITEMASK_L,	spr_sonic_maskL);
-	ds_grid_set(an, an_id, ANIM_SUBANIM,		-1);
-	ds_grid_set(an, an_id, ANIM_LOOPBACKTIMES,	-1);
-	ds_grid_set(an, an_id, ANIM_LOOPBACKFRAME,	0);
-	ds_grid_set(an, an_id, ANIM_LOOPBACKANIM,	-1);
-	ds_grid_set(an, an_id, ANIM_FRAMELIST,		ds_list_create());
-	ds_grid_set(an, an_id, ANIM_FRAMESPEEDLIST,	ds_list_create());
-
+	global.AnimationsSonic[anim_player.run] = {
+		name		: "Run",
+		sprite		: spr_sonic_run,
+		mask		: spr_sonic_mask,
+		mask_l		: spr_sonic_maskL,
+		sub_anim	: -1,
+		loop_times	: -1,
+		loop_frame	: 0,
+		loop_anim	: -1,
+		frames		: [],
+		speeds		: []
+	}
 	// Animation frames
+	an = global.AnimationsSonic[anim_player.run];
 	for (i = 0; i < 8; i++) {
-		ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMELIST), i);
-		ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMESPEEDLIST), 1)
+		array_push(an.frames,i);
+		array_push(an.speeds,1);
 	}
 	// ==================================================================================
-
-	an_id++;
-	// #4 - DASH
-	ds_grid_set(an, an_id, ANIM_NAME,			"Dash");
-	ds_grid_set(an, an_id, ANIM_SPRITE,			spr_sonic_dash);
-	ds_grid_set(an, an_id, ANIM_SPRITEMASK,		spr_sonic_mask);
-	ds_grid_set(an, an_id, ANIM_SPRITEMASK_L,	spr_sonic_maskL);
-	ds_grid_set(an, an_id, ANIM_SUBANIM,		-1);
-	ds_grid_set(an, an_id, ANIM_LOOPBACKTIMES,	-1);
-	ds_grid_set(an, an_id, ANIM_LOOPBACKFRAME,	0);
-	ds_grid_set(an, an_id, ANIM_LOOPBACKANIM,	-1);
-	ds_grid_set(an, an_id, ANIM_FRAMELIST,		ds_list_create());
-	ds_grid_set(an, an_id, ANIM_FRAMESPEEDLIST,	ds_list_create());
-
+	global.AnimationsSonic[anim_player.dash] = {
+		name		: "Dash",
+		sprite		: spr_sonic_dash,
+		mask		: spr_sonic_mask,
+		mask_l		: spr_sonic_maskL,
+		sub_anim	: -1,
+		loop_times	: -1,
+		loop_frame	: 0,
+		loop_anim	: -1,
+		frames		: [],
+		speeds		: []
+	}
 	// Animation frames
+	an = global.AnimationsSonic[anim_player.dash];
 	for (i = 0; i < 4; i++) {
-		ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMELIST), i);
-		ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMESPEEDLIST), 1)
+		array_push(an.frames,i);
+		array_push(an.speeds,1);
 	}
 	// ==================================================================================
-
-	an_id++;
-	// #5 - LOOK UP
-	ds_grid_set(an, an_id, ANIM_NAME,			"Look Up");
-	ds_grid_set(an, an_id, ANIM_SPRITE,			spr_sonic_lookup);
-	ds_grid_set(an, an_id, ANIM_SPRITEMASK,		spr_sonic_mask);
-	ds_grid_set(an, an_id, ANIM_SPRITEMASK_L,	spr_sonic_maskL);
-	ds_grid_set(an, an_id, ANIM_SUBANIM,		-1);
-	ds_grid_set(an, an_id, ANIM_LOOPBACKTIMES,	-1);
-	ds_grid_set(an, an_id, ANIM_LOOPBACKFRAME,	1);
-	ds_grid_set(an, an_id, ANIM_LOOPBACKANIM,	-1);
-	ds_grid_set(an, an_id, ANIM_FRAMELIST,		ds_list_create());
-	ds_grid_set(an, an_id, ANIM_FRAMESPEEDLIST,	ds_list_create());
-
+	global.AnimationsSonic[anim_player.lookup] = {
+		name		: "Look Up",
+		sprite		: spr_sonic_lookup,
+		mask		: spr_sonic_mask,
+		mask_l		: spr_sonic_maskL,
+		sub_anim	: -1,
+		loop_times	: -1,
+		loop_frame	: 1,
+		loop_anim	: -1,
+		frames		: [],
+		speeds		: []
+	}
 	// Animation frames
+	an = global.AnimationsSonic[anim_player.lookup];
 	for (i = 0; i < 2; i++) {
-		ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMELIST), i);
-		ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMESPEEDLIST), 1/2)
+		array_push(an.frames,i);
+		array_push(an.speeds,1/2);
 	}
 	// ==================================================================================
-
-	an_id++;
-	// #6 - DUCK
-	ds_grid_set(an, an_id, ANIM_NAME,			"Duck");
-	ds_grid_set(an, an_id, ANIM_SPRITE,			spr_sonic_duck);
-	ds_grid_set(an, an_id, ANIM_SPRITEMASK,		spr_sonic_mask);
-	ds_grid_set(an, an_id, ANIM_SPRITEMASK_L,	spr_sonic_maskL);
-	ds_grid_set(an, an_id, ANIM_SUBANIM,		-1);
-	ds_grid_set(an, an_id, ANIM_LOOPBACKTIMES,	-1);
-	ds_grid_set(an, an_id, ANIM_LOOPBACKFRAME,	1);
-	ds_grid_set(an, an_id, ANIM_LOOPBACKANIM,	-1);
-	ds_grid_set(an, an_id, ANIM_FRAMELIST,		ds_list_create());
-	ds_grid_set(an, an_id, ANIM_FRAMESPEEDLIST,	ds_list_create());
-
+	global.AnimationsSonic[anim_player.duck] = {
+		name		: "Duck",
+		sprite		: spr_sonic_duck,
+		mask		: spr_sonic_mask,
+		mask_l		: spr_sonic_maskL,
+		sub_anim	: -1,
+		loop_times	: -1,
+		loop_frame	: 1,
+		loop_anim	: -1,
+		frames		: [],
+		speeds		: []
+	}
 	// Animation frames
+	an = global.AnimationsSonic[anim_player.duck];
 	for (i = 0; i < 2; i++) {
-		ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMELIST), i);
-		ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMESPEEDLIST), 1/2);
+		array_push(an.frames,i);
+		array_push(an.speeds,1/2);
 	}
 	// ==================================================================================
-	
-	an_id++;
-	// #7 - ROLL
-	ds_grid_set(an, an_id, ANIM_NAME,			"Roll");
-	ds_grid_set(an, an_id, ANIM_SPRITE,			spr_sonic_roll);
-	ds_grid_set(an, an_id, ANIM_SPRITEMASK,		spr_sonic_spin_mask);
-	ds_grid_set(an, an_id, ANIM_SPRITEMASK_L,	spr_sonic_spin_maskL);
-	ds_grid_set(an, an_id, ANIM_SUBANIM,		-1);
-	ds_grid_set(an, an_id, ANIM_LOOPBACKTIMES,	-1);
-	ds_grid_set(an, an_id, ANIM_LOOPBACKFRAME,	0);
-	ds_grid_set(an, an_id, ANIM_LOOPBACKANIM,	-1);
-	ds_grid_set(an, an_id, ANIM_FRAMELIST,		ds_list_create());
-	ds_grid_set(an, an_id, ANIM_FRAMESPEEDLIST,	ds_list_create());
-
+	global.AnimationsSonic[anim_player.roll] = {
+		name		: "Roll",
+		sprite		: spr_sonic_roll,
+		mask		: spr_sonic_spin_mask,
+		mask_l		: spr_sonic_spin_maskL,
+		sub_anim	: -1,
+		loop_times	: -1,
+		loop_frame	: 0,
+		loop_anim	: -1,
+		frames		: [],
+		speeds		: []
+	}
 	// Animation frames
+	an = global.AnimationsSonic[anim_player.roll];
 	for (i = 0; i < 4; i++) {
-		ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMELIST), 8);
-		ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMESPEEDLIST), 1);
-		ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMELIST), 9);
-		ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMESPEEDLIST), 1);
-		ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMELIST), i*2);
-		ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMESPEEDLIST), 1);
-		ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMELIST), i*2 + 1);
-		ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMESPEEDLIST), 1);
+		array_push(an.frames,8);
+		array_push(an.speeds,1);
+		array_push(an.frames,9);
+		array_push(an.speeds,1);
+		array_push(an.frames,i*2);
+		array_push(an.speeds,1);
+		array_push(an.frames,i*2 + 1);
+		array_push(an.speeds,1);
 	}
-	// ==================================================================================	
-
-	an_id++;
-	// #8 - SKID
-	ds_grid_set(an, an_id, ANIM_NAME,			"Skid");
-	ds_grid_set(an, an_id, ANIM_SPRITE,			spr_sonic_skid);
-	ds_grid_set(an, an_id, ANIM_SPRITEMASK,		spr_sonic_mask);
-	ds_grid_set(an, an_id, ANIM_SPRITEMASK_L,	spr_sonic_maskL);
-	ds_grid_set(an, an_id, ANIM_SUBANIM,		-1);
-	ds_grid_set(an, an_id, ANIM_LOOPBACKTIMES,	-1);
-	ds_grid_set(an, an_id, ANIM_LOOPBACKFRAME,	4);
-	ds_grid_set(an, an_id, ANIM_LOOPBACKANIM,	-1);
-	ds_grid_set(an, an_id, ANIM_FRAMELIST,		ds_list_create());
-	ds_grid_set(an, an_id, ANIM_FRAMESPEEDLIST,	ds_list_create());
-
+	// ==================================================================================
+	global.AnimationsSonic[anim_player.skid] = {
+		name		: "Skid",
+		sprite		: spr_sonic_skid,
+		mask		: spr_sonic_mask,
+		mask_l		: spr_sonic_maskL,
+		sub_anim	: -1,
+		loop_times	: -1,
+		loop_frame	: 4,
+		loop_anim	: -1,
+		frames		: [],
+		speeds		: []
+	}
 	// Animation frames
+	an = global.AnimationsSonic[anim_player.skid];
 	for (i = 0; i < 6; i++) {
-		ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMELIST), i);
-		ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMESPEEDLIST), 1/4);
+		array_push(an.frames,i);
+		array_push(an.speeds,1/4);
 	}
 	// ==================================================================================
-
-	an_id++;
-	// #8 - PUSH
-	ds_grid_set(an, an_id, ANIM_NAME,			"Push");
-	ds_grid_set(an, an_id, ANIM_SPRITE,			spr_sonic_push);
-	ds_grid_set(an, an_id, ANIM_SPRITEMASK,		spr_sonic_mask);
-	ds_grid_set(an, an_id, ANIM_SPRITEMASK_L,	spr_sonic_maskL);
-	ds_grid_set(an, an_id, ANIM_SUBANIM,		-1);
-	ds_grid_set(an, an_id, ANIM_LOOPBACKTIMES,	-1);
-	ds_grid_set(an, an_id, ANIM_LOOPBACKFRAME,	0);
-	ds_grid_set(an, an_id, ANIM_LOOPBACKANIM,	-1);
-	ds_grid_set(an, an_id, ANIM_FRAMELIST,		ds_list_create());
-	ds_grid_set(an, an_id, ANIM_FRAMESPEEDLIST,	ds_list_create());
-
+	global.AnimationsSonic[anim_player.push] = {
+		name		: "Push",
+		sprite		: spr_sonic_push,
+		mask		: spr_sonic_mask,
+		mask_l		: spr_sonic_maskL,
+		sub_anim	: -1,
+		loop_times	: -1,
+		loop_frame	: 0,
+		loop_anim	: -1,
+		frames		: [],
+		speeds		: []
+	}
 	// Animation frames
+	an = global.AnimationsSonic[anim_player.push];
 	for (i = 0; i < 8; i++) {
-		ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMELIST), i);
-		ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMESPEEDLIST), 1/16);
+		array_push(an.frames,i);
+		array_push(an.speeds,1/16);
 	}
 	// ==================================================================================
-	
-	an_id++;
-	// #9 - HURT
-	ds_grid_set(an, an_id, ANIM_NAME,			"Hurt");
-	ds_grid_set(an, an_id, ANIM_SPRITE,			spr_sonic_hurt);
-	ds_grid_set(an, an_id, ANIM_SPRITEMASK,		spr_sonic_mask);
-	ds_grid_set(an, an_id, ANIM_SPRITEMASK_L,	spr_sonic_maskL);
-	ds_grid_set(an, an_id, ANIM_SUBANIM,		-1);
-	ds_grid_set(an, an_id, ANIM_LOOPBACKTIMES,	-1);
-	ds_grid_set(an, an_id, ANIM_LOOPBACKFRAME,	0);
-	ds_grid_set(an, an_id, ANIM_LOOPBACKANIM,	-1);
-	ds_grid_set(an, an_id, ANIM_FRAMELIST,		ds_list_create());
-	ds_grid_set(an, an_id, ANIM_FRAMESPEEDLIST,	ds_list_create());
-
+	global.AnimationsSonic[anim_player.hurt] = {
+		name		: "Hurt",
+		sprite		: spr_sonic_hurt,
+		mask		: spr_sonic_mask,
+		mask_l		: spr_sonic_maskL,
+		sub_anim	: -1,
+		loop_times	: -1,
+		loop_frame	: 0,
+		loop_anim	: -1,
+		frames		: [],
+		speeds		: []
+	}
 	// Animation frames
-	ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMELIST), 0);
-	ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMESPEEDLIST), 1);
+	an = global.AnimationsSonic[anim_player.hurt];
+	array_push(an.frames,0);
+	array_push(an.speeds,1);
 	// ==================================================================================
-
-	an_id++;
-	// #10 - DEATH
-	ds_grid_set(an, an_id, ANIM_NAME,			"Death");
-	ds_grid_set(an, an_id, ANIM_SPRITE,			spr_sonic_death);
-	ds_grid_set(an, an_id, ANIM_SPRITEMASK,		spr_sonic_mask);
-	ds_grid_set(an, an_id, ANIM_SPRITEMASK_L,	spr_sonic_maskL);
-	ds_grid_set(an, an_id, ANIM_SUBANIM,		-1);
-	ds_grid_set(an, an_id, ANIM_LOOPBACKTIMES,	-1);
-	ds_grid_set(an, an_id, ANIM_LOOPBACKFRAME,	0);
-	ds_grid_set(an, an_id, ANIM_LOOPBACKANIM,	-1);
-	ds_grid_set(an, an_id, ANIM_FRAMELIST,		ds_list_create());
-	ds_grid_set(an, an_id, ANIM_FRAMESPEEDLIST,	ds_list_create());
-
+	global.AnimationsSonic[anim_player.death] = {
+		name		: "Death",
+		sprite		: spr_sonic_death,
+		mask		: spr_sonic_mask,
+		mask_l		: spr_sonic_maskL,
+		sub_anim	: -1,
+		loop_times	: -1,
+		loop_frame	: 0,
+		loop_anim	: -1,
+		frames		: [],
+		speeds		: []
+	}
 	// Animation frames
-	ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMELIST), 0);
-	ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMESPEEDLIST), 1);
+	an = global.AnimationsSonic[anim_player.death];
+	array_push(an.frames,0);
+	array_push(an.speeds,1);
 	// ==================================================================================
-
-	an_id++;
-	// #11 - DROWN
-	ds_grid_set(an, an_id, ANIM_NAME,			"Drown");
-	ds_grid_set(an, an_id, ANIM_SPRITE,			spr_sonic_death);
-	ds_grid_set(an, an_id, ANIM_SPRITEMASK,		spr_sonic_mask);
-	ds_grid_set(an, an_id, ANIM_SPRITEMASK_L,	spr_sonic_maskL);
-	ds_grid_set(an, an_id, ANIM_SUBANIM,		-1);
-	ds_grid_set(an, an_id, ANIM_LOOPBACKTIMES,	-1);
-	ds_grid_set(an, an_id, ANIM_LOOPBACKFRAME,	0);
-	ds_grid_set(an, an_id, ANIM_LOOPBACKANIM,	-1);
-	ds_grid_set(an, an_id, ANIM_FRAMELIST,		ds_list_create());
-	ds_grid_set(an, an_id, ANIM_FRAMESPEEDLIST,	ds_list_create());
-
+	global.AnimationsSonic[anim_player.drown] = {
+		name		: "Drown",
+		sprite		: spr_sonic_death,
+		mask		: spr_sonic_mask,
+		mask_l		: spr_sonic_maskL,
+		sub_anim	: -1,
+		loop_times	: -1,
+		loop_frame	: 0,
+		loop_anim	: -1,
+		frames		: [],
+		speeds		: []
+	}
 	// Animation frames
-	ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMELIST), 1);
-	ds_list_add(ds_grid_get(an, an_id, ANIM_FRAMESPEEDLIST), 1);
-	// ==================================================================================
+	an = global.AnimationsSonic[anim_player.drown];
+	array_push(an.frames,1);
+	array_push(an.speeds,1);
 }

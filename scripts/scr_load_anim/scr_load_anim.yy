@@ -6,7 +6,7 @@
     "path": "folders/Scripts/Animations.yy",
   },
   "resourceVersion": "1.0",
-  "name": "scr_render_anim",
+  "name": "scr_load_anim",
   "tags": [],
   "resourceType": "GMScript",
 }
