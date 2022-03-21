@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_PSB",
-    "path": "sprites/spr_PSB/spr_PSB.yy",
+    "name": "spr_lamppost",
+    "path": "sprites/spr_lamppost/spr_lamppost.yy",
   },
   "solid": false,
   "visible": true,
@@ -26,7 +26,6 @@
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
@@ -35,7 +34,7 @@
     "path": "folders/Objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj0F_PSB",
+  "name": "obj79_Lamppost",
   "tags": [],
   "resourceType": "GMObject",
 }
