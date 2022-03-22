@@ -57,6 +57,7 @@
     {"id":{"name":"objParent_TopSolid","path":"objects/objParent_TopSolid/objParent_TopSolid.yy",},"order":6,},
     {"id":{"name":"spr_missile","path":"sprites/spr_missile/spr_missile.yy",},"order":14,},
     {"id":{"name":"scr_player_angle_pos","path":"scripts/scr_player_angle_pos/scr_player_angle_pos.yy",},"order":6,},
+    {"id":{"name":"spr_GHZpillar","path":"sprites/spr_GHZpillar/spr_GHZpillar.yy",},"order":2,},
     {"id":{"name":"spr_sonic_idle","path":"sprites/spr_sonic_idle/spr_sonic_idle.yy",},"order":0,},
     {"id":{"name":"obj1F_Crabmeat","path":"objects/obj1F_Crabmeat/obj1F_Crabmeat.yy",},"order":7,},
     {"id":{"name":"scr_player_jump_angle","path":"scripts/scr_player_jump_angle/scr_player_jump_angle.yy",},"order":16,},
