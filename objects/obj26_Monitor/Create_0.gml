@@ -1,8 +1,8 @@
 /// @description Init monitor
 
 event_inherited();
+depth = 3;
 routine = 0;
-priority = 3;
 subtype = 0;
 
 // Animation system related variables

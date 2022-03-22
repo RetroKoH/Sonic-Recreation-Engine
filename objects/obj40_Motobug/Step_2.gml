@@ -1,4 +1,4 @@
 /// @description Animation Handling
-if fading || !active exit;
+if fading exit;
 event_inherited();
 scr_handle_anim();

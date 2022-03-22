@@ -1,7 +1,6 @@
 /// @description Init Buzz Bomber
-xsp = 0;
-ysp = 0;
-routine = 0;
+event_inherited();
+depth = 3;
 timedelay = 0;
 buzz_status = 0;
 

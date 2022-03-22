@@ -20,7 +20,7 @@ function scr_ptfm_move(){
 		break;
 		case 3: // Set to fall if landed on
 			if !delay{
-				if (status&STA_ONOBJ)
+				if y_sink==4 //if (status&STA_ONOBJ)
 					delay=30;
 			}
 			else{
