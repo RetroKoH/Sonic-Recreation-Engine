@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Core",
-    "path": "folders/Core.yy",
+    "name": "Level Data",
+    "path": "folders/Level Data.yy",
   },
   "resourceVersion": "1.0",
   "name": "SOLIDS",

@@ -41,8 +41,10 @@ function INIT_GAME(){
 	scr_init_animals();
 	dat_signpost_sparkles();
 
-	global.core_input = instance_create_layer(0,0,"Core",obj_input);
-	global.core_fade = instance_create_layer(0,0,"Core",obj_fade);
+	global.core_input = instance_create_layer(0, 0, "Core", obj_input);
+	global.core_fade = instance_create_layer(0, 1, "Core", obj_fade);
+	global.core_sound = instance_create_layer(0, 2, "Core", obj_soundcontrol);
+	global.ring = 1; // Alternates between 1 and -1;
 
 	// Global Gameplay object handles
 	globalvar player;	player = -1;	// Global handle for player object

@@ -2,7 +2,7 @@
 
 if fading exit;
 
-switch(routine)
+/*switch(routine)
 {
 
-}
+}*/

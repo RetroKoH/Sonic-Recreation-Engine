@@ -1,16 +1,10 @@
 {
-  "spriteId": {
-    "name": "spr_lamppost",
-    "path": "sprites/spr_lamppost/spr_lamppost.yy",
-  },
+  "spriteId": null,
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
-  "persistent": false,
-  "parentObjectId": {
-    "name": "obj00",
-    "path": "objects/obj00/obj00.yy",
-  },
+  "persistent": true,
+  "parentObjectId": null,
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -27,16 +21,14 @@
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
-  "properties": [
-    {"varType":0,"value":"0","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"subtype","tags":[],"resourceType":"GMObjectProperty",},
-  ],
+  "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "Core",
+    "path": "folders/Core.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj79_Lamppost",
+  "name": "obj_soundcontrol",
   "tags": [],
   "resourceType": "GMObject",
 }

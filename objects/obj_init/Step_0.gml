@@ -31,16 +31,23 @@ switch(routine)
 		if !delay {
 			visible = true;
 			image_speed = 1;
+			delay = 10;
 			routine++;
 		}
 	break;
 	case 3:
-		if image_index >= image_number-1
+		if !image_speed
 		{
-			image_speed = 0;
-			delay = 45;
-			routine++;
+			delay--;
+			if !delay
+			{
+				audio_play_sound(SEGA,0,false);
+				delay = (audio_sound_length(SEGA)*60)+15;
+				routine++;
+			}
 		}
+		else if image_index >= image_number-1
+			image_speed = 0;
 	break;
 	case 4:
 		delay--;
