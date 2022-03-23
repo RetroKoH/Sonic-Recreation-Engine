@@ -25,7 +25,7 @@ function scr_touch_objPlatform(){
 	    }
 	}
 
-	else
+	if !(status&STA_ONOBJ)
 	{
 	    //Floor
 	    dist=max(abs(ysp),1)*sign(ysp);
@@ -136,6 +136,6 @@ function scr_touch_objPlatform(){
 			platform_ID = obj;
 			status|=STA_ONOBJ;
 			if platform_ID.object_index == obj18_Platform
-					platform_ID.routine++;
+				platform_ID.routine++;
 		}
 }

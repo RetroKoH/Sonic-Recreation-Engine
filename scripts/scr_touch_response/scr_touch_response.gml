@@ -5,8 +5,5 @@ function scr_touch_response(){
 	scr_touch_objEnemy();
 	scr_touch_objHarm();
 /*	scrObjHandleBumpers();
-	scrObjHandleEnemy();
-	scrObjHandleSolid();
-	scrObjHandleHarm();
 	scrObjHandleSpecial();
 */}

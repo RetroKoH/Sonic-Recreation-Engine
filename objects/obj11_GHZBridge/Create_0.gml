@@ -1,4 +1,4 @@
-/// @description Insert description here
-// You can write your code in this editor
-
+/// @description Init Bridge
+event_inherited();
 depth=3;
+routine=0;
