@@ -20,4 +20,8 @@ switch(routine)
 		_x += $10;
 	}
 	break;
+	case 1:
+		prev_x = x;	// Stored for movement with object (Though, this one doesn't move)
+		collide = scr_solid_obj();
+	break;
 }

@@ -1,5 +1,5 @@
-function scr_touch_objPlatform(){
-	// Handles collision with solid and top-solid platform objects
+function scr_touch_objPlatform(){}
+/*	// Handles collision with solid and top-solid platform objects
 	var obj, dist;
 
 	// Vertical collision (if there is a block at the expected location based on ysp)
@@ -31,7 +31,7 @@ function scr_touch_objPlatform(){
 	    dist=max(abs(ysp),1)*sign(ysp);
 	    obj=instance_place(x, y+dist, objParent_Solid);
 	    if ((obj) && (obj.ptfm_solid)) //&& !place_meeting(x, y, obj)
-	    && collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+ysp+1, obj, false, false)
+	    && collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+dist+1, obj, false, false)
 		{
 			if obj.object_index == obj26_Monitor && player.anim_ID == anim_player.roll
 			{
@@ -47,10 +47,11 @@ function scr_touch_objPlatform(){
 			}
 			else
 			{
-				angle = 0;
 				y=obj.bbox_top - (sprite_get_height(mask_index) - sprite_get_yoffset(mask_index));		// Sets Sonic's position to the tile's height.
-		        ysp = 0; gsp = xsp;
+				angle = 0;
 				scr_player_acquirefloor();
+				ysp = 0;
+				gsp = xsp;
 				platform_ID = obj;
 				status|=STA_ONOBJ;
 			}

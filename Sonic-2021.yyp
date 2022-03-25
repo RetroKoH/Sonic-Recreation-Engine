@@ -107,6 +107,7 @@
     {"id":{"name":"SOLIDS","path":"sprites/SOLIDS/SOLIDS.yy",},"order":4,},
     {"id":{"name":"obj1A_GHZLedge","path":"objects/obj1A_GHZLedge/obj1A_GHZLedge.yy",},"order":26,},
     {"id":{"name":"obj36_Spikes","path":"objects/obj36_Spikes/obj36_Spikes.yy",},"order":18,},
+    {"id":{"name":"GHZ2","path":"rooms/GHZ2/GHZ2.yy",},"order":4,},
     {"id":{"name":"obj79_Lamppost","path":"objects/obj79_Lamppost/obj79_Lamppost.yy",},"order":25,},
     {"id":{"name":"spr_motobug","path":"sprites/spr_motobug/spr_motobug.yy",},"order":0,},
     {"id":{"name":"obj23_Missile","path":"objects/obj23_Missile/obj23_Missile.yy",},"order":10,},
@@ -133,6 +134,7 @@
     {"id":{"name":"rm_option","path":"rooms/rm_option/rm_option.yy",},"order":3,},
     {"id":{"name":"S2_24_Skid","path":"sounds/S2_24_Skid/S2_24_Skid.yy",},"order":13,},
     {"id":{"name":"spr_animal_locky","path":"sprites/spr_animal_locky/spr_animal_locky.yy",},"order":7,},
+    {"id":{"name":"scr_solid_obj","path":"scripts/scr_solid_obj/scr_solid_obj.yy",},"order":10,},
     {"id":{"name":"obj22_BuzzBomber","path":"objects/obj22_BuzzBomber/obj22_BuzzBomber.yy",},"order":9,},
     {"id":{"name":"scr_obj_floor_pos","path":"scripts/scr_obj_floor_pos/scr_obj_floor_pos.yy",},"order":3,},
     {"id":{"name":"spr_motobug_smoke","path":"sprites/spr_motobug_smoke/spr_motobug_smoke.yy",},"order":3,},
@@ -238,6 +240,7 @@
     {"roomId":{"name":"GHZ","path":"rooms/GHZ/GHZ.yy",},},
     {"roomId":{"name":"rm_title","path":"rooms/rm_title/rm_title.yy",},},
     {"roomId":{"name":"rm_option","path":"rooms/rm_option/rm_option.yy",},},
+    {"roomId":{"name":"GHZ2","path":"rooms/GHZ2/GHZ2.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":4,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},
