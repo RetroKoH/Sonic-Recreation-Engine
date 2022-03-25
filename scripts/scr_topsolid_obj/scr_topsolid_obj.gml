@@ -1,7 +1,61 @@
-function scr_solid_obj(width,height,height_air,prev_x){
+function scr_topsolid_obj(width, height){
 	if (status&STA_ONOBJ)
 	{
-		var combined_x_radius = width+player.width+1;
+		var combined_x_radius = (floor(bbox_right-bbox_left) div 2)+player.width+1;
+		var x_comp = (player.x - x) + combined_x_radius; //get the position difference     WAS: (x + (floor(bbox_right-bbox_left) div 2) - player.x);
+		if(player.status&STA_INAIR || x_comp < 0 || x_comp >= combined_x_radius*2)
+		{
+			scr_solid_exit_platform();
+			return 0;
+		}
+	}
+	else return scr_topsolid_obj_collide(width, height);
+}
+
+// Top-Solid platform object collision
+function scr_topsolid_obj_collide(width, height){
+	var overlap = false;
+	var _px = player.x, _py = player.y;
+	var left_diff = (_px - x) + width;
+	
+	if ((player.ysp >= 0) && (left_diff >= 0) && (left_diff <= width*2)) // if (left_diff < 0) = too far to the left; (left_diff > combined_x_radius*2) = too far to the right
+	{	// We are overlapping on the x axis, check y axis
+		var top_diff = (_py - y) + 4 + height;
+		if ((top_diff >= 0) && (top_diff <= height*2)) overlap=true; // if (top_diff < 0) = too far above; if (top_diff > combined_y_radius*2) = too far below
+	}
+	
+	if overlap{
+		// Collide vertically
+		if (top_diff <= 0)
+		{
+			// Check for landing on object
+			if (top_diff >= -16)
+			{
+				var x_comp = x + (width div 2) - _px;
+				if ((x_comp >= 0 && x_comp < width) && player.ysp >= 0)
+				{
+					// Land on the object
+					y_dist -= 4;	
+					player.y -= (y_dist + 1);
+					player.angle = 0;
+					with(player) scr_player_acquirefloor();
+					player.ysp = 0;
+					player.gsp = player.xsp;
+					player.platform_ID = self;
+					player.status|=STA_ONOBJ;
+					status|=STA_ONOBJ;
+					return 1; //Set top touch flag
+				}
+			}
+			return 0;
+		}
+	}
+}
+
+/*{
+	if (status&STA_ONOBJ)
+	{
+		var combined_x_radius = (floor(bbox_right-bbox_left) div 2)+player.width+1;
 		var x_comp = (player.x - x) + combined_x_radius; //get the position difference     WAS: (x + (floor(bbox_right-bbox_left) div 2) - player.x);
 		if(player.status&STA_INAIR || x_comp < 0 || x_comp >= combined_x_radius*2)
 		{
@@ -10,19 +64,18 @@ function scr_solid_obj(width,height,height_air,prev_x){
 		}
 		else
 		{
-			scr_solid_move_player(player, height, prev_x);
+			scr_solid_move_player(player);
 			return 1;
 		}
 	}
-	else return scr_solid_obj_collide(width, height_air, prev_x);
+	else return scr_solid_obj_collide();
 }
 
 // Move player with the object (Will only apply to moving solids)
-function scr_solid_move_player(p, height, prev_x){
-	if p.routine>2 exit; // Don't collide if in death
+function scr_solid_move_player(p){
+	if (p.routine>2) exit; // Don't collide if in death
 	
-	var top = y - height - 1;
-	p.y = top-p.height;
+	p.y = bbox_top-p.height;
 	p.x -= (prev_x - x)
 }
 
@@ -34,15 +87,15 @@ function scr_solid_exit_platform(){
 }
 
 // Solid object collision
-function scr_solid_obj_collide(width, height, prev_x){
+function scr_solid_obj_collide(){
 	var overlap = false;
 	var _px = player.x, _py = player.y;
-	var combined_x_radius = width+player.width+1;
+	var combined_x_radius = (floor(bbox_right-bbox_left) div 2)+player.width+1;
 	var left_diff = (_px - x) + combined_x_radius;
 
 	if ((left_diff >= 0) && (left_diff <= combined_x_radius*2)) // if (left_diff < 0) = too far to the left; (left_diff > combined_x_radius*2) = too far to the right
 	{	// We are overlapping on the x axis, check y axis
-		var combined_y_radius = height+player.height;
+		var combined_y_radius = (floor(bbox_bottom-bbox_top) div 2)+player.height;
 		var top_diff = (_py - y) + 4 + combined_y_radius;
 
 		if ((top_diff >= 0) && (top_diff <= combined_y_radius*2)) overlap=true; // if (top_diff < 0) = too far above; if (top_diff > combined_y_radius*2) = too far below
@@ -72,8 +125,8 @@ function scr_solid_obj_collide(width, height, prev_x){
 				// Check for landing on object
 				if (y_dist < 16)
 				{
-					var x_comp = prev_x + width - _px;
-					if ((x_comp >= 0 && x_comp < (width*2)) && player.ysp >= 0)
+					var x_comp = x + (floor(bbox_right-bbox_left) div 2) - _px;
+					if ((x_comp >= 0 && x_comp < floor(bbox_right-bbox_left)) && player.ysp >= 0)
 					{
 						// Land on the object
 						y_dist -= 4;	
