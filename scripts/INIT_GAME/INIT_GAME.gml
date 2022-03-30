@@ -44,7 +44,9 @@ function INIT_GAME(){
 	global.core_input = instance_create_layer(0, 0, "Core", obj_input);
 	global.core_fade = instance_create_layer(0, 1, "Core", obj_fade);
 	global.core_sound = instance_create_layer(0, 2, "Core", obj_soundcontrol);
-	global.ring = 1; // Alternates between 1 and -1;
+	global.core_music = instance_create_layer(0, 3, "Core", obj_musiccontrol);
+	global.ring = 1;	// Alternates between 1 and -1;
+	bgm_listings();		// Music Tracks
 
 	// Global Gameplay object handles
 	globalvar player;	player = -1;	// Global handle for player object
