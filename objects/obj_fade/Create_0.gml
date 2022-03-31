@@ -1,6 +1,7 @@
 /// @description Init Fading effect for use
 globalvar fading;
 
+depth=-100;
 fading=false;   // A global lock that occurs when fading occurs.
 fade=0;         // Fade routine
 fade_alpha=0;   // Alpha transparency for the fade screen.

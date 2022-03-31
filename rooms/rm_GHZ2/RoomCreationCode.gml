@@ -40,4 +40,4 @@ v_lookshift=0;          // Screen shift when player looks up/down.
 cam.follow = player;
 f_timecount = true;
 osc_active = true;
-audio_play_sound(M_GHZ2,0,true);
+scr_set_bgm(BGM_tracks.GHZ2);
