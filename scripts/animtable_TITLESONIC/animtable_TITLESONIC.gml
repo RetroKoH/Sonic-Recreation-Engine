@@ -21,4 +21,5 @@ function animtable_TITLESONIC(){
 		array_push(global.AnimationsTitleSonic[0].speeds,1/2);
 	for (i = 10; i < 18; i++)
 		array_push(global.AnimationsTitleSonic[0].speeds,1/8);
+	array_push(animation_index,global.AnimationsTitleSonic);
 }

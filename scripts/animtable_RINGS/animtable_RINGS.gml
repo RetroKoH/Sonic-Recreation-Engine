@@ -33,18 +33,8 @@ function animtable_RINGS(){
 		loop_times	: -1,
 		loop_frame	: 0,
 		loop_anim	: -1,
-		frames		: [],
-		speeds		: []
+		frames		: [8,   9, 10,  11],
+		speeds		: [sp, sp, sp, 1/7]
 	}
-	// Animation frames
-	var an = global.AnimationsRings[1];
-	array_push(an.frames, 8);
-	array_push(an.speeds, sp);
-	array_push(an.frames, 9);
-	array_push(an.speeds, sp);
-	array_push(an.frames, 10);
-	array_push(an.speeds, sp);
-	array_push(an.frames, 11);
-	array_push(an.speeds, 1/7);
-	// ==================================================================================
+	array_push(animation_index,global.AnimationsRings);
 }

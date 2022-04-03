@@ -23,8 +23,7 @@ if !active {
 	}
 }
 else {
-	if keyboard_check_pressed(vk_escape) {
-		objopt[option].enabled = false;
-		active = false;
-	}
+	if keyboard_check_pressed(vk_escape)
+		if objopt[option].active == false
+			active = false;
 }

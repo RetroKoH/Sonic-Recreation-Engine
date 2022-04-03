@@ -1,5 +1,4 @@
 /// @description Control Mapping
-
 if !enabled exit;
 
 // Press START to enable the menu
@@ -13,11 +12,11 @@ else {
 	if !active {
 		if global.k_u_p {
 			if option == 1 option = 8;
-			else option -= 1;
+			else option--;
 		}
 		if global.k_d_p {
 			if option == 8 option = 1;
-			else option += 1;
+			else option ++;
 		}
 		if global.k_st_p {
 			active = true;
@@ -26,6 +25,7 @@ else {
 		if keyboard_check_pressed(vk_escape) {
 			option = 0;
 			scr_keymap_save();
+			enabled = false;
 		}
 	}
 

@@ -4,6 +4,10 @@ if !visible exit;
 
 draw_sprite_ext(spr_controller,option,view_wport[0]/2,view_hport[0]/3,.5,.5,0,c_white,1);
 
+draw_text(0,view_hport[0]/2,"Enabled: "+string(enabled)+"\n"+
+							"Active: "+string(active)+"\n"+
+							"Option: "+string(option)+"\n");
+
 // This can all be applied to a surface
 var co; co[0] = c_white; co[1] = c_yellow; co[2] = c_lime;
 

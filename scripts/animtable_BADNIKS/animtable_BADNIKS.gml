@@ -44,6 +44,7 @@ function animtable_CRABMEAT(){
 		frames		: [3],	// Animation frames
 		speeds		: [1]
 	}
+	array_push(animation_index,global.AnimationsCrabmeat);
 }
 
 // Database of sprite animations for the crabmeat object ($22)
@@ -91,6 +92,7 @@ function animtable_BUZZBOMBER(){
 		frames		: [ 1,  2, 3],	// Animation frames
 		speeds		: [sp, sp, 1]
 	}
+	array_push(animation_index,global.AnimationsBuzzBomber);
 }
 
 // Database of sprite animations for the motobug object ($40)
@@ -124,4 +126,5 @@ function animtable_MOTOBUG(){
 		frames		: [ 0,  1,  0,   2],	// Animation frames
 		speeds		: [sp, sp, sp, 1/7]
 	}
+	array_push(animation_index,global.AnimationsMotobug);
 }

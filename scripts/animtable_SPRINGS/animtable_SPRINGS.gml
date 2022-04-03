@@ -11,12 +11,9 @@ function animtable_SPRINGS(){
 		loop_times	: -1,
 		loop_frame	: 0,
 		loop_anim	: -1,
-		frames		: [],
-		speeds		: []
+		frames		: [0],
+		speeds		: [1]
 	}
-	// Animation frames
-	array_push(global.AnimationsSprings[0].frames,0);
-	array_push(global.AnimationsSprings[0].speeds,1);
 	// ==================================================================================
 
 	global.AnimationsSprings[1] = {
@@ -28,17 +25,8 @@ function animtable_SPRINGS(){
 		loop_times	: 0,
 		loop_frame	: 0,
 		loop_anim	: -1,
-		frames		: [],
-		speeds		: []
+		frames		: [1,   0,   2, 0],
+		speeds		: [1, 1/2, 1/6, 1]
 	}
-	// Animation frames
-	var an = global.AnimationsSprings[1];
-	array_push(an.frames,1);
-	array_push(an.speeds,1);
-	array_push(an.frames,0);
-	array_push(an.speeds,1/2);
-	array_push(an.frames,2);
-	array_push(an.speeds,1/6);
-	array_push(an.frames,0);
-	array_push(an.speeds,1);
+	array_push(animation_index,global.AnimationsSprings);
 }

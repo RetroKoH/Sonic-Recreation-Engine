@@ -19,7 +19,7 @@ enum anim_player {
 // Database of sprite animations for the player object ($01 - Sonic)
 function animtable_SONIC(){
 	global.AnimationsSonic = array_create(anim_player.total)
-	var an;
+	var sp = 1/24;
 	
 	global.AnimationsSonic[anim_player.idle] = {
 		name		: "Idle",
@@ -30,21 +30,9 @@ function animtable_SONIC(){
 		loop_times	: -1,
 		loop_frame	: 3,
 		loop_anim	: -1,
-		frames		: [],
-		speeds		: []
+		frames		: [    0,  2,  1,  1,  1,  2,  3],
+		speeds		: [1/288, sp, sp, sp, sp, sp, sp]
 	}
-	// Animation frames
-	an = global.AnimationsSonic[anim_player.idle];
-	array_push(an.frames,0);
-	array_push(an.speeds,1/288);
-	array_push(an.frames,2);
-	array_push(an.speeds,1/24);
-	array_push(an.frames,1);
-	array_push(an.speeds,1/72);
-	array_push(an.frames,2);
-	array_push(an.speeds,1/24);
-	array_push(an.frames,3);
-	array_push(an.speeds,1/24);
 	// ==================================================================================
 	global.AnimationsSonic[anim_player.walk] = {
 		name		: "Walk",
@@ -59,7 +47,7 @@ function animtable_SONIC(){
 		speeds		: []
 	}
 	// Animation frames
-	an = global.AnimationsSonic[anim_player.walk];
+	var an = global.AnimationsSonic[anim_player.walk];
 	for (var i = 0; i < 12; i++) {
 		array_push(an.frames,i);
 		array_push(an.speeds,1);
@@ -249,13 +237,9 @@ function animtable_SONIC(){
 		loop_times	: -1,
 		loop_frame	: 0,
 		loop_anim	: -1,
-		frames		: [],
-		speeds		: []
+		frames		: [0],
+		speeds		: [1]
 	}
-	// Animation frames
-	an = global.AnimationsSonic[anim_player.death];
-	array_push(an.frames,0);
-	array_push(an.speeds,1);
 	// ==================================================================================
 	global.AnimationsSonic[anim_player.drown] = {
 		name		: "Drown",
@@ -266,11 +250,8 @@ function animtable_SONIC(){
 		loop_times	: -1,
 		loop_frame	: 0,
 		loop_anim	: -1,
-		frames		: [],
-		speeds		: []
+		frames		: [1],
+		speeds		: [1]
 	}
-	// Animation frames
-	an = global.AnimationsSonic[anim_player.drown];
-	array_push(an.frames,1);
-	array_push(an.speeds,1);
+	array_push(animation_index,global.AnimationsSonic);
 }

@@ -12,12 +12,9 @@ function animtable_SIGNPOST(){
 		loop_times	: -1,
 		loop_frame	: 0,
 		loop_anim	: -1,
-		frames		: [],
-		speeds		: []
+		frames		: [0],
+		speeds		: [1]
 	}
-	// Animation frames
-	array_push(global.AnimationsSignpost[0].frames, 0);
-	array_push(global.AnimationsSignpost[0].speeds, 1);
 	// ==================================================================================
 
 	global.AnimationsSignpost[1] = {
@@ -29,13 +26,8 @@ function animtable_SIGNPOST(){
 		loop_times	: -1,
 		loop_frame	: 0,
 		loop_anim	: -1,
-		frames		: [],
-		speeds		: []
-	}
-	// Animation frames
-	for (var i = 0; i < 4; i++) {
-		array_push(global.AnimationsSignpost[1].frames, i);
-		array_push(global.AnimationsSignpost[1].speeds, sp);
+		frames		: [0,  1, 2, 3],
+		speeds		: [sp,sp,sp,sp]
 	}
 	// ==================================================================================
 
@@ -69,10 +61,8 @@ function animtable_SIGNPOST(){
 		loop_times	: -1,
 		loop_frame	: 0,
 		loop_anim	: -1,
-		frames		: [],
-		speeds		: []
+		frames		: [4],
+		speeds		: [1]
 	}
-	// Animation frames
-	array_push(global.AnimationsSignpost[3].frames, 4);
-	array_push(global.AnimationsSignpost[3].speeds, 1);
+	array_push(animation_index,global.AnimationsSignpost);
 }

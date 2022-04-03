@@ -81,7 +81,7 @@ function INIT_KEYMAP(){
 	INIT_KEY_INDEX();
 
 	// If the controls file doesn't exist, it'll be created automatically here
-	scr_debug_log_add("Settings File Not Found. A new one will be created.");
+	if !file_exists("settings.ini") scr_debug_log_add("Settings File Not Found. A new one will be created.");
 	ini_open("settings.ini");
 	scr_debug_log_add("Controls Loaded from: " + "settings.ini");
 
@@ -102,15 +102,15 @@ function INIT_KEYMAP(){
 
 	// Keymapping (Defaults will be set if file is present but values are missing
 	globalvar keymap_array;
-	keymap_array[KEY_UP]=ini_read_real("Default", "KEY_UP", vk_up);
-	keymap_array[KEY_DOWN]=ini_read_real("Default", "KEY_DOWN", vk_down);
-	keymap_array[KEY_LEFT]=ini_read_real("Default", "KEY_LEFT", vk_left);
-	keymap_array[KEY_RIGHT]=ini_read_real("Default", "KEY_RIGHT", vk_right);
-	keymap_array[KEY_A]=ini_read_real("Default", "KEY_A", ord("A"));
-	keymap_array[KEY_B]=ini_read_real("Default", "KEY_B", ord("S"));
-	keymap_array[KEY_C]=ini_read_real("Default", "KEY_C", ord("D"));
-	keymap_array[KEY_START]=ini_read_real("Default", "KEY_START", vk_enter);
-	keymap_array[KEY_DEBUG]=ini_read_real("Default", "KEY_DEBUG", vk_shift);
+	keymap_array[KEY_UP]=ini_read_real("Controls", "KEY_UP", vk_up);
+	keymap_array[KEY_DOWN]=ini_read_real("Controls", "KEY_DOWN", vk_down);
+	keymap_array[KEY_LEFT]=ini_read_real("Controls", "KEY_LEFT", vk_left);
+	keymap_array[KEY_RIGHT]=ini_read_real("Controls", "KEY_RIGHT", vk_right);
+	keymap_array[KEY_A]=ini_read_real("Controls", "KEY_A", ord("A"));
+	keymap_array[KEY_B]=ini_read_real("Controls", "KEY_B", ord("S"));
+	keymap_array[KEY_C]=ini_read_real("Controls", "KEY_C", ord("D"));
+	keymap_array[KEY_START]=ini_read_real("Controls", "KEY_START", vk_enter);
+	keymap_array[KEY_DEBUG]=ini_read_real("Controls", "KEY_DEBUG", vk_shift);
 	scr_debug_log_add("Keymapping Complete");
 	ini_close();
 	
@@ -273,6 +273,7 @@ function INIT_COL_ARRAYS(){
 	file_bin_close(file);
 }
 function INIT_ANIM_DATA(){
+	globalvar animation_index; animation_index = array_create(0);	// Every script below pushes an animation into this index
 	animtable_BUZZBOMBER();
 	animtable_CRABMEAT();
 	animtable_MONITORS();

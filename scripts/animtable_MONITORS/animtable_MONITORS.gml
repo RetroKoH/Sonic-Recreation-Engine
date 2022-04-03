@@ -12,16 +12,8 @@ function animtable_MONITORS(){
 		loop_times	: -1,
 		loop_frame	: 0,
 		loop_anim	: -1,
-		frames		: [],
-		speeds		: []
-	}
-	// Animation frames
-	for (var i = 0; i < 3; i++)
-	{
-		array_push(global.AnimationsMonitors[0].frames, i);
-		array_push(global.AnimationsMonitors[0].speeds, sp);
-		array_push(global.AnimationsMonitors[0].frames, 3);
-		array_push(global.AnimationsMonitors[0].speeds, 1/4);
+		frames		: [0,   1,  2,   3],
+		speeds		: [sp, sp, sp, 1/4]
 	}
 	// ==================================================================================
 
@@ -34,11 +26,8 @@ function animtable_MONITORS(){
 		loop_times	: -1,
 		loop_frame	: 0,
 		loop_anim	: -1,
-		frames		: [],
-		speeds		: []
+		frames		: [4],
+		speeds		: [1]
 	}
-	// Animation frames
-	array_push(global.AnimationsMonitors[1].frames, 4);
-	array_push(global.AnimationsMonitors[1].speeds, 1);
-	// ==================================================================================
+	array_push(animation_index,global.AnimationsMonitors);
 }
