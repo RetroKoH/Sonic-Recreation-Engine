@@ -7,7 +7,7 @@ layer_id = layer_get_id("Foreground");
 chunks_id = layer_tilemap_get_id(layer_id);
 
 // Set Zone and Act
-zone = 0;
+zone = ZONE_GHZ;
 act = 0;
 
 // Initialize Oscillating numbers
@@ -18,7 +18,7 @@ LAYOUT_GHZ();
 
 // Set up Camera and place player
 cam = instance_create_layer(78,940,"Core",obj_camera);
-player = instance_create_layer(90,908,"Instances",obj01_Sonic);
+player = instance_create_layer(90,908,"Instances",obj_Players[playermode]);
 instance_create_layer(0,0,"Core",obj21_HUD);
 
 // Soft values (Where the camera boundaries appear

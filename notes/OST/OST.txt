@@ -1,0 +1,13 @@
+GHZ1 - Used for Act 1
+GHZ2 - Used for Act 2 (Will incorporate underground sections)
+MZ1 - Used for Act 1 (Will be primarily above ground)
+MZ2 - Used for Act 2 (Will be primarily underground)
+SYZ1 - Used for Act 1
+SYZ2 - Used for Act 2 (Will incorporate Sparkling Zone)
+LZ1 - Used for Act 1
+LZ3 - Used for Act 2 (Incorporate original Act 3, and SMS version)
+SLZ1 - Used for Act 1 (Will be at a "ground level")
+SLZ2 - Used for Act 2 (Proper Star Light; In the stars, with bottomless areas)
+SBZ1 - Used for Act 1 (Outdoor)
+SBZ2 - Used for Act 2 (Indoor)
+SBZ3 - Used for Act 3

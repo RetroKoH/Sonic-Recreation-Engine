@@ -3,8 +3,9 @@ function scr_player_jump(){
 	var jump_flag=0;//collision_line(x-width,y-25,x+width,y-25,obj00_Solid,1,0);
 	if global.k_abc_p
 	{
-	    var jmp = (status&STA_WATER) ? 3.5 : 6.5;	// Alter gravity depending on underwater status bit 
-	    if !jump_flag								// Check ceiling collision with a line.
+	    var jmp = jmp_spd;
+		if (status&STA_WATER) jmp -= 3;	// Alter gravity depending on underwater status bit 
+	    if !jump_flag					// Check ceiling collision with a line.
 	    {
 	        xsp-=jmp*sin(degtorad(angle));
 	        ysp-=jmp*cos(degtorad(angle));

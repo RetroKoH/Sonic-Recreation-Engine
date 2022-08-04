@@ -12,7 +12,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "M_LZ2.ogg",
-  "duration": 39.4819946,
+  "duration": 56.7719955,
   "parent": {
     "name": "music",
     "path": "folders/Sounds/music.yy",

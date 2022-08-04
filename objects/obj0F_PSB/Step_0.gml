@@ -1,4 +1,4 @@
-/// @description Handle PSB Blinking
+/// @description Handle PSB and Menu
 if global.fading exit;
 
 // PRESS START BUTTON
@@ -29,8 +29,8 @@ else
 	}
 	if (global.k_st_p)
 	{
-		if option==0	scr_trigger_fade(rm_GHZ2);
-		else			scr_trigger_fade(rm_option);
+		if option==0	scr_trigger_fade(rm_GHZ1);
+		else			scr_trigger_fade(rm_levsel);
 		if audio_is_playing(S1_12_Title)
 			audio_stop_sound(S1_12_Title);
 	}

@@ -6,8 +6,8 @@ switch(routine)
 {
 	case 0: // Sign_Touch
 	{
-	    var d0; d0=obj01_Sonic.x-x;
-	    // If Sonic is within 20 pixels of the signpost to the left, enter this code
+	    var d0; d0=player.x-x;
+	    // If main player is within 20 pixels of the signpost to the left, enter this code
 	    if !(d0<0 || d0>=20)
 	    {
 	        audio_play_sound(S2_4F_Signpost,1,false);

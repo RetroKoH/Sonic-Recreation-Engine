@@ -1,3 +1,2 @@
-* Variable jump height needs to be added
+* Add other characters and ensure that basic animation and function all work correctly
 * Objects that are off screen to deactivate and reset, ala my previous engine
-* Need to edit debug mode to view one plane at a time

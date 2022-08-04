@@ -21,7 +21,7 @@
     "path": "texturegroups/Default",
   },
   "swatchColours": null,
-  "gridX": 1280,
+  "gridX": 128,
   "gridY": 128,
   "frames": [
     {"compositeImage":{"FrameId":{"name":"23ebf457-1089-4c5c-8657-d8243edfef82","path":"sprites/chunks_GHZ/chunks_GHZ.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[

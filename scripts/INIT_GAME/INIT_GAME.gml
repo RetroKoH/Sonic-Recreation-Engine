@@ -10,6 +10,7 @@ function INIT_GAME(){
 	INIT_OBJDATA_ANIMALS();		// Set up animal data (sprites and movement)
 	INIT_OBJDATA_SIGNPOST();	// Set up data for locations of ring sparkles.
 	INIT_SOUND_SYSTEM();		// Set up BGM index and sound objects
+	INIT_LEVEL_SELECT();		// Set up the Level Select Screen
 	INIT_MISC_VARS();
 	global.start_game = true; // Call at the very end
 }
@@ -29,36 +30,72 @@ function MACROS(){
 	#macro KEY_C		7
 	#macro KEY_START	8
 
+	// PLAYER MODE Macros
+	#macro PL_SONIC		0
+	#macro PL_TAILS		1
+	#macro PL_KNUCKLES	2
+	#macro PL_AMY		3
+	#macro PL_MIGHTY	4
+	#macro PL_RAY		5
+	#macro PL_METAL		6
+
 	// ZONE Macros
-	#macro ZONE_GHZ	0
-	#macro ZONE_MZ	1
-	#macro ZONE_SYZ	2
-	#macro ZONE_LZ	3
-	#macro ZONE_SLZ	4
-	#macro ZONE_SBZ	5
+	#macro ZONE_GHZ		0
+	#macro ZONE_BZ		1
+	#macro ZONE_MZ		2
+	#macro ZONE_JZ		3
+	#macro ZONE_SYZ		4
+	#macro ZONE_LZ		5
+	#macro ZONE_SLZ		6
+	#macro ZONE_SBZ		7
+	#macro ZONE_SKBZ	8
 
 	// BGM Index
 	enum BGM_tracks {
 		GHZ1,
 		GHZ2,
-		GHZ3,
+		BZ1,
+		BZ2,
 		MZ1,
 		MZ2,
-		MZ3,
+		JZ1,
+		JZ2,
 		SYZ1,
 		SYZ2,
-		SYZ3,
 		LZ1,
 		LZ2,
-		LZ3,
 		SLZ1,
 		SLZ2,
-		SLZ3,
 		SBZ1,
 		SBZ2,
 		SBZ3,
 		FZ,
-		total // Used for final count below
+		total // Used for final count
+	}
+
+	// Lev Select Cursor Index
+	enum LevSel_items {
+		GHZ1,
+		GHZ2,
+		BZ1,
+		BZ2,
+		MZ1,
+		MZ2,
+		JZ1,
+		JZ2,
+		SYZ1,
+		SYZ2,
+		LZ1,
+		LZ2,
+		SLZ1,
+		SLZ2,
+		SBZ1,
+		SBZ2,
+		SBZ3,
+		SkBZ1,
+		SkBZ2,
+		Char,
+		total // Used for final count
 	}
 
 	// Player Status Macros
@@ -274,13 +311,13 @@ function INIT_COL_ARRAYS(){
 }
 function INIT_ANIM_DATA(){
 	globalvar animation_index; animation_index = array_create(0);	// Every script below pushes an animation into this index
+	animtable_PLAYERS();
 	animtable_BUZZBOMBER();
 	animtable_CRABMEAT();
 	animtable_MONITORS();
 	animtable_MOTOBUG();
 	animtable_RINGS();
 	animtable_SIGNPOST();
-	animtable_SONIC();
 	animtable_SPRINGS();
 	animtable_TITLESONIC();
 }
@@ -461,10 +498,16 @@ function INIT_SOUND_SYSTEM(){
 		loop_end	: 52.812
 	}
 	// ==================================================================================
-	global.BGM_list[BGM_tracks.GHZ3] = {
-		ID			: M_GHZ3,
-		loop_start	: 14.222,
-		loop_end	: 52.630
+	global.BGM_list[BGM_tracks.BZ1] = {
+		ID			: SMS_BZ1,
+		loop_start	: 0.0,
+		loop_end	: 25.79
+	}
+	// ==================================================================================
+	global.BGM_list[BGM_tracks.BZ2] = {
+		ID			: SMS_BZ1,
+		loop_start	: 0.0,
+		loop_end	: 25.79
 	}
 	// ==================================================================================
 	global.BGM_list[BGM_tracks.MZ1] = {
@@ -479,10 +522,16 @@ function INIT_SOUND_SYSTEM(){
 		loop_end	: 48.782
 	}
 	// ==================================================================================
-	global.BGM_list[BGM_tracks.MZ3] = {
-		ID			: M_MZ3,
-		loop_start	: 1.805,
-		loop_end	: 33.575
+	global.BGM_list[BGM_tracks.JZ1] = {
+		ID			: M_JZ1,
+		loop_start	: 0.0,
+		loop_end	: 42.68
+	}
+	// ==================================================================================
+	global.BGM_list[BGM_tracks.JZ2] = {
+		ID			: M_JZ1,
+		loop_start	: 0.0,
+		loop_end	: 42.68
 	}
 	// ==================================================================================
 	global.BGM_list[BGM_tracks.SYZ1] = {
@@ -497,12 +546,6 @@ function INIT_SOUND_SYSTEM(){
 		loop_end	: 40.694
 	}
 	// ==================================================================================
-	global.BGM_list[BGM_tracks.SYZ3] = {
-		ID			: M_SYZ3,
-		loop_start	: 19.205,
-		loop_end	: 57.610
-	}
-	// ==================================================================================
 	global.BGM_list[BGM_tracks.LZ1] = {
 		ID			: M_LZ1,
 		loop_start	: 1.932,
@@ -511,12 +554,6 @@ function INIT_SOUND_SYSTEM(){
 	// ==================================================================================
 	global.BGM_list[BGM_tracks.LZ2] = {
 		ID			: M_LZ2,
-		loop_start	: 1.932,
-		loop_end	: 36.482
-	}
-	// ==================================================================================
-	global.BGM_list[BGM_tracks.LZ3] = {
-		ID			: M_LZ3,
 		loop_start	: 0.000,
 		loop_end	: 53.772
 	}
@@ -531,12 +568,6 @@ function INIT_SOUND_SYSTEM(){
 		ID			: M_SLZ2,
 		loop_start	: 3.125,
 		loop_end	: 45.358
-	}
-	// ==================================================================================
-	global.BGM_list[BGM_tracks.SLZ3] = {
-		ID			: M_SLZ3,
-		loop_start	: 43.682,
-		loop_end	: 85.918
 	}
 	// ==================================================================================
 	global.BGM_list[BGM_tracks.SBZ1] = {
@@ -563,17 +594,196 @@ function INIT_SOUND_SYSTEM(){
 		loop_end	: 21.206
 	}
 }
+function INIT_LEVEL_SELECT(){
+	// Level Select Screen Information
+	global.font_levsel = font_add_sprite(spr_font, ord("!"), false, 0);
+	global.LevSelect_Data = array_create(LevSel_items.total)
+	var ix = 40, iy = 40;
+	
+	global.LevSelect_Data[LevSel_items.GHZ1] = {
+		txt		: "GREEN HILL ZONE  1",
+		pos_x	: ix,
+		pos_y	: iy,
+		across	: LevSel_items.SBZ1,
+		level	: rm_GHZ1
+	} iy+=8;
+	// ==================================================================================
+	global.LevSelect_Data[LevSel_items.GHZ2] = {
+		txt		: "                 2",
+		pos_x	: ix,
+		pos_y	: iy,
+		across	: LevSel_items.SBZ2,
+		level	: rm_GHZ2
+	} iy+=16;
+	// ==================================================================================
+	global.LevSelect_Data[LevSel_items.BZ1] = {
+		txt		: "BRIDGE ZONE      1",
+		pos_x	: ix,
+		pos_y	: iy,
+		across	: LevSel_items.SBZ3,
+		level	: rm_BZ1
+	} iy+=8;
+	// ==================================================================================
+	global.LevSelect_Data[LevSel_items.BZ2] = {
+		txt		: "                 2",
+		pos_x	: ix,
+		pos_y	: iy,
+		across	: LevSel_items.SkBZ1,
+		level	: rm_BZ2
+	} iy+=16;
+	// ==================================================================================
+	global.LevSelect_Data[LevSel_items.MZ1] = {
+		txt		: "MARBLE ZONE      1",
+		pos_x	: ix,
+		pos_y	: iy,
+		across	: LevSel_items.SkBZ2,
+		level	: rm_MZ1
+	} iy+=8;
+	// ==================================================================================
+	global.LevSelect_Data[LevSel_items.MZ2] = {
+		txt		: "                 2",
+		pos_x	: ix,
+		pos_y	: iy,
+		across	: LevSel_items.Char,
+		level	: rm_MZ2
+	} iy+=16;
+	// ==================================================================================
+	global.LevSelect_Data[LevSel_items.JZ1] = {
+		txt		: "JUNGLE ZONE      1",
+		pos_x	: ix,
+		pos_y	: iy,
+		across	: LevSel_items.Char,
+		level	: rm_JZ1
+	} iy+=8;
+	// ==================================================================================
+	global.LevSelect_Data[LevSel_items.JZ2] = {
+		txt		: "                 2",
+		pos_x	: ix,
+		pos_y	: iy,
+		across	: LevSel_items.Char,
+		level	: rm_JZ2
+	} iy+=16;
+	// ==================================================================================
+	global.LevSelect_Data[LevSel_items.SYZ1] = {
+		txt		: "SPRING YARD ZONE 1",
+		pos_x	: ix,
+		pos_y	: iy,
+		across	: LevSel_items.Char,
+		level	: rm_GHZ1
+	} iy+=8;
+	// ==================================================================================
+	global.LevSelect_Data[LevSel_items.SYZ2] = {
+		txt		: "                 2",
+		pos_x	: ix,
+		pos_y	: iy,
+		across	: LevSel_items.Char,
+		level	: rm_GHZ1
+	} iy+=16;
+	// ==================================================================================
+	global.LevSelect_Data[LevSel_items.LZ1] = {
+		txt		: "LABYRINTH ZONE   1",
+		pos_x	: ix,
+		pos_y	: iy,
+		across	: LevSel_items.Char,
+		level	: rm_GHZ1
+	} iy+=8;
+	// ==================================================================================
+	global.LevSelect_Data[LevSel_items.LZ2] = {
+		txt		: "                 2",
+		pos_x	: ix,
+		pos_y	: iy,
+		across	: LevSel_items.Char,
+		level	: rm_GHZ1
+	} iy+=16;
+	// ==================================================================================
+	global.LevSelect_Data[LevSel_items.SLZ1] = {
+		txt		: "STAR LIGHT ZONE  1",
+		pos_x	: ix,
+		pos_y	: iy,
+		across	: LevSel_items.Char,
+		level	: rm_GHZ1
+	} iy+=8;
+	// ==================================================================================
+	global.LevSelect_Data[LevSel_items.SLZ2] = {
+		txt		: "                 2",
+		pos_x	: ix,
+		pos_y	: iy,
+		across	: LevSel_items.Char,
+		level	: rm_GHZ1
+	} ix = 224; iy = 40;
+	// ==================================================================================
+	global.LevSelect_Data[LevSel_items.SBZ1] = {
+		txt		: "SCRAP BRAIN ZONE 1",
+		pos_x	: ix,
+		pos_y	: iy,
+		across	: LevSel_items.GHZ1,
+		level	: rm_GHZ1
+	} iy+=8;
+	// ==================================================================================
+	global.LevSelect_Data[LevSel_items.SBZ2] = {
+		txt		: "                 2",
+		pos_x	: ix,
+		pos_y	: iy,
+		across	: LevSel_items.GHZ2,
+		level	: rm_GHZ1
+	} iy+=8;
+	// ==================================================================================
+	global.LevSelect_Data[LevSel_items.SBZ3] = {
+		txt		: "                 3",
+		pos_x	: ix,
+		pos_y	: iy,
+		across	: LevSel_items.BZ1,
+		level	: rm_GHZ1
+	} iy+=16;
+	// ==================================================================================
+	global.LevSelect_Data[LevSel_items.SkBZ1] = {
+		txt		: "SKY BASE ZONE    1",
+		pos_x	: ix,
+		pos_y	: iy,
+		across	: LevSel_items.BZ2,
+		level	: rm_GHZ1
+	} iy+=8;
+	// ==================================================================================
+	global.LevSelect_Data[LevSel_items.SkBZ2] = {
+		txt		: "                 2",
+		pos_x	: ix,
+		pos_y	: iy,
+		across	: LevSel_items.MZ1,
+		level	: rm_GHZ1
+	} iy+=32;
+	// ==================================================================================
+	global.LevSelect_Data[LevSel_items.Char] = {
+		txt		: "CHARACTER         ",
+		pos_x	: ix,
+		pos_y	: iy,
+		across	: -1, // No opposite items. Left/Right has unique controls
+		level	: -1  // No level access here
+	} iy+=16;
+	// ==================================================================================
+}
 function INIT_MISC_VARS(){
 	// Global Gameplay object handles
-	globalvar player;	player = -1;	// Global handle for player object
-	globalvar cam;		cam = -1;		// Global handle for the camera
-	globalvar debug;	debug = false;	// by default, disable debug
-	globalvar zone;		zone = 0;
-	globalvar act;		act = 0;
+	globalvar player;			player = -1;			// Global handle for player object
+	globalvar cam;				cam = -1;				// Global handle for the camera
+	globalvar debug;			debug = false;			// by default, disable debug
+	globalvar zone;				zone = 0;
+	globalvar act;				act = 0;
 
-	globalvar f_pause;          f_pause=false;      // Game Pausing flag
+	globalvar playermode;		playermode = PL_SONIC;	// Global var set to handle player selection
+	globalvar obj_Players;		obj_Players = array_create(7);
+	// Object indices for player characters
+	{
+		obj_Players[PL_SONIC] = obj01_Sonic;
+		obj_Players[PL_TAILS] = obj01_Tails;
+		obj_Players[PL_KNUCKLES] = obj01_Knuckles;
+		obj_Players[PL_AMY] = obj01_Amy;
+		obj_Players[PL_MIGHTY] = obj01_Mighty;
+		obj_Players[PL_RAY] = obj01_Ray;
+		obj_Players[PL_METAL] = obj01_Metal;
+	}
 
 	globalvar HUDFONT;          HUDFONT = font_add_sprite(spr_HUDnumbers,ord("0"),false,0); // Numerical HUD Font.
+	globalvar f_pause;          f_pause=false;		// Game Pausing flag
 	globalvar p_score;          p_score=0;          // Player's score
 	globalvar p_time;           p_time=0;           // Playing time
 	globalvar p_timecenti;      p_timecenti=0;      // Playing time

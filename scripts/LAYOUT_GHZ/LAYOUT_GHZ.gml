@@ -1,3 +1,4 @@
+// This script will become a general level layout script
 function LAYOUT_GHZ(){
 	chunks_count = 0;
 	var t = 0, tx = 0, ty = 0;
@@ -10,6 +11,7 @@ function LAYOUT_GHZ(){
 				t = tilemap_get(chunks_id,ix,iy)
 				if (t) {
 					tx = ix*8; ty = iy*8;
+					// This switch statement will be separated. 
 					switch(t) {
 						case 3:
 							tilemap_set(map_id[i],$1FF,tx,ty); tx++;

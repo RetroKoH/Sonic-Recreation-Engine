@@ -137,8 +137,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Shields",
-    "path": "folders/Sprites/Effects/Shields.yy",
+    "name": "_Effects",
+    "path": "folders/Sprites/Players/_Effects.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_shield_f",

@@ -13,3 +13,6 @@ if (global.k_d_p)
 	else index++;
 	scr_debug_draw_tile(index);
 }
+
+if keyboard_check_pressed(vk_escape)
+	enabled = false;

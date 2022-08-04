@@ -1,0 +1,32 @@
+Each level will be two acts instead of three, with a miniboss and a boss
+Green Hill
+	Act 1 - Mania-esque GHZ1 (Act 1/2 combined)
+	Act 2 - GHZ3 with an underground section ala SMS/GG version
+Bridge
+	Act 1 - Standard Bridge Zone 1 (Add S2 ARZ Arrows and swinging bridge with falling planks)
+	Act 2 - S2 HPZ (with added S2 MCZ drawdridges)
+Marble
+	Act 1 - Mostly above ground, entering into an underground section toward the end
+	Act 2 - Underground, until reemerging above ground for the boss (Add S2 HTZ Lava chase)
+Jungle
+	Act 1 - Standard Jungle Zone Act 1 (Add S3 AIZ spiked Logs)
+	Act 2 - Vertical climb (but no instant death)
+Spring Yard
+	Act 1 - Act 1/2 combined
+	Act 2 - Sparkling Zone inspired Act 3
+Labyrinth
+	Act 1 - A slightly reimagined, faster, Act 1. Water is only on lower routes (avoidable)
+	Act 2 - Flooded; only path leads into water. Once in, completely underwater until the S4 LLZ boss.
+Star Light
+	Act 1 - Ground-level Act 1. No bottomless pits. Elevator takes you to the miniboss.
+	Act 2 - A long and winding Act 2 in the sky. Ridden with pits.
+Scrap Brain
+	Act 1 - Standard Act 1
+	Act 2 - Standard Act 2
+	Act 3 - Standard Act 3
+Sky Base
+	Act 1 - A cross between SkB Act 1 and Sunset Park Act 1, with the electric orbs. (SMS SBZ music)
+	Act 2 - A cross between SkB Act 2 and Flying Battery Act 1. (SMS SkBZ music)
+Mecha Green Hill
+	Single Act Zone, only available if player has all 6 emeralds.
+	Race w/ Metal Sonic for the 7th Emerald
