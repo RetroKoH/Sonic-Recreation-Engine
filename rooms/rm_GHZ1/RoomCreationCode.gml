@@ -14,7 +14,7 @@ act = 0;
 scr_osc_num_reset();
 
 // Setup layout
-LAYOUT_GHZ();
+scr_layout_init(zone);
 
 // Set up Camera and place player
 cam = instance_create_layer(78,940,"Core",obj_camera);

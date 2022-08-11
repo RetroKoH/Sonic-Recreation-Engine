@@ -30,7 +30,7 @@ else
 	if (global.k_st_p)
 	{
 		if option==0	scr_trigger_fade(rm_GHZ1);
-		else			scr_trigger_fade(rm_levsel);
+		else			scr_trigger_fade(rm_option);
 		if audio_is_playing(S1_12_Title)
 			audio_stop_sound(S1_12_Title);
 	}
