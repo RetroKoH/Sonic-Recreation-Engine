@@ -6,12 +6,12 @@ function scr_solid_obj(width,height,height_air,prev_x){
 		if(player.status&STA_INAIR || x_comp < 0 || x_comp >= combined_x_radius*2)
 		{
 			scr_solid_exit_platform();
-			return 0;
+			return 0; // Register no collision
 		}
 		else
 		{
 			scr_solid_move_player(player, height, prev_x);
-			return 1;
+			return 1; // Register top collision
 		}
 	}
 	else return scr_solid_obj_collide(width, height_air, prev_x);
@@ -85,10 +85,10 @@ function scr_solid_obj_collide(width, height, prev_x){
 						player.platform_ID = self;
 						player.status|=STA_ONOBJ;
 						status|=STA_ONOBJ;
-						return 1; //Set top touch flag
+						return 1; // Register top collision
 					}
 				}
-				return 0;
+				return 0; // Register no collision
 			}
 			else
 			{
@@ -100,7 +100,7 @@ function scr_solid_obj_collide(width, height, prev_x){
 						player.y -= y_dist;
 						player.ysp = 0;
 					}
-					return 1;
+					return 2; // Register bottom collision
 				}
 				else
 				{
@@ -109,10 +109,10 @@ function scr_solid_obj_collide(width, height, prev_x){
 						if abs(x_clip) >= 12 // Changed this from 16
 						{
 							with(player) scr_player_death();
-							return 1;
+							return 2; // Register bottom collision
 						}
 					}
-					else return 1;
+					else return 2; // Register bottom collision
 				}
 			}
 		}
@@ -145,14 +145,14 @@ function scr_solid_obj_collide(width, height, prev_x){
 				{
 					status|=STA_PUSH;
 					player.status|=STA_PUSH;
-					return 1;
+					return 3; // Register Side Collision
 				}
 			}
 			// Mid-air or near edges, clear push flags
 			status&=~STA_PUSH;
 			player.status&=~STA_PUSH;
-			return 1;
+			return 3; // Register Side Collision
 		}
 	}
-	return 0;
+	return 0; // Register no collision
 }

@@ -2,6 +2,7 @@
   "spriteId": null,
   "solid": false,
   "visible": true,
+  "managed": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
@@ -22,12 +23,13 @@
   "physicsShapePoints": [],
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Parent Object Types",
-    "path": "folders/Objects/Parent Object Types.yy",
+    "name": "obj00_Parents",
+    "path": "folders/Objects/obj00_Parents.yy",
   },
   "resourceVersion": "1.0",
   "name": "objParent_TopSolid",

@@ -8,7 +8,8 @@ switch(routine)
 		routine++;
 	break;
 	case 1:
-		if instance_place(x,y-1,player)
+		event_inherited(); // Get solid collision
+		if collide == 1 // If top collision
 		{
 			routine++;
 			anim_ID++;
@@ -16,6 +17,7 @@ switch(routine)
 			player.ysp = -pow;
 			player.status|=STA_INAIR;
 			player.status^=STA_ONOBJ;
+			player.anim_ID=anim_player.idle;
 			audio_play_sound(S2_4C_Spring,1,false);
 			//Animation
 			player.routine=1;

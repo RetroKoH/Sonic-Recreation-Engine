@@ -14,10 +14,10 @@ function scr_player_jump(){
 			if (status&STA_ONOBJ)	// If standing on an object...
 			{
 				status^=STA_ONOBJ;			// Clear On Obj status bit
-				// This should be handled in the platform object itself.
+				/* This should be handled in the platform object itself.
 				if platform_ID.object_index == obj18_Platform
 					platform_ID.routine--;
-				platform_ID = -1;
+				platform_ID = -1;*/
 			}
 	        jump=true;
 	        convex=false;

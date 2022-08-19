@@ -1,6 +1,6 @@
 /// @description Init spring
 event_inherited();
-depth=4;
+depth = 4;
 routine = 0;
 pow = 10;
 

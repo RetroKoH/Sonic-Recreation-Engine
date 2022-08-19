@@ -1,8 +1,11 @@
 /// @description Handling player interaction
 switch(routine)
 {
-	//case 0: // Just being solid
-	//break;
+	case 0: // Just being solid
+	var _h = floor(bbox_bottom-bbox_top) div 2;
+	collide = scr_solid_monitor(floor(bbox_right-bbox_left) div 2, _h, _h, x);
+	break;
+
 	case 1: // Being broken open (From TouchResponse)
 		routine++;
 		ptfm_solid = false;

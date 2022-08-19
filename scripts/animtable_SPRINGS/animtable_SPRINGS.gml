@@ -4,9 +4,9 @@ function animtable_SPRINGS(){
 
 	global.AnimationsSprings[0] = {
 		name		: "Stationary",
-		sprite		: spr_spring,
-		mask		: spr_spring,
-		mask_l		: spr_spring,
+		sprite		: spr_spring_yellow,
+		mask		: spr_spring_yellow,
+		mask_l		: spr_spring_yellow,
 		sub_anim	: -1,
 		loop_times	: -1,
 		loop_frame	: 0,
@@ -18,9 +18,9 @@ function animtable_SPRINGS(){
 
 	global.AnimationsSprings[1] = {
 		name		: "Springing",
-		sprite		: spr_spring,
-		mask		: spr_spring,
-		mask_l		: spr_spring,
+		sprite		: spr_spring_yellow,
+		mask		: spr_spring_yellow,
+		mask_l		: spr_spring_yellow,
 		sub_anim	: -1,
 		loop_times	: 0,
 		loop_frame	: 0,

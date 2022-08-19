@@ -1,4 +1,4 @@
-/// @description Global Solidity flag for platforms
+/// @description Global Solidity flag for solid/topsolid platforms
 status		=	0;
 collide		=	false;
 ptfm_solid	=	true;

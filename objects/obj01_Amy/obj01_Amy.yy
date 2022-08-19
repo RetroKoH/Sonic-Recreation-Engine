@@ -5,6 +5,7 @@
   },
   "solid": false,
   "visible": true,
+  "managed": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
@@ -29,8 +30,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Player Subobjects",
-    "path": "folders/Objects/Player Subobjects.yy",
+    "name": "obj01_Players",
+    "path": "folders/Objects/obj01_Players.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj01_Amy",

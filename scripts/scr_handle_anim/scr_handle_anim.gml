@@ -1,5 +1,5 @@
 // Animation Handling
-function scr_handle_anim(){
+function scr_handle_anim(spr_override = -1){
 	// Perform a value check. If number is outside the range of available animations, set ID to -1 and exit.
 	if (anim_ID == -1) exit;
 
@@ -9,7 +9,8 @@ function scr_handle_anim(){
     
 		// Get information on current active animation. (Only perform on new animation).
 		var at			= anim_table[anim_ID];
-		anim_sprite		= at.sprite					// Get animation sprite index
+		if spr_override == -1 spr_override = at.sprite;
+		anim_sprite		= spr_override				// Get animation sprite index
 		anim_mask[0]	= at.mask					// Get collision sprite mask
 		anim_mask[1]	= at.mask_l					// Get mirrored collision sprite mask
 		anim_frame		= 0;						// Reset animation frame

@@ -22,7 +22,8 @@ switch(routine)
 	}
 	break;
 	case 1:
-		collide = scr_topsolid_obj(width, 8);
+		var _h = floor(bbox_bottom-bbox_top) div 2;
+		collide = scr_topsolid_obj(width, _h, _h, prev_x);
 		// Add depression later.
 	break;
 }

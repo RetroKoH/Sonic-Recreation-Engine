@@ -2,6 +2,7 @@
   "spriteId": null,
   "solid": false,
   "visible": true,
+  "managed": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
@@ -28,8 +29,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Parent Object Types",
-    "path": "folders/Objects/Parent Object Types.yy",
+    "name": "obj00_Parents",
+    "path": "folders/Objects/obj00_Parents.yy",
   },
   "resourceVersion": "1.0",
   "name": "objParent_Enemy",
