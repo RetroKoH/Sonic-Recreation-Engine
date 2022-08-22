@@ -11,7 +11,8 @@ switch(routine)
 		ptfm_solid = false;
 		anim_ID++;
 		var pw = instance_create_layer(x,y,"Instances",obj2E_PowerupIcon);
-		pw.image_index = subtype;
+		pw.sprite_index = sprite_index;
+		pw.image_index = 3+subtype;
 		var ex = instance_create_layer(x,y,"Instances",obj27_Explosion);
 		ex.routine = 1; // Dont create an animal
 	break;

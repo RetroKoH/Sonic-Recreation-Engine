@@ -1,7 +1,9 @@
 /// @description Init Ring Animation
 // Much of the early code, involving ring grouping, has been omitted, as each ring will be placed individually, ala Sonic 3.
 
-routine=1;     // This notes what we should do in the Step Event code.
+routine	= 1;		// This notes what we should do in the Step Event code.
+depth	= 2;
+grv		= 0.09375;	// The force of the ring's gravity.
 
 // Animation system related variables
 scr_init_anim(global.AnimationsRings,0);

@@ -1,1 +1,1 @@
-subtype = 3;
+subtype = MON_SHIELD;

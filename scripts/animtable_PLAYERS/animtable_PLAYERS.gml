@@ -6,11 +6,14 @@ function animtable_PLAYERS(){
 		jog,
 		run,
 		dash,
+		spindash,
+		peelout,
 		lookup,
 		duck,
 		roll,
 		skid,
 		push,
+		spring,
 		hurt,
 		death,
 		drown,
@@ -116,6 +119,39 @@ function animtable_SONIC(){
 		array_push(an.frames,i);
 		array_push(an.speeds,1);}
 	// ==================================================================================
+	global.AnimationsSonic[anim_player.spindash] = {
+		name		: "Spindash",
+		sprite		: spr_sonic_spindash,
+		mask		: spr_sonic_mask,
+		mask_l		: spr_sonic_maskL,
+		sub_anim	: -1,
+		loop_times	: -1,
+		loop_frame	: 0,
+		loop_anim	: -1,
+		frames		: [],
+		speeds		: []
+	}
+	// Animation frames
+	an = global.AnimationsSonic[anim_player.spindash];
+	for (i = 0; i < 5; i++) {
+		array_push(an.frames,5);
+		array_push(an.speeds,1);
+		array_push(an.frames,i);
+		array_push(an.speeds,1);}
+	// ==================================================================================
+	global.AnimationsSonic[anim_player.peelout] = {
+		name		: "Peelout",
+		sprite		: spr_sonic_peelout,
+		mask		: spr_sonic_mask,
+		mask_l		: spr_sonic_maskL,
+		sub_anim	: -1,
+		loop_times	: -1,
+		loop_frame	: 14,
+		loop_anim	: -1,
+		frames		: [  0,  1,  2,  3, 4,5,6, 7,8,9,10,11,12,13,  14,15,16,17],
+		speeds		: [1/6,1/4,1/2,1/2, 1,1,1, 1,1,1, 1, 1, 1, 1,   1, 1, 1, 1]
+	}
+	// ==================================================================================
 	sp = 1/2;
 	global.AnimationsSonic[anim_player.lookup] = {
 		name		: "Look Up",
@@ -204,6 +240,19 @@ function animtable_SONIC(){
 	for (i = 0; i < 8; i++) {
 		array_push(an.frames,i);
 		array_push(an.speeds,sp);}
+	// ==================================================================================
+	global.AnimationsSonic[anim_player.spring] = {
+		name		: "Spring",
+		sprite		: spr_sonic_spring,
+		mask		: spr_sonic_mask,
+		mask_l		: spr_sonic_maskL,
+		sub_anim	: -1,
+		loop_times	: -1,
+		loop_frame	: 0,
+		loop_anim	: -1,
+		frames		: [0],
+		speeds		: [1]
+	}
 	// ==================================================================================
 	global.AnimationsSonic[anim_player.hurt] = {
 		name		: "Hurt",

@@ -31,8 +31,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "obj41_Spring",
-    "path": "folders/Objects/obj41_Spring.yy",
+    "name": "obj41_Springs",
+    "path": "folders/Objects/obj41_Springs.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj41_Spring_RedUP",

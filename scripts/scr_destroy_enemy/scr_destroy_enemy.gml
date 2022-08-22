@@ -1,7 +1,6 @@
 function scr_destroy_enemy(){
 	// Subroutine to set off a chain of events occurring when destroying a badnik.
-
-	var d0,xp;
+	var d0;
 
 	d0=itembonus;   // The current item bonus is saved for use now.
 	itembonus+=1;   // Add to item bonus for next time.

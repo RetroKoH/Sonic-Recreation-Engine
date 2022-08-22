@@ -19,7 +19,7 @@ switch(routine)
 			player.status^=STA_ONOBJ;
 			player.anim_ID=anim_player.idle;
 			audio_play_sound(S2_4C_Spring,1,false);
-			//Animation
+			player.anim_ID = anim_player.spring;
 			player.routine=1;
 		}
 	break;

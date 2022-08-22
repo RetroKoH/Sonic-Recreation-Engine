@@ -36,7 +36,7 @@ function scr_player_check_floor(){
 				{
 					y += dist;
 					angle = col_angle;
-					scr_player_acquirefloor();
+					//scr_player_acquirefloor();
 					
 					if (col_angle > 22.5 && col_angle <= 337.5)
 					{
@@ -59,6 +59,7 @@ function scr_player_check_floor(){
 						ysp = 0;
 						gsp = xsp; // If floor is less than 22.5 degrees, use horizontal velocity
 					}
+					scr_player_acquirefloor();
 				}
 			}
 		}
@@ -103,9 +104,9 @@ function scr_player_check_floor(){
 				{
 					y += dist;
 					angle = col_angle;
-					scr_player_acquirefloor();
 					ysp = 0;
 					gsp = xsp;
+					scr_player_acquirefloor();
 				}
 			}
 		}
@@ -139,8 +140,8 @@ function scr_player_check_floor(){
 				{
 					// If the ceiling is steep, actually land on it
 					angle = col_angle;
-					scr_player_acquirefloor();
 					gsp = (col_angle < 180) ? -ysp : ysp
+					scr_player_acquirefloor();
 				}
 				else
 				{
@@ -190,9 +191,9 @@ function scr_player_check_floor(){
 				{
 					y += dist;
 					angle = col_angle;
-					scr_player_acquirefloor();
 					ysp = 0;
 					gsp = xsp;
+					scr_player_acquirefloor();
 				}
 			}
 		}

@@ -50,9 +50,9 @@ function scr_topsolid_obj_collide(width, height, prev_x){
 					y_dist -= 4;	
 					player.y -= (y_dist + 1);
 					player.angle = 0;
-					with(player) scr_player_acquirefloor();
 					player.ysp = 0;
 					player.gsp = player.xsp;
+					with(player) scr_player_acquirefloor();
 					player.platform_ID = self;
 					player.status|=STA_ONOBJ;
 					status|=STA_ONOBJ;

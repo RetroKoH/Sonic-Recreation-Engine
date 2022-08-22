@@ -1,1 +1,1 @@
-subtype = 4;
+subtype = MON_INVINC;

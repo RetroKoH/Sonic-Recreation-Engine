@@ -1,0 +1,15 @@
+Lead Developer			- RetroKoH
+
+Coding Assistance		- Devon/Ralakimus
+
+Engine Documentation	- Sonic Retro (Sonic Physics Guide; Per Mercury and Lapper)
+						- RetroKoH - Modding and Documentation of various aspects of Sonic 1
+						- Flamewing - Modding and Documentation of various aspects of Sonic 3K
+
+Sprites					- Cinossu - (Various sprites seen in Megamix & the Sonic mobile releases)
+						- NotSoDevy - (Sonic S1-styled Mania sprites)
+						- Anne (MindlessQuartz) - (Sonic 1 Sonic Extended Sprites)
+						- CartoonAnimate22 (Various Character Sprites)
+						- Wiztoad - (Ray S2-styled Mania sprites)
+
+Special Thanks			- MarkeyJester and Clownacy (Sonic 1 Two-Eight)

@@ -1,6 +1,6 @@
 	// Subroutine enabling the player to jump.
 function scr_player_jump(){
-	var jump_flag=0;//collision_line(x-width,y-25,x+width,y-25,obj00_Solid,1,0);
+	var jump_flag = (scr_player_get_ceiling_dist(0)<6); // Cant jump if a ceiling is less than 6px above you
 	if global.k_abc_p
 	{
 	    var jmp = jmp_spd;
@@ -9,16 +9,10 @@ function scr_player_jump(){
 	    {
 	        xsp-=jmp*sin(degtorad(angle));
 	        ysp-=jmp*cos(degtorad(angle));
-	        status|=STA_INAIR;				// Set Air status bit
-	        status&=~STA_PUSH;				// Clear Pushing status bit
-			if (status&STA_ONOBJ)	// If standing on an object...
-			{
-				status^=STA_ONOBJ;			// Clear On Obj status bit
-				/* This should be handled in the platform object itself.
-				if platform_ID.object_index == obj18_Platform
-					platform_ID.routine--;
-				platform_ID = -1;*/
-			}
+	        status|=STA_INAIR;							// Set Air status bit
+	        status&=~STA_PUSH;							// Clear Pushing status bit
+			ctrl = 0;									// Skip the rest of the Normal Mode Routine
+			if (status&STA_ONOBJ) status^=STA_ONOBJ;	// Clear On Obj status bit
 	        jump=true;
 	        convex=false;
 	        move_lock=false;

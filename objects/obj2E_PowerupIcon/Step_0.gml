@@ -10,7 +10,7 @@ switch(routine)
 		    y+=ysp;     // Move the object upwards with ysp.
 		    ysp+=.09375; // Reduce the speed by $0018/256.
 		}
-		else scr_give_powerup(image_index);
+		else scr_give_powerup(image_index-3); // "Sprite" is a subsprite of the monitor sprite.
 	break;
 	case 1:
 		timedelay--;

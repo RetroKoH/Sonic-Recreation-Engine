@@ -12,7 +12,7 @@ function scr_player_roll(){
 		        anim_ID=anim_player.roll;
 		        y+=defaultHeight-height;	// Reposition character according to height change
 		        audio_play_sound(S2_3E_Roll,1,false);
-		        if (gsp==0)  gsp += 2;		// To prevent getting stuck in S tunnels, and the like.
+		        if (gsp==0)  gsp+=2;		// To prevent getting stuck in S tunnels, and the like.
 		    }
 		}
 	}

@@ -1,7 +1,7 @@
 function scr_player_death(){
 	f_timecount = false;
 	invinc_timer = 0;
-	super_flag = false;
+	super = false;
 	routine = 3;
 	status |= STA_INAIR;	// Set Air status bit
 	ysp=-7;

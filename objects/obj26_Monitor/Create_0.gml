@@ -1,5 +1,4 @@
 /// @description Init monitor
-
 event_inherited();
 depth = 3;
 routine = 0;

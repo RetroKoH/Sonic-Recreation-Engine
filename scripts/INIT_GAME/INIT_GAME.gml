@@ -106,6 +106,32 @@ function MACROS(){
 	#macro STA_ROLLJUMP $10
 	#macro STA_PUSH $20
 	#macro STA_WATER $40
+	// Powerup Status Macros
+	#macro POW_SHIELD 1
+	#macro POW_INVINC 2
+	#macro POW_SHOES 4
+	#macro POW_UNK 8
+	#macro POW_REFLECT $10
+	#macro POW_FLAME $20
+	#macro POW_BUBBLE $40
+	#macro POW_LIGHTNING $80
+	// Additional flags for quick computation
+	#macro POW_RMVSHIELDS $1E
+	#macro POW_CHKELSHLDS $E0
+	#macro POW_CHKALLSHLD $E3
+	
+	#macro MON_EGGMAN 0
+	#macro MON_EXTRALIFE 1
+	#macro MON_SPEEDSHOES 2
+	#macro MON_SHIELD 3
+	#macro MON_INVINC 4
+	#macro MON_RINGS 5
+	#macro MON_SUPER 6
+	#macro MON_GOGGLES 7
+	#macro MON_SHIELD_F 8
+	#macro MON_SHIELD_B 9
+	#macro MON_SHIELD_L 10
+	
 }
 function INIT_DEBUG(){
 	globalvar debug; debug = true;				// By default, disable debug
@@ -312,6 +338,7 @@ function INIT_COL_ARRAYS(){
 function INIT_ANIM_DATA(){
 	globalvar animation_index; animation_index = array_create(0);	// Every script below pushes an animation into this index
 	animtable_PLAYERS();
+	animtable_SHIELDS();
 	animtable_BUZZBOMBER();
 	animtable_CRABMEAT();
 	animtable_MONITORS();

@@ -36,6 +36,9 @@
     {"compositeImage":{"FrameId":{"name":"cf3a84c1-1072-4679-a0fc-98955d2a0cbf","path":"sprites/spr_invincibility/spr_invincibility.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
         {"FrameId":{"name":"cf3a84c1-1072-4679-a0fc-98955d2a0cbf","path":"sprites/spr_invincibility/spr_invincibility.yy",},"LayerId":{"name":"b13d348e-a8b0-433f-aeba-b9d1fe9c1216","path":"sprites/spr_invincibility/spr_invincibility.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"spr_invincibility","path":"sprites/spr_invincibility/spr_invincibility.yy",},"resourceVersion":"1.0","name":"cf3a84c1-1072-4679-a0fc-98955d2a0cbf","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"ef13e508-b803-46a7-ac12-753ddc440f88","path":"sprites/spr_invincibility/spr_invincibility.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"ef13e508-b803-46a7-ac12-753ddc440f88","path":"sprites/spr_invincibility/spr_invincibility.yy",},"LayerId":{"name":"b13d348e-a8b0-433f-aeba-b9d1fe9c1216","path":"sprites/spr_invincibility/spr_invincibility.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_invincibility","path":"sprites/spr_invincibility/spr_invincibility.yy",},"resourceVersion":"1.0","name":"ef13e508-b803-46a7-ac12-753ddc440f88","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"spr_invincibility","path":"sprites/spr_invincibility/spr_invincibility.yy",},
@@ -45,16 +48,17 @@
     "playbackSpeedType": 0,
     "autoRecord": true,
     "volume": 1.0,
-    "length": 4.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
+    "length": 5.0,
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"cfd88013-17df-4857-9d91-2d157d04c484","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"308633f5-5757-40d6-b467-1c9b5002f7a6","path":"sprites/spr_invincibility/spr_invincibility.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-            {"id":"71ff733b-3547-4835-8e60-b3de575f341f","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"93c203a2-0187-4794-a938-7a3fab19d701","path":"sprites/spr_invincibility/spr_invincibility.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-            {"id":"a287f8cf-dbed-4af9-a2d3-d4965949aff9","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"a9713cb4-ac0e-4201-abe0-d70848d579d8","path":"sprites/spr_invincibility/spr_invincibility.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-            {"id":"60831216-9d76-4728-bf7b-a18a71ee6d55","Key":3.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"cf3a84c1-1072-4679-a0fc-98955d2a0cbf","path":"sprites/spr_invincibility/spr_invincibility.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+            {"id":"cfd88013-17df-4857-9d91-2d157d04c484","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"308633f5-5757-40d6-b467-1c9b5002f7a6","path":"sprites/spr_invincibility/spr_invincibility.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
+            {"id":"71ff733b-3547-4835-8e60-b3de575f341f","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"93c203a2-0187-4794-a938-7a3fab19d701","path":"sprites/spr_invincibility/spr_invincibility.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
+            {"id":"a287f8cf-dbed-4af9-a2d3-d4965949aff9","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"a9713cb4-ac0e-4201-abe0-d70848d579d8","path":"sprites/spr_invincibility/spr_invincibility.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
+            {"id":"60831216-9d76-4728-bf7b-a18a71ee6d55","Key":3.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"cf3a84c1-1072-4679-a0fc-98955d2a0cbf","path":"sprites/spr_invincibility/spr_invincibility.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
+            {"id":"629236e7-4dbf-42a1-9cb3-ca10dd566ff3","Key":4.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"ef13e508-b803-46a7-ac12-753ddc440f88","path":"sprites/spr_invincibility/spr_invincibility.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -81,8 +85,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "_Effects",
-    "path": "folders/Sprites/Players/_Effects.yy",
+    "name": "Shields",
+    "path": "folders/Sprites/Players/Shields.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_invincibility",

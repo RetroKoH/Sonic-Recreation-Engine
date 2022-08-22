@@ -2,12 +2,10 @@
 
 if debug
 {
-	if collide==true
+	if collide>0
 		scr_debug_draw(0,c_red);
 	else
 		scr_debug_draw(0,c_white);
-		
-	// draw_self();
 	
 	var xr = (floor(bbox_right-bbox_left) div 2)+player.width+1;	//combined_x_radius
 	var yr = (floor(bbox_bottom-bbox_top) div 2)+player.height;		//combined_y_radius

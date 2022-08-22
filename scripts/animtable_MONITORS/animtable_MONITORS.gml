@@ -26,7 +26,7 @@ function animtable_MONITORS(){
 		loop_times	: -1,
 		loop_frame	: 0,
 		loop_anim	: -1,
-		frames		: [4],
+		frames		: [21],
 		speeds		: [1]
 	}
 	array_push(animation_index,global.AnimationsMonitors);
