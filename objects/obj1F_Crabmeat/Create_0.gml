@@ -1,7 +1,7 @@
 /// @description Init Crabmeat
 // They crawl around and shoot projectiles.
 event_inherited();
-depth=3;
+scr_obj_priority(3);
 height=16;
 width=8;
 status=0;

@@ -1,3 +1,3 @@
 /// @description Init Swinging Platform
 event_inherited();
-depth=2;
+scr_obj_priority(2);

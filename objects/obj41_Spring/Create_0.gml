@@ -1,6 +1,6 @@
 /// @description Init spring
 event_inherited();
-depth = 4;
+scr_obj_priority(4);
 routine = 0;
 pow = 10;
 

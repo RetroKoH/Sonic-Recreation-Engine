@@ -35,10 +35,10 @@ switch(routine)
 	        sparkletime-=1;		// Subtract 1 from the amount of time to sparkle
 	        if !sparkletime		// If time doesn't remain in the sparkle timer,
 	        {
-	            sparkletime=$B;                     // Set the next sparkle time for 11 frames.
+	            sparkletime=$B;						// Set the next sparkle time for 11 frames.
 	            spark=instance_create_layer(x+sparkpos[sparkleid,0],y+sparkpos[sparkleid,1],"Instances",obj25_Ring); // Create sparkle
-	            spark.routine=4;                    // Set to ring sparkle routine
-	            spark.depth=2;                      // Set priority
+	            spark.routine=4;					// Set to ring sparkle routine
+				with(spark) scr_obj_priority(2);	// Set priority
 	            if sparkleid<7 sparkleid+=1; else sparkleid=0; // increment sparkle counter
 	        }
 	    }

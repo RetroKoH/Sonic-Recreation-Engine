@@ -5,7 +5,7 @@ gsp=0;			// Ground speed
 defaultHeight=0;// Default tile collision height
 height=0;		// Tile collision height
 width=0;		// Tile collision width
-depth=2;
+scr_obj_priority(2);
 status=0;		// Status bitfield
 				// 0-Facing (1-right), 1-Air (1-true), 2-Spin (1-true), 3-Obj aka if not on tile, but shouldn't fall. (1-true),
 				// 4-RollJump (1-true), 5-Push (1-true), 6-Water (1-true) 7-Unknown

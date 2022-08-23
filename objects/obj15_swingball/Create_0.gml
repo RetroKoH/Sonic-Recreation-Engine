@@ -1,3 +1,3 @@
 /// @description Init Swinging Ball
 event_inherited();
-depth=2;
+scr_obj_priority(2);

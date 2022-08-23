@@ -11,7 +11,7 @@ switch(routine)
 			_y += $10;
 			a = instance_create_layer(x,_y,"Instances",obj15_SwingChain);
 			a.routine=2;			// Empty routine (just display)
-			a.depth=4;
+			with(a) scr_obj_priority(4);
 			a.image_index=1;
 			a.dist=_y-orig_y;
 			array_push(pieces,a);	// Store chain links

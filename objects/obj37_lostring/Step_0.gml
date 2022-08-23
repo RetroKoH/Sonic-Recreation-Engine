@@ -33,7 +33,7 @@ if routine==1 // If the ring hasn't been collected, it will move accordingly.
 
 if routine==2 // If the ring has been collected, and has entered the collected routine,
 {
-    routine++;               // Set to the sparkle routine to happen next. The animation will change according to the routine.
-    depth=1;                 // The drawing priority changes.
-    scr_collect_rings(1);    // Subroutine for collecting rings.
+    routine++;				// Set to the sparkle routine to happen next. The animation will change according to the routine.
+    scr_obj_priority(1);	// The drawing priority changes.
+    scr_collect_rings(1);	// Subroutine for collecting rings.
 }

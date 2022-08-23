@@ -1,6 +1,6 @@
 /// @description Init Swinging Chain
 image_speed=0;
-depth=3;
+scr_obj_priority(3);
 routine=0;
 angle=0;
 subtype=0;
