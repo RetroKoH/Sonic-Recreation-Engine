@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_chainorb",
-    "path": "sprites/spr_chainorb/spr_chainorb.yy",
+    "name": "spr_GHZChainOrb",
+    "path": "sprites/spr_GHZChainOrb/spr_GHZChainOrb.yy",
   },
   "solid": false,
   "visible": true,

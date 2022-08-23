@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_swingbridge",
-    "path": "sprites/spr_swingbridge/spr_swingbridge.yy",
+    "name": "spr_GHZSwingBridge",
+    "path": "sprites/spr_GHZSwingBridge/spr_GHZSwingBridge.yy",
   },
   "solid": false,
   "visible": true,
