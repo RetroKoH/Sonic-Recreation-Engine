@@ -19,4 +19,5 @@ if debug{
 	draw_text(20, ay+140, inc_6);
 	draw_text(20, ay+160, lim_6);
 	draw_text(20, ay+180, pol_6);
+	draw_text(20, ay+210, degtorad(osc_6a));
 }

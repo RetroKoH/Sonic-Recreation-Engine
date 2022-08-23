@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_chainorb",
-    "path": "sprites/spr_chainorb/spr_chainorb.yy",
+    "name": "spr_GHZBall",
+    "path": "sprites/spr_GHZBall/spr_GHZBall.yy",
   },
   "solid": false,
   "visible": true,
@@ -9,8 +9,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "obj00",
-    "path": "objects/obj00/obj00.yy",
+    "name": "objParent_Harm",
+    "path": "objects/objParent_Harm/objParent_Harm.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -30,11 +30,11 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "obj15_Swing",
+    "path": "folders/Objects/obj15_Swing.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj15_SwingPlatform",
+  "name": "obj15_SwingBall",
   "tags": [],
   "resourceType": "GMObject",
 }
