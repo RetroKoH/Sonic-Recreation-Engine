@@ -3,6 +3,6 @@ function scr_touch_response(){
 	scr_touch_objRoutine();
 	scr_touch_objEnemy();
 	scr_touch_objHarm();
-/*	scrObjHandleBumpers();
-	scrObjHandleSpecial();
+	scr_touch_objBumper();
+/*	scrObjHandleSpecial();
 */}

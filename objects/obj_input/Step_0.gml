@@ -26,4 +26,6 @@ global.k_st_h=keyboard_check(keymap_array[KEY_START]);
 global.k_st_p=keyboard_check_pressed(keymap_array[KEY_START]);
 global.k_st_r=keyboard_check_released(keymap_array[KEY_START]);
 
+framecount++; if framecount==$10000 framecount=0;	// Add 1 to level timer
 if osc_active scr_osc_num_do();
+scr_sync_anim();

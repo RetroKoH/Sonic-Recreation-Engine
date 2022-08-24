@@ -1,3 +1,8 @@
+function animtable_BADNIKS(){
+	animtable_CRABMEAT();
+	animtable_BUZZBOMBER();
+	animtable_MOTOBUG();
+}
 // Database of sprite animations for the crabmeat object ($1E)
 function animtable_CRABMEAT(){
 	global.AnimationsCrabmeat=array_create(3);
@@ -46,7 +51,6 @@ function animtable_CRABMEAT(){
 	}
 	array_push(animation_index,global.AnimationsCrabmeat);
 }
-
 // Database of sprite animations for the crabmeat object ($22)
 function animtable_BUZZBOMBER(){
 	global.AnimationsBuzzBomber=array_create(3);
@@ -94,7 +98,6 @@ function animtable_BUZZBOMBER(){
 	}
 	array_push(animation_index,global.AnimationsBuzzBomber);
 }
-
 // Database of sprite animations for the motobug object ($40)
 function animtable_MOTOBUG(){
 	global.AnimationsMotobug=array_create(2);

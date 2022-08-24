@@ -10,7 +10,7 @@ switch(routine)
 	    // If main player is within 20 pixels of the signpost to the left, enter this code
 	    if !(d0<0 || d0>=20)
 	    {
-	        audio_play_sound(S2_4F_Signpost,1,false);
+	        audio_play_sound(sfx2F_Signpost,1,false);
 	        f_timecount = false; // Clear Time Count flag
 			v_limitleft2 = x - 212;
 	        routine++;

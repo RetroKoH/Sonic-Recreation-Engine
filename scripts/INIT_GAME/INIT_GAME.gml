@@ -7,6 +7,7 @@ function INIT_GAME(){
 	INIT_COLLIDE();
 	INIT_ANIM_DATA();			// Build Animation Data Structures
 	INIT_OSC_VALUES();			// Establish Global Oscillating Values
+	INIT_SYNC_ANIM_TIMERS()		// Set Up Sync Animation Timers
 	INIT_OBJDATA_ANIMALS();		// Set up animal data (sprites and movement)
 	INIT_OBJDATA_SIGNPOST();	// Set up data for locations of ring sparkles.
 	INIT_SOUND_SYSTEM();		// Set up BGM index and sound objects
@@ -339,14 +340,14 @@ function INIT_ANIM_DATA(){
 	globalvar animation_index; animation_index = array_create(0);	// Every script below pushes an animation into this index
 	animtable_PLAYERS();
 	animtable_SHIELDS();
-	animtable_BUZZBOMBER();
-	animtable_CRABMEAT();
+	animtable_BADNIKS();
 	animtable_MONITORS();
-	animtable_MOTOBUG();
 	animtable_RINGS();
 	animtable_SIGNPOST();
 	animtable_SPRINGS();
 	animtable_TITLESONIC();
+	animtable_LVLOBJ_SYZ();
+	animtable_LVLOBJ_SBZ();
 }
 function INIT_OSC_VALUES(){
 	globalvar osc_active; osc_active = false;
@@ -447,6 +448,17 @@ function INIT_OSC_VALUES(){
 	globalvar inc_F;	inc_F=.0078125;		// Amount that "b" increments by.
 	globalvar lim_F;	lim_F=.4921875;		// polarity is reversed when "b" reaches this value.
 	globalvar pol_F;	pol_F=1;			// polarity of var "b".
+}
+function INIT_SYNC_ANIM_TIMERS(){
+	// Synchronized Animation Variables
+	globalvar sync0_time;  sync0_time=0;	// Timer for GHZ Spiked Log
+	globalvar sync0_frame; sync0_frame=0;	// Frame number for GHZ Spiked Log
+	globalvar sync1_time;  sync1_time=0;	// Timer for Rings & Giant Rings
+	globalvar sync1_frame; sync1_frame=0;	// Frame number for Rings & Giant Rings
+	globalvar sync2_time;  sync2_time=0;	// Timer for ???
+	globalvar sync2_frame; sync2_frame=0;	// Frame number for ???
+	globalvar sync3_time;  sync3_time=0;	// Timer for Lost Rings
+	globalvar sync3_frame; sync3_frame=0;	// Frame number for Lost Rings
 }
 function INIT_OBJDATA_ANIMALS(){
 	globalvar ani_sprite, ani_xsp, ani_ysp;
@@ -808,9 +820,9 @@ function INIT_MISC_VARS(){
 		obj_Players[PL_RAY] = obj01_Ray;
 		obj_Players[PL_METAL] = obj01_Metal;
 	}
-
 	globalvar HUDFONT;          HUDFONT = font_add_sprite(spr_HUDnumbers,ord("0"),false,0); // Numerical HUD Font.
 	globalvar f_pause;          f_pause=false;		// Game Pausing flag
+	globalvar framecount;		framecount=0;		// Frame timer
 	globalvar p_score;          p_score=0;          // Player's score
 	globalvar p_time;           p_time=0;           // Playing time
 	globalvar p_timecenti;      p_timecenti=0;      // Playing time
@@ -826,4 +838,11 @@ function INIT_MISC_VARS(){
 	globalvar timebonus;        timebonus=0;        // The points counter for time bonuses. The faster you complete a level, the higher the bonus. TIME OVER results in NO bonus.
 	globalvar ringbonus;        ringbonus=0;        // The points counter for ring bonuses. You get 100 pts per ring when you complete a level.
 	globalvar gravity_angle;    gravity_angle=0;    // The global zone gravity. Character gravity is based on this.
+
+	// Water related values
+	globalvar water_flag;       water_flag=false;   // Flag for plane-spanning water in the zone.
+	globalvar water_pos1;       water_pos1=0;       // Water Height - Actual
+	globalvar water_pos2;       water_pos2=0;       // Water Height - Ignoring Water Sway
+	globalvar water_pos3;       water_pos3=0;       // Water Height - Next Target
+	globalvar wtunnel_flag;     wtunnel_flag=0;     // Flag for wind/water tunnel currents
 }

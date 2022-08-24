@@ -1,6 +1,6 @@
 Lead Developer			- RetroKoH
 
-Coding Assistance		- Devon/Ralakimus
+Coding Assistance		- Devon/Ralakimus (Tile Collision Framework)
 
 Engine Documentation	- Sonic Retro (Sonic Physics Guide; Per Mercury and Lapper)
 						- RetroKoH - Modding and Documentation of various aspects of Sonic 1
@@ -12,4 +12,8 @@ Sprites					- Cinossu - (Various sprites seen in Megamix & the Sonic mobile rele
 						- CartoonAnimate22 (Various Character Sprites)
 						- Wiztoad - (Ray S2-styled Mania sprites)
 
+Music					- SEGA, Sonic Team - (Original Tracks)
+						- Karl Brueggermann - (Sonic 1 Revisited)
+
 Special Thanks			- MarkeyJester and Clownacy (Sonic 1 Two-Eight)
+						- MrLange (Compilation of sound effects used)

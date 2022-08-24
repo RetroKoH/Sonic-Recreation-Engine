@@ -7,7 +7,7 @@ function scr_player_hurt(obj){
 	// get a different outcome.
 
 	// If the character is already hurt, invincible, blinking, or super, exit.
-	if (routine == 2 || invuln_timer || invinc_timer || super) exit;
+	if (routine >= 2 || invuln_timer || invinc_timer || super) exit;
 
 	// Else, if the character possesses a shield or has rings.
 	else if (powerups&POW_SHIELD || p_rings)
@@ -36,7 +36,7 @@ function scr_player_hurt(obj){
 
 	    angle		=	0;			// Angle is set to rotate back to gravity_angle
 	    move_lock   =   true;		// We cannot enter any input while hurt... SORRY! :P
-	    audio_play_sound(S2_23_Hurt,1,false);
+	    audio_play_sound(sfx03_Hurt,1,false);
 	}
 
 	// If all else is false, the character dies.
