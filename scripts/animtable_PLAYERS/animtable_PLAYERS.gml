@@ -17,9 +17,15 @@ function animtable_PLAYERS(){
 		hurt,
 		death,
 		drown,
+		dropdash,
+		fly,
+		fly_fast,
+		fly_tired,
+		swim,
+		swim_up,
+		swim_tired,
 		total // Used for final count below
 	}
-
 	animtable_SONIC();
 	animtable_TAILS();
 	animtable_KNUCKLES();
@@ -29,7 +35,7 @@ function animtable_PLAYERS(){
 	animtable_METAL();
 }
 
-// Database of sprite animations for the player object ($01 - Sonic)
+// Database of sprite animations for the player object ($01 - Sonic) < Edit the Idle anim
 function animtable_SONIC(){
 	global.AnimationsSonic = array_create(anim_player.total)
 	var sp = 1/24;
@@ -122,8 +128,8 @@ function animtable_SONIC(){
 	global.AnimationsSonic[anim_player.spindash] = {
 		name		: "Spindash",
 		sprite		: spr_sonic_spindash,
-		mask		: spr_sonic_mask,
-		mask_l		: spr_sonic_maskL,
+		mask		: spr_sonic_spin_mask,
+		mask_l		: spr_sonic_spin_maskL,
 		sub_anim	: -1,
 		loop_times	: -1,
 		loop_frame	: 0,
@@ -292,9 +298,22 @@ function animtable_SONIC(){
 		frames		: [1],
 		speeds		: [1]
 	}
+	// ==================================================================================
+	sp = 1/2;
+	global.AnimationsSonic[anim_player.dropdash] = {
+		name		: "Drop Dash",
+		sprite		: spr_sonic_dropdash,
+		mask		: spr_sonic_spin_mask,
+		mask_l		: spr_sonic_spin_maskL,
+		sub_anim	: -1,
+		loop_times	: -1,
+		loop_frame	: 0,
+		loop_anim	: -1,
+		frames		: [0, 2, 1, 3, 0, 4, 1, 5, 0, 6, 1],
+		speeds		: [sp,sp,sp,sp,sp,sp,sp,sp,sp,sp,sp]
+	}
 	array_push(animation_index,global.AnimationsSonic);
 }
-
 // Database of sprite animations for the player object ($01 - Tails)
 function animtable_TAILS(){
 	global.AnimationsTails = array_create(anim_player.total)
@@ -441,6 +460,26 @@ function animtable_TAILS(){
 		array_push(an.frames,i);
 		array_push(an.speeds,1);}
 	// ==================================================================================
+	global.AnimationsTails[anim_player.spindash] = {
+		name		: "Spindash",
+		sprite		: spr_tails_spindash,
+		mask		: spr_sonic_spin_mask,
+		mask_l		: spr_sonic_spin_maskL,
+		sub_anim	: -1,
+		loop_times	: -1,
+		loop_frame	: 0,
+		loop_anim	: -1,
+		frames		: [],
+		speeds		: []
+	}
+	// Animation frames
+	an = global.AnimationsTails[anim_player.spindash];
+	for (i = 0; i < 3; i++) {
+		array_push(an.frames,i);
+		array_push(an.speeds,1);}
+	// ==================================================================================
+	global.AnimationsTails[anim_player.peelout] = global.AnimationsTails[anim_player.dash];
+	// ==================================================================================
 	var sp = 1/2;
 	global.AnimationsTails[anim_player.lookup] = {
 		name		: "Look Up",
@@ -524,6 +563,19 @@ function animtable_TAILS(){
 		array_push(an.frames,i);
 		array_push(an.speeds,sp);}
 	// ==================================================================================
+	global.AnimationsTails[anim_player.spring] = {
+		name		: "Spring",
+		sprite		: spr_tails_spring,
+		mask		: spr_sonic_mask,
+		mask_l		: spr_sonic_maskL,
+		sub_anim	: -1,
+		loop_times	: -1,
+		loop_frame	: 0,
+		loop_anim	: -1,
+		frames		: [0,1],
+		speeds		: [1,1]
+	}
+	// ==================================================================================
 	global.AnimationsTails[anim_player.hurt] = {
 		name		: "Hurt",
 		sprite		: spr_tails_hurt,
@@ -562,9 +614,57 @@ function animtable_TAILS(){
 		frames		: [1],
 		speeds		: [1]
 	}
+	// ==================================================================================
+	global.AnimationsTails[anim_player.dropdash] = global.AnimationsTails[anim_player.spindash]
+	// ==================================================================================
+	sp = 1/2;
+	global.AnimationsTails[anim_player.fly] = {
+		name		: "Fly",
+		sprite		: spr_tails_fly,
+		mask		: spr_sonic_mask,
+		mask_l		: spr_sonic_maskL,
+		sub_anim	: -1,
+		loop_times	: -1,
+		loop_frame	: 0,
+		loop_anim	: -1,
+		frames		: [0, 1],
+		speeds		: [sp,sp]
+	}
+	// ==================================================================================
+	sp = 1/2;
+	global.AnimationsTails[anim_player.fly_fast] = {
+		name		: "Fly Fast",
+		sprite		: spr_tails_fly,
+		mask		: spr_sonic_mask,
+		mask_l		: spr_sonic_maskL,
+		sub_anim	: -1,
+		loop_times	: -1,
+		loop_frame	: 0,
+		loop_anim	: -1,
+		frames		: [2, 3],
+		speeds		: [sp,sp]
+	}
+	// ==================================================================================
+	sp = 1/2;
+	global.AnimationsTails[anim_player.fly_tired] = {
+		name		: "Fly Fast",
+		sprite		: spr_tails_fly,
+		mask		: spr_sonic_mask,
+		mask_l		: spr_sonic_maskL,
+		sub_anim	: -1,
+		loop_times	: -1,
+		loop_frame	: 0,
+		loop_anim	: -1,
+		frames		: [4,5,6,7],
+		speeds		: [sp,sp,sp,sp]
+	}
+	// ==================================================================================
+	global.AnimationsTails[anim_player.swim] = global.AnimationsTails[anim_player.fly];
+	global.AnimationsTails[anim_player.swim_up] = global.AnimationsTails[anim_player.fly];
+	global.AnimationsTails[anim_player.swim_tired] = global.AnimationsTails[anim_player.fly_tired];
+	// ==================================================================================
 	array_push(animation_index,global.AnimationsTails);
 }
-
 // Database of sprite animations for the player object ($01 - Knuckles)
 function animtable_KNUCKLES(){
 	global.AnimationsKnuckles = array_create(anim_player.total)
@@ -828,7 +928,6 @@ function animtable_KNUCKLES(){
 	}
 	array_push(animation_index,global.AnimationsKnuckles);
 }
-
 // Database of sprite animations for the player object ($01 - Amy)
 function animtable_AMY(){
 	global.AnimationsAmy = array_create(anim_player.total)
@@ -1068,7 +1167,6 @@ function animtable_AMY(){
 	}
 	array_push(animation_index,global.AnimationsAmy);
 }
-
 // Database of sprite animations for the player object ($01 - Mighty)
 function animtable_MIGHTY(){
 	global.AnimationsMighty = array_create(anim_player.total)
@@ -1306,7 +1404,6 @@ function animtable_MIGHTY(){
 	}
 	array_push(animation_index,global.AnimationsMighty);
 }
-
 // Database of sprite animations for the player object ($01 - Ray)
 function animtable_RAY(){
 	global.AnimationsRay = array_create(anim_player.total)
@@ -1544,7 +1641,6 @@ function animtable_RAY(){
 	}
 	array_push(animation_index,global.AnimationsRay);
 }
-
 // Database of sprite animations for the player object ($01 - Metal)
 function animtable_METAL(){
 	global.AnimationsMetal = array_create(anim_player.total)
@@ -1782,4 +1878,3 @@ function animtable_METAL(){
 	}
 	array_push(animation_index,global.AnimationsMetal);
 }
-

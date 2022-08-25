@@ -15,14 +15,13 @@ switch(routine)
 	case 0: // INIT
 	{
 		routine++;
-		defaultHeight=$13;
 		height=defaultHeight;
-		width=9;
+		width=WIDTH_MAIN;
 	} break;
 
 	case 1: // Sonic_Control
 	{
-		CTRLModes_Sonic();
+		script_execute(control_modes);
 		scr_player_display();
 		scr_touch_response();
 	} break;

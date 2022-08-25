@@ -1,10 +1,10 @@
 /// @description Init Player
-xsp=0;			// X-axis speed
-ysp=0;			// Y-axis speed
-gsp=0;			// Ground speed
-defaultHeight=0;// Default tile collision height
-height=0;		// Tile collision height
-width=0;		// Tile collision width
+xsp=0;						// X-axis speed
+ysp=0;						// Y-axis speed
+gsp=0;						// Ground speed
+defaultHeight=HEIGHT_MAIN;	// Default tile collision height
+height=0;					// Tile collision height
+width=0;					// Tile collision width
 scr_obj_priority(2);
 status=0;		// Status bitfield
 				// 0-Facing (1-right), 1-Air (1-true), 2-Spin (1-true), 3-Obj aka if not on tile, but shouldn't fall. (1-true),
@@ -24,11 +24,11 @@ angle = 0;		// The angle at which you are moving. (0-360*)
 move_angle = 0; // Temporary. Will remove later
 	
 jump = false;
-double_jump = scr_sonic_doublejump;
 double_jump_flag = false;
 double_jump_property = 0;
 dash_flag = false; // Variables used for Spindash, Peelout, and Drop Dash
 spindash_flag = false;
+spindash_pitch = 1;
 dash_timer = 0;
 invuln_timer = 0;
 invinc_timer = 0;
@@ -41,6 +41,10 @@ topspeed	= 6;		// Maximum X speed via acceleration.
 accel_run	= 0.046875;	// X-Acceleration rate.
 decel_run	= 0.5;		// X-Deceleraction rate.
 jmp_spd		= 6.5;		// Default jump velocity
+
+// Variable Scripting
+control_modes	= CTRLModes_Sonic;
+double_jump		= -1;					// Stored double jump ability
 
 // Collision sensors (For debug purposes)
 col_tile		=	-1;

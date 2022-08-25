@@ -7,8 +7,8 @@ function scr_player_roll(){
 		    if !(status&STA_SPIN)			// If we are not already rolling (Rolling bit cleared)
 		    {
 		        status|=STA_SPIN;			// Set Rolling bit
-		        height=$E;					// Set collision radius
-		        width=7;
+		        height=HEIGHT_ROLL;			// Set collision radius
+		        width=WIDTH_ROLL;
 		        anim_ID=anim_player.roll;
 		        y+=defaultHeight-height;	// Reposition character according to height change
 		        audio_play_sound(sfx1E_Roll,1,false);

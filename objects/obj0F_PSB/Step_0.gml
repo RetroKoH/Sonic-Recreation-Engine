@@ -25,7 +25,7 @@ else
 	if (global.k_u_p || global.k_d_p)
 	{
 		option ^= 1;	// This is fine for only two options
-		audio_play_sound(S2_4D_SwitchBeep,1,false);
+		audio_play_sound(sfx2D_Switch,1,false);
 	}
 	if (global.k_st_p)
 	{

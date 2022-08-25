@@ -17,11 +17,19 @@ function scr_sonic_doublejump(){
 		if !(powerups&POW_CHKELSHLDS) && (double_jump_property >= 0)  // If we have ELEMENTAL shields, disable this...
 		{
 			if global.k_abc_h {
-				double_jump_property = min(double_jump_property+1, 20);
-				if double_jump_property >= 20
-					anim_ID = anim_player.spindash;
+				if double_jump_property < 20 {
+					double_jump_property++;
+					if double_jump_property == 20 {
+						anim_ID = anim_player.dropdash;
+						audio_play_sound(sfx_DropDash,1,0);
+					}
+				}
 			}
-			else double_jump_property = -1; // Cancels Drop Dash
+			else {
+				double_jump_property = -1; // Cancels Drop Dash
+				if anim_ID == anim_player.dropdash
+					anim_ID = anim_player.roll;
+			}
 		}
 	}
 }
@@ -33,7 +41,7 @@ function scr_sonic_flameshield(){
 	xsp = 8*anim_direction;
 	gsp = xsp;
 	ysp = 0;
-	// Play sound
+	audio_play_sound(sfxS3K43_FlameDash,1,0);
 }
 function scr_sonic_bubbleshield(){
 /*On steep slopes, the bubble shield is unlikely to bounce at the right angle.
@@ -45,17 +53,17 @@ is likely to be high (downwards), effectively cancelling out a lot of the bounce
 	xsp = 0;
 	gsp = 0;
 	ysp = 8;		// Rebound force is 7.5 (adjusted for angle)
-	// Play sound
+	audio_play_sound(sfxS3K44_BubbleBounce,1,0);
 }
 function scr_sonic_lightningshield(){
 	//shield.anim_ID = 1;
 	double_jump_flag = true;
 	ysp = -5.5;
 	jump = false;	// Clear flag to avoid variable jump height
-	// Play sound
+	audio_play_sound(sfxS3K45_LightningJump,1,0);
 }
 function scr_sonic_instashield(){
 	if !(powerups&POW_SHIELD) instance_create_layer(player.x,player.y,"Instances",obj38_Shield_Insta);
 	double_jump_flag = true;
-	// Play sound
+	audio_play_sound(sfxS3K42_InstaShield,1,0);
 }

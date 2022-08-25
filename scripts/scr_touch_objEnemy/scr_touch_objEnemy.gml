@@ -6,7 +6,7 @@ function scr_touch_objEnemy(){
 	if (obj!=noone) //&& state!=consStateHurt) // A hurt hedgehog will not react to the enemy. That's just not fair.        
 	{
 	    // If under certain conditions, we can attack the enemy.
-	    if ((anim_ID==anim_player.roll || anim_ID==anim_player.spindash) || super || powerups&POW_INVINC) //(state==consStateJump || state==consStateRoll || state==consStateSpinDash /*|| (inv==1 || inv==3)*/)
+	    if ((status&STA_SPIN || anim_ID==anim_player.spindash) || super || powerups&POW_INVINC)
 	    {
 	        // Rebound off the enemy, provided we are moving downward, and are NOT on the ground.
 	        if ((status&STA_INAIR) && ysp>0)

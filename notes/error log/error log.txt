@@ -1,0 +1,13 @@
+
+___________________________________________
+############################################################################################
+ERROR in
+action number 1
+of  Step Event2
+for object obj01_Player:
+
+Variable <unknown_object>.sprite(100156, -2147483648) not set before reading it.
+ at gml_Script_scr_handle_anim (line 12) -               if spr_override == -1 spr_override = at.sprite;
+############################################################################################
+gml_Script_scr_handle_anim (line 12)
+gml_Object_obj01_Player_Step_2 (line 52) - scr_handle_anim();

@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_GHZrock",
-    "path": "sprites/spr_GHZrock/spr_GHZrock.yy",
+    "name": "spr_MZSideStomper",
+    "path": "sprites/spr_MZSideStomper/spr_MZSideStomper.yy",
   },
   "solid": false,
   "visible": true,

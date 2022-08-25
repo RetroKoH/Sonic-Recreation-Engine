@@ -1,7 +1,7 @@
 /// @description Init Platform
 event_inherited();
 image_speed = 0;
-depth = 4;
+scr_obj_priority(4);
 routine = 0;
 delay = 0;		// Used for falling platforms
 y_sink = 0;		// used to emulate nudging the platform downward

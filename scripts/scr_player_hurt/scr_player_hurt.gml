@@ -20,7 +20,7 @@ function scr_player_hurt(obj){
 		{
 			scr_ring_loss(min(32,p_rings),x,y-4);		// Lose all of your rings. (Up to 32 can be collected).
 			p_rings = 0;								// Is this needed? rings are already brought to 0 in the script...
-			audio_play_sound(S2_46_LoseRings,1,false);	// Play a different sound for losing rings.
+			audio_play_sound(sfx26_RingLoss,1,false);	// Play a different sound for losing rings.
 		}
 		routine	=	2;			// Set to hurt routine
 	    status	|=	STA_INAIR;	// Set Air status bit

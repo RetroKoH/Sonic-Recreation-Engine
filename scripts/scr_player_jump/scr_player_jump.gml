@@ -21,8 +21,8 @@ function scr_player_jump(){
 	        if (status&STA_SPIN) status|=STA_ROLLJUMP; // Set Rolling Jump bit if necessary.
 	        else
 	        {
-	            height=$E;
-	            width=7;
+	            height=HEIGHT_ROLL;
+	            width=WIDTH_ROLL;
 	            anim_ID=anim_player.roll;
 	            status|=STA_SPIN;				// Set Rolling bit
 	            y+=defaultHeight-height;		// Reposition according to height change
