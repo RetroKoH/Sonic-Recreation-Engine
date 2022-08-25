@@ -10,12 +10,12 @@
   "bbox_left": 0,
   "bbox_right": 17,
   "bbox_top": 0,
-  "bbox_bottom": 33,
+  "bbox_bottom": 23,
   "HTile": false,
   "VTile": false,
   "For3D": false,
   "width": 18,
-  "height": 34,
+  "height": 24,
   "textureGroupId": {
     "name": "Default",
     "path": "texturegroups/Default",
@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"489f235f-3ba0-4bac-8547-2d9b698c66af","path":"sprites/spr_sonic_mask/spr_sonic_mask.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"489f235f-3ba0-4bac-8547-2d9b698c66af","path":"sprites/spr_sonic_mask/spr_sonic_mask.yy",},"LayerId":{"name":"3304f7c4-9548-4e42-8849-80dea9b2f5fc","path":"sprites/spr_sonic_mask/spr_sonic_mask.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_sonic_mask","path":"sprites/spr_sonic_mask/spr_sonic_mask.yy",},"resourceVersion":"1.0","name":"489f235f-3ba0-4bac-8547-2d9b698c66af","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"a1a5857a-88c6-4337-9abf-11fdcd215019","path":"sprites/spr_spin_maskL/spr_spin_maskL.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"a1a5857a-88c6-4337-9abf-11fdcd215019","path":"sprites/spr_spin_maskL/spr_spin_maskL.yy",},"LayerId":{"name":"3304f7c4-9548-4e42-8849-80dea9b2f5fc","path":"sprites/spr_spin_maskL/spr_spin_maskL.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_spin_maskL","path":"sprites/spr_spin_maskL/spr_spin_maskL.yy",},"resourceVersion":"1.0","name":"a1a5857a-88c6-4337-9abf-11fdcd215019","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"spr_sonic_mask","path":"sprites/spr_sonic_mask/spr_sonic_mask.yy",},
+    "spriteId": {"name":"spr_spin_maskL","path":"sprites/spr_spin_maskL/spr_spin_maskL.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"10e5fb9b-4943-4f15-94f5-49f25a373eb8","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"489f235f-3ba0-4bac-8547-2d9b698c66af","path":"sprites/spr_sonic_mask/spr_sonic_mask.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
+            {"id":"f9aa38d4-cbd1-4469-9693-b9cdd0a108e9","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"a1a5857a-88c6-4337-9abf-11fdcd215019","path":"sprites/spr_spin_maskL/spr_spin_maskL.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
@@ -54,13 +54,13 @@
     "backdropHeight": 768,
     "backdropXOffset": 0.0,
     "backdropYOffset": 0.0,
-    "xorigin": 9,
-    "yorigin": 15,
+    "xorigin": 10,
+    "yorigin": 10,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"spr_sonic_mask","path":"sprites/spr_sonic_mask/spr_sonic_mask.yy",},
+    "parent": {"name":"spr_spin_maskL","path":"sprites/spr_spin_maskL/spr_spin_maskL.yy",},
     "resourceVersion": "1.4",
-    "name": "spr_sonic_mask",
+    "name": "spr_spin_maskL",
     "tags": [],
     "resourceType": "GMSequence",
   },
@@ -73,7 +73,7 @@
     "path": "folders/Sprites/Players.yy",
   },
   "resourceVersion": "1.0",
-  "name": "spr_sonic_mask",
+  "name": "spr_spin_maskL",
   "tags": [],
   "resourceType": "GMSprite",
 }

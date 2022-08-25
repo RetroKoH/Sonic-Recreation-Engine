@@ -22,7 +22,8 @@ function scr_tails_set_flight_anim(){
 			ani = anim_player.fly_tired;
 			snd = sfxS3KBA_TailsTired;
 		}
-		else if xsp >= 4.5 ani = anim_player.fly_fast;
+		else if abs(xsp) >= 4.5 && sign(xsp)==anim_direction
+			ani = anim_player.fly_fast;
 		
 		anim_ID = ani;
 		if !framecount&$F audio_play_sound(snd,1,false);

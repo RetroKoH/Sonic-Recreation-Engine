@@ -4,7 +4,6 @@ function scr_player_spindash(){
 			if global.k_abc_p {
 				// Initialize Spindash
 				anim_ID = anim_player.spindash;
-				audio_sound_pitch(sfxS260_SpindashRev,0.5);
 				audio_play_sound(sfxS260_SpindashRev,1,false);
 				spindash_flag = true;
 				dash_timer = 2;

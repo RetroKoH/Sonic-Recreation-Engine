@@ -24,7 +24,7 @@ function scr_player_roll_speed(){
 				status&=~STA_SPIN;
 				y-=defaultHeight-height;
 				height=defaultHeight;
-				width=9;
+				width=WIDTH_MAIN;
 				anim_ID=anim_player.idle;
 			}
 	    }
