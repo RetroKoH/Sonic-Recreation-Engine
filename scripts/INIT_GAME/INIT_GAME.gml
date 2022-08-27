@@ -134,12 +134,13 @@ function MACROS(){
 	#macro MON_SHIELD_L 10
 	
 	// Player Sizes
-	#macro HEIGHT_MAIN $13		// Standard height
+	#macro HEIGHT_MAIN $13	// Standard height
 	#macro HEIGHT_SHORT $F	// Tails' standing height
 	#macro HEIGHT_ROLL $E	// Rolling height
-	#macro WIDTH_MAIN 9			// Standard Width
+	#macro HEIGHT_GLIDE $A	// Gliding height
+	#macro WIDTH_MAIN 9		// Standard Width
 	#macro WIDTH_ROLL 7		// Rolling Width
-	
+	#macro WIDTH_GLIDE $A	// Gliding Width
 }
 function INIT_DEBUG(){
 	globalvar debug; debug = true;				// By default, disable debug

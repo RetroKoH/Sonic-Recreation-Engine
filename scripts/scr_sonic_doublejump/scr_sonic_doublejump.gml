@@ -33,7 +33,6 @@ function scr_sonic_doublejump(){
 		}
 	}
 }
-
 // Elemental Shield Jumps
 function scr_sonic_flameshield(){
 	//shield.anim_ID = 1;

@@ -1,5 +1,5 @@
 function CTRLModes_Tails(){
-	switch(status&6) // Sonic's Control Modes based on status
+	switch(status&6) // Tails' Control Modes based on status
 	{
 		case 0: // Normal (Not in ball, not in air)
 			CTRL_Tails_Normal();

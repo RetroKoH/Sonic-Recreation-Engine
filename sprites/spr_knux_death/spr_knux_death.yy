@@ -73,8 +73,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "3_Knuckles_14s",
-    "path": "folders/Sprites/Players/3_Knuckles_14s.yy",
+    "name": "3_Knuckles_19s",
+    "path": "folders/Sprites/Players/3_Knuckles_19s.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_knux_death",

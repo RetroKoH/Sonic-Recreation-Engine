@@ -18,6 +18,7 @@ function scr_handle_anim(spr_override = -1){
 		anim_looptimes	= at.loop_times				// Get # of loopbacks in animation.
 		anim_loopframe	= at.loop_frame				// Get the frame for the animation to loop back to.
 		anim_loopanim	= at.loop_anim				// Get the animation for the animation to loop back to.
+		anim_framemod	= 0;
 		anim_finished	= false;
 	}
 

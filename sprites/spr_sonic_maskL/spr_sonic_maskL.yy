@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Players",
-    "path": "folders/Sprites/Players.yy",
+    "name": "Masks",
+    "path": "folders/Sprites/Players/Masks.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_sonic_maskL",

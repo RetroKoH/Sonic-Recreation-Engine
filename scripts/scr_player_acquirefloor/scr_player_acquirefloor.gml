@@ -1,19 +1,17 @@
 function scr_player_acquirefloor(){
-	status&=~STA_PUSH;		// Clear push status
-	status&=~STA_INAIR;		// Clear air status
-	status&=~STA_ROLLJUMP;	// Clear roll jump status
-	anim_ID=anim_player.walk;
+	height=defaultHeight;
+	width=WIDTH_MAIN;
 	if (status&STA_SPIN)	// If Sonic is spinning
 	{
 	    status^=STA_SPIN;			// Clear spin status
-	    y-=defaultHeight-height;
-		height=defaultHeight;
-	    width=WIDTH_MAIN;
-		// walk animation set above
-		
+	    anim_ID=anim_player.walk;
+		y-=defaultHeight-height;
 		// Isolate this part by character
 		if object_index == obj01_Sonic scr_sonic_onfloor();
 	}
+	status&=~STA_PUSH;		// Clear push status
+	status&=~STA_INAIR;		// Clear air status
+	status&=~STA_ROLLJUMP;	// Clear roll jump status
 	jump=false;
 	itembonus=0;			// Clear item bonus
 	double_jump_flag=false;

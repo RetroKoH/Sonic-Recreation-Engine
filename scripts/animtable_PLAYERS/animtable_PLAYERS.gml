@@ -17,6 +17,7 @@ function animtable_PLAYERS(){
 		hurt,
 		death,
 		drown,
+		// Unique character ability-related animations
 		dropdash,
 		fly,
 		fly_fast,
@@ -24,6 +25,12 @@ function animtable_PLAYERS(){
 		swim,
 		swim_up,
 		swim_tired,
+		glide,
+		fall,
+		slide,
+		landing,
+		getup,
+		climb,
 		total // Used for final count below
 	}
 	animtable_SONIC();
@@ -725,7 +732,6 @@ function animtable_KNUCKLES(){
 	array_push(an.speeds, sp);
 	array_push(an.frames, 4); // Knuckles lowers his fists.
 	array_push(an.speeds, sp);
-
 	// ==================================================================================
 	global.AnimationsKnuckles[anim_player.walk] = {
 		name		: "Walk",
@@ -796,6 +802,26 @@ function animtable_KNUCKLES(){
 	// Animation frames
 	an = global.AnimationsKnuckles[anim_player.dash];
 	for (i = 0; i < 4; i++) {
+		array_push(an.frames,i);
+		array_push(an.speeds,1);}
+	// ==================================================================================
+	global.AnimationsKnuckles[anim_player.spindash] = {
+		name		: "Spindash",
+		sprite		: spr_knux_spindash,
+		mask		: spr_spin_mask,
+		mask_l		: spr_spin_maskL,
+		sub_anim	: -1,
+		loop_times	: -1,
+		loop_frame	: 0,
+		loop_anim	: -1,
+		frames		: [],
+		speeds		: []
+	}
+	// Animation frames
+	an = global.AnimationsKnuckles[anim_player.spindash];
+	for (i = 0; i < 5; i++) {
+		array_push(an.frames,5);
+		array_push(an.speeds,1);
 		array_push(an.frames,i);
 		array_push(an.speeds,1);}
 	// ==================================================================================
@@ -888,6 +914,19 @@ function animtable_KNUCKLES(){
 		array_push(an.frames,i);
 		array_push(an.speeds,sp);}
 	// ==================================================================================
+	global.AnimationsKnuckles[anim_player.spring] = {
+		name		: "Spring",
+		sprite		: spr_knux_spring,
+		mask		: spr_sonic_mask,
+		mask_l		: spr_sonic_maskL,
+		sub_anim	: -1,
+		loop_times	: -1,
+		loop_frame	: 0,
+		loop_anim	: -1,
+		frames		: [0],
+		speeds		: [1]
+	}
+	// ==================================================================================
 	global.AnimationsKnuckles[anim_player.hurt] = {
 		name		: "Hurt",
 		sprite		: spr_knux_hurt,
@@ -924,6 +963,86 @@ function animtable_KNUCKLES(){
 		loop_frame	: 0,
 		loop_anim	: -1,
 		frames		: [1],
+		speeds		: [1]
+	}
+	// ==================================================================================
+	global.AnimationsKnuckles[anim_player.glide] = {
+		name		: "Glide",
+		sprite		: spr_knux_hover,
+		mask		: spr_glide_mask,
+		mask_l		: spr_glide_maskL,
+		sub_anim	: -1,
+		loop_times	: -1,
+		loop_frame	: 0,
+		loop_anim	: -1,
+		frames		: [0],
+		speeds		: [1]
+	}
+	// ==================================================================================
+	sp=1/4;
+	global.AnimationsKnuckles[anim_player.fall] = {
+		name		: "Fall",
+		sprite		: spr_knux_fall,
+		mask		: spr_sonic_mask,
+		mask_l		: spr_sonic_maskL,
+		sub_anim	: -1,
+		loop_times	: -1,
+		loop_frame	: 1,
+		loop_anim	: -1,
+		frames		: [0,1],
+		speeds		: [sp,sp]
+	}
+	// ==================================================================================
+	sp=1/4;
+	global.AnimationsKnuckles[anim_player.slide] = {
+		name		: "Slide",
+		sprite		: spr_knux_slide,
+		mask		: spr_glide_mask,
+		mask_l		: spr_glide_maskL,
+		sub_anim	: -1,
+		loop_times	: -1,
+		loop_frame	: 0,
+		loop_anim	: -1,
+		frames		: [0], // Use framemod when we are supposed to get up
+		speeds		: [1]
+	}
+	// ==================================================================================
+	global.AnimationsKnuckles[anim_player.landing] = {
+		name		: "Land from Glide",
+		sprite		: spr_knux_duck,
+		mask		: spr_glide_mask,
+		mask_l		: spr_glide_maskL,
+		sub_anim	: -1,
+		loop_times	: -1,
+		loop_frame	: 0,
+		loop_anim	: -1,
+		frames		: [1],
+		speeds		: [1]
+	}
+	// ==================================================================================
+	global.AnimationsKnuckles[anim_player.getup] = {
+		name		: "Get Up",
+		sprite		: spr_knux_landing,
+		mask		: spr_glide_mask,
+		mask_l		: spr_glide_maskL,
+		sub_anim	: -1,
+		loop_times	: -1,
+		loop_frame	: 0,
+		loop_anim	: -1,
+		frames		: [2],
+		speeds		: [1]
+	}
+	// ==================================================================================
+	global.AnimationsKnuckles[anim_player.climb] = {
+		name		: "Climb",
+		sprite		: spr_knux_climb,
+		mask		: spr_glide_mask,
+		mask_l		: spr_glide_maskL,
+		sub_anim	: -1,
+		loop_times	: -1,
+		loop_frame	: 0,
+		loop_anim	: -1,
+		frames		: [0],
 		speeds		: [1]
 	}
 	array_push(animation_index,global.AnimationsKnuckles);

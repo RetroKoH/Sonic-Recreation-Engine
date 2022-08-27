@@ -20,7 +20,7 @@ function scr_check_walls_on_ground()
 
 		if (dist < 0)
 		{
-			switch (floor(scr_wrap_angle(angleCheck + 45) / 90))
+			switch(floor(scr_wrap_angle(angleCheck + 45) / 90))
 			{
 				// Running downwards
 				case 0:

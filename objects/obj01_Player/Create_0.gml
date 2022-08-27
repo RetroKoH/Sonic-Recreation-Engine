@@ -22,7 +22,8 @@ ctrl = false;	// Control mode flag
 col_path = 0;	// Collision has two paths
 angle = 0;		// The angle at which you are moving. (0-360*)
 move_angle = 0; // Temporary. Will remove later
-	
+
+// Ability-related variables and flags
 jump = false;
 double_jump_flag = false;
 double_jump_property = 0;
@@ -30,6 +31,13 @@ dash_flag = false; // Variables used for Spindash, Peelout, and Drop Dash
 spindash_flag = false;
 spindash_pitch = 1;
 dash_timer = 0;
+fly_carrying_flag = false;	// Flag noting that this character is carrying a partner
+fly_pickup_timer = 0;		// Tails can only pick up a partner when this is 0
+glide_direction = 0;		// Intended direction of the glide. (Angle of glide = double_jump_property)
+glide_collision_prop = 0;	// Glide collision status
+wall_grab_disabled = false;	// If true, wall grabs are disabled
+wall_grab_initial_x = 0;	// Set to x whenever Knuckles grabs a wall.
+
 invuln_timer = 0;
 invinc_timer = 0;
 shoes_timer = 0;

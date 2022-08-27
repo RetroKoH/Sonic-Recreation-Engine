@@ -1,7 +1,7 @@
 // Init character
 event_inherited();
-//control_modes = CTRLModes_Tails;
-//double_jump = scr_tails_start_flight;
+control_modes = CTRLModes_Knuckles;
+double_jump = scr_knux_startglide;
 jmp_spd		= 6;	// Reduced jump velocity
 
 // Animation system related variables

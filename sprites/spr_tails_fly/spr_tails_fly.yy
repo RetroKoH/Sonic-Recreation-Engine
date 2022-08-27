@@ -113,8 +113,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "2_Tails_14s",
-    "path": "folders/Sprites/Players/2_Tails_14s.yy",
+    "name": "2_Tails_15s",
+    "path": "folders/Sprites/Players/2_Tails_15s.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_tails_fly",
