@@ -1,3 +1,4 @@
+// Needs proper S3K implementation
 function scr_player_acquirefloor(){
 	height=defaultHeight;
 	width=WIDTH_MAIN;
@@ -5,10 +6,13 @@ function scr_player_acquirefloor(){
 	if (status&STA_SPIN)	// If Sonic is spinning
 	{
 		status^=STA_SPIN;			// Clear spin status
-		//anim_ID=anim_player.walk;
 		y-=defaultHeight-height;
 		// Isolate this part by character
 		if object_index == obj01_Sonic scr_sonic_onfloor();
+		else if (object_index == obj01_Mighty && double_jump_flag==1) {
+			scr_drilldive_rebound();
+			exit;
+		}
 	}
 	status&=~STA_PUSH;		// Clear push status
 	status&=~STA_INAIR;		// Clear air status
@@ -29,7 +33,40 @@ function scr_sonic_onfloor(){
 	}
 }
 
+// Needs to be tested
 function scr_bubble_bounce(){
+	var bounce = !(status&STA_WATER) ? 7.5 : 4;
+	xsp -= bounce * sin(angle);
+	ysp -= bounce * cos(angle);
+	status |= STA_INAIR;
+	status &=~ STA_PUSH;
+	jump = true;
+	convex = false;
+	height = HEIGHT_ROLL;
+	width = WIDTH_ROLL;
+	anim_ID = anim_player.roll;
+	status |= STA_SPIN;
+	y -= defaultHeight-height;
+	// Shield animation
+	audio_play_sound(sfxS3K44_BubbleBounce,1,false);
+}
+
+// Needs to be fixed
+function scr_drilldive_rebound(){
+	var bounce = !(status&STA_WATER) ? 1.5625 : 1; // Fix these speeds
+	xsp -= bounce * sin(angle);
+	ysp -= bounce * cos(angle);
+	status |= STA_INAIR;
+	status &=~ STA_PUSH;
+	jump = true;
+	convex = false;
+	itembonus=0;								// Clear item bonus
+	height = HEIGHT_ROLL;
+	width = WIDTH_ROLL;
+	anim_ID = anim_player.roll;
+	status |= STA_SPIN;
+	y -= defaultHeight-height;
+	double_jump_flag=2;
 }
 
 function scr_drop_dash(){

@@ -31,11 +31,10 @@ switch(anim_ID)
 // ==== Manage Animation Angle ====
 switch(anim_ID)
 {
-    case anim_player.roll:
-    //case anim_player.spindash:
-        anim_angle = 0;
-        break;
-    default:
+	case anim_player.walk:
+	case anim_player.jog:
+	case anim_player.run:
+	case anim_player.dash:
 		anim_angle = angle;
         /*if !(status&STA_INAIR) // if not in air
         {
@@ -46,6 +45,10 @@ switch(anim_ID)
             //else                                AnimationAngle=angle;
         }*/
         //else anim_angle = 0; //anim_angle=scrRotateTowardsAngle(AnimationAngle,global.gravity_angle,4);
+	break;
+	default:
+		anim_angle = 0;
+	break;
 } anim_angle = (anim_angle div 15)*15;
 
 // Animation Handling

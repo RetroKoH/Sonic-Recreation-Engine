@@ -32,6 +32,7 @@ function animtable_PLAYERS(){
 		getup,
 		climb,
 		clambering,
+		drilldive,
 		total // Used for final count below
 	}
 	animtable_SONIC();
@@ -1409,6 +1410,26 @@ function animtable_MIGHTY(){
 		array_push(an.frames,i);
 		array_push(an.speeds,1);}
 	// ==================================================================================
+	global.AnimationsMighty[anim_player.spindash] = {
+		name		: "Spindash",
+		sprite		: spr_mighty_spindash,
+		mask		: spr_spin_mask,
+		mask_l		: spr_spin_maskL,
+		sub_anim	: -1,
+		loop_times	: -1,
+		loop_frame	: 0,
+		loop_anim	: -1,
+		frames		: [],
+		speeds		: []
+	}
+	// Animation frames
+	an = global.AnimationsMighty[anim_player.spindash];
+	for (i = 0; i < 5; i++) {
+		array_push(an.frames,5);
+		array_push(an.speeds,1);
+		array_push(an.frames,i);
+		array_push(an.speeds,1);}
+	// ==================================================================================
 	var sp = 1/2;
 	global.AnimationsMighty[anim_player.lookup] = {
 		name		: "Look Up",
@@ -1498,6 +1519,19 @@ function animtable_MIGHTY(){
 		array_push(an.frames,i);
 		array_push(an.speeds,sp);}
 	// ==================================================================================
+	global.AnimationsMighty[anim_player.spring] = {
+		name		: "Spring",
+		sprite		: spr_mighty_spring,
+		mask		: spr_sonic_mask,
+		mask_l		: spr_sonic_maskL,
+		sub_anim	: -1,
+		loop_times	: -1,
+		loop_frame	: 0,
+		loop_anim	: -1,
+		frames		: [0],
+		speeds		: [1]
+	}
+	// ==================================================================================
 	global.AnimationsMighty[anim_player.hurt] = {
 		name		: "Hurt",
 		sprite		: spr_mighty_hurt,
@@ -1536,6 +1570,24 @@ function animtable_MIGHTY(){
 		frames		: [1],
 		speeds		: [1]
 	}
+	// ==================================================================================
+	global.AnimationsMighty[anim_player.drilldive] = {
+		name		: "Drill Dive",
+		sprite		: spr_mighty_drilldive,
+		mask		: spr_spin_mask,
+		mask_l		: spr_spin_maskL,
+		sub_anim	: -1,
+		loop_times	: -1,
+		loop_frame	: 4,
+		loop_anim	: -1,
+		frames		: [],
+		speeds		: []
+	}
+	// Animation frames
+	an = global.AnimationsMighty[anim_player.drilldive];
+	for (i = 0; i < 8; i++){
+		array_push(an.frames,i);
+		array_push(an.speeds,1);}
 	array_push(animation_index,global.AnimationsMighty);
 }
 // Database of sprite animations for the player object ($01 - Ray)
@@ -1883,6 +1935,9 @@ function animtable_METAL(){
 		array_push(an.frames,i);
 		array_push(an.speeds,1);}
 	// ==================================================================================
+	// See below for Spindash reference
+	global.AnimationsMetal[anim_player.peelout] = global.AnimationsMetal[anim_player.dash];
+	// ==================================================================================
 	var sp = 1/2;
 	global.AnimationsMetal[anim_player.lookup] = {
 		name		: "Look Up",
@@ -1934,6 +1989,8 @@ function animtable_METAL(){
 		array_push(an.frames,i*2 + 1);
 		array_push(an.speeds,1);}
 	// ==================================================================================
+	global.AnimationsMetal[anim_player.spindash] = global.AnimationsMetal[anim_player.roll];
+	// ==================================================================================
 	global.AnimationsMetal[anim_player.skid] = {
 		name		: "Skid",
 		sprite		: spr_metal_skid,
@@ -1971,6 +2028,19 @@ function animtable_METAL(){
 	for (i = 0; i < 8; i++){
 		array_push(an.frames,i);
 		array_push(an.speeds,sp);}
+	// ==================================================================================
+	global.AnimationsMetal[anim_player.spring] = {
+		name		: "Spring",
+		sprite		: spr_metal_spring,
+		mask		: spr_sonic_mask,
+		mask_l		: spr_sonic_maskL,
+		sub_anim	: -1,
+		loop_times	: -1,
+		loop_frame	: 0,
+		loop_anim	: -1,
+		frames		: [0],
+		speeds		: [1]
+	}
 	// ==================================================================================
 	global.AnimationsMetal[anim_player.hurt] = {
 		name		: "Hurt",
