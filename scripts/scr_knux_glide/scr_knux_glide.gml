@@ -66,7 +66,7 @@ function scr_knux_glide_control(){
 			}
 		}
 		break;
-		case 3: // SLIDING
+		case 3: // SLIDING (Complete)
 		{
 			if (global.k_abc_h) {
 				var dir = sign(xsp);
@@ -110,7 +110,7 @@ function scr_knux_glide_control(){
 			}
 		}
 		break;
-		case 4: // CLIMBING WALL
+		case 4: // CLIMBING WALL (Complete, add animation)
 		{
 			if (wall_grab_disabled) || (x != wall_grab_initial_x) || (status&STA_ONOBJ)
 				scr_knux_let_go_of_wall();
@@ -123,10 +123,10 @@ function scr_knux_glide_control(){
 				
 				if (move==-1){
 					// Climbing up
-					var dist = scr_get_distance_from_wall(y-11);
+					var dist = scr_get_distance_from_wall(-height);
 					if (dist >= 4) scr_knux_climbup();
 					if (dist == 0){
-						var c_dist = scr_get_ceiling_dist(x,y-8,0);
+						var c_dist = scr_get_ceiling_dist(0,-(height-2),0);
 						if (c_dist <= 0) y-=c_dist; // ; Knuckles is bumping into the ceiling, so push him out.
 						// Finish moving at this point...
 						else{
@@ -139,10 +139,10 @@ function scr_knux_glide_control(){
 				}
 				else if (move==1){
 					// Climbing down
-					var dist = scr_get_distance_from_wall(y+11);
-					if (dist == 0) scr_knux_let_go_of_wall(); // If Knuckles has climbed off the bottom of the wall, make him let go.
+					var dist = scr_get_distance_from_wall(height);
+					if (dist > 0) scr_knux_let_go_of_wall(); // If Knuckles has climbed off the bottom of the wall, make him let go.
 					else{
-						var f_dist = scr_get_ceiling_dist(x,y+9,0);
+						var f_dist = scr_get_floor_dist(0,height-1,0);
 						if (f_dist <= 0) { // Knuckles has reached the floor.
 							y += f_dist;
 							angle = col_angle;
@@ -181,7 +181,21 @@ function scr_knux_glide_control(){
 			}
 		}
 		break;
-		case 5: // CLIMBING UP
+		case 5: // CLAMBERING UP
+		{
+			// Only run the following script upon frame change
+			if (anim_frame == double_jump_property)
+				scr_knux_ledge_climbing(); // Do ledge climbing movement in line with animation
+			if anim_finished{
+				scr_knux_ledge_climbing(); // Call one more time for case #4
+				gsp=0;
+				xsp=0;
+				ysp=0;
+				if (status&STA_FACING) x--;
+				scr_player_acquirefloor();
+				anim_ID = anim_player.idle;
+			}
+		}
 		break;
 	}
 }
@@ -230,12 +244,38 @@ function scr_knux_let_go_of_wall(){
 
 function scr_knux_climbup(){
 	double_jump_flag = 5;
-	// Animation related code to be put here.
+	anim_ID = anim_player.clambering;
+	double_jump_property = 0;
+	scr_knux_ledge_climbing();
+}
+
+function scr_knux_ledge_climbing(){
+	switch(double_jump_property){
+	case 0:
+		x+=3*anim_direction;
+		y-=3;
+	break;
+	case 1:
+		x+=8*anim_direction;
+		y-=10;
+	break;
+	case 2:
+		x-=8*anim_direction;
+		y-=12;
+	break;
+	case 3:
+		x+=8*anim_direction;
+		y-=5;
+	break;
+	}
+	double_jump_property++;		// Increment property
+	// Now we wait for the next time that anim_frame matches double_jump_property
+	// to run this script again.
 }
 
 function scr_get_distance_from_wall(sensor_y){
 	if (status&STA_FACING)
-		return scr_get_left_wall_dist(x-1,sensor_y,0);
+		return scr_get_left_wall_dist(-width,sensor_y,0);
 	else
-		return scr_get_right_wall_dist(x+1,sensor_y,0);
+		return scr_get_right_wall_dist(width,sensor_y,0);
 }

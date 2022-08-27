@@ -31,6 +31,7 @@ function animtable_PLAYERS(){
 		landing,
 		getup,
 		climb,
+		clambering,
 		total // Used for final count below
 	}
 	animtable_SONIC();
@@ -1044,6 +1045,20 @@ function animtable_KNUCKLES(){
 		loop_anim	: -1,
 		frames		: [0],
 		speeds		: [1]
+	}
+	// ==================================================================================
+	sp = 1/6;
+	global.AnimationsKnuckles[anim_player.clambering] = {
+		name		: "Clamber Up",
+		sprite		: spr_knux_landing,
+		mask		: spr_glide_mask,
+		mask_l		: spr_glide_maskL,
+		sub_anim	: -1,
+		loop_times	: 0,
+		loop_frame	: 0,
+		loop_anim	: -1,
+		frames		: [0,  1, 2],
+		speeds		: [sp,sp,sp]
 	}
 	array_push(animation_index,global.AnimationsKnuckles);
 }

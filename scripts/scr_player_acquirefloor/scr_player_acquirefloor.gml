@@ -1,10 +1,11 @@
 function scr_player_acquirefloor(){
 	height=defaultHeight;
 	width=WIDTH_MAIN;
+	anim_ID=anim_player.walk;
 	if (status&STA_SPIN)	// If Sonic is spinning
 	{
-	    status^=STA_SPIN;			// Clear spin status
-	    anim_ID=anim_player.walk;
+		status^=STA_SPIN;			// Clear spin status
+		//anim_ID=anim_player.walk;
 		y-=defaultHeight-height;
 		// Isolate this part by character
 		if object_index == obj01_Sonic scr_sonic_onfloor();
