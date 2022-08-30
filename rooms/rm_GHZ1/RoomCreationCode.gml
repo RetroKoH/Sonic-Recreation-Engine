@@ -17,7 +17,7 @@ scr_osc_num_reset();
 scr_layout_init(zone);
 
 // Set up Camera and place player
-playermode = PL_RAY;
+playermode = PL_AMY;
 cam = instance_create_layer(78,940,"Core",obj_camera);
 player = instance_create_layer(90,908,"Instances",obj_Players[playermode]);
 instance_create_layer(0,0,"Core",obj21_HUD);

@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Double Jumps",
-    "path": "folders/Scripts/Player Handling/Double Jumps.yy",
+    "name": "Player Handling",
+    "path": "folders/Scripts/Player Handling.yy",
   },
   "resourceVersion": "1.0",
   "name": "scr_amy_hammerhover",

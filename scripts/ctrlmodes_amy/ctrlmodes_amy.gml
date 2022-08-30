@@ -18,8 +18,8 @@ function CTRLModes_Amy(){
 
 function CTRL_Amy_Normal(){
 	ctrl = true;
-	scr_sonic_peelout();				// *** Check for starting a running dash (Amy effectively uses a peelout)
-	//if ctrl scr_amy_hammerjump();		// Check this before the actual jump script, as she can use this running or stationary via Down+Jump
+	scr_amy_dash();						// *** Check for starting a running dash (Amy effectively uses a peelout)
+	if ctrl scr_amy_hammerjump();		// Check this before the actual jump script, as she can use this running or stationary via Down+Jump
 	if ctrl scr_player_jump();			// Check for starting a jump.
 	if ctrl {
 		scr_player_slope_resist(false);	// Adjust Ground Speed based on current angle
@@ -33,9 +33,10 @@ function CTRL_Amy_Normal(){
 }
 function CTRL_Amy_InAir(){
 	ctrl = true;
-	if (double_jump_flag==1) scr_amy_hammerhover();	// Run a separate mode for the hammer hover
+	if (double_jump_flag) scr_amy_hammerhover();	// Run a separate mode for the hammer hover
 	else {
 		if ysp<-15.75 ysp=-15.75;		// Cap upward mobility when NOT jumping. (no longer using Jump Height script)
+		if (double_jump != -1) script_execute(double_jump);
 		scr_player_move_air();			// Air movement (xsp) & air drag
 		scr_player_level_bound();		// Interactions with camera planes
 		scr_apply_speed(true);			// ObjectFall
@@ -58,7 +59,7 @@ function CTRL_Amy_Roll(){
 }
 function CTRL_Amy_RollInAir(){
 	ctrl = true;
-	if (double_jump_flag==1) scr_amy_hammerhover();	// Run a separate mode for the hammer hover
+	if (double_jump_flag) scr_amy_hammerhover();	// Run a separate mode for the hammer hover
 	else {
 		scr_player_jump_height();		// Check jump height and cap air velocity
 		scr_player_move_air();			// Air movement (xsp) & air drag

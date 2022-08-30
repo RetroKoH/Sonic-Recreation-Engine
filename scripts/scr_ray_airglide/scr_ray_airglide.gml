@@ -5,7 +5,7 @@ function scr_ray_airglide(){
 	scr_apply_speed(true);			// SpeedToPos + grav
 	if (status&STA_WATER) ysp-=.15625;	// Underwater gravity
 	scr_player_jump_angle(angle);	// Reset angle
-	scr_player_check_floor();		// Floor sensor collision check (and walls)*/
+	scr_player_check_floor();		// Floor sensor collision check (and walls)
 }
 
 function scr_ray_move_glide(){

@@ -32,6 +32,9 @@ function animtable_PLAYERS(){
 		getup,
 		climb,
 		clambering,
+		hammerjump_idle,
+		hammerjump_run,
+		hammerhover,
 		drilldive,
 		airup,
 		airdown,
@@ -1244,7 +1247,7 @@ function animtable_AMY(){
 	// Animation frames
 	an = global.AnimationsAmy[anim_player.skid];
 	sp = 1/4;
-	for (i = 0; i < 3; i++) {
+	for (i = 0; i < 4; i++) {
 		array_push(an.frames,i);
 		array_push(an.speeds,sp);}
 	// ==================================================================================
@@ -1318,6 +1321,87 @@ function animtable_AMY(){
 		frames		: [1],
 		speeds		: [1]
 	}
+	// ==================================================================================
+	sp=1/4;
+	global.AnimationsAmy[anim_player.fall] = {
+		name		: "Fall",
+		sprite		: spr_amy_spring,
+		mask		: spr_sonic_mask,
+		mask_l		: spr_sonic_maskL,
+		sub_anim	: -1,
+		loop_times	: -1,
+		loop_frame	: 2,
+		loop_anim	: -1,
+		frames		: [1,2,3],
+		speeds		: [sp,sp,sp]
+	}
+	// ==================================================================================
+	global.AnimationsAmy[anim_player.hammerjump_idle] = {
+		name		: "Hammer Jump - Idle",
+		sprite		: spr_amy_hammerjump,
+		mask		: spr_sonic_mask,
+		mask_l		: spr_sonic_maskL,
+		sub_anim	: -1,
+		loop_times	: 0,
+		loop_frame	: 0,
+		loop_anim	: anim_player.walk,
+		frames		: [],
+		speeds		: []
+	}
+	// Animation frames
+	an = global.AnimationsAmy[anim_player.hammerjump_idle];
+	sp = 1/2;
+	for (i = 0; i < 7; i++){
+		array_push(an.frames,i);
+		array_push(an.speeds,sp);}
+	array_push(an.frames,7);
+	array_push(an.speeds,1);
+	array_push(an.frames,8);
+	array_push(an.speeds,1);
+	for (i = 9; i < 18; i++){
+		array_push(an.frames,i);
+		array_push(an.speeds,sp);}
+	// ==================================================================================
+	global.AnimationsAmy[anim_player.hammerjump_run] = {
+		name		: "Hammer Jump - Run",
+		sprite		: spr_amy_hammerjump,
+		mask		: spr_sonic_mask,
+		mask_l		: spr_sonic_maskL,
+		sub_anim	: -1,
+		loop_times	: 0,
+		loop_frame	: 0,
+		loop_anim	: anim_player.walk,
+		frames		: [],
+		speeds		: []
+	}
+	// Animation frames
+	an = global.AnimationsAmy[anim_player.hammerjump_run];
+	sp = 1/2;
+	array_push(an.frames,6);
+	array_push(an.speeds,1);
+	array_push(an.frames,7);
+	array_push(an.speeds,1);
+	array_push(an.frames,8);
+	array_push(an.speeds,1);
+	for (i = 9; i < 18; i++){
+		array_push(an.frames,i);
+		array_push(an.speeds,sp);}
+	// ==================================================================================
+	global.AnimationsAmy[anim_player.hammerhover] = {
+		name		: "Hammer Hover",
+		sprite		: spr_amy_hammerhover,
+		mask		: spr_spin_mask,
+		mask_l		: spr_spin_maskL,
+		sub_anim	: -1,
+		loop_times	: -1,
+		loop_frame	: 0,
+		loop_anim	: -1,
+		frames		: [0,1,2,3,4,5],
+		speeds		: [sp,sp,sp,sp,sp,sp]
+	}
+	// ==================================================================================
+	// ==================================================================================
+
 	array_push(animation_index,global.AnimationsAmy);
 }
 // Database of sprite animations for the player object ($01 - Mighty)
