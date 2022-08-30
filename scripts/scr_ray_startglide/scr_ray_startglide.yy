@@ -6,7 +6,7 @@
     "path": "folders/Scripts/Player Handling/Double Jumps.yy",
   },
   "resourceVersion": "1.0",
-  "name": "scr_ray_glide",
+  "name": "scr_ray_startglide",
   "tags": [],
   "resourceType": "GMScript",
 }

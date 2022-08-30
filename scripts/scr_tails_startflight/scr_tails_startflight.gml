@@ -1,4 +1,4 @@
-function scr_tails_start_flight(){
+function scr_tails_startflight(){
 	if !double_jump_flag {
 		if global.k_abc_p {
 			status&=~STA_SPIN;				// No longer in a ball

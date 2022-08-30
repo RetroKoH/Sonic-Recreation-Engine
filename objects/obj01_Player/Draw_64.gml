@@ -1,7 +1,8 @@
 /// @description Debug Info
 if !debug exit;
 
-// Basic status info
+// Basic status info - Called by individual characters
+/*
 draw_text(112,8,"SONIC   X: "+string(x)+
 				"\n        Y: "+string(y)+
 				"\nG SPEED: "+string(gsp)+"\nX SPEED: "+string(xsp)+"\nY SPEED: "+string(ysp)+
@@ -22,6 +23,7 @@ draw_text(452,8,"\nDOUBLE JUMP: "+string(double_jump_flag)+" : "+string(double_j
 				"\nSHIELD: "+string(powerups&POW_SHIELD)+" "+string(my_shield)+
 				"\nINVINCIBILITY: "+string((powerups&POW_INVINC)/POW_INVINC)+": "+string(invinc_timer)+
 				"\n"+string(my_stars));
+*/
 
 // Tile Collision Points
 draw_text(850,8,"COLLISION: "+string(col_path));

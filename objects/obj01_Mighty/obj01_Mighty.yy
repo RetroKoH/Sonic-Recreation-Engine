@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_knux_idle",
-    "path": "sprites/spr_knux_idle/spr_knux_idle.yy",
+    "name": "spr_mighty_lookup",
+    "path": "sprites/spr_mighty_lookup/spr_mighty_lookup.yy",
   },
   "solid": false,
   "visible": true,
@@ -26,6 +26,7 @@
   "physicsShapePoints": [],
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":64,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],

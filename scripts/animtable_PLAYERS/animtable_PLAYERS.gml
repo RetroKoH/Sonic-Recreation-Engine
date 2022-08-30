@@ -33,6 +33,8 @@ function animtable_PLAYERS(){
 		climb,
 		clambering,
 		drilldive,
+		airup,
+		airdown,
 		total // Used for final count below
 	}
 	animtable_SONIC();
@@ -1698,6 +1700,26 @@ function animtable_RAY(){
 		array_push(an.frames,i);
 		array_push(an.speeds,1);}
 	// ==================================================================================
+	global.AnimationsRay[anim_player.spindash] = {
+		name		: "Spindash",
+		sprite		: spr_ray_spindash,
+		mask		: spr_spin_mask,
+		mask_l		: spr_spin_maskL,
+		sub_anim	: -1,
+		loop_times	: -1,
+		loop_frame	: 0,
+		loop_anim	: -1,
+		frames		: [],
+		speeds		: []
+	}
+	// Animation frames
+	an = global.AnimationsRay[anim_player.spindash];
+	for (i = 0; i < 5; i++) {
+		array_push(an.frames,5);
+		array_push(an.speeds,1);
+		array_push(an.frames,i);
+		array_push(an.speeds,1);}
+	// ==================================================================================
 	var sp = 1/2;
 	global.AnimationsRay[anim_player.lookup] = {
 		name		: "Look Up",
@@ -1787,6 +1809,19 @@ function animtable_RAY(){
 		array_push(an.frames,i);
 		array_push(an.speeds,sp);}
 	// ==================================================================================
+	global.AnimationsRay[anim_player.spring] = {
+		name		: "Spring",
+		sprite		: spr_ray_spring,
+		mask		: spr_sonic_mask,
+		mask_l		: spr_sonic_maskL,
+		sub_anim	: -1,
+		loop_times	: -1,
+		loop_frame	: 0,
+		loop_anim	: -1,
+		frames		: [0],
+		speeds		: [1]
+	}
+	// ==================================================================================
 	global.AnimationsRay[anim_player.hurt] = {
 		name		: "Hurt",
 		sprite		: spr_ray_hurt,
@@ -1823,6 +1858,32 @@ function animtable_RAY(){
 		loop_frame	: 0,
 		loop_anim	: -1,
 		frames		: [1],
+		speeds		: [1]
+	}
+	// ==================================================================================
+	global.AnimationsRay[anim_player.airup] = {
+		name		: "Air Glide Up",
+		sprite		: spr_ray_airglide,
+		mask		: spr_glide_mask,
+		mask_l		: spr_glide_mask,
+		sub_anim	: -1,
+		loop_times	: -1,
+		loop_frame	: 0,
+		loop_anim	: -1,
+		frames		: [0],
+		speeds		: [1]
+	}
+	// ==================================================================================
+	global.AnimationsRay[anim_player.airdown] = {
+		name		: "Air Glide Down",
+		sprite		: spr_ray_airglide,
+		mask		: spr_glide_mask,
+		mask_l		: spr_glide_mask,
+		sub_anim	: -1,
+		loop_times	: -1,
+		loop_frame	: 0,
+		loop_anim	: -1,
+		frames		: [3],
 		speeds		: [1]
 	}
 	array_push(animation_index,global.AnimationsRay);

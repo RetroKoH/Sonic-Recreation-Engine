@@ -32,13 +32,16 @@ function CTRL_Ray_Normal(){
 }
 function CTRL_Ray_InAir(){
 	ctrl = true;
-	if ysp<-15.75 ysp=-15.75;		// Cap upward mobility when NOT jumping. (no longer using Jump Height script)
-	scr_player_move_air();			// Air movement (xsp) & air drag
-	scr_player_level_bound();		// Interactions with camera planes
-	scr_apply_speed(true);			// ObjectFall
-	if (status&$40) ysp-=.15625;	// Underwater gravity (Integrate with ObjectFall)
-	scr_player_jump_angle(angle);	// Reset angle
-	scr_player_check_floor();		// Floor sensor collision check (and walls)
+	if (double_jump_flag==1) scr_ray_airglide();	// Run a separate mode for gliding
+	else {
+		if ysp<-15.75 ysp=-15.75;		// Cap upward mobility when NOT jumping. (no longer using Jump Height script)
+		scr_player_move_air();			// Air movement (xsp) & air drag
+		scr_player_level_bound();		// Interactions with camera planes
+		scr_apply_speed(true);			// ObjectFall
+		if (status&$40) ysp-=.15625;	// Underwater gravity (Integrate with ObjectFall)
+		scr_player_jump_angle(angle);	// Reset angle
+		scr_player_check_floor();		// Floor sensor collision check (and walls)
+	}
 }
 function CTRL_Ray_Roll(){
 	ctrl = true;
@@ -54,11 +57,14 @@ function CTRL_Ray_Roll(){
 }
 function CTRL_Ray_RollInAir(){
 	ctrl = true;
-	scr_player_jump_height();		// Check jump height and cap air velocity
-	scr_player_move_air();			// Air movement (xsp) & air drag
-	scr_player_level_bound();		// Interactions with camera planes
-	scr_apply_speed(true);			// ObjectFall
-	if (status&$40) ysp-=.15625;	// Underwater gravity (Integrate with ObjectFall)
-	scr_player_jump_angle(angle);	// Reset angle
-	scr_player_check_floor();		// Floor sensor collision check (and walls)
+	if (double_jump_flag==1) scr_ray_airglide();	// Run a separate mode for gliding
+	else {
+		scr_player_jump_height();		// Check jump height and cap air velocity
+		scr_player_move_air();			// Air movement (xsp) & air drag
+		scr_player_level_bound();		// Interactions with camera planes
+		scr_apply_speed(true);			// ObjectFall
+		if (status&$40) ysp-=.15625;	// Underwater gravity (Integrate with ObjectFall)
+		scr_player_jump_angle(angle);	// Reset angle
+		scr_player_check_floor();		// Floor sensor collision check (and walls)
+	}
 }

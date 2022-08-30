@@ -1,6 +1,9 @@
-CURRENT CHARACTER: Metal Sonic
+CURRENT CHARACTER: Ray - Implementing Air Glide
 
-* See notes on scr_player_acquirefloor
+* Set springing up animation to change to walking when ysp >= 0
+* Add Amy and Hammer Abilities
+* See notes on scr_player_acquirefloor (Need to fix animation resetting)
+* Finish GHZ objects (Breakable wall, etc)
 * Finalize new character palettes and apply them to characters
-* Add other characters and ensure that basic animation and function all work correctly
+* Ensure that character animations and functions all work correctly
 * Objects that are off screen to deactivate and reset, ala my previous engine
