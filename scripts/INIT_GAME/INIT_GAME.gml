@@ -7,7 +7,8 @@ function INIT_GAME(){
 	INIT_COLLIDE();
 	INIT_ANIM_DATA();			// Build Animation Data Structures
 	INIT_OSC_VALUES();			// Establish Global Oscillating Values
-	INIT_SYNC_ANIM_TIMERS()		// Set Up Sync Animation Timers
+	INIT_SYNC_ANIM_TIMERS();	// Set Up Sync Animation Timers
+	INIT_OBJDATA_LOSTRINGS();	// Set up trajectories for lost rings
 	INIT_OBJDATA_ANIMALS();		// Set up animal data (sprites and movement)
 	INIT_OBJDATA_SIGNPOST();	// Set up data for locations of ring sparkles.
 	INIT_SOUND_SYSTEM();		// Set up BGM index and sound objects
@@ -122,16 +123,17 @@ function MACROS(){
 	#macro POW_CHKALLSHLD $E3
 	
 	#macro MON_EGGMAN 0
-	#macro MON_EXTRALIFE 1
-	#macro MON_SPEEDSHOES 2
-	#macro MON_SHIELD 3
-	#macro MON_INVINC 4
-	#macro MON_RINGS 5
-	#macro MON_SUPER 6
-	#macro MON_GOGGLES 7
-	#macro MON_SHIELD_F 8
-	#macro MON_SHIELD_B 9
-	#macro MON_SHIELD_L 10
+	#macro MON_SPEEDSHOES 1
+	#macro MON_SHIELD 2
+	#macro MON_INVINC 3
+	#macro MON_RINGS 4
+	#macro MON_SUPER 5
+	#macro MON_GOGGLES 6
+	#macro MON_SHIELD_F 7
+	#macro MON_SHIELD_B 8
+	#macro MON_SHIELD_L 9
+	#macro MON_CLOCK 10
+	#macro MON_EXTRALIFE 11 // bumped from #1 to the end for easier sprite swapping
 	
 	// Player Sizes
 	#macro HEIGHT_MAIN $13	// Standard height
@@ -467,6 +469,41 @@ function INIT_SYNC_ANIM_TIMERS(){
 	globalvar sync2_frame; sync2_frame=0;	// Frame number for ???
 	globalvar sync3_time;  sync3_time=0;	// Timer for Lost Rings
 	globalvar sync3_frame; sync3_frame=0;	// Frame number for Lost Rings
+}
+function INIT_OBJDATA_LOSTRINGS(){
+	globalvar ringspeed;
+	ringspeed[0] = [-0.78,-3.92];
+	ringspeed[1] = [0.78,-3.92];
+	ringspeed[2] = [-2.22,-3.33];
+	ringspeed[3] = [2.22,-3.33];
+	ringspeed[4] = [-3.33,-2.22];
+	ringspeed[5] = [3.33,-2.22];
+	ringspeed[6] = [-3.92,-0.78];
+	ringspeed[7] = [3.92,-0.78];
+	ringspeed[8] = [-3.92,0.78];
+	ringspeed[9] = [3.92,0.78];
+	ringspeed[10] = [-3.33,2.22];
+	ringspeed[11] = [3.33,2.22];
+	ringspeed[12] = [-2.22,3.33];
+	ringspeed[13] = [2.22,3.33];
+	ringspeed[14] = [-0.78,3.92];
+	ringspeed[15] = [0.78,3.92];
+	ringspeed[16] = [-0.39,-1.96];
+	ringspeed[17] = [0.39,-1.96];
+	ringspeed[18] = [-1.11,-1.66];
+	ringspeed[19] = [1.11,-1.66];
+	ringspeed[20] = [-1.66,-1.11];
+	ringspeed[21] = [1.66,-1.11];
+	ringspeed[22] = [-1.96,-0.39];
+	ringspeed[23] = [1.96,-0.39];
+	ringspeed[24] = [-1.96,0.39];
+	ringspeed[25] = [1.96,0.39];
+	ringspeed[26] = [-1.66,1.11];
+	ringspeed[27] = [1.66,1.11];
+	ringspeed[28] = [-1.11,1.66];
+	ringspeed[29] = [1.11,1.66];
+	ringspeed[30] = [-0.39,1.96];
+	ringspeed[31] = [0.39,1.96];
 }
 function INIT_OBJDATA_ANIMALS(){
 	globalvar ani_sprite, ani_xsp, ani_ysp;

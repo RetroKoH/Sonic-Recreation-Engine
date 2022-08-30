@@ -1,6 +1,5 @@
 /// @description Init monitor
 event_inherited();
-scr_obj_priority(3);
 routine = 0;
 subtype = 0;
 

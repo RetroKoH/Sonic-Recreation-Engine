@@ -1,1 +1,1 @@
-subtype = 5;
+subtype = MON_RINGS;

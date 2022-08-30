@@ -1,8 +1,3 @@
-CURRENT CHARACTER: Amy - Implementing techniques * Add Hammer Abilities
-
-* Fix bug with lost shield not deleting properly
-* Add effect to Speedshoes
-* Fix lost rings
 * Set springing up animation to change to walking when ysp >= 0
 * See notes on scr_player_acquirefloor (Need to fix animation resetting)
 * Finish GHZ objects (Breakable wall, etc)

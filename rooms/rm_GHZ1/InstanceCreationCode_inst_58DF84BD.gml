@@ -1,1 +1,1 @@
-status = MON_INVINC;
+subtype = MON_INVINC;

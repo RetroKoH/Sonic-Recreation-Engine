@@ -2,4 +2,4 @@
 if fading exit;
 scr_handle_anim();
 if (anim_spriteframe == 3)
-	anim_spriteframe += subtype;
+	anim_spriteframe += icon;

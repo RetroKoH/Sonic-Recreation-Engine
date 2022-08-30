@@ -45,9 +45,7 @@ convex = false;
 platform_ID = -1;
 move_lock = false;
 
-topspeed	= 6;		// Maximum X speed via acceleration.
-accel_run	= 0.046875;	// X-Acceleration rate.
-decel_run	= 0.5;		// X-Deceleraction rate.
+scr_player_set_speeds();
 jmp_spd		= 6.5;		// Default jump velocity
 
 // Variable Scripting

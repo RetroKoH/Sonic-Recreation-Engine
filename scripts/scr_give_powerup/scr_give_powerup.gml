@@ -6,11 +6,10 @@ function scr_give_powerup(powerup){
 		case MON_EGGMAN:
 			with(player) scr_player_hurt(self);
 		break;
-		case MON_EXTRALIFE:
-			p_lives++;
-		break;
 		case MON_SPEEDSHOES:
 			player.shoes_timer = $4B0;
+			player.powerups|=POW_SHOES;
+			with(player) scr_player_set_speeds();
 		break;
 		case MON_SHIELD:
 			player.powerups&=POW_RMVSHIELDS;	// Clear shield flags
@@ -66,8 +65,11 @@ function scr_give_powerup(powerup){
 				global.core_sound.max_dist,global.core_sound.dropoff_dist,global.core_sound.multiplier,false,1);
 		break;
 		case MON_GOGGLES:
-		// case MON_CLOCK // Used in the new Bonus Stage
+		case MON_CLOCK: // Used in the new Bonus Stage
+		break;
+		case MON_EXTRALIFE:
 		default:
+			p_lives++;
 		break;
 	}
 }

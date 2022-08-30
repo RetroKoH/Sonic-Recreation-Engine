@@ -221,6 +221,7 @@
     {"id":{"name":"spr_metal_dash","path":"sprites/spr_metal_dash/spr_metal_dash.yy",},"order":5,},
     {"id":{"name":"sfxS265_JZLeavesRuffled","path":"sounds/sfxS265_JZLeavesRuffled/sfxS265_JZLeavesRuffled.yy",},"order":62,},
     {"id":{"name":"obj20_Cannonball","path":"objects/obj20_Cannonball/obj20_Cannonball.yy",},"order":76,},
+    {"id":{"name":"scr_player_set_speeds","path":"scripts/scr_player_set_speeds/scr_player_set_speeds.yy",},"order":33,},
     {"id":{"name":"spr_amy_hurt","path":"sprites/spr_amy_hurt/spr_amy_hurt.yy",},"order":12,},
     {"id":{"name":"spr_buzzbomber","path":"sprites/spr_buzzbomber/spr_buzzbomber.yy",},"order":4,},
     {"id":{"name":"spr_animal_rocky","path":"sprites/spr_animal_rocky/spr_animal_rocky.yy",},"order":6,},

@@ -13,6 +13,7 @@ function scr_player_display(){
 		if !shoes_timer{
 			// Restore level music
 			powerups&=~POW_SHOES;
+			scr_player_set_speeds(); // Restore default speeds
 		}
 	}
 }
