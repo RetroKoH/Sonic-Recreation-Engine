@@ -6,7 +6,7 @@
     "path": "folders/Scripts/Player Handling/Double Jumps.yy",
   },
   "resourceVersion": "1.0",
-  "name": "scr_amy_hammer",
+  "name": "scr_amy_hammerhover",
   "tags": [],
   "resourceType": "GMScript",
 }

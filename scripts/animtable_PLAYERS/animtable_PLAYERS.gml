@@ -1175,6 +1175,9 @@ function animtable_AMY(){
 		array_push(an.frames,i);
 		array_push(an.speeds,1);}
 	// ==================================================================================
+	global.AnimationsAmy[anim_player.spindash] = global.AnimationsAmy[anim_player.dash];
+	global.AnimationsAmy[anim_player.peelout] = global.AnimationsAmy[anim_player.spindash];
+	// ==================================================================================
 	var sp = 1/2;
 	global.AnimationsAmy[anim_player.lookup] = {
 		name		: "Look Up",
@@ -1263,6 +1266,19 @@ function animtable_AMY(){
 	for (i = 0; i < 4; i++){
 		array_push(an.frames,i);
 		array_push(an.speeds,sp);}
+	// ==================================================================================
+	global.AnimationsAmy[anim_player.spring] = {
+		name		: "Spring",
+		sprite		: spr_amy_spring,
+		mask		: spr_sonic_mask,
+		mask_l		: spr_sonic_maskL,
+		sub_anim	: -1,
+		loop_times	: -1,
+		loop_frame	: 0,
+		loop_anim	: -1,
+		frames		: [0],
+		speeds		: [1]
+	}
 	// ==================================================================================
 	global.AnimationsAmy[anim_player.hurt] = {
 		name		: "Hurt",
@@ -1868,11 +1884,17 @@ function animtable_RAY(){
 		mask_l		: spr_glide_mask,
 		sub_anim	: -1,
 		loop_times	: -1,
-		loop_frame	: 0,
+		loop_frame	: 8,
 		loop_anim	: -1,
-		frames		: [0],
-		speeds		: [1]
+		frames		: [],
+		speeds		: []
 	}
+	// Animation frames
+	an = global.AnimationsRay[anim_player.airup];
+	sp = 1/2;
+	for (i = 9; i >= 0; i--){
+		array_push(an.frames,i);
+		array_push(an.speeds,sp);}
 	// ==================================================================================
 	global.AnimationsRay[anim_player.airdown] = {
 		name		: "Air Glide Down",
@@ -1881,11 +1903,16 @@ function animtable_RAY(){
 		mask_l		: spr_glide_mask,
 		sub_anim	: -1,
 		loop_times	: -1,
-		loop_frame	: 0,
+		loop_frame	: 8,
 		loop_anim	: -1,
-		frames		: [3],
-		speeds		: [1]
+		frames		: [],
+		speeds		: []
 	}
+	// Animation frames
+	an = global.AnimationsRay[anim_player.airdown];
+	for (i = 1; i <= 10; i++){
+		array_push(an.frames,i);
+		array_push(an.speeds,sp);}
 	array_push(animation_index,global.AnimationsRay);
 }
 // Database of sprite animations for the player object ($01 - Metal)
