@@ -11,7 +11,7 @@ function scr_obj_smash(frag_count,dir=1){
 		with(obj) scr_apply_speed(false);
 		obj.ysp += grav;
 	}
-	if audio_is_playing(sfx2B_WallSmash) audio_stop_sound(sfx2B_WallSmash);
-	audio_play_sound(sfx2B_WallSmash,1,false);
+	if audio_is_playing(sfx_WallSmash) audio_stop_sound(sfx_WallSmash);
+	audio_play_sound(sfx_WallSmash,1,false);
 	instance_destroy();
 }

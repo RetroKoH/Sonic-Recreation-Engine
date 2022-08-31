@@ -11,7 +11,7 @@ switch(routine)
 	break;
 	case 1:
 		routine++;
-		audio_play_sound_at(sfx21_BreakOpen,x+(4*(x-player.x)),y,0,
+		audio_play_sound_at(sfx_BreakOpen,x+(4*(x-player.x)),y,0,
 			global.core_sound.max_dist,global.core_sound.dropoff_dist,global.core_sound.multiplier,false,1);
 	break;
 }

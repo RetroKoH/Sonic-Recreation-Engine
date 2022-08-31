@@ -100,7 +100,7 @@ function scr_bubble_bounce(){
 	status |= STA_SPIN;
 	y -= defaultHeight-height;
 	// Shield animation
-	audio_play_sound(sfxS3K44_BubbleBounce,1,false);
+	audio_play_sound(sfx_ShieldBubbleBounce,1,false);
 }
 
 function scr_drop_dash(){
@@ -110,7 +110,7 @@ function scr_drop_dash(){
 	anim_ID=anim_player.roll;
 	if audio_is_playing(sfx_DropDash)
 					audio_stop_sound(sfx_DropDash);
-	audio_play_sound(sfx_DDRelease,1,false);
+	audio_play_sound(sfx_DropDashRelease,1,false);
 	y+=defaultHeight-height;
 	var drop_spd = 8, drop_max = 12;
 	

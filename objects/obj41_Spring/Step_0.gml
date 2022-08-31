@@ -18,7 +18,7 @@ switch(routine)
 			player.status|=STA_INAIR;
 			player.status^=STA_ONOBJ;
 			player.anim_ID=anim_player.idle;
-			audio_play_sound(sfx2C_Spring,1,false);
+			audio_play_sound(sfx_Spring,1,false);
 			player.anim_ID = anim_player.spring;
 			player.routine=1;
 		}

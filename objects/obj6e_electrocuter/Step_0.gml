@@ -11,7 +11,7 @@ switch(routine)
 	{
 	    anim_ID=1;					// Zapping occurs on a timer
 		can_harm=true;
-	    sound_play(sfx11_SBZZap);	// Zapping sound
+	    sound_play(sfx_SBZZap);	// Zapping sound
 	}
 	if can_harm && anim_ID==0 can_harm=false;
 	break;

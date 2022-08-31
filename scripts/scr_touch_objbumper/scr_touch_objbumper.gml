@@ -15,7 +15,7 @@ function scr_touch_objBumper(){
 	    {    
 	        // Now for the reaction by the bumper
 	        routine++;
-	        audio_play_sound(sfx14_Bumper,1,false);
+	        audio_play_sound(sfx_Bumper,1,false);
 	        hit+=1;
 	        // If the bumper has been hit 1-10 times, we can give 10 points.
 	        if hit<=10

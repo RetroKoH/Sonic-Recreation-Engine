@@ -16,7 +16,7 @@ function scr_player_jump(){
 	        jump=true;
 	        convex=false;
 	        move_lock=false;
-	        audio_play_sound_at(sfx00_Jump,x+(20*xsp),y+18,0,
+	        audio_play_sound_at(sfx_Jump,x+(20*xsp),y+18,0,
 				global.core_sound.max_dist,global.core_sound.dropoff_dist,global.core_sound.multiplier,false,1);
 	        if (status&STA_SPIN) status|=STA_ROLLJUMP; // Set Rolling Jump bit if necessary.
 	        else

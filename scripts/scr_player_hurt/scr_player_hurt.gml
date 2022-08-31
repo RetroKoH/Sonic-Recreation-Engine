@@ -15,13 +15,13 @@ function scr_player_hurt(obj){
 		if (powerups&POW_SHIELD) {
 			powerups&=POW_RMVSHIELDS;		// The character's shield is removed.
 			instance_destroy(my_shield);	// Destroys the shield in the reserved object space
-			audio_play_sound(sfx03_Hurt,1,false);
+			audio_play_sound(sfx_Hurt,1,false);
 		}
 		else
 		{
 			scr_ring_loss(min(32,p_rings),x,y);			// Lose all of your rings. (Up to 32 can be collected).
 			p_rings = 0;								// Clear ring count
-			audio_play_sound(sfx26_RingLoss,1,false);	// Play a different sound for losing rings.
+			audio_play_sound(sfx_RingLoss,1,false);	// Play a different sound for losing rings.
 		}
 		routine	=	2;			// Set to hurt routine
 	    status	|=	STA_INAIR;	// Set Air status bit

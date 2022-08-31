@@ -16,7 +16,7 @@ function scr_give_powerup(powerup){
 			player.powerups|=POW_SHIELD;		// Set blue shield flag
 			if player.my_shield!=-1 instance_destroy(player.my_shield);
 			player.my_shield = instance_create_layer(player.x,player.y,"Instances",obj38_Shield_Blue);
-			audio_play_sound_at(sfx0F_BlueShield,x+(x-player.x),y,0,
+			audio_play_sound_at(sfx_ShieldBlue,x+(x-player.x),y,0,
 				global.core_sound.max_dist,global.core_sound.dropoff_dist,global.core_sound.multiplier,false,1);
 		break;
 		case MON_INVINC:
@@ -31,7 +31,7 @@ function scr_give_powerup(powerup){
 		break;
 		case MON_RINGS:
 			scr_collect_rings(10);
-			audio_play_sound_at(sfx15_Ring,x+(x-player.x),y,0,
+			audio_play_sound_at(sfx_RingBox,x+(x-player.x),y,0,
 				global.core_sound.max_dist,global.core_sound.dropoff_dist,global.core_sound.multiplier,false,1);
 		break;
 		case MON_SUPER:
@@ -43,7 +43,7 @@ function scr_give_powerup(powerup){
 			player.powerups|=POW_FLAME;			// Set flame shield flag
 			if player.my_shield!=-1 instance_destroy(player.my_shield);
 			player.my_shield = instance_create_layer(player.x,player.y,"Instances",obj38_Shield_Flame);
-			audio_play_sound_at(sfxS3K3E_FlameShield,x+(x-player.x),y,0,
+			audio_play_sound_at(sfx_ShieldFlame,x+(x-player.x),y,0,
 				global.core_sound.max_dist,global.core_sound.dropoff_dist,global.core_sound.multiplier,false,1);
 		break;
 		case MON_SHIELD_B:
@@ -52,7 +52,7 @@ function scr_give_powerup(powerup){
 			player.powerups|=POW_BUBBLE;		// Set bubble shield flag
 			if player.my_shield!=-1 instance_destroy(player.my_shield);
 			player.my_shield = instance_create_layer(player.x,player.y,"Instances",obj38_Shield_Bubble);
-			audio_play_sound_at(sfxS3K3F_BubbleShield,x+(x-player.x),y,0,
+			audio_play_sound_at(sfx_ShieldBubble,x+(x-player.x),y,0,
 				global.core_sound.max_dist,global.core_sound.dropoff_dist,global.core_sound.multiplier,false,1);
 		break;
 		case MON_SHIELD_L:
@@ -61,7 +61,7 @@ function scr_give_powerup(powerup){
 			player.powerups|=POW_LIGHTNING;		// Set lightning shield flag
 			if player.my_shield!=-1 instance_destroy(player.my_shield);
 			player.my_shield = instance_create_layer(player.x,player.y,"Instances",obj38_Shield_Lightning);
-			audio_play_sound_at(sfxS3K41_LightningShield,x+(x-player.x),y,0,
+			audio_play_sound_at(sfx_ShieldLightning,x+(x-player.x),y,0,
 				global.core_sound.max_dist,global.core_sound.dropoff_dist,global.core_sound.multiplier,false,1);
 		break;
 		case MON_GOGGLES:

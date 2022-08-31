@@ -1,0 +1,109 @@
+Sound Test Listings
+
+--------------------------------- BGM ---------------------------------
+
+--------------------------------- SFX ---------------------------------
+Jump
+Lamppost
+unk1
+Hurt
+Skid
+unk2
+HitSpikes
+PushBlock
+SSExit
+SSRotate/R Blip
+WaterSplash
+unk3
+BossHit
+AirBubble
+Fireball
+BlueShield
+FlameShield
+BubbleShield
+LightningShield
+SBZSaw
+SBZZap
+Drown
+SBZFlamethrower
+Bumper
+Ring (Right)
+Ring (Left)
+SpikesMove
+Rumbling
+unk4
+CrumblingLedge
+SSGlass
+LZFlapDoor
+SpindashRev
+Teleport
+StomperThud
+Roll
+Continue
+BasaranFlap
+BreakOpen
+UnderwaterChime
+GiantRing
+BossExplosion
+EndTally
+RingLoss
+MZChain
+MZLavaGeyser
+HiddenPts (Bonus Stage)
+SSEntry
+WallSmash
+Spring
+Switch
+Signpost
+Waterfall
+SlotMachine (Bonus Stage)
+PointsBumper (Bonus Stage)
+FlatBumper (Bonus Stage)
+SkBZPropeller
+SuperTransform
+MZLavaRumbling
+PinballFlipper (Bonus Stage)
+BZSkiLift
+JZLeavesRuffled
+BZDrawBridge
+BZDrawbridgeDown
+Error
+SkBZLaser
+BombThrow
+BeamCharge
+BeamFire
+Achievement
+73Teleport
+EggmanAlarm
+
+Instashield
+Jump Dash (Unused S3K Barrier)
+FlameDash
+BubbleBounce
+LightningJump
+
+Whistle
+Grab (Tails)
+JZWaterfallEmerge
+KnuxGlideLand
+EnemyShot
+SkBZMissileLaunch
+SkBZBossElectric
+AmyHammer
+GotRedRing
+TailsFly
+TailsTired
+SkBZAirship
+AmyJump
+ElectricField
+Bounce Pole (Bonus Stage)
+DropDashCharge
+DropDashRelease
+MightyDrill
+MightyLand
+MightyDeflect
+MightyUnspin
+RaySwoop
+RayDive
+MetalDashCharge
+MetalDashRelease

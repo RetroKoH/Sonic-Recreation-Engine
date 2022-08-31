@@ -1,7 +1,7 @@
 {
   "conversionMode": 0,
   "compression": 1,
-  "volume": 1.0,
+  "volume": 0.25,
   "preload": false,
   "bitRate": 128,
   "sampleRate": 44100,
@@ -12,7 +12,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "M_GHZ1.ogg",
-  "duration": 104.153107,
+  "duration": 104.15311,
   "parent": {
     "name": "music",
     "path": "folders/Sounds/music.yy",

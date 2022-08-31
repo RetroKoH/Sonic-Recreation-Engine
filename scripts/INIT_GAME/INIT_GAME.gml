@@ -355,6 +355,7 @@ function INIT_ANIM_DATA(){
 	animtable_MONITORS();
 	animtable_RINGS();
 	animtable_SIGNPOST();
+	animtable_LAMPPOST();
 	animtable_SPRINGS();
 	animtable_TITLESONIC();
 	animtable_LVLOBJ_SYZ();
@@ -577,7 +578,7 @@ function INIT_OBJDATA_SMASHFRAGS(){
 function INIT_SOUND_SYSTEM(){
 	global.core_sound = instance_create_layer(0, 2, "Core", obj_soundcontrol);
 	global.core_music = instance_create_layer(0, 3, "Core", obj_musiccontrol);
-	global.ring = 1;	// Alternates between 1 and -1;
+	global.ring_pan = 0;	// Alternates between 0 (left) and 1 (right);
 
 	// Database of BGM tracks and loop data
 	global.BGM_list = array_create(BGM_tracks.total)
@@ -878,8 +879,8 @@ function INIT_MISC_VARS(){
 		obj_Players[PL_METAL] = obj01_Metal;
 	}
 	globalvar HUDFONT;          HUDFONT = font_add_sprite(spr_HUDnumbers,ord("0"),false,0); // Numerical HUD Font.
-	globalvar f_pause;          f_pause=false;		// Game Pausing flag
 	globalvar framecount;		framecount=0;		// Frame timer
+	globalvar f_pause;          f_pause=false;		// Game Pausing flag
 	globalvar p_score;          p_score=0;          // Player's score
 	globalvar p_time;           p_time=0;           // Playing time
 	globalvar p_timecenti;      p_timecenti=0;      // Playing time
@@ -894,6 +895,7 @@ function INIT_MISC_VARS(){
 	globalvar itembonus;        itembonus=0;        // The counter that determines the number of points received when destroying enemies or objects.
 	globalvar timebonus;        timebonus=0;        // The points counter for time bonuses. The faster you complete a level, the higher the bonus. TIME OVER results in NO bonus.
 	globalvar ringbonus;        ringbonus=0;        // The points counter for ring bonuses. You get 100 pts per ring when you complete a level.
+	globalvar timeover;			timeover=0;			// if 1, player had a time over and will receive no time bonus.
 	globalvar gravity_angle;    gravity_angle=0;    // The global zone gravity. Character gravity is based on this.
 
 	// Water related values
@@ -902,4 +904,20 @@ function INIT_MISC_VARS(){
 	globalvar water_pos2;       water_pos2=0;       // Water Height - Ignoring Water Sway
 	globalvar water_pos3;       water_pos3=0;       // Water Height - Next Target
 	globalvar wtunnel_flag;     wtunnel_flag=0;     // Flag for wind/water tunnel currents
+	
+	// Lamppost related values
+	globalvar lamp_last;		lamp_last=0;		// ID (subtype) of the last lamp hit.
+	globalvar lamp_xpos;		lamp_xpos=0;		// x-axis for Sonic to respawn at lamppost
+	globalvar lamp_ypos;		lamp_ypos=0;		// y-axis for Sonic to respawn at lamppost
+	globalvar lamp_rings;		lamp_rings=0;		// rings count stored at lamppost
+	globalvar lamp_time;		lamp_time=0;		// time stored at lamppost
+	globalvar lamp_dle;			lamp_dle=0;			// dynamic level event routine counter at lamppost
+	globalvar lamp_limitbtm2;	lamp_limitbtm2=0;	// level bottom boundary at lamppost
+	globalvar lamp_scrx;		lamp_scrx=0;		// x-axis screen at lamppost
+	globalvar lamp_scry;		lamp_scry=0;		// y-axis screen at lamppost
+	globalvar lamp_wtrpos;		lamp_wtrpos=0;		// water position at lamppost
+	globalvar lamp_wtrrout;		lamp_wtrrout=0;		// water routine at lamppost
+	globalvar lamp_wtrstat;		lamp_wtrstat=0;		// water state at lamppost
+	globalvar lamp_lives;		lamp_lives=0;		// lives count stored at lamppost
+	globalvar start_score;		start_score=0;		// score saved at start of level, or at lamppost
 }

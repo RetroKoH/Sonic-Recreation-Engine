@@ -17,10 +17,10 @@ function scr_tails_set_flight_anim(){
 	if !(status&STA_WATER){
 		var snd;
 		ani = anim_player.fly;
-		snd = sfxS3KBB_TailsFly;
+		snd = sfx_TailsFly;
 		if !double_jump_property{
 			ani = anim_player.fly_tired;
-			snd = sfxS3KBA_TailsTired;
+			snd = sfx_TailsTired;
 		}
 		else if abs(xsp) >= 4.5 && sign(xsp)==anim_direction
 			ani = anim_player.fly_fast;

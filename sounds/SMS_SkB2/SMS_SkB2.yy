@@ -1,7 +1,7 @@
 {
   "conversionMode": 0,
   "compression": 1,
-  "volume": 1.0,
+  "volume": 0.2,
   "preload": false,
   "bitRate": 128,
   "sampleRate": 44100,
@@ -12,7 +12,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "SMS_SkB2.ogg",
-  "duration": 64.5365753,
+  "duration": 64.536575,
   "parent": {
     "name": "music",
     "path": "folders/Sounds/music.yy",
