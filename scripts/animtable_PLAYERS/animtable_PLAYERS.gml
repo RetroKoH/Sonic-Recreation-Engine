@@ -14,6 +14,7 @@ function animtable_PLAYERS(){
 		skid,
 		push,
 		spring,
+		fall,
 		hurt,
 		death,
 		drown,
@@ -26,7 +27,6 @@ function animtable_PLAYERS(){
 		swim_up,
 		swim_tired,
 		glide,
-		fall,
 		slide,
 		landing,
 		getup,
@@ -272,6 +272,20 @@ function animtable_SONIC(){
 		loop_anim	: -1,
 		frames		: [0],
 		speeds		: [1]
+	}
+	// ==================================================================================
+	sp = 1/4;
+	global.AnimationsSonic[anim_player.fall] = {
+		name		: "Fall",
+		sprite		: spr_sonic_fall,
+		mask		: spr_sonic_mask,
+		mask_l		: spr_sonic_maskL,
+		sub_anim	: -1,
+		loop_times	: -1,
+		loop_frame	: 0,
+		loop_anim	: -1,
+		frames		: [0,1,2],
+		speeds		: [sp,sp,sp]
 	}
 	// ==================================================================================
 	global.AnimationsSonic[anim_player.hurt] = {
@@ -588,6 +602,20 @@ function animtable_TAILS(){
 		loop_anim	: -1,
 		frames		: [0,1],
 		speeds		: [1,1]
+	}
+	// ==================================================================================
+	sp = 1/4;
+	global.AnimationsTails[anim_player.fall] = {
+		name		: "Fall",
+		sprite		: spr_tails_fall,
+		mask		: spr_tails_mask,
+		mask_l		: spr_tails_maskL,
+		sub_anim	: -1,
+		loop_times	: -1,
+		loop_frame	: 0,
+		loop_anim	: -1,
+		frames		: [0,1],
+		speeds		: [sp,sp]
 	}
 	// ==================================================================================
 	global.AnimationsTails[anim_player.hurt] = {
@@ -934,6 +962,20 @@ function animtable_KNUCKLES(){
 		speeds		: [1]
 	}
 	// ==================================================================================
+	sp=1/4;
+	global.AnimationsKnuckles[anim_player.fall] = {
+		name		: "Fall",
+		sprite		: spr_knux_fall,
+		mask		: spr_sonic_mask,
+		mask_l		: spr_sonic_maskL,
+		sub_anim	: -1,
+		loop_times	: -1,
+		loop_frame	: 1,
+		loop_anim	: -1,
+		frames		: [0,1],
+		speeds		: [sp,sp]
+	}
+	// ==================================================================================
 	global.AnimationsKnuckles[anim_player.hurt] = {
 		name		: "Hurt",
 		sprite		: spr_knux_hurt,
@@ -984,20 +1026,6 @@ function animtable_KNUCKLES(){
 		loop_anim	: -1,
 		frames		: [0],
 		speeds		: [1]
-	}
-	// ==================================================================================
-	sp=1/4;
-	global.AnimationsKnuckles[anim_player.fall] = {
-		name		: "Fall",
-		sprite		: spr_knux_fall,
-		mask		: spr_sonic_mask,
-		mask_l		: spr_sonic_maskL,
-		sub_anim	: -1,
-		loop_times	: -1,
-		loop_frame	: 1,
-		loop_anim	: -1,
-		frames		: [0,1],
-		speeds		: [sp,sp]
 	}
 	// ==================================================================================
 	sp=1/4;
@@ -1283,6 +1311,20 @@ function animtable_AMY(){
 		speeds		: [1]
 	}
 	// ==================================================================================
+	sp=1/4;
+	global.AnimationsAmy[anim_player.fall] = {
+		name		: "Fall",
+		sprite		: spr_amy_spring,
+		mask		: spr_sonic_mask,
+		mask_l		: spr_sonic_maskL,
+		sub_anim	: -1,
+		loop_times	: -1,
+		loop_frame	: 2,
+		loop_anim	: -1,
+		frames		: [1,2,3],
+		speeds		: [sp,sp,sp]
+	}
+	// ==================================================================================
 	global.AnimationsAmy[anim_player.hurt] = {
 		name		: "Hurt",
 		sprite		: spr_amy_hurt,
@@ -1320,20 +1362,6 @@ function animtable_AMY(){
 		loop_anim	: -1,
 		frames		: [1],
 		speeds		: [1]
-	}
-	// ==================================================================================
-	sp=1/4;
-	global.AnimationsAmy[anim_player.fall] = {
-		name		: "Fall",
-		sprite		: spr_amy_spring,
-		mask		: spr_sonic_mask,
-		mask_l		: spr_sonic_maskL,
-		sub_anim	: -1,
-		loop_times	: -1,
-		loop_frame	: 2,
-		loop_anim	: -1,
-		frames		: [1,2,3],
-		speeds		: [sp,sp,sp]
 	}
 	// ==================================================================================
 	global.AnimationsAmy[anim_player.hammerjump_idle] = {
@@ -1634,6 +1662,20 @@ function animtable_MIGHTY(){
 		speeds		: [1]
 	}
 	// ==================================================================================
+	sp = 1/4;
+	global.AnimationsMighty[anim_player.fall] = {
+		name		: "Fall",
+		sprite		: spr_mighty_bounce,
+		mask		: spr_sonic_mask,
+		mask_l		: spr_sonic_maskL,
+		sub_anim	: -1,
+		loop_times	: -1,
+		loop_frame	: 1,
+		loop_anim	: -1,
+		frames		: [2,3,4],
+		speeds		: [sp,sp,sp]
+	}
+	// ==================================================================================
 	global.AnimationsMighty[anim_player.hurt] = {
 		name		: "Hurt",
 		sprite		: spr_mighty_hurt,
@@ -1912,6 +1954,19 @@ function animtable_RAY(){
 	global.AnimationsRay[anim_player.spring] = {
 		name		: "Spring",
 		sprite		: spr_ray_spring,
+		mask		: spr_sonic_mask,
+		mask_l		: spr_sonic_maskL,
+		sub_anim	: -1,
+		loop_times	: -1,
+		loop_frame	: 0,
+		loop_anim	: -1,
+		frames		: [0],
+		speeds		: [1]
+	}
+	// ==================================================================================
+	global.AnimationsRay[anim_player.fall] = {
+		name		: "Fall",
+		sprite		: spr_ray_fall,
 		mask		: spr_sonic_mask,
 		mask_l		: spr_sonic_maskL,
 		sub_anim	: -1,
@@ -2213,6 +2268,8 @@ function animtable_METAL(){
 		frames		: [0],
 		speeds		: [1]
 	}
+	// ==================================================================================
+	global.AnimationsMetal[anim_player.fall] = global.AnimationsMetal[anim_player.walk];
 	// ==================================================================================
 	global.AnimationsMetal[anim_player.hurt] = {
 		name		: "Hurt",

@@ -81,8 +81,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "6_Ray_15s",
-    "path": "folders/Sprites/Players/6_Ray_15s.yy",
+    "name": "6_Ray_16s",
+    "path": "folders/Sprites/Players/6_Ray_16s.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_ray_skid",

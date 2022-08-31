@@ -11,6 +11,7 @@ function INIT_GAME(){
 	INIT_OBJDATA_LOSTRINGS();	// Set up trajectories for lost rings
 	INIT_OBJDATA_ANIMALS();		// Set up animal data (sprites and movement)
 	INIT_OBJDATA_SIGNPOST();	// Set up data for locations of ring sparkles.
+	INIT_OBJDATA_SMASHFRAGS();	// Set up speeds for smashable object fragments.
 	INIT_SOUND_SYSTEM();		// Set up BGM index and sound objects
 	INIT_LEVEL_SELECT();		// Set up the Level Select Screen
 	INIT_MISC_VARS();
@@ -561,6 +562,17 @@ function INIT_OBJDATA_SIGNPOST(){
 	sparkpos[5,0]=$10;  sparkpos[5,1]=0;
 	sparkpos[6,0]=-$18; sparkpos[6,1]=8;
 	sparkpos[7,0]=$18;  sparkpos[7,1]=$10;
+}
+function INIT_OBJDATA_SMASHFRAGS(){
+	globalvar fragspeed;
+	fragspeed[0] = [4,-5];
+	fragspeed[1] = [6,-1];
+	fragspeed[2] = [6,1];
+	fragspeed[3] = [4,5];
+	fragspeed[4] = [6,-6];
+	fragspeed[5] = [8,-2];
+	fragspeed[6] = [8,2];
+	fragspeed[7] = [6,6];
 }
 function INIT_SOUND_SYSTEM(){
 	global.core_sound = instance_create_layer(0, 2, "Core", obj_soundcontrol);

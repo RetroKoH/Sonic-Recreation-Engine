@@ -1,1 +1,0 @@
-subtype = MON_SHIELD_B;

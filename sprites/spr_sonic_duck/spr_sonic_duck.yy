@@ -73,8 +73,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "1_Sonic_16s",
-    "path": "folders/Sprites/Players/1_Sonic_16s.yy",
+    "name": "1_Sonic_17s",
+    "path": "folders/Sprites/Players/1_Sonic_17s.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_sonic_duck",

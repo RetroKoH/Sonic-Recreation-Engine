@@ -20,11 +20,13 @@ switch(anim_ID)
             else anim_ID=anim_player.walk;
         }
         anim_speedmod=2/max(8-abs(gsp),1);
-        break;
+	break;
     case anim_player.roll:
         anim_speedmod=2/max(5-abs(gsp),1);
-        break;
-    default:
+	break;
+    case anim_player.spring:
+		if ysp>=0 anim_ID=anim_player.fall;
+	default:
         anim_speedmod=1;
 }
 
