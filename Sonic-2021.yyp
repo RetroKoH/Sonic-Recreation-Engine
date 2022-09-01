@@ -658,6 +658,7 @@
     {"id":{"name":"sfx_RingBox","path":"sounds/sfx_RingBox/sfx_RingBox.yy",},"order":105,},
     {"id":{"name":"spr_glide_maskL","path":"sprites/spr_glide_maskL/spr_glide_maskL.yy",},"order":7,},
     {"id":{"name":"spr_SYZSpikeball","path":"sprites/spr_SYZSpikeball/spr_SYZSpikeball.yy",},"order":1,},
+    {"id":{"name":"spr_GHZledge_mask","path":"sprites/spr_GHZledge_mask/spr_GHZledge_mask.yy",},"order":12,},
     {"id":{"name":"spr_knux_hover","path":"sprites/spr_knux_hover/spr_knux_hover.yy",},"order":14,},
     {"id":{"name":"chunks_03MZ","path":"sprites/chunks_03MZ/chunks_03MZ.yy",},"order":1,},
     {"id":{"name":"spr_mighty_death","path":"sprites/spr_mighty_death/spr_mighty_death.yy",},"order":9,},

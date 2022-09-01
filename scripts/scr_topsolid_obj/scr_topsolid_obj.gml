@@ -17,15 +17,43 @@ function scr_topsolid_obj(width,height,height_air,prev_x){
 	else return scr_topsolid_obj_collide(width, height_air, prev_x);
 }
 
+// Needs to be fixed
+function scr_topsolid_obj_slope(width, heightmap, prev_x){
+	if (status&STA_ONOBJ)
+	{
+		var combined_x_radius = width+player.width+1;
+		var x_comp = (player.x - x) + combined_x_radius; //get the position difference
+		if(player.status&STA_INAIR || x_comp < 0 || x_comp >= combined_x_radius*2)
+		{
+			scr_solid_exit_platform();
+			return 0; // Register no collision
+		}
+		else
+		{
+			// Slightly inaccurate (Required 20 extra bytes)
+			var i = x_comp div 2;
+			var height = heightmap[i];
+			scr_solid_move_player(player, height, prev_x);
+			return 1; // Register top collision
+		}
+	}
+	else return scr_topsolid_obj_collide(width, 0, prev_x, heightmap);
+}
+
 // Top-Solid platform object collision
-function scr_topsolid_obj_collide(width, height, prev_x){
+function scr_topsolid_obj_collide(width, height, prev_x, heightmap=-1){
 	var overlap = false;
 	var _px = player.x, _py = player.y;
 	var combined_x_radius = width+player.width+1;
 	var left_diff = (_px - x) + width;
 	
-	if ((player.ysp >= 0) && (left_diff >= 0) && (left_diff <= combined_x_radius*2)) // if (left_diff < 0) = too far to the left; (left_diff > combined_x_radius*2) = too far to the right
+	if ((player.ysp >= 0) && (left_diff >= 0) && (left_diff < combined_x_radius*2)) // if (left_diff < 0) = too far to the left; (left_diff > combined_x_radius*2) = too far to the right
 	{	// We are overlapping on the x axis, check y axis
+		// This part is Slightly inaccurate (Required 20 extra bytes)
+		if (heightmap != -1) {
+			var i = left_diff div 2;
+			height = heightmap[i];
+		}
 		var combined_y_radius = height+player.height;
 		var top_diff = (_py - y) + 4 + combined_y_radius;
 		if ((top_diff >= 0) && (top_diff <= combined_y_radius*2)) overlap=true; // if (top_diff < 0) = too far above; if (top_diff > combined_y_radius*2) = too far below

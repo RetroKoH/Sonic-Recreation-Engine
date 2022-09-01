@@ -11,6 +11,7 @@ function INIT_GAME(){
 	INIT_OBJDATA_LOSTRINGS();	// Set up trajectories for lost rings
 	INIT_OBJDATA_ANIMALS();		// Set up animal data (sprites and movement)
 	INIT_OBJDATA_SIGNPOST();	// Set up data for locations of ring sparkles.
+	INIT_OBJDATA_HEIGHTMAPS();
 	INIT_OBJDATA_SMASHFRAGS();	// Set up speeds for smashable object fragments.
 	INIT_SOUND_SYSTEM();		// Set up BGM index and sound objects
 	INIT_LEVEL_SELECT();		// Set up the Level Select Screen
@@ -566,6 +567,17 @@ function INIT_OBJDATA_SIGNPOST(){
 	sparkpos[5,0]=$10;  sparkpos[5,1]=0;
 	sparkpos[6,0]=-$18; sparkpos[6,1]=8;
 	sparkpos[7,0]=$18;  sparkpos[7,1]=$10;
+}
+function INIT_OBJDATA_HEIGHTMAPS(){
+	globalvar heightmap_obj1A, heightmap_obj1A_2;	// Crumbling ledges
+	heightmap_obj1A = [	32, 32, 32, 32, 32, 32, 32, 32, 32, 32,
+						32, 32, 32, 32, 32, 32, 32, 32, 33, 33, 34, 34, 35, 35, 36, 36,
+						37, 37, 38, 38, 39, 39, 40, 40, 41, 41, 42, 42, 43, 43, 44, 44,
+						45, 45, 46, 46, 47, 47, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48,
+						48, 48, 48, 48, 48, 48, 48, 48, 48, 48]; // 10 Extra byte at the beginning and 10 at the end
+	heightmap_obj1A_2 = [];
+	for (var i = array_length(heightmap_obj1A) - 1; i >= 0; i--)
+		array_push(heightmap_obj1A_2, heightmap_obj1A[i]);
 }
 function INIT_OBJDATA_SMASHFRAGS(){
 	globalvar fragspeed;
