@@ -26,7 +26,7 @@ function scr_give_powerup(powerup){
 				if player.my_stars!=-1 instance_destroy(player.my_stars);
 				player.my_stars = instance_create_layer(player.x,player.y,"Instances",obj38_Shield_Invinc);
 				// Add 3 more trailing objects
-				// Play music
+				scr_set_bgm(BGM_tracks.Invinc);
 			}
 		break;
 		case MON_RINGS:
@@ -70,6 +70,7 @@ function scr_give_powerup(powerup){
 		case MON_EXTRALIFE:
 		default:
 			p_lives++;
+			scr_play_1up();		// play 1-Up
 		break;
 	}
 }

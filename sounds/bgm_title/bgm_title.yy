@@ -1,6 +1,6 @@
 {
   "conversionMode": 0,
-  "compression": 0,
+  "compression": 1,
   "volume": 0.2,
   "preload": false,
   "bitRate": 128,
@@ -11,14 +11,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "M_LevSel.ogg",
-  "duration": 38.802834,
+  "soundFile": "bgm_title.ogg",
+  "duration": 9.055781,
   "parent": {
     "name": "music",
     "path": "folders/Sounds/music.yy",
   },
   "resourceVersion": "1.0",
-  "name": "M_LevSel",
+  "name": "bgm_Title",
   "tags": [],
   "resourceType": "GMSound",
 }

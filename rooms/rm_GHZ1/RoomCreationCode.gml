@@ -41,4 +41,6 @@ v_lookshift=0;          // Screen shift when player looks up/down.
 cam.follow = player;
 f_timecount = true;
 osc_active = true;
-scr_set_bgm(BGM_tracks.GHZ1);
+
+global.default_track = BGM_tracks.GHZ1;
+scr_set_bgm(global.default_track);

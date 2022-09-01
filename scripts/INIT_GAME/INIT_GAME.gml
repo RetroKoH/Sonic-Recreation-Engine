@@ -55,6 +55,8 @@ function MACROS(){
 
 	// BGM Index
 	enum BGM_tracks {
+		Title,
+		LevelSelect,
 		GHZ1,
 		GHZ2,
 		BZ1,
@@ -73,6 +75,7 @@ function MACROS(){
 		SBZ2,
 		SBZ3,
 		FZ,
+		Invinc,
 		total // Used for final count
 	}
 
@@ -576,13 +579,26 @@ function INIT_OBJDATA_SMASHFRAGS(){
 	fragspeed[7] = [6,6];
 }
 function INIT_SOUND_SYSTEM(){
-	global.core_sound = instance_create_layer(0, 2, "Core", obj_soundcontrol);
-	global.core_music = instance_create_layer(0, 3, "Core", obj_musiccontrol);
+	global.core_sound		= instance_create_layer(0, 2, "Core", obj_soundcontrol);
+	global.core_music		= instance_create_layer(0, 3, "Core", obj_musiccontrol);
+	global.default_track	= BGM_tracks.Title;
 	global.ring_pan = 0;	// Alternates between 0 (left) and 1 (right);
 
 	// Database of BGM tracks and loop data
 	global.BGM_list = array_create(BGM_tracks.total)
 	
+	global.BGM_list[BGM_tracks.Title] = {
+		ID			: bgm_Title,
+		loop_start	: -1,	// -1 = No loop
+		loop_end	: 9.06
+	}
+	// ==================================================================================
+	global.BGM_list[BGM_tracks.LevelSelect] = {
+		ID			: M_LevSel,
+		loop_start	: 0,
+		loop_end	: 38.39
+	}
+	// ==================================================================================
 	global.BGM_list[BGM_tracks.GHZ1] = {
 		ID			: M_GHZ1,
 		loop_start	: 14.512,
@@ -689,6 +705,12 @@ function INIT_SOUND_SYSTEM(){
 		ID			: M_FZ,
 		loop_start	: 1.977,
 		loop_end	: 21.206
+	}
+	// ==================================================================================
+	global.BGM_list[BGM_tracks.Invinc] = {
+		ID			: bgm_Invinc,
+		loop_start	: 0.94,
+		loop_end	: 11.95
 	}
 }
 function INIT_LEVEL_SELECT(){
