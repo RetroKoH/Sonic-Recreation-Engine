@@ -1,6 +1,5 @@
-* Set springing up animation to change to walking when ysp >= 0
 * See notes on scr_player_acquirefloor (Need to fix animation resetting)
-* Finish GHZ objects (Breakable wall, etc)
+* Finish GHZ objects (Crumbling Ledge, Spiked Log Helix)
 * Finalize new character palettes and apply them to characters
 * Ensure that character animations and functions all work correctly
 * Objects that are off screen to deactivate and reset, ala my previous engine

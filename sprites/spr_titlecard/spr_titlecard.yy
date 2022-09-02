@@ -169,8 +169,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Sprites",
-    "path": "folders/Sprites.yy",
+    "name": "In-Level Cards",
+    "path": "folders/Sprites/In-Level Cards.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_titlecard",

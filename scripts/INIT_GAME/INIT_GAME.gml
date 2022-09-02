@@ -13,6 +13,7 @@ function INIT_GAME(){
 	INIT_OBJDATA_SIGNPOST();	// Set up data for locations of ring sparkles.
 	INIT_OBJDATA_HEIGHTMAPS();
 	INIT_OBJDATA_SMASHFRAGS();	// Set up speeds for smashable object fragments.
+	INIT_OBJDATA_TITLECARDS();
 	INIT_SOUND_SYSTEM();		// Set up BGM index and sound objects
 	INIT_LEVEL_SELECT();		// Set up the Level Select Screen
 	INIT_MISC_VARS();
@@ -53,6 +54,7 @@ function MACROS(){
 	#macro ZONE_SLZ		6
 	#macro ZONE_SBZ		7
 	#macro ZONE_SKBZ	8
+	#macro ZONE_MGHZ	9
 
 	// BGM Index
 	enum BGM_tracks {
@@ -569,15 +571,16 @@ function INIT_OBJDATA_SIGNPOST(){
 	sparkpos[7,0]=$18;  sparkpos[7,1]=$10;
 }
 function INIT_OBJDATA_HEIGHTMAPS(){
-	globalvar heightmap_obj1A, heightmap_obj1A_2;	// Crumbling ledges
-	heightmap_obj1A = [	32, 32, 32, 32, 32, 32, 32, 32, 32, 32,
-						32, 32, 32, 32, 32, 32, 32, 32, 33, 33, 34, 34, 35, 35, 36, 36,
-						37, 37, 38, 38, 39, 39, 40, 40, 41, 41, 42, 42, 43, 43, 44, 44,
-						45, 45, 46, 46, 47, 47, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48,
-						48, 48, 48, 48, 48, 48, 48, 48, 48, 48]; // 10 Extra byte at the beginning and 10 at the end
-	heightmap_obj1A_2 = [];
-	for (var i = array_length(heightmap_obj1A) - 1; i >= 0; i--)
-		array_push(heightmap_obj1A_2, heightmap_obj1A[i]);
+	globalvar heightmap_obj1A;	// Crumbling ledges
+	heightmap_obj1A[0] = [	32, 32, 32, 32, 32, 32, 32, 32, 32, 32,
+							32, 32, 32, 32, 32, 32, 32, 32, 33, 33, 34, 34, 35, 35, 36, 36,
+							37, 37, 38, 38, 39, 39, 40, 40, 41, 41, 42, 42, 43, 43, 44, 44,
+							45, 45, 46, 46, 47, 47, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48,
+							48, 48, 48, 48, 48, 48, 48, 48, 48, 48]; // 10 Extra byte at the beginning and 10 at the end
+	heightmap_obj1A[1] = [];
+	var ar = heightmap_obj1A[0];
+	for (var i = array_length(ar) - 1; i >= 0; i--)
+		array_push(heightmap_obj1A[1], ar[i]);
 }
 function INIT_OBJDATA_SMASHFRAGS(){
 	globalvar fragspeed;
@@ -589,6 +592,88 @@ function INIT_OBJDATA_SMASHFRAGS(){
 	fragspeed[5] = [8,-2];
 	fragspeed[6] = [8,2];
 	fragspeed[7] = [6,6];
+}
+function INIT_OBJDATA_TITLECARDS(){
+	global.TtlCard_ConData = array_create(11);
+	global.TtlCard_ItemY = [80, 100, 102, 76]; // Zone name, ZONE, Act X, Oval
+	
+	global.TtlCard_ConData[ZONE_GHZ] = {
+		name		: "GREEN HILL",
+		name_mainx	:	 136,
+		zone_mainx	:	 208,
+		acts_mainx	:	 244,
+		oval_mainx	:	 236
+	}
+	global.TtlCard_ConData[ZONE_BZ] = {
+		name		: "BRIDGE",
+		name_mainx	:	 136,
+		zone_mainx	:	 208,
+		acts_mainx	:	 244,
+		oval_mainx	:	 236
+	}
+	global.TtlCard_ConData[ZONE_MZ] = {
+		name		: "MARBLE",
+		name_mainx	:	 136,
+		zone_mainx	:	 208,
+		acts_mainx	:	 244,
+		oval_mainx	:	 236
+	}
+	global.TtlCard_ConData[ZONE_JZ] = {
+		name		: "JUNGLE",
+		name_mainx	:	 136,
+		zone_mainx	:	 208,
+		acts_mainx	:	 244,
+		oval_mainx	:	 236
+	}
+	global.TtlCard_ConData[ZONE_SYZ] = {
+		name		: "SPRING YARD",
+		name_mainx	:	 136,
+		zone_mainx	:	 208,
+		acts_mainx	:	 244,
+		oval_mainx	:	 236
+	}
+	global.TtlCard_ConData[ZONE_LZ] = {
+		name		: "LABYRINTH",
+		name_mainx	:	 136,
+		zone_mainx	:	 208,
+		acts_mainx	:	 244,
+		oval_mainx	:	 236
+	}
+	global.TtlCard_ConData[ZONE_SLZ] = {
+		name		: "STAR LIGHT",
+		name_mainx	:	 136,
+		zone_mainx	:	 208,
+		acts_mainx	:	 244,
+		oval_mainx	:	 236
+	}
+	global.TtlCard_ConData[ZONE_SBZ] = {
+		name		: "SCRAP BRAIN",
+		name_mainx	:	 136,
+		zone_mainx	:	 208,
+		acts_mainx	:	 244,
+		oval_mainx	:	 236
+	}
+	global.TtlCard_ConData[ZONE_SKBZ] = {
+		name		: "SKY BASE",
+		name_mainx	:	 136,
+		zone_mainx	:	 208,
+		acts_mainx	:	 244,
+		oval_mainx	:	 236
+	}
+	global.TtlCard_ConData[ZONE_MGHZ] = {
+		name		: "MECHA GREEN HILL",
+		name_mainx	:	 136,
+		zone_mainx	:	 208,
+		acts_mainx	:	 244,
+		oval_mainx	:	 236
+	}
+	global.TtlCard_ConData[ZONE_MGHZ+1] = {
+		name		: "FINAL",
+		name_mainx	:	 136,
+		zone_mainx	:	 208,
+		acts_mainx	:	 244,
+		oval_mainx	:	 236
+	}
 }
 function INIT_SOUND_SYSTEM(){
 	global.core_sound		= instance_create_layer(0, 2, "Core", obj_soundcontrol);
@@ -912,7 +997,8 @@ function INIT_MISC_VARS(){
 		obj_Players[PL_RAY] = obj01_Ray;
 		obj_Players[PL_METAL] = obj01_Metal;
 	}
-	globalvar HUDFONT;          HUDFONT = font_add_sprite(spr_HUDnumbers,ord("0"),false,0); // Numerical HUD Font.
+	globalvar HUDFONT;          HUDFONT = font_add_sprite(spr_HUDnumbers,ord("0"),false,0);	// Numerical HUD Font
+	globalvar CARDFONT;			CARDFONT = font_add_sprite(spr_titlecard,ord("A"),true,1);	// Alphabetical Card Font
 	globalvar framecount;		framecount=0;		// Frame timer
 	globalvar f_pause;          f_pause=false;		// Game Pausing flag
 	globalvar p_score;          p_score=0;          // Player's score

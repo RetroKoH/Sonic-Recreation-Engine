@@ -29,7 +29,7 @@ else
 	}
 	if (global.k_st_p)
 	{
-		if option==0	scr_trigger_fade(rm_GHZ1);
+		if option==0	scr_trigger_fade(rm_GHZ1, true);	// Load title card
 		else			scr_trigger_fade(rm_option);
 		scr_stop_bgm();	// Stop title screen music
 	}
