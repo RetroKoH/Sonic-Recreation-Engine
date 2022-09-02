@@ -40,5 +40,8 @@ function scr_player_hurt(obj){
 	}
 
 	// If all else is false, the character dies.
-	else scr_player_death();
+	else {
+		if (object_get_parent(obj.object_index) == obj36_Spikes) scr_player_death(true);
+		else scr_player_death();
+	}
 }

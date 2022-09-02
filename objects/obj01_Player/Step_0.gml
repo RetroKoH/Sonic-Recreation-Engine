@@ -34,7 +34,20 @@ switch(routine)
 	break;
 	
 	case 3: // Sonic_Death
+		if (y > camera_get_view_y(global.cam.view)+$120)
+		{
+			ysp=0.21875;
+			routine++;
+			f_timecount = false;
+			p_lives--;
+			restart_timer=60;
+		}
 		scr_apply_speed(true);			// ObjectFall
+	break;
+	
+	case 4: // Sonic_Restart
+		if (restart_timer) restart_timer--;
+		if !(restart_timer) scr_trigger_fade(room, true);
 	break;
 }
 

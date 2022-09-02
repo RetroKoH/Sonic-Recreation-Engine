@@ -25,11 +25,7 @@ switch(routine)
 				anim_ID++;	// Twirling animation
 				
 				// Set lamp info
-				global.lamp_last = subtype;				// Set the last lamppost
-				global.lamp_xpos = x;
-				global.lamp_ypos = y;
-				global.lamp_rings = global.p_rings;		// Store ring count
-				global.lamp_time = global.p_time;		// Store current time
+				scr_lamp_data_save(subtype);
 			}
 		}
 	break;

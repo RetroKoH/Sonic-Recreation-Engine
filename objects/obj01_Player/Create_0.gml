@@ -44,6 +44,7 @@ shoes_timer = 0;
 convex = false;
 platform_ID = -1;
 move_lock = false;
+restart_timer=0;
 
 scr_player_set_speeds();
 jmp_spd		= 6.5;		// Default jump velocity
