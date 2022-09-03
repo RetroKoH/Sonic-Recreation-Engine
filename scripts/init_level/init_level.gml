@@ -1,4 +1,4 @@
-function INIT_LEVEL(this_zone, this_act, bgm, btm, p_x, p_y){
+function INIT_LEVEL(this_zone, this_act, bgm, limitbtm, limitrgt, p_x, p_y){
 	// Set up layer IDs
 	var layer_id = layer_get_id("Collision_0");
 	map_id[0] = layer_tilemap_get_id(layer_id);
@@ -19,15 +19,15 @@ function INIT_LEVEL(this_zone, this_act, bgm, btm, p_x, p_y){
 	// LevelSizeLoad
 	// Soft values (Where the camera boundaries appear
 	v_limitleft1=0;				// Left level boundary.
-	v_limitright1=room_width;	// Right level boundary.
+	v_limitright1=limitrgt;		// Right level boundary.
 	v_limittop1=0;				// Top level boundary.
-	v_limitbtm1=btm;			// Bottom level boundary.
+	v_limitbtm1=limitbtm;		// Bottom level boundary.
 
 	// Hard values (Where the camera boundaries are set to move to
 	v_limitleft2=0;				// Left level boundary.
-	v_limitright2=room_width;	// Right level boundary.
+	v_limitright2=limitrgt;		// Right level boundary.
 	v_limittop2=0;				// Top level boundary.
-	v_limitbtm2=btm;			// Bottom level boundary.
+	v_limitbtm2=limitbtm;		// Bottom level boundary.
 
 	v_limitleft3=0;				// Left Level boundary at the end of an act.
 	v_scrshiftx=0;				// Screen shift as player moves horizontally.
@@ -45,15 +45,30 @@ function INIT_LEVEL(this_zone, this_act, bgm, btm, p_x, p_y){
 
 	// Spawn water surface object if there is water
 
-	// Lamppost data
+	// Lamppost data - Returning from lamppost or Giant Ring
 	if (lamp_last>0) scr_lamp_data_load();
-	else
+
+	else // Starting a level
 	{
-		p_rings = 0;
 		p_time = 0;
-		framecount=0;
-		scr_osc_num_reset();	// Initialize Oscillating numbers
-		f_timecount = true;
-		osc_active = true;
+		p_timecenti=0;      // Playing time
+		p_timeseconds=0;    // Playing time
+		p_timeminutes=0;    // Playing time
+
+		if (f_restart) { // Restarting a level from death
+			p_rings = 0;
+			p_score = start_score;	// For the eventual Score Attack
+		}
+
+		else { // Starting new level
+			// Reset bonuses (Should only do on new level start)
+			p_rings = 0;
+			p_score = start_score;	// For the eventual Score Attack
+			timebonus=50000;
+			ringbonus=0;
+			coolbonus=10000;
+		}
 	}
+	scr_osc_num_reset();	// Initialize Oscillating numbers
+	// Timers will be set after fade in
 }

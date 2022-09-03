@@ -674,6 +674,86 @@ function INIT_OBJDATA_TITLECARDS(){
 		acts_mainx	:	 244,
 		oval_mainx	:	 236
 	}
+
+	global.GotCard_ConData = array_create(14);
+	
+	global.GotCard_ConData[PL_SONIC] = {
+		text	: "SONIC HAS",
+		mainx	:	 144,
+		mainy	:	  72
+	}
+	global.GotCard_ConData[PL_TAILS] = {
+		text	: "TAILS HAS",
+		mainx	:	 148,
+		mainy	:	  72
+	}
+	global.GotCard_ConData[PL_KNUCKLES] = {
+		text	: "KNUCKLES HAS",
+		mainx	:	 138,
+		mainy	:	  72
+	}
+	global.GotCard_ConData[PL_AMY] = {
+		text	: "AMY HAS",
+		mainx	:	 150,
+		mainy	:	  72
+	}
+	global.GotCard_ConData[PL_MIGHTY] = {
+		text	: "MIGHTY HAS",
+		mainx	:	 140,
+		mainy	:	  72
+	}
+	global.GotCard_ConData[PL_RAY] = {
+		text	: "RAY HAS",
+		mainx	:	 150,
+		mainy	:	  72
+	}
+	global.GotCard_ConData[PL_METAL] = {
+		text	: "METAL HAS",
+		mainx	:	 144,
+		mainy	:	  72
+	}
+	// "PASSED"
+	global.GotCard_ConData[PL_METAL+1] = {
+		text	:	  "",
+		mainx	:	 164,
+		mainy	:	  92
+	}
+	// ACT X
+	global.GotCard_ConData[PL_METAL+2] = {
+		text	:	  "",
+		mainx	:	 232,
+		mainy	:	  94
+	}
+	// OVAL
+	global.GotCard_ConData[PL_METAL+3] = {
+		text	:	  "",
+		mainx	:	 232,
+		mainy	:	  64
+	}
+	// SCORE
+	global.GotCard_ConData[PL_METAL+4] = {
+		text	:	  "",
+		mainx	:	 132,
+		mainy	:	 112
+	}
+	// TIME BONUS
+	global.GotCard_ConData[PL_METAL+5] = {
+		text	:	  "",
+		mainx	:	 132,
+		mainy	:	 128
+	}
+	// RING BONUS
+	global.GotCard_ConData[PL_METAL+6] = {
+		text	:	  "",
+		mainx	:	 132,
+		mainy	:	 144
+	}
+	// COOL BONUS
+	global.GotCard_ConData[PL_METAL+7] = {
+		text	:	  "",
+		mainx	:	 132,
+		mainy	:	 160
+	}
 }
 function INIT_SOUND_SYSTEM(){
 	global.core_sound		= instance_create_layer(0, 2, "Core", obj_soundcontrol);
@@ -1001,6 +1081,7 @@ function INIT_MISC_VARS(){
 	globalvar CARDFONT;			CARDFONT = font_add_sprite(spr_titlecard,ord("A"),true,1);	// Alphabetical Card Font
 	globalvar framecount;		framecount=0;		// Frame timer
 	globalvar f_pause;          f_pause=false;		// Game Pausing flag
+	globalvar f_restart;		f_restart=false;	// Are we restarting a level (from death)
 	globalvar p_score;          p_score=0;          // Player's score
 	globalvar p_time;           p_time=0;           // Playing time
 	globalvar p_timecenti;      p_timecenti=0;      // Playing time
@@ -1012,9 +1093,11 @@ function INIT_MISC_VARS(){
 	globalvar p_scorelife;      p_scorelife=50000;  // Amount of points needed for an extra life
 	globalvar p_ringlife;       p_ringlife=0;       // Counter for extra lives per rings
 
+	globalvar f_endactbonus;	f_endactbonus=false; // When this flag is set, bonuses will be applied.
 	globalvar itembonus;        itembonus=0;        // The counter that determines the number of points received when destroying enemies or objects.
 	globalvar timebonus;        timebonus=0;        // The points counter for time bonuses. The faster you complete a level, the higher the bonus. TIME OVER results in NO bonus.
 	globalvar ringbonus;        ringbonus=0;        // The points counter for ring bonuses. You get 100 pts per ring when you complete a level.
+	globalvar coolbonus;		coolbonus=0;		// The points counter for cool bonuses. You get more points the fewer times you get hit.
 	globalvar timeover;			timeover=0;			// if 1, player had a time over and will receive no time bonus.
 	globalvar gravity_angle;    gravity_angle=0;    // The global zone gravity. Character gravity is based on this.
 

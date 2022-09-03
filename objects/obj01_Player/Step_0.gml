@@ -47,7 +47,10 @@ switch(routine)
 	
 	case 4: // Sonic_Restart
 		if (restart_timer) restart_timer--;
-		if !(restart_timer) scr_trigger_fade(room, true);
+		if !(restart_timer) {
+			f_restart = true; // Restarting the level
+			scr_trigger_fade(room, true);
+		}
 	break;
 }
 

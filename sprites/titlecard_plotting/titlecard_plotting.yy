@@ -24,13 +24,13 @@
   "gridX": 4,
   "gridY": 2,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"7982db16-3296-4b87-9310-7f0b9645f6e9","path":"sprites/scrap_paper/scrap_paper.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"7982db16-3296-4b87-9310-7f0b9645f6e9","path":"sprites/scrap_paper/scrap_paper.yy",},"LayerId":{"name":"8ae82305-c13c-4b54-b11f-f3d05cfd4365","path":"sprites/scrap_paper/scrap_paper.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-        {"FrameId":{"name":"7982db16-3296-4b87-9310-7f0b9645f6e9","path":"sprites/scrap_paper/scrap_paper.yy",},"LayerId":{"name":"6aa6b87d-5d65-4ec4-a01c-ea182138e4e6","path":"sprites/scrap_paper/scrap_paper.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"scrap_paper","path":"sprites/scrap_paper/scrap_paper.yy",},"resourceVersion":"1.0","name":"7982db16-3296-4b87-9310-7f0b9645f6e9","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"7982db16-3296-4b87-9310-7f0b9645f6e9","path":"sprites/titlecard_plotting/titlecard_plotting.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"7982db16-3296-4b87-9310-7f0b9645f6e9","path":"sprites/titlecard_plotting/titlecard_plotting.yy",},"LayerId":{"name":"8ae82305-c13c-4b54-b11f-f3d05cfd4365","path":"sprites/titlecard_plotting/titlecard_plotting.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+        {"FrameId":{"name":"7982db16-3296-4b87-9310-7f0b9645f6e9","path":"sprites/titlecard_plotting/titlecard_plotting.yy",},"LayerId":{"name":"6aa6b87d-5d65-4ec4-a01c-ea182138e4e6","path":"sprites/titlecard_plotting/titlecard_plotting.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"titlecard_plotting","path":"sprites/titlecard_plotting/titlecard_plotting.yy",},"resourceVersion":"1.0","name":"7982db16-3296-4b87-9310-7f0b9645f6e9","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"scrap_paper","path":"sprites/scrap_paper/scrap_paper.yy",},
+    "spriteId": {"name":"titlecard_plotting","path":"sprites/titlecard_plotting/titlecard_plotting.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 1.0,
@@ -42,7 +42,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"4ce16c03-95eb-4218-9213-6b8ac4aa1543","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"7982db16-3296-4b87-9310-7f0b9645f6e9","path":"sprites/scrap_paper/scrap_paper.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
+            {"id":"4ce16c03-95eb-4218-9213-6b8ac4aa1543","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"7982db16-3296-4b87-9310-7f0b9645f6e9","path":"sprites/titlecard_plotting/titlecard_plotting.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
@@ -59,9 +59,9 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"scrap_paper","path":"sprites/scrap_paper/scrap_paper.yy",},
+    "parent": {"name":"titlecard_plotting","path":"sprites/titlecard_plotting/titlecard_plotting.yy",},
     "resourceVersion": "1.4",
-    "name": "scrap_paper",
+    "name": "titlecard_plotting",
     "tags": [],
     "resourceType": "GMSequence",
   },
@@ -75,7 +75,7 @@
     "path": "folders/Sprites.yy",
   },
   "resourceVersion": "1.0",
-  "name": "scrap_paper",
+  "name": "titlecard_plotting",
   "tags": [],
   "resourceType": "GMSprite",
 }

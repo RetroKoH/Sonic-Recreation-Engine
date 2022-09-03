@@ -1,5 +1,4 @@
 /// @description Motobug Routines
-
 if fading || !active exit;
 
 // Routine 0 - Spawn/Respawn Init

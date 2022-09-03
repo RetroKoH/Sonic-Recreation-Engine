@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_spikes_3",
-    "path": "sprites/spr_spikes_3/spr_spikes_3.yy",
+    "name": "spr_hiddenpts",
+    "path": "sprites/spr_hiddenpts/spr_hiddenpts.yy",
   },
   "solid": false,
   "visible": true,
@@ -9,8 +9,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "objParent_Solid",
-    "path": "objects/objParent_Solid/objParent_Solid.yy",
+    "name": "objParent_Routine",
+    "path": "objects/objParent_Routine/objParent_Routine.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -25,18 +25,18 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Side",
-    "path": "folders/Objects/obj36_Spikes/Side.yy",
+    "name": "Objects",
+    "path": "folders/Objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj36_Spikes_Side",
+  "name": "obj7D_HiddenPts",
   "tags": [],
   "resourceType": "GMObject",
 }

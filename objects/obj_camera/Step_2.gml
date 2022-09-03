@@ -1,7 +1,5 @@
 /// @description Set position of view
-
-camera_set_view_size(view, view_width, view_height);
-
+// This needs to be rewritten
 x=camera_get_view_x(view)+view_width/2;
 y=camera_get_view_y(view)+view_height/2;
 

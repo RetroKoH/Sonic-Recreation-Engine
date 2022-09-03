@@ -1,5 +1,4 @@
 /// @description Title Card Routines
-
 switch(routine){
 	case 0:
 		routine++;
@@ -41,7 +40,7 @@ switch(routine){
 		if (finished[0] && finished[1] && finished[2] && finished[3])
 		{
 			routine++;
-			timer=150;
+			timer=120;
 		}
 	break;
 	
@@ -55,6 +54,11 @@ switch(routine){
 	break;
 	
 	case 3: // Timer to go away
+		if !(fading) && !(f_timecount) {
+			framecount = 0;
+			f_timecount = true;
+			osc_active = true;
+		}
 		timer--;
 		if (timer==0){
 			routine++;

@@ -10,7 +10,6 @@ xpos = array_create(4, 0);
 ypos = array_create(4, 0);
 finished = array_create(4, false);
 
-// Create subsprites for the text
 if zone==ZONE_SBZ && act==3 {
 	zone_name = global.TtlCard_ConData[ZONE_MGHZ+1].name;
 	act_flag = false;
@@ -20,6 +19,7 @@ else {
 	act_flag = true;
 }
 
+// Create subsprites for the text
 var f = draw_get_font(), a = draw_get_halign();
 draw_set_font(CARDFONT); draw_set_halign(fa_left);
 

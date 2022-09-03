@@ -1,11 +1,10 @@
 /// @description Draw out the HUD
 // SCORE, TIME, RINGS
-
 if debug exit;
 
 draw_sprite_ext(spr_HUD,0,16*3,8*3,3,3,0,c_white,1);	// SCORE
-draw_sprite_ext(spr_HUD,1,16*3,24*3,3,3,0,c_white,1);	// TIME
-draw_sprite_ext(spr_HUD,2,16*3,40*3,3,3,0,c_white,1);	// RINGS
+if !((p_timeminutes == 9) && (blink)) draw_sprite_ext(spr_HUD,1,16*3,24*3,3,3,0,c_white,1);	// TIME
+if !((p_rings == 0) && (blink)) draw_sprite_ext(spr_HUD,2,16*3,40*3,3,3,0,c_white,1);	// RINGS
 
 // Draw the text
 var f = draw_get_font();

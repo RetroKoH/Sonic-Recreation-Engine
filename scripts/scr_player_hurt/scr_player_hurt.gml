@@ -35,13 +35,17 @@ function scr_player_hurt(obj){
 		anim_ID		=	anim_player.hurt;
 		invuln_timer =	120;
 
+		if (coolbonus)
+			coolbonus -= 1000;		// 1000 is lost for each hit.
+
 	    angle		=	0;			// Angle is set to rotate back to gravity_angle
 	    move_lock   =   true;		// We cannot enter any input while hurt... SORRY! :P
 	}
 
 	// If all else is false, the character dies.
 	else {
-		if (object_get_parent(obj.object_index) == obj36_Spikes) scr_player_death(true);
+		if (object_get_parent(obj.object_index) == obj36_SpikesUp || object_get_parent(obj.object_index) == obj36_SpikesSide)
+			scr_player_death(true);
 		else scr_player_death();
 	}
 }

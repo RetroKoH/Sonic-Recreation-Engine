@@ -10,6 +10,7 @@ if (f_timecount)
 	{
 		p_time = 0;
 		p_timeseconds++;
+		p_timecenti = p_timecenti mod 100;
 		if (p_timeseconds >= 60)
 		{
 			p_timeseconds = 0;
@@ -17,3 +18,5 @@ if (f_timecount)
 		}
 	}
 }
+
+if (framecount%8 == 0) blink^=true;

@@ -12,7 +12,7 @@ switch(routine)
 	    {
 	        audio_play_sound(sfx_Signpost,1,false);
 	        f_timecount = false; // Clear Time Count flag
-			v_limitleft2 = x - 212;
+			v_limitleft2 = v_limitright2-424;
 	        routine++;
 			anim_ID++;    // Start the first animation.
 	    }
@@ -46,5 +46,7 @@ switch(routine)
 
 	case 2: // Sign_SonicRun
 	{
+		routine++;
+		scr_got_through_act();
 	} break;
 }
