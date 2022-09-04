@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_titlecard",
-    "path": "sprites/spr_titlecard/spr_titlecard.yy",
+    "name": "spr_gameover",
+    "path": "sprites/spr_gameover/spr_gameover.yy",
   },
   "solid": false,
   "visible": true,

@@ -2,6 +2,14 @@
 if fading || !active exit;
 
 // Routine 0 - Spawn/Respawn Init
-if routine == 0
+switch(routine)
 {
+	case 0:
+		routine++;
+		height=$10;
+		width=8;
+		rout_2nd=0;
+	break;
+	case 1:
+	break;
 }
