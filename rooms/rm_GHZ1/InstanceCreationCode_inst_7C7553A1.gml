@@ -1,0 +1,1 @@
+subtype=MON_SHIELD;

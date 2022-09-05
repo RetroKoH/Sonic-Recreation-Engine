@@ -19,6 +19,6 @@ function scr_touch_objEnemy(){
 	        // Destroy enemy
 	        with(obj) scr_destroy_enemy();
 	    }
-	    else scr_player_hurt(obj);
+	    else if (obj.can_harm) scr_player_hurt(obj);
 	}
 }

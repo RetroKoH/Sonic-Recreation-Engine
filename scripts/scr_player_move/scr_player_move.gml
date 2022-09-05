@@ -69,18 +69,21 @@ function scr_player_move() {
 			if global.k_u_h
 			{
 				anim_ID=anim_player.lookup;
-				v_lookshift+=2;
+				if (v_lookshift > -88) v_lookshift-=2;
 			}
 			else if global.k_d_h
 			{
 				anim_ID=anim_player.duck;
-				v_lookshift-=2;
+				if (v_lookshift < 88) v_lookshift+=2;
+			}
+			else
+			{
+				// Reset screen
+				if v_lookshift<0      v_lookshift+=2; // If we were looking up, bring look shift back down.
+				else if v_lookshift>0 v_lookshift-=2; // If we were looking down, bring look shift back up.
 			}
 		}
 	}
-	// Reset screen
-	if v_lookshift>$60      v_lookshift-=2; // If we were looking up, bring look shift back down.
-	else if v_lookshift<$60 v_lookshift+=2; // If we were looking down, bring look shift back up.
 
 	// Friction
 	if (move == 0) gsp-=min(abs(gsp),accel_run)*sign(gsp);	// Friction formula according to Sonic Retro Physics Guide.
