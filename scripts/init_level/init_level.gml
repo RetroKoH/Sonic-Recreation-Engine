@@ -1,9 +1,12 @@
 function INIT_LEVEL(this_zone, this_act, bgm, limitbtm, limitrgt, p_x, p_y){
+	instance_create_layer(0,0,"Core",obj_GMLevel);
+	
 	// Set up layer IDs
 	var layer_id = layer_get_id("Collision_0");
 	map_id[0] = layer_tilemap_get_id(layer_id);
 	layer_id = layer_get_id("Collision_1");
 	map_id[1] = layer_tilemap_get_id(layer_id);
+	spr_id = layer_get_id("Anim_Art");
 	layer_id = layer_get_id("Foreground");
 	chunks_id = layer_tilemap_get_id(layer_id);
 

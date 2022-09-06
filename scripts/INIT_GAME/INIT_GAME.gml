@@ -160,6 +160,7 @@ function INIT_DEBUG(){
 }
 function INIT_KEYMAP(){
 	INIT_KEY_INDEX();
+	globalvar key_ignore; key_ignore=false;
 
 	// If the controls file doesn't exist, it'll be created automatically here
 	if !file_exists("settings.ini") scr_debug_log_add("Settings File Not Found. A new one will be created.");
@@ -317,8 +318,8 @@ function INIT_SCREEN(){
 }
 function INIT_COLLIDE(){
 	// Collision tile related data
-	globalvar map_id, chunks_id, chunks_count;
-	map_id[0] = -1; map_id[1] = -1; chunks_id = -1; chunks_count = 0;
+	globalvar map_id, spr_id, chunks_id, chunks_count;
+	map_id[0] = -1; map_id[1] = -1; spr_id = -1; chunks_id = -1; chunks_count = 0;
 	INIT_COL_ARRAYS();
 }
 function INIT_COL_ARRAYS(){
