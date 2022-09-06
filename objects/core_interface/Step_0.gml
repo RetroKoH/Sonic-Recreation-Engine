@@ -1,7 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-if instance_exists(Core_Level)
+if instance_exists(Core_Level) && !(fading) && (f_levelstarted)
 	if (f_pause)
 	{
 		if (global.k_st_p)

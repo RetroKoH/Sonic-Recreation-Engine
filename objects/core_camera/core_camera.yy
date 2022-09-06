@@ -8,7 +8,10 @@
   "managed": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "Core_",
+    "path": "objects/Core_/Core_.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,

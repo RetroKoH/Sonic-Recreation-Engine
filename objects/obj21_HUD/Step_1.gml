@@ -1,4 +1,8 @@
 /// @description Handle HUD blinking
+if instance_exists(cam){
+	x=cam.viewX;
+	y=cam.viewY;
+}
 if (framecount%8 == 0) blink^=true;
 
 // Calculate HUD digits

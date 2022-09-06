@@ -1,7 +1,7 @@
-function scr_got_through_act(){
+function scr_got_through_act(_x,_y){
 		player.invinc_timer=0;
 		// Shoes cleared upon hitting signpost
-		instance_create_depth(0,0,0,obj3A_GotThroughCard);
+		instance_create_depth(_x,_y,0,obj3A_GotThroughCard);
 		f_endactbonus = true;
 		ringbonus = p_rings*100;
 		

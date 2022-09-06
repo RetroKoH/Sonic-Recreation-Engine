@@ -47,6 +47,6 @@ switch(routine)
 	case 2: // Sign_SonicRun
 	{
 		routine++;
-		scr_got_through_act();
+		scr_got_through_act(x,y);
 	} break;
 }

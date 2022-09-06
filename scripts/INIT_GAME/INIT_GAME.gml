@@ -1084,9 +1084,10 @@ function INIT_MISC_VARS(){
 	}
 	globalvar HUDFONT;          HUDFONT = font_add_sprite(spr_HUDnumbers,ord("0"),false,0);	// Numerical HUD Font
 	globalvar CARDFONT;			CARDFONT = font_add_sprite(spr_titlecard,ord("A"),true,1);	// Alphabetical Card Font
-	globalvar f_pause;          f_pause=false;		// Game Pausing flag
-	globalvar f_restart;		f_restart=false;	// Are we restarting a level (from death)
-	globalvar f_timecount;      f_timecount=false;  // Time counter update flag
+	globalvar f_levelstarted;	f_levelstarted=false;	// IF true, we can start playing (and pausing).
+	globalvar f_pause;          f_pause=false;			// Game Pausing flag
+	globalvar f_restart;		f_restart=false;		// Are we restarting a level (from death)
+	globalvar f_timecount;      f_timecount=false;		// Time counter update flag
 
 	globalvar centiseconds;							// Precalculated centiseconds
 	for (var i=0; i<60; i++)	centiseconds[i] = round(100*(i/60));

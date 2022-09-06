@@ -1,5 +1,8 @@
 {
-  "spriteId": null,
+  "spriteId": {
+    "name": "three_gear_icon_5",
+    "path": "sprites/three_gear_icon_5/three_gear_icon_5.yy",
+  },
   "solid": false,
   "visible": true,
   "managed": true,
@@ -22,11 +25,11 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "Core",
+    "path": "folders/Core.yy",
   },
   "resourceVersion": "1.0",
-  "name": "Object140",
+  "name": "Core_",
   "tags": [],
   "resourceType": "GMObject",
 }

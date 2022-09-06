@@ -60,6 +60,7 @@ switch(routine){
 			Core_Level.run_objects = true;
 			f_timecount = true;
 			osc_active = true;
+			f_levelstarted = true;
 		}
 		timer--;
 		if (timer==0){
