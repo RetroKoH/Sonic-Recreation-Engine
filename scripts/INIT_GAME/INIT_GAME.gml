@@ -23,6 +23,8 @@ function INIT_GAME(){
 function MACROS(){
 	#macro TILE_SIZE 16
 	#macro LOG_TIME 180
+	#macro SCR_HEIGHT 424
+	#macro SCR_WIDTH 240
 
 	// Keymap array indices
 	#macro KEY_DEBUG	0
@@ -128,7 +130,13 @@ function MACROS(){
 	#macro POW_RMVSHIELDS $1E
 	#macro POW_CHKELSHLDS $E0
 	#macro POW_CHKALLSHLD $E3
-	
+
+	// OutOfBounds constants
+	#macro OOB_DESTROY 0
+	#macro OOB_PAUSE 1
+	#macro OOB_RESET 2
+
+	// Monitor constants
 	#macro MON_EGGMAN 0
 	#macro MON_SPEEDSHOES 1
 	#macro MON_SHIELD 2
@@ -152,11 +160,10 @@ function MACROS(){
 	#macro WIDTH_GLIDE $A	// Gliding Width
 }
 function INIT_DEBUG(){
-	globalvar debug; debug = true;				// By default, disable debug
-	globalvar debuglog; debuglog = "";			// Certain messages will go here
-	globalvar debuglog_time; debuglog_time = 0;	// Timer to remove the oldest message
-
-	global.core_debugger = instance_create_layer(0,0,"Core",obj_debugger);
+	globalvar debug; debug = true;						// By default, disable debug
+	globalvar debuglog; debuglog = "";					// Certain messages will go here
+	globalvar debuglog_time; debuglog_time = 0;			// Timer to remove the oldest message
+	instance_create_layer(0,0,"Core",Core_Debugger);
 }
 function INIT_KEYMAP(){
 	INIT_KEY_INDEX();
@@ -195,9 +202,7 @@ function INIT_KEYMAP(){
 	keymap_array[KEY_DEBUG]=ini_read_real("Controls", "KEY_DEBUG", vk_shift);
 	scr_debug_log_add("Keymapping Complete");
 	ini_close();
-	
-	// Create input object
-	global.core_input = instance_create_layer(0,0,"Core",obj_input);
+	instance_create_layer(0,0,"Core",Core_Input); // Create input object
 }
 function INIT_KEY_INDEX(){
 	for(var i = 0; i < 256; i++)
@@ -313,8 +318,8 @@ function INIT_SCREEN(){
 	globalvar v_limitleft3;     v_limitleft3=0;         // Left Level boundary at the end of an act.
 	globalvar v_scrshiftx;      v_scrshiftx=0;          // Screen shift as Sonic moves horizontally.
 	globalvar v_lookshift;      v_lookshift=0;          // Screen shift when Sonic looks up/down.
-
-	global.core_fade = instance_create_layer(0, 1, "Core", obj_fade);
+	instance_create_layer(0, 1, "Core", Core_Fade);
+	instance_create_layer(0, 1, "Core", Core_Interface);
 }
 function INIT_COLLIDE(){
 	// Collision tile related data
@@ -757,8 +762,7 @@ function INIT_OBJDATA_TITLECARDS(){
 	}
 }
 function INIT_SOUND_SYSTEM(){
-	global.core_sound		= instance_create_layer(0, 2, "Core", obj_soundcontrol);
-	global.core_music		= instance_create_layer(0, 3, "Core", obj_musiccontrol);
+	instance_create_layer(0, 3, "Core", Core_Music);
 	global.default_track	= BGM_tracks.Title;
 	global.ring_pan = 0;	// Alternates between 0 (left) and 1 (right);
 
@@ -1080,15 +1084,16 @@ function INIT_MISC_VARS(){
 	}
 	globalvar HUDFONT;          HUDFONT = font_add_sprite(spr_HUDnumbers,ord("0"),false,0);	// Numerical HUD Font
 	globalvar CARDFONT;			CARDFONT = font_add_sprite(spr_titlecard,ord("A"),true,1);	// Alphabetical Card Font
-	globalvar framecount;		framecount=0;		// Frame timer
 	globalvar f_pause;          f_pause=false;		// Game Pausing flag
 	globalvar f_restart;		f_restart=false;	// Are we restarting a level (from death)
+	globalvar f_timecount;      f_timecount=false;  // Time counter update flag
+
+	globalvar centiseconds;							// Precalculated centiseconds
+	for (var i=0; i<60; i++)	centiseconds[i] = round(100*(i/60));
+
+	globalvar framecount;		framecount=0;		// Frame timer
 	globalvar p_score;          p_score=0;          // Player's score
 	globalvar p_time;           p_time=0;           // Playing time
-	globalvar p_timecenti;      p_timecenti=0;      // Playing time
-	globalvar p_timeseconds;    p_timeseconds=0;    // Playing time
-	globalvar p_timeminutes;    p_timeminutes=0;    // Playing time
-	globalvar f_timecount;      f_timecount=false;  // Time counter update flag
 	globalvar p_rings;          p_rings=0;          // Player's rings
 	globalvar p_lives;          p_lives=3;          // Player's lives
 	globalvar p_scorelife;      p_scorelife=50000;  // Amount of points needed for an extra life

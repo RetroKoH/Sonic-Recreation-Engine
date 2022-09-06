@@ -16,8 +16,7 @@ function scr_give_powerup(powerup){
 			player.powerups|=POW_SHIELD;		// Set blue shield flag
 			if player.my_shield!=-1 instance_destroy(player.my_shield);
 			player.my_shield = instance_create_layer(player.x,player.y,"Instances",obj38_Shield_Blue);
-			audio_play_sound_at(sfx_ShieldBlue,x+(x-player.x),y,0,
-				global.core_sound.max_dist,global.core_sound.dropoff_dist,global.core_sound.multiplier,false,1);
+			audio_play_sound(sfx_ShieldBlue,1,false);
 		break;
 		case MON_INVINC:
 			if !player.super {
@@ -31,8 +30,7 @@ function scr_give_powerup(powerup){
 		break;
 		case MON_RINGS:
 			scr_collect_rings(10);
-			audio_play_sound_at(sfx_RingBox,x+(x-player.x),y,0,
-				global.core_sound.max_dist,global.core_sound.dropoff_dist,global.core_sound.multiplier,false,1);
+			audio_play_sound(sfx_RingBox,1,false);
 		break;
 		case MON_SUPER:
 			player.super = true;
@@ -43,8 +41,7 @@ function scr_give_powerup(powerup){
 			player.powerups|=POW_FLAME;			// Set flame shield flag
 			if player.my_shield!=-1 instance_destroy(player.my_shield);
 			player.my_shield = instance_create_layer(player.x,player.y,"Instances",obj38_Shield_Flame);
-			audio_play_sound_at(sfx_ShieldFlame,x+(x-player.x),y,0,
-				global.core_sound.max_dist,global.core_sound.dropoff_dist,global.core_sound.multiplier,false,1);
+			audio_play_sound(sfx_ShieldFlame,1,false);
 		break;
 		case MON_SHIELD_B:
 			player.powerups&=POW_RMVSHIELDS;	// Clear shield flags
@@ -52,8 +49,7 @@ function scr_give_powerup(powerup){
 			player.powerups|=POW_BUBBLE;		// Set bubble shield flag
 			if player.my_shield!=-1 instance_destroy(player.my_shield);
 			player.my_shield = instance_create_layer(player.x,player.y,"Instances",obj38_Shield_Bubble);
-			audio_play_sound_at(sfx_ShieldBubble,x+(x-player.x),y,0,
-				global.core_sound.max_dist,global.core_sound.dropoff_dist,global.core_sound.multiplier,false,1);
+			audio_play_sound(sfx_ShieldBubble,1,false);
 		break;
 		case MON_SHIELD_L:
 			player.powerups&=POW_RMVSHIELDS;	// Clear shield flags
@@ -61,8 +57,7 @@ function scr_give_powerup(powerup){
 			player.powerups|=POW_LIGHTNING;		// Set lightning shield flag
 			if player.my_shield!=-1 instance_destroy(player.my_shield);
 			player.my_shield = instance_create_layer(player.x,player.y,"Instances",obj38_Shield_Lightning);
-			audio_play_sound_at(sfx_ShieldLightning,x+(x-player.x),y,0,
-				global.core_sound.max_dist,global.core_sound.dropoff_dist,global.core_sound.multiplier,false,1);
+			audio_play_sound(sfx_ShieldLightning,1,false);
 		break;
 		case MON_GOGGLES:
 		case MON_CLOCK: // Used in the new Bonus Stage

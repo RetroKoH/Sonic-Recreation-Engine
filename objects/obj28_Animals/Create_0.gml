@@ -1,7 +1,6 @@
 /// @description Init animals from badniks
-// The animal that breaks out of the badnik. This object is suprisingly complex.
-// It starts with jumping out and leaping away to the left. It also is responsible for creating points objects.
-
+event_inherited();
+scr_obj_priority(6);
 routine = 0;
 subtype = 0;
 width = 4;
@@ -13,4 +12,3 @@ mov_ysp = 0;
 col_path = 0;	// Collision has two paths
 frame_time = 1;
 image_speed=0;                         // We don't want an animation right away, so this is 0.
-scr_obj_priority(6);

@@ -1,7 +1,7 @@
 function scr_set_bgm(track){
 	// Place title music in track listing and have a var for it to NOT loop
 	scr_stop_bgm();
-	with(global.core_music)
+	with(Core_Music)
 	{
 		bgm				= global.BGM_list[track].ID;
 		intro_length	= global.BGM_list[track].loop_start;
@@ -12,7 +12,7 @@ function scr_set_bgm(track){
 }
 
 function scr_stop_bgm(){
-	with(global.core_music)
+	with(Core_Music)
 	{
 		/*if audio_is_playing(bgm)
 		{
@@ -34,7 +34,7 @@ function scr_stop_bgm(){
 }
 
 function scr_play_1up(){
-	with(global.core_music)
+	with(Core_Music)
 	{
 		scr_pause_bgm();	// Pause BGM
 		if audio_is_playing(bgm_1Up) audio_stop_sound(bgm_1Up);
@@ -44,7 +44,7 @@ function scr_play_1up(){
 }
 
 function scr_pause_bgm(){
-	with(global.core_music)
+	with(Core_Music)
 	{
 		if audio_is_playing(playing)
 		{
@@ -54,7 +54,7 @@ function scr_pause_bgm(){
 }
 
 function scr_unpause_bgm(){
-	with(global.core_music)
+	with(Core_Music)
 	{
 		if audio_is_paused(playing)
 		{

@@ -1,5 +1,5 @@
-/// @description Motobug Routines
-if fading || !active exit;
+/// @description Yadrin Routines
+if fading exit;
 
 // Routine 0 - Spawn/Respawn Init
 if routine == 0
@@ -11,8 +11,6 @@ if routine == 0
 	routine++;
 	routine_2nd=0;	// Secondary routine counter.
 	time=0;         // Timer delay to start moving.
-	smokedelay=0;   // Timer delay until motobug lets out a puff of smoke.
-	if is_respawning scr_reset_anim();
 }
 
 // Routine 1 - Set position on the ground

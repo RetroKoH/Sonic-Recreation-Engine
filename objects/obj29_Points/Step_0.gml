@@ -1,7 +1,4 @@
 /// @description Present Points
-// This tells the object to move upwards with ysp. While it is moving upwards, ysp decreases.
-// If the object is NOT moving, it fades out and deletes itself. AGAIN, it is not the object that increases SCORE.
-
 if ysp<0 // If the object is moving,
 {
     y+=ysp;     // Move the object upwards with ysp.

@@ -5,7 +5,10 @@
   "managed": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "obj00_LevelObjects",
+    "path": "objects/obj00_LevelObjects/obj00_LevelObjects.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,

@@ -6,8 +6,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "obj00",
-    "path": "objects/obj00/obj00.yy",
+    "name": "obj00_LevelObjects",
+    "path": "objects/obj00_LevelObjects/obj00_LevelObjects.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -21,9 +21,7 @@
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [],
-  "eventList": [
-    {"isDnD":false,"eventNum":40,"eventType":7,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-  ],
+  "eventList": [],
   "properties": [],
   "overriddenProperties": [],
   "parent": {

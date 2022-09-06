@@ -1,5 +1,5 @@
 /// @description Newtron Routines
-if fading || !active exit;
+if fading exit;
 
 // Routine 0 - Spawn/Respawn Init
 switch(routine)

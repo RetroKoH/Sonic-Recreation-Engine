@@ -1,4 +1,4 @@
-/// @description Init Motobug
+/// @description Init Yadrin
 event_inherited();
 scr_obj_priority(4);
 

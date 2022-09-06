@@ -6,17 +6,14 @@ function scr_got_through_act(){
 		ringbonus = p_rings*100;
 		
 		// Calculate Time Bonus
-		var sec = p_timeseconds;
-		sec += p_timeminutes*60;
-
-		if (sec < 60)		timebonus=50000;	// Under 1 minute
-		else if (sec < 90)	timebonus=10000;	// Under 1:30
-		else if (sec < 120)	timebonus=5000;		// Under 2:00
-		else if (sec < 150)	timebonus=4000;		// Under 2:30
-		else if (sec < 180)	timebonus=3000;		// Under 3:00
-		else if (sec < 210)	timebonus=2000;		// Under 3:30
-		else if (sec < 240)	timebonus=1000;		// Under 4:00
-		else if (sec < 300)	timebonus=100;		// Under 5:00
+		if (p_time < 3600)			timebonus=50000;	// Under 1:00
+		else if (p_time < 5400)		timebonus=10000;	// Under 1:30
+		else if (p_time < 7200)		timebonus=5000;		// Under 2:00
+		else if (p_time < 9000)		timebonus=4000;		// Under 2:30
+		else if (p_time < 10800)	timebonus=3000;		// Under 3:00
+		else if (p_time < 12600)	timebonus=2000;		// Under 3:30
+		else if (p_time < 14400)	timebonus=1000;		// Under 4:00
+		else if (p_time < 18000)	timebonus=100;		// Under 5:00
 		else timebonus = 0;
 		
 		// Cool Bonus is already determined

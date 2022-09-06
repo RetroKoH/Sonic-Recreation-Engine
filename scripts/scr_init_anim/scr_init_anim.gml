@@ -1,4 +1,5 @@
 function scr_init_anim(table, ID){
+	has_anims			= true;						// This object has animations
 	anim_table			= table;					// Animations Table
 	anim_ID				= ID;						// Start with the ENTRY animation
 	scr_reset_anim();

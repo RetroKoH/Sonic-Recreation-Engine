@@ -1,5 +1,7 @@
 /// @description Init Swinging Chain
+event_inherited();
 image_speed=0;
+scr_obj_OOB_settings(OOB_PAUSE);
 scr_obj_priority(3);
 routine=0;
 angle=0;

@@ -1,5 +1,5 @@
 function INIT_LEVEL(this_zone, this_act, bgm, limitbtm, limitrgt, p_x, p_y){
-	instance_create_layer(0,0,"Core",obj_GMLevel);
+	instance_create_layer(0,0,"Core",Core_Level);
 	
 	// Set up layer IDs
 	var layer_id = layer_get_id("Collision_0");
@@ -40,8 +40,7 @@ function INIT_LEVEL(this_zone, this_act, bgm, limitbtm, limitrgt, p_x, p_y){
 	scr_layout_init(zone);
 
 	// Set up Camera and place player
-	playermode = PL_SONIC;
-	cam = instance_create_layer(p_x-12,p_y+32,"Core",obj_camera);
+	cam = instance_create_layer(p_x-12,p_y+32,"Core",Core_Camera);
 	player = instance_create_layer(p_x,p_y,"Instances",obj_Players[playermode]);
 	instance_create_layer(0,0,"Core",obj21_HUD);
 	cam.follow = player;
@@ -53,10 +52,7 @@ function INIT_LEVEL(this_zone, this_act, bgm, limitbtm, limitrgt, p_x, p_y){
 
 	else // Starting a level
 	{
-		p_time = 0;
-		p_timecenti=0;      // Playing time
-		p_timeseconds=0;    // Playing time
-		p_timeminutes=0;    // Playing time
+		p_time = 0;	// Playing time
 
 		if (f_restart) { // Restarting a level from death
 			p_rings = 0;

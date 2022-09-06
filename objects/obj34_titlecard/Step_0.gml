@@ -49,13 +49,15 @@ switch(routine){
 		if (timer==0){
 			routine++;
 			timer=90;
-			global.core_fade.load_card=false;
+			Core_Fade.load_card=false;
 		}
 	break;
 	
 	case 3: // Timer to go away
 		if !(fading) && !(f_timecount) {
 			framecount = 0;
+			Core_Level.time_running = true;
+			Core_Level.run_objects = true;
 			f_timecount = true;
 			osc_active = true;
 		}

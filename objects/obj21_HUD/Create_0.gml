@@ -1,4 +1,5 @@
-/// @description Insert description here
-// You can write your code in this editor
-
-blink = false; // If true, certain elements will blink
+/// @description Init HUD
+blink		= false; // If true, certain elements will blink
+HUD_min		= 0;
+HUD_sec		= 0;
+HUD_cent	= 0;

@@ -1,6 +1,4 @@
-/// @description Insert description here
-// This is the Step Event code for the Chopper badnik object.
-
+/// @description Chopper Routine
 y+=ysp;                         // Apply speed to the badnik's y-position
 ysp+=.09375;                    // Reduce speed
 

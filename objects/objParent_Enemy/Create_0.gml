@@ -1,9 +1,6 @@
 /// @description Global Enemy Init
-
-// Respawn information (Only respawn if not destroyed)
-active			= true;
-can_respawn		= true;
-is_respawning	= false;
+event_inherited();
+scr_obj_OOB_settings(OOB_RESET);
 
 // Global enemy variables
 xsp			= 0;		// X-movement speed

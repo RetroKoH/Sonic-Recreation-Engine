@@ -6,8 +6,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "obj00",
-    "path": "objects/obj00/obj00.yy",
+    "name": "obj00_LevelObjects",
+    "path": "objects/obj00_LevelObjects/obj00_LevelObjects.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
