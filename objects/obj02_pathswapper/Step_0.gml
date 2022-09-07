@@ -19,12 +19,12 @@ switch(routine)
 		if orientation == 0
 		{
 			if player.x > x swap_flag = true; // For vertical swappers (if Sonic is to the right)
-			routine = 2;
+			routine++;
 		}
 		else
 		{
 			if player.y > y swap_flag = true; // For horizontal swappers (If Sonic is under)
-			routine = 2;
+			routine++;
 		}
 	break;
 	

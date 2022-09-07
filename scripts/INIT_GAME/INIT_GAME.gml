@@ -23,8 +23,10 @@ function INIT_GAME(){
 function MACROS(){
 	#macro TILE_SIZE 16
 	#macro LOG_TIME 180
-	#macro SCR_HEIGHT 424
-	#macro SCR_WIDTH 240
+	#macro SCR_WIDTH 320
+	#macro SCR_HEIGHT 224
+	#macro VIEW_HEIGHT 424
+	#macro VIEW_WIDTH 240
 
 	// Keymap array indices
 	#macro KEY_DEBUG	0

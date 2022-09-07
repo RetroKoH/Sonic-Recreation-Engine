@@ -1,7 +1,5 @@
 /// @description Debug Info
-if !debug exit;
-
-// Basic status info - Called by individual characters
+/*if !debug exit;
 
 draw_text(112,8,"SONIC   X: "+string(x)+
 				"\n        Y: "+string(y)+

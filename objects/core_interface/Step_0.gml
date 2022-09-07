@@ -9,6 +9,7 @@ if instance_exists(Core_Level) && !(fading) && (f_levelstarted)
 			f_pause					= false;	// Clear Global Pause flag
 			Core_Level.run_objects	= true;		// In-Game objects are no longer suspended
 			Core_Level.time_running	= true;		// Timers resume
+			scr_obj_activate_range(Core_Camera.viewX);
 			audio_resume_all();
 		}
 	}

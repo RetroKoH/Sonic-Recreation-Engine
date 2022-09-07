@@ -246,6 +246,7 @@
     {"id":{"name":"scr_mighty_startdive","path":"scripts/scr_mighty_startdive/scr_mighty_startdive.yy",},"order":3,},
     {"id":{"name":"aniart_GHZFlower_1","path":"sprites/aniart_GHZFlower_1/aniart_GHZFlower_1.yy",},"order":0,},
     {"id":{"name":"obj1F_Crabmeat","path":"objects/obj1F_Crabmeat/obj1F_Crabmeat.yy",},"order":7,},
+    {"id":{"name":"DEBUG_DATA","path":"scripts/DEBUG_DATA/DEBUG_DATA.yy",},"order":13,},
     {"id":{"name":"spr_MZLavaWall","path":"sprites/spr_MZLavaWall/spr_MZLavaWall.yy",},"order":13,},
     {"id":{"name":"spr_SLZFan","path":"sprites/spr_SLZFan/spr_SLZFan.yy",},"order":1,},
     {"id":{"name":"scr_knux_startglide","path":"scripts/scr_knux_startglide/scr_knux_startglide.yy",},"order":0,},

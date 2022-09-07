@@ -2,6 +2,8 @@ Lead Developer			- RetroKoH
 
 Coding Assistance		- Devon/Ralakimus (Tile Collision Framework)
 
+Additional Programming	- Triangly (Orbinaut Framework -- Pause; Spawn/Despawning)
+
 Engine Documentation	- Sonic Retro (Sonic Physics Guide; Per Mercury and Lapper)
 						- RetroKoH - Modding and Documentation of various aspects of Sonic 1
 						- Flamewing - Modding and Documentation of various aspects of Sonic 3K

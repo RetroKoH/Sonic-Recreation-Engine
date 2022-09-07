@@ -11,9 +11,9 @@ if (run_objects)
 {
 	// Set active object bounds, accurate to the originals
 	var bound_top	= (Core_Camera.viewY & -128) - 128;
-	var bound_btm	= (Core_Camera.viewY & -128) + SCR_HEIGHT+64 + SCR_HEIGHT;
+	var bound_btm	= (Core_Camera.viewY & -128) + VIEW_HEIGHT + SCR_HEIGHT;
 	var bound_left	= (Core_Camera.viewX & -128) - 128;
-	var bound_right	= (Core_Camera.viewX & -128) + SCR_WIDTH+64 + SCR_WIDTH;
+	var bound_right	= (Core_Camera.viewX & -128) + VIEW_WIDTH + SCR_WIDTH;
 	
 	with(obj00_LevelObjects) switch(OOB_flag)	// Behavior depends on flag attributed to object
 	{
@@ -54,8 +54,6 @@ if (run_objects)
 						// Call Create event in case object is using its own variables for positioning
 						event_perform(ev_create, 0);
 					}
-		break;
-		default:
 		break;
 	}
 } scr_obj_activate_range(Core_Camera.viewX); // Load objects (objects that were deactivated on this frame won't be activated!)
