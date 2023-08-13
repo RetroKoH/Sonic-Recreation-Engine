@@ -13,7 +13,8 @@ function scr_player_angle_pos(){
 	else
 	{
 		// Get tile distance
-		var quadrant = scr_get_quadrant(angle);
+		var a = floor(angle / 1.40625);
+		var quadrant = angle_data[a].quad; //scr_get_quadrant(angle);
 		var dist_real = scr_player_get_floor_dist(quadrant);
 		var angle_real = col_angle;
 		

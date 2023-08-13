@@ -15,10 +15,12 @@ Sprites					- Cinossu - (Various sprites seen in Megamix & the Sonic mobile rele
 						- Wiztoad - (Ray S2-styled Mania sprites)
 						- MunchJrGames - (Mighty and Ray Sprites)
 						- E-122-Psi - (Amy Rose sprites)
-						- Darkon - (Metal Sonic sprites)
+						- Darkon/Mike1967 - (Metal Sonic sprites)
+						- RetroKoH/IkeyIlex - (Color palettes)
 
 Music					- SEGA, Sonic Team - (Original Tracks)
 						- Karl Brueggermann - (Sonic 1 Revisited)
+						- Karl Emerald - (Tracks from Sonic 1 Forever)
 
 Special Thanks			- MarkeyJester and Clownacy (Sonic 1 Two-Eight)
 						- MrLange (Compilation of sound effects used)

@@ -7,11 +7,15 @@ function scr_check_walls_on_ground()
 	if (gsp != 0 && (angle < 90 || angle >= 270))
 	{
 		// Get distance from wall
+		
+		// If moving right, find walls to your right.
 		if (gsp > 0)
 		{
 			angleCheck = angle - 90;
 			dist = scr_player_get_right_wall_dist(quadrant);
 		}
+		
+		// If moving left, find walls to your left.
 		else if (gsp < 0)
 		{
 			angleCheck = angle + 90;
@@ -38,7 +42,7 @@ function scr_check_walls_on_ground()
 				// Running upwards
 				case 2:
 					y -= dist;
-					ysp += dist;
+					ysp = 0;
 					gsp = 0;		// Fixes wall grinding bug
 				break;
 				// Running right

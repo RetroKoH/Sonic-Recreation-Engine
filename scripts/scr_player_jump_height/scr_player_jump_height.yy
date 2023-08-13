@@ -1,12 +1,11 @@
 {
-  "isDnD": false,
+  "resourceType": "GMScript",
+  "resourceVersion": "1.0",
+  "name": "scr_player_jump_height",
   "isCompatibility": false,
+  "isDnD": false,
   "parent": {
     "name": "Player Handling",
     "path": "folders/Scripts/Player Handling.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "scr_player_jump_height",
-  "tags": [],
-  "resourceType": "GMScript",
 }

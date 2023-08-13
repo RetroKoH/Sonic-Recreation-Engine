@@ -1,6 +1,5 @@
 function scr_get_tile_dist(sensor_x, sensor_y, quadrant, full_solid){
     // Subroutine to find the distance from a tile at any given direction
- 
 	var s_x, s_y, s_pos, size_mask, tile, t_angle, t_length;
  
     // Get tile size mask

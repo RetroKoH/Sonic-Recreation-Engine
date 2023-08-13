@@ -82,6 +82,10 @@ function MACROS(){
 		SBZ2,
 		SBZ3,
 		FZ,
+		SKBZ1,
+		SKBZ2,
+		Boss,
+		ActClear,
 		Invinc,
 		total // Used for final count
 	}
@@ -360,6 +364,21 @@ function INIT_COL_ARRAYS(){
 	    ds_grid_set(col_angles,ix,0,(256-byte)*1.40625);
 	}
 	file_bin_close(file);
+	
+	// Pre-cooked values
+	globalvar angle_data;
+	angle_data = [];
+	for (var i = 0; i < 256; i++) {
+		var _ang = i * 1.40625;
+		var _dat = {
+			angle	: _ang,
+			a_sin	: dsin(_ang),
+			a_cos	: dcos(_ang),
+			quad	: floor(scr_wrap_angle((_ang + ((_ang >= 180) ? 1.40625 : 0)) + 43.59375) / 90)
+		}
+		
+		array_push(angle_data, _dat);
+	}
 }
 function INIT_ANIM_DATA(){
 	globalvar animation_index; animation_index = array_create(0);	// Every script below pushes an animation into this index
@@ -774,121 +793,145 @@ function INIT_SOUND_SYSTEM(){
 	global.BGM_list[BGM_tracks.Title] = {
 		ID			: bgm_Title,
 		loop_start	: -1,	// -1 = No loop
-		loop_end	: 9.06
+		loop_end	: 8.78
 	}
 	// ==================================================================================
 	global.BGM_list[BGM_tracks.LevelSelect] = {
-		ID			: M_LevSel,
+		ID			: bgm_LevSel,
 		loop_start	: 0,
 		loop_end	: 38.39
 	}
 	// ==================================================================================
 	global.BGM_list[BGM_tracks.GHZ1] = {
-		ID			: M_GHZ1,
+		ID			: bgm_GHZ1,
 		loop_start	: 14.512,
 		loop_end	: 52.966
 	}
 	// ==================================================================================
 	global.BGM_list[BGM_tracks.GHZ2] = {
-		ID			: M_GHZ2,
+		ID			: bgm_GHZ2,
 		loop_start	: 14.414,
 		loop_end	: 52.812
 	}
 	// ==================================================================================
 	global.BGM_list[BGM_tracks.BZ1] = {
-		ID			: SMS_BZ1,
+		ID			: bgm_BZ1,
 		loop_start	: 0.0,
 		loop_end	: 25.79
 	}
 	// ==================================================================================
 	global.BGM_list[BGM_tracks.BZ2] = {
-		ID			: SMS_BZ1,
+		ID			: bgm_BZ1,
 		loop_start	: 0.0,
 		loop_end	: 25.79
 	}
 	// ==================================================================================
 	global.BGM_list[BGM_tracks.MZ1] = {
-		ID			: M_MZ1,
+		ID			: bgm_MZ1,
 		loop_start	: 2.156,
 		loop_end	: 38.256
 	}
 	// ==================================================================================
 	global.BGM_list[BGM_tracks.MZ2] = {
-		ID			: M_MZ2,
+		ID			: bgm_MZ2,
 		loop_start	: 1.999,
 		loop_end	: 48.782
 	}
 	// ==================================================================================
 	global.BGM_list[BGM_tracks.JZ1] = {
-		ID			: M_JZ1,
+		ID			: bgm_JZ1,
 		loop_start	: 0.0,
 		loop_end	: 42.68
 	}
 	// ==================================================================================
 	global.BGM_list[BGM_tracks.JZ2] = {
-		ID			: M_JZ1,
+		ID			: bgm_JZ1,
 		loop_start	: 0.0,
 		loop_end	: 42.68
 	}
 	// ==================================================================================
 	global.BGM_list[BGM_tracks.SYZ1] = {
-		ID			: M_SYZ1,
+		ID			: bgm_SYZ1,
 		loop_start	: 2.480,
 		loop_end	: 40.930
 	}
 	// ==================================================================================
 	global.BGM_list[BGM_tracks.SYZ2] = {
-		ID			: M_SYZ2,
+		ID			: bgm_SYZ2,
 		loop_start	: 2.306,
 		loop_end	: 40.694
 	}
 	// ==================================================================================
 	global.BGM_list[BGM_tracks.LZ1] = {
-		ID			: M_LZ1,
+		ID			: bgm_LZ1,
 		loop_start	: 1.932,
 		loop_end	: 36.536
 	}
 	// ==================================================================================
 	global.BGM_list[BGM_tracks.LZ2] = {
-		ID			: M_LZ2,
+		ID			: bgm_LZ2,
 		loop_start	: 0.000,
 		loop_end	: 53.772
 	}
 	// ==================================================================================
 	global.BGM_list[BGM_tracks.SLZ1] = {
-		ID			: M_SLZ1,
+		ID			: bgm_SLZ1,
 		loop_start	: 1.520,
 		loop_end	: 43.807
 	}
 	// ==================================================================================
 	global.BGM_list[BGM_tracks.SLZ2] = {
-		ID			: M_SLZ2,
+		ID			: bgm_SLZ2,
 		loop_start	: 3.125,
 		loop_end	: 45.358
 	}
 	// ==================================================================================
 	global.BGM_list[BGM_tracks.SBZ1] = {
-		ID			: M_SBZ1,
+		ID			: bgm_SBZ1,
 		loop_start	: 0.173,
 		loop_end	: 72.260
 	}
 	// ==================================================================================
 	global.BGM_list[BGM_tracks.SBZ2] = {
-		ID			: M_SBZ2,
+		ID			: bgm_SBZ2,
 		loop_start	: 3.208,
 		loop_end	: 60.809
 	}
 	// ==================================================================================
 	global.BGM_list[BGM_tracks.SBZ3] = {
-		ID			: M_SBZ3,
+		ID			: bgm_SBZ3,
 		loop_start	: 4.014,
 		loop_end	: 76.012
 	}
 	// ==================================================================================
 	global.BGM_list[BGM_tracks.FZ] = {
-		ID			: M_FZ,
+		ID			: bgm_FZ,
 		loop_start	: 1.977,
 		loop_end	: 21.206
+	}
+	// ==================================================================================
+	global.BGM_list[BGM_tracks.SKBZ1] = {
+		ID			: bgm_SkBZ1,
+		loop_start	: 1.977,
+		loop_end	: 21.206
+	}
+	// ==================================================================================
+	global.BGM_list[BGM_tracks.SKBZ2] = {
+		ID			: bgm_SkBZ1,
+		loop_start	: 1.977,
+		loop_end	: 21.206
+	}
+	// ==================================================================================
+	global.BGM_list[BGM_tracks.Boss] = {
+		ID			: bgm_Boss,
+		loop_start	: 1.977,
+		loop_end	: 21.206
+	}
+	// ==================================================================================
+	global.BGM_list[BGM_tracks.ActClear] = {
+		ID			: bgm_ActClear,
+		loop_start	: -1,	// -1 = No loop
+		loop_end	: 6.03
 	}
 	// ==================================================================================
 	global.BGM_list[BGM_tracks.Invinc] = {

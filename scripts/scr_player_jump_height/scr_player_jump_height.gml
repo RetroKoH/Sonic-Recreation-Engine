@@ -1,6 +1,6 @@
 // Check for jump button release (variable jump velocity).
 function scr_player_jump_height(){
-	if jump{
+	if jump {
 		var jmp = (status&STA_WATER) ? -2 : -4;	// Underwater check
 		
 		// If possible, execute double jump ability 
